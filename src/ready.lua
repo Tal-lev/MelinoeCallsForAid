@@ -53,7 +53,7 @@ function SetUpPlayerChronos()
 	CurrentRun.Hero.LastStandFireAnimationOverride = "NPC_Chronos_Enlightened_Hover"
 	CurrentRun.Hero.BoonInteractAnimation = "NPC_Chronos_Enlightened_Hover"
 	CurrentRun.Hero.InteractAnimation = "NPC_Chronos_Enlightened_Hover"
-	CurrentRun.Hero.DamagedFxStyles.Default = "null"
+	--CurrentRun.Hero.DamagedFxStyles.Default = "null"
 	CurrentRun.Hero.SkipDamageAnimation = true,
 	--SetUnitProperty({ Property = "DamagedAnimation", Value = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
 	--SetUnitProperty({ Property = "UnequipAnimation", Value = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
@@ -69,22 +69,6 @@ function SetUpPlayerChronos()
 	--FrozenSound = "/VO/MelinoeEmotes/EmoteHurt",
 	--UnFrozenSound = "/VO/MelinoeEmotes/EmoteGasping",
 
-	print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-	for key,value in pairs(CurrentRun.Hero) do
-		print(key)
-		print(value)
-	end
-	print("@@@@done@@@@")
-	print("CurrentRun.Hero.DamagedFxStyles")
-	for key,value in pairs(CurrentRun.Hero.DamagedFxStyles) do 
-		print(key)
-		print(value)
-	end
-	print("CurrentRun.Hero.TraitAnimationAnchors")
-	for key,value in pairs(CurrentRun.Hero.TraitAnimationAnchors) do 
-		print(key)
-		print(value)
-	end
 end
 
 function SetUpReturnPlayerMelinoe()
@@ -103,7 +87,7 @@ function SetUpReturnPlayerMelinoe()
 	CurrentRun.Hero.LastStandFireAnimationOverride = "Melinoe_LastStand_Fire"
 	CurrentRun.Hero.BoonInteractAnimation = "MelinoeBoonInteract"
 	CurrentRun.Hero.InteractAnimation = "MelinoeInteract"
-	CurrentRun.Hero.DamagedFxStyles.Default = "PlayerHitSpark"
+	--CurrentRun.Hero.DamagedFxStyles.Default = "PlayerHitSpark"
 	CurrentRun.Hero.SkipDamageAnimation = nil,
 	--SetUnitProperty({ Property = "DamagedAnimation", Value = "MelinoeGetHit", DestinationId = CurrentRun.Hero.ObjectId })
 	--SetUnitProperty({ Property = "UnequipAnimation", Value = "Melinoe_Axe_Unequip", DestinationId = CurrentRun.Hero.ObjectId })
