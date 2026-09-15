@@ -1,12 +1,10 @@
-# Mod name
+# MelinoeCallsForAid
 
-Hades II mod allowing to do some super duper thing.
+A Hades II mod that allows you to play as other Characters.
 
 ## Features
 
-- Wow.
-- Much cool.
-  - Very doge.
+- Play as Chronos
 
 ## Install
 
