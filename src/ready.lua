@@ -63,6 +63,7 @@ function SetUpPlayerChronos()
 	CurrentRun.Hero.AnimOffsetZ = -40
 	CurrentRun.Hero.SubtitleColor = Color.ChronosVoice
 	CurrentRun.Hero.CanBeFrozen = false
+	SetupCostume()
 
 	--DamagedSound = "/VO/MelinoeEmotes/EmoteHurt",
 	--ChokingSound = "/VO/MelinoeEmotes/EmoteStunned",
@@ -97,8 +98,14 @@ function SetUpReturnPlayerMelinoe()
 	CurrentRun.Hero.AnimOffsetZ = 0
 	CurrentRun.Hero.SubtitleColor = Color.White
 	CurrentRun.Hero.CanBeFrozen = true
+	SetupCostume()
 
 end
+
+modutil.mod.Path.Wrap("SetupMap", function(base, source, args)
+	LoadPackages({ Name = "JarlUlsfark-MelinoeCallsForAid", IgnoreAssert = true })
+	return base(source, args)
+end)
 
 ModUtil.Path.Wrap("EquipWeaponUpgrade", function(baseFunc, hero, args)
 	baseFunc(hero, args)
@@ -717,7 +724,7 @@ end)
 			},
 		},
 		RequiredWeapon = "WeaponAxe",
-		Icon = "Hammer_Axe_40",
+		Icon = "JarlUlsfark-MelinoeCallsForAid\\ChronosAspectIcon",
 		--IsCustomHero = true,
 		WeaponKitGrannyModel = "Melinoe_Axe_Mesh1",
 		ReplacementGrannyModels = 

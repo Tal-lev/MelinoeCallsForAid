@@ -58,7 +58,7 @@ local function on_ready_late()
 	-- what to do when we are ready after all other mods
 	--   but not re-do on reload.
 	if config.enabled == false then return end
-
+	--import 'Costumes_late.lua'
 	import 'ready_late.lua'
 end
 
