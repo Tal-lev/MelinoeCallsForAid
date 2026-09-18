@@ -54,7 +54,8 @@ function SetUpPlayerChronos()
 	CurrentRun.Hero.BoonInteractAnimation = "NPC_Chronos_Enlightened_Hover"
 	CurrentRun.Hero.InteractAnimation = "NPC_Chronos_Enlightened_Hover"
 	--CurrentRun.Hero.DamagedFxStyles.Default = "null"
-	CurrentRun.Hero.SkipDamageAnimation = true,
+	CurrentRun.Hero.SkipDamageAnimation = true
+	CurrentRun.Hero.SilenceMelinoe = true
 	--SetUnitProperty({ Property = "DamagedAnimation", Value = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
 	--SetUnitProperty({ Property = "UnequipAnimation", Value = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
 	--SetUnitProperty({ Property = "WeaponInteractAnimation", Value = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
@@ -65,11 +66,26 @@ function SetUpPlayerChronos()
 	CurrentRun.Hero.CanBeFrozen = false
 	SetupCostume()
 
+	LoadVoiceBanks({ Name = "Chronos" })
+	CurrentRun.Hero.DamagedSound = "/VO/Chronos_0387"
+	CurrentRun.Hero.ChokingSound = "/VO/Chronos_0387"
+	--CurrentRun.Hero.ChokingSound = "/VO/Chronos_0385"
 	--DamagedSound = "/VO/MelinoeEmotes/EmoteHurt",
 	--ChokingSound = "/VO/MelinoeEmotes/EmoteStunned",
 	--FrozenSound = "/VO/MelinoeEmotes/EmoteHurt",
 	--UnFrozenSound = "/VO/MelinoeEmotes/EmoteGasping",
 
+	--print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+	--print("HeroVoiceLines.FamiliarUnequipVoiceLines")
+	--for key,value in pairs(HeroVoiceLines.FamiliarUnequipVoiceLines) do
+	--	print(key)
+	--	print(value)
+	--end
+	--print("HeroVoiceLines.FamiliarUnequipVoiceLines[1]")
+	--for key,value in pairs(HeroVoiceLines.FamiliarUnequipVoiceLines[1]) do
+	--	print(key)
+	--	print(value)
+	--end
 end
 
 function SetUpReturnPlayerMelinoe()
@@ -89,7 +105,8 @@ function SetUpReturnPlayerMelinoe()
 	CurrentRun.Hero.BoonInteractAnimation = "MelinoeBoonInteract"
 	CurrentRun.Hero.InteractAnimation = "MelinoeInteract"
 	--CurrentRun.Hero.DamagedFxStyles.Default = "PlayerHitSpark"
-	CurrentRun.Hero.SkipDamageAnimation = nil,
+	CurrentRun.Hero.SkipDamageAnimation = nil
+	CurrentRun.Hero.SilenceMelinoe = nil
 	--SetUnitProperty({ Property = "DamagedAnimation", Value = "MelinoeGetHit", DestinationId = CurrentRun.Hero.ObjectId })
 	--SetUnitProperty({ Property = "UnequipAnimation", Value = "Melinoe_Axe_Unequip", DestinationId = CurrentRun.Hero.ObjectId })
 	--SetUnitProperty({ Property = "WeaponInteractAnimation", Value = "Melinoe_Axe_Interact", DestinationId = CurrentRun.Hero.ObjectId })
@@ -99,6 +116,9 @@ function SetUpReturnPlayerMelinoe()
 	CurrentRun.Hero.SubtitleColor = Color.White
 	CurrentRun.Hero.CanBeFrozen = true
 	SetupCostume()
+
+	CurrentRun.Hero.DamagedSound = "/VO/MelinoeEmotes/EmoteHurt"
+	CurrentRun.Hero.ChokingSound = "/VO/MelinoeEmotes/EmoteStunned"
 
 end
 
@@ -134,6 +154,21 @@ modutil.mod.Path.Wrap("SetupHeroObject", function(baseFunc, CurrentRoom)
 	if HeroHasTrait("ChronosAspect") then
 		SetUpPlayerChronos()
 	end
+	--print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+	--print("HeroData.LowHealthVoiceLines")
+	--if HeroData and HeroData.LowHealthVoiceLines then
+	--	for key,value in pairs(HeroData.LowHealthVoiceLines) do
+	--		print(key)
+	--	end
+	--end
+	--print("@@@@@@@!@!@@@@@@@@@@@@@@@@@")
+	--print("New Value HeroVoiceLines")
+	--if HeroVoiceLines then
+	--	for key,value in pairs(HeroVoiceLines) do
+	--		print(key)
+	--	end
+	--end
+
 end)
 
 -- Switch WeaponAspect by interacting with a Character
@@ -693,6 +728,7 @@ end)
 	import "text.lua"
 	import "Animations.lua"
 	import "DashBoons.lua"
+	import "VoiceLines.lua"
 
 	ChronosAspect = {
 		InheritFrom = { "WeaponEnchantmentTrait" },
