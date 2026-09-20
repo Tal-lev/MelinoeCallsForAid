@@ -200,7 +200,7 @@ OverwriteTableKeys(TraitData, {
 		},
 		OnWeaponFiredFunctions =
 		{
-			WeaponNames = {"WeaponBlink" },	
+			ValidWeapons = {"WeaponBlink", },	
 			FunctionName = _PLUGIN.guid .. "." .. "ChronosHeraRushProjectileSpawn",
 			FunctionArgs = 
 			{

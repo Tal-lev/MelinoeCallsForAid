@@ -163,5 +163,46 @@ sjson.hook(file, function(data)
 		TextOrder)
 	)
 
+    --Dash Boons
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosZeusSprintBoon",
+      InheritFrom = "BaseBoon",
+      DisplayName = "Thunder Dash",
+      Description = "{$Keywords.Dash} causes surrounding foes to be struck by two lightning bolts.",
+    },
+    TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosHeraSprintBoon",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Nexus Dash",
+      Description = "Your {$Keywords.Dash} create a fissure that deals damage in a long line.",
+    },
+    TextOrder)
+	)
+    
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosPoseidonSprintBoon",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Breaker Dash",
+      Description = "After {$Keywords.Dash}, create a wave blast that knocks foes away.",
+    },
+    TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosHestiaSprintBoon",
+      InheritFrom = "BaseBoon",
+      DisplayName = "Heat Dash",
+      Description = "Your {$Keywords.Dash} leaves a cinder trail, and any damage you take from burning is reduced to {$TraitData.ChronosHestiaSprintBoon.DamageClamps.Value}.",
+    },
+    TextOrder)
+	)
+
 return data
 end)
