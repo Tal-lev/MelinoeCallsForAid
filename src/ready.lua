@@ -770,8 +770,8 @@ end)
 		},
 		SwapAnimations = {
 			["MelinoeIdle"] = "NPC_Chronos_Enlightened_Hover",
-			["MelinoeDashStart"] = "Enemy_Chronos_DashFire",
-			["MelinoeDash"] = "Enemy_Chronos_DashPreFire",
+			["MelinoeDashStart"] = "Enemy_Chronos_DashPreFire",
+			["MelinoeDash"] = "Player_Chronos_DashFire",
 			--["MelinoeSprint"] = "Melinoe_Axe_Sprint_FireLoop",
 			["MelinoeStart"] = "NPC_Chronos_Enlightened_Move_Start",
 			["MelinoeRun"] = "NPC_Chronos_Enlightened_Move",
@@ -1011,8 +1011,8 @@ end)
 				WeaponName = "WeaponAxeSpecial",
 				WeaponProperties = {
 					ChargeStartAnimation = "Enemy_Chronos_GrindPreFire",
-					---ChargeCancelGraphic = "Enemy_Chronos_GrindPostFire",
-					FireGraphic = "Enemy_Chronos_GrindFire",
+					ChargeCancelGraphic = "Enemy_Chronos_GrindPostFire",
+					FireGraphic = "Player_Chronos_GrindFire1",
 					FireFx = "null",
 				},
 				ExcludeLinked = true,
@@ -1035,7 +1035,7 @@ end)
 				WeaponProperties = {
 					ChargeStartAnimation = "Enemy_Chronos_GrindPreFire",
 					ChargeCancelGraphic = "Enemy_Chronos_GrindPostFire",
-					FireGraphic = "Enemy_Chronos_GrindFire",
+					FireGraphic = "Enemy_Chronos_GrindPostFire",
 					FireFx = "null",
 					BarrelLength = 0,
 					NumProjectiles = 1,
@@ -1060,7 +1060,7 @@ end)
 				WeaponName = "WeaponBlink",
 				WeaponProperties = {
 					ChargeStartAnimation = "Enemy_Chronos_DashPreFire",
-					FireGraphic = "Enemy_Chronos_DashFire",
+					FireGraphic = "Player_Chronos_DashFire",
 					WeaponRange = 800,
 					BlinkMaxRange = 1125,
 					ClipRegenInterval = 1.11,

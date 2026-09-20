@@ -67,6 +67,36 @@ sjson.hook(file, function(data)
         EndGreen = 0.6,
         EndBlue = 0.0,
     })
+    --Chronos Special
+    table.insert(data.Animations,
+    {
+		Name = "Player_Chronos_GrindFire1",
+		InheritFrom = "EnemyChronosBaseAnimation",
+		GrannyAnimation = "Chronos_Base_ScytheGrindLoop_C_00",
+		OwnerNoInvulnerableCoverage = false,
+        ChainTo = "Enemy_Chronos_GrindPostFire",
+		Loop = false,
+		CreateAnimation = "ChronosScytheSpin",
+		Sound = "/SFX/Enemy Sounds/Chronos/ChronosSuctionStartAndLoop",
+		StopSoundOnFinishFade = 0.2,
+	})
+   --Chronos Dash
+    table.insert(data.Animations,
+	{
+		Name = "Player_Chronos_DashFire",
+		InheritFrom = "EnemyChronosBaseAnimation",
+		GrannyAnimation = "Chronos_Base_DashFire_C_00",
+		ChainTo = "Player_Chronos_DashPostFire",
+		OwnerHasNoUnitCollision = true,
+	})
+    table.insert(data.Animations,
+	{
+		Name = "Player_Chronos_DashPostFire",
+		InheritFrom = "EnemyChronosBaseAnimation",
+		GrannyAnimation = "Chronos_Base_DashReturnToIdle_C_00",
+		ChainTo = "NPC_Chronos_Enlightened_Hover",
+		HoldLastFrame = false,
+	})
 
 return data
 end)

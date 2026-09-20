@@ -52,6 +52,17 @@ function mod.ChronosPoseidonRush(weaponData, functionArgs, triggerArgs )
   CreateProjectileFromUnit({ Name = functionArgs.ProjectileName, Id = CurrentRun.Hero.ObjectId, DamageMultiplier = functionArgs.DamageMultiplier, FireFromTarget = true, ProjectileCap = 1 })
 end
 
+function mod.ChronosHestiaSprintFlames(weaponData, functionArgs, triggerArgs )
+	SessionMapState.LastHestiaProjectileId = CreateProjectileFromUnit({ Name =  functionArgs.ProjectileName, DestinationId = CurrentRun.Hero.ObjectId, Id = CurrentRun.Hero.ObjectId, DamageMultiplier = functionArgs.DamageMultiplier, FizzleOldestProjectileCount = functionArgs.MaxSpawns })
+  wait(0.05)
+  SessionMapState.LastHestiaProjectileId = CreateProjectileFromUnit({ Name =  functionArgs.ProjectileName, DestinationId = CurrentRun.Hero.ObjectId, Id = CurrentRun.Hero.ObjectId, DamageMultiplier = functionArgs.DamageMultiplier, FizzleOldestProjectileCount = functionArgs.MaxSpawns })
+  wait(0.05)
+  SessionMapState.LastHestiaProjectileId = CreateProjectileFromUnit({ Name =  functionArgs.ProjectileName, DestinationId = CurrentRun.Hero.ObjectId, Id = CurrentRun.Hero.ObjectId, DamageMultiplier = functionArgs.DamageMultiplier, FizzleOldestProjectileCount = functionArgs.MaxSpawns })
+  wait(0.05)
+  SessionMapState.LastHestiaProjectileId = CreateProjectileFromUnit({ Name =  functionArgs.ProjectileName, DestinationId = CurrentRun.Hero.ObjectId, Id = CurrentRun.Hero.ObjectId, DamageMultiplier = functionArgs.DamageMultiplier, FizzleOldestProjectileCount = functionArgs.MaxSpawns })
+  wait(0.05)
+  SessionMapState.LastHestiaProjectileId = CreateProjectileFromUnit({ Name =  functionArgs.ProjectileName, DestinationId = CurrentRun.Hero.ObjectId, Id = CurrentRun.Hero.ObjectId, DamageMultiplier = functionArgs.DamageMultiplier, FizzleOldestProjectileCount = functionArgs.MaxSpawns })
+end
 
   
 ------ Adding GameStateRequirements for all
@@ -286,6 +297,110 @@ OverwriteTableKeys(TraitData, {
     },
   },
 
+  ChronosHestiaSprintBoon = 
+	{
+		Icon = "Boon_Hestia_28",
+		InheritFrom = { "BaseTrait", "FireBoon" },
+		Slot = "Rush",
+		RarityLevels =
+		{
+			Common =
+			{
+				Multiplier = 1.00,
+			},
+			Rare =
+			{
+				Multiplier = 1.5,
+			},
+			Epic =
+			{
+				Multiplier = 2.0,
+			},
+			Heroic =
+			{
+				Multiplier = 2.5,
+			},
+		},
+		DamageClamps = 
+		{
+			ValidProjectiles = 
+			{
+				"ZombieHRFire",
+				"GreekFire",
+				"OilPuddleFire",
+				"OilPuddleFire02",
+				"OilPuddleFire03",
+				"OilPuddleFire04",
+				"InfestedCerberusExplosiveFireball",
+				"CerberusMagmaPuddle",
+				"PrometheusFireCircle",
+				"PrometheusFireCircleSmall",
+				"PrometheusFireCircleLarge",
+				"LavaTileWeapon",
+				"LavaTileTriangle01Weapon",
+				"LavaTileTriangle02Weapon"
+			},
+			Value = 1,
+			ReportValues = { ReportedDamage = "Value"},
+		},
+		StatLines =
+		{
+			"SprintDamageStatDisplay1",
+		},
+		 OnWeaponFiredFunctions =
+		{
+			ValidWeapons = {"WeaponBlink", },	
+      FunctionName = _PLUGIN.guid .. "." .. "ChronosHestiaSprintFlames",
+			FunctionArgs = 
+			{
+				ProjectileName = "HestiaSprintPuddle",
+				MaxSpawns = 5,
+				DamageMultiplier =
+				{
+					BaseValue = 1,
+					AbsoluteStackValues =
+					{
+						[1] = 0.5,
+						[2] = 0.3,
+						[3] = 0.2,
+					},
+				},
+			ReportValues = { ReportedMultiplier = "DamageMultiplier"},
+			}
+		},
+		ExtractValues =
+		{
+			{
+				Key = "ReportedDamage",
+				ExtractAs = "DamageTaken",
+				SkipAutoExtract = true,
+			},
+			{
+				ExtractAs = "Fuse",
+				SkipAutoExtract = true,
+				External = true,
+				BaseType = "ProjectileBase",
+				BaseName = "HestiaSprintPuddle",
+				BaseProperty = "Fuse",
+				DecimalPlaces = 2,
+			},
+			{
+				Key = "ReportedMultiplier",
+				ExtractAs = "ReportedDamage",
+				Format = "MultiplyByBase",
+				BaseType = "Projectile",
+				BaseName = "HestiaSprintPuddle",
+				BaseProperty = "Damage",
+			},
+		},
+    GameStateRequirements = {
+      {
+        Path = {"CurrentRun", "Hero", "TraitDictionary"},
+        HasAll = {"ChronosAspect"}
+      }
+    },
+	},
+
 })
 
 ------ Inserting new traits to Loot Tables
@@ -298,6 +413,10 @@ table.insert( LootData.HeraUpgrade.PriorityUpgrades, 4, "ChronosHeraSprintBoon" 
 --Poseidon
 table.insert( LootData.PoseidonUpgrade.WeaponUpgrades, "ChronosPoseidonSprintBoon" )
 table.insert( LootData.PoseidonUpgrade.PriorityUpgrades, 4, "ChronosPoseidonSprintBoon" )
+--Hestia
+table.insert( LootData.HestiaUpgrade.WeaponUpgrades, "ChronosHestiaSprintBoon" )
+table.insert( LootData.HestiaUpgrade.PriorityUpgrades, 4, "ChronosHestiaSprintBoon" )
+
 
 --Still Missing 
 --Demeter
