@@ -6,23 +6,58 @@
 -- 	so only assign to values or define things here.
 
 
--- These functions are part of the example code snippets from ready.lua
-function sjson_ShellText(data)
-	for _,v in ipairs(data.Texts) do
-		if v.Id == 'MainMenuScreen_PlayGame' then
-			v.DisplayName = 'Test ' .. _PLUGIN.guid
-			break
+-- For Chronos Zeus Rush Boon
+function ChronosZeusSprintZap( weaponData, functionArgs, triggerArgs )
+	local manaCost = 0
+	if functionArgs.CostPerStrike and functionArgs.CostPerStrike > 0 then
+		manaCost = GetManaCost( weaponData, true, { ManaCostOverride = functionArgs.CostPerStrike, TraitSource = true } )
+	end
+  print("!!!!!!!!!!!!!!!!!!!")
+  print("Run function")
+	if CheckCooldown("ChronosZeusSprintZap", functionArgs.Cooldown, true ) then
+    print("Inside if statement")
+		if CurrentRun.Hero.Mana >= manaCost or LastMomentManaRestoreEligible(manaCost) then
+      print("Inside 2nd if statement")
+			CreateZeusBolt({
+				SourceId = functionArgs.TargetId or CurrentRun.Hero.ObjectId,
+				Range = functionArgs.Range, 
+				SeekTarget = true, 
+				ProjectileName = functionArgs.ProjectileName, 
+				DamageMultiplier = functionArgs.DamageMultiplier,
+				RunFunctionNameOnTarget = functionArgs.RunFunctionNameOnTarget,
+				RunFunctionArgsOnTarget = functionArgs,
+				InitialDelay = 0, 
+				Delay = 0.1, 
+				Count = 1
+			}) 
+      wait(0.15)
+      CreateZeusBolt({
+        SourceId = functionArgs.TargetId or CurrentRun.Hero.ObjectId,
+        Range = functionArgs.Range, 
+        SeekTarget = true, 
+        ProjectileName = functionArgs.ProjectileName, 
+        DamageMultiplier = functionArgs.DamageMultiplier,
+        RunFunctionNameOnTarget = functionArgs.RunFunctionNameOnTarget,
+        RunFunctionArgsOnTarget = functionArgs,
+        InitialDelay = 0, 
+        Delay = 0.1, 
+        Count = 1
+      }) 
+      wait(0.15)
+      CreateZeusBolt({
+        SourceId = functionArgs.TargetId or CurrentRun.Hero.ObjectId,
+        Range = functionArgs.Range, 
+        SeekTarget = true, 
+        ProjectileName = functionArgs.ProjectileName, 
+        DamageMultiplier = functionArgs.DamageMultiplier,
+        RunFunctionNameOnTarget = functionArgs.RunFunctionNameOnTarget,
+        RunFunctionArgsOnTarget = functionArgs,
+        InitialDelay = 0, 
+        Delay = 0.1, 
+        Count = 1
+      }) 
 		end
 	end
-end
-
-function prefix_SetupMap()
-	print('Map is loading, here we might load some packages.')
-	-- LoadPackages({Name = package_name_string})
-end
-
-function trigger_Gift()
-	modutil.mod.Hades.PrintOverhead(config.message)
 end
 
 

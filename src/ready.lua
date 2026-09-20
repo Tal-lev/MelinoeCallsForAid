@@ -727,6 +727,7 @@ end)
 
 	import "text.lua"
 	import "Animations.lua"
+	import "Projectiles.lua"
 	import "DashBoons.lua"
 	import "VoiceLines.lua"
 
