@@ -163,6 +163,16 @@ sjson.hook(file, function(data)
 		TextOrder)
 	)
 
+    table.insert(data.Texts, sjson.to_object(
+		{
+			Id = "ChronosDualGrind",
+			InheritFrom = "BaseBoonMultiline",
+			DisplayName = "Looped Arc",
+			Description = "Your {$Keywords.SpecialEX} fires an additional Arc behind you."
+		},
+		TextOrder)
+	)
+
     --Dash Boons
     table.insert(data.Texts, sjson.to_object(
     {

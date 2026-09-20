@@ -978,6 +978,7 @@ end)
 				WeaponName = "WeaponAxeSpin",
 				WeaponProperties = {
 					ChargeStartAnimation = "Enemy_Chronos_ScytheThrowPreFire",
+					ChargeCancelGraphic = "Enemy_Chronos_ScytheThrowFire",
 					FireGraphic = "Enemy_Chronos_ScytheThrowFire",
 					NumProjectiles = 1,
 				},

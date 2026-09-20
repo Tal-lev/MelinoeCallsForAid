@@ -48,6 +48,13 @@ function mod.ChronosTeleportRift( weaponData, traitArgs, triggerArgs )
     wait(0.03)
 end
 
+function mod.ChronosDualGrind ( weaponData, traitArgs, triggerArgs )
+    local weaponName = weaponData.Name
+    local projectileName = "ChronosGrindWallForward" 
+	local PlayerAngle = GetAngle({ Id = CurrentRun.Hero.ObjectId }) +180
+    local projectileId = CreateProjectileFromUnit({ WeaponName = weaponName, Name = projectileName, Id = CurrentRun.Hero.ObjectId, DestinationId = CurrentRun.Hero.ObjectId, Angle = PlayerAngle, FireFromTarget = false })
+end
+
 OverwriteTableKeys( TraitData, {
     ChronosTelescopicSwing = 
     {
@@ -179,12 +186,50 @@ OverwriteTableKeys( TraitData, {
             },
         },
     },
+
+    ChronosDualGrind = 
+    {
+        InheritFrom = { "WeaponTrait", "AxeHammerTrait" },
+        Icon = "Hammer_Axe_40",
+        GameStateRequirements =
+        {
+            {
+            Path = { "CurrentRun", "Hero", "Weapons", },
+            HasAll = { "WeaponAxe", },
+            },
+            {
+            Path = { "GameState", "LastWeaponUpgradeName", "WeaponAxe", },
+            IsAny = {"ChronosAspect", }
+            },
+        },
+        OnWeaponFiredFunctions = 
+		{
+			ValidWeapons = { "WeaponAxeSpecialSwing",},
+			FunctionName = _PLUGIN.guid .. "." .."ChronosDualGrind",
+			ExcludeLinked = true,
+			FunctionArgs =
+			{
+				{
+					ReportedProjectiles = "Projectiles"
+				},
+			},
+		},
+        ExtractValues =
+        {
+            {
+            Key = "ReportedCost",
+            ExtractAs = "ManaCostAdded",
+            IncludeSigns = true
+            },
+        },
+    },
 })
 
 --Adding Hammers to pool
 table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosTelescopicSwing")
 table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosRadialCast")
 table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosTeleportRift")
+table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosDualGrind")
 
 --Removing Hammers from pool
 table.insert(TraitData.AxeSpinSpeedTrait.GameStateRequirements, {
