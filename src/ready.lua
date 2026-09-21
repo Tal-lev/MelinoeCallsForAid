@@ -2,6 +2,30 @@
 -- globals we define are private to our plugin!
 ---@diagnostic disable: lowercase-global
 
+function printTable(t, maxDepth, indent)
+    if type(t) ~= "table" then
+        print(t)
+        return
+    end
+
+    indent = indent or 0
+    maxDepth = maxDepth or 20
+    if indent > maxDepth then
+        print(string.rep("  ", indent) .. "...")
+        return
+    end
+
+    local formatting = string.rep("  ", indent)
+    for k, v in pairs(t) do
+        if type(v) == "table" then
+            print(formatting .. k .. ":")
+            printTable(v, maxDepth, indent + 1)
+        else
+            print(formatting .. k .. ": " .. tostring(v))
+        end
+    end
+end
+
 --Used to Summon Chronos to wear the Aspect
 function mod.SummonNeoChronos( source, args )
 	args = args or {}
@@ -81,11 +105,8 @@ function SetUpPlayerChronos()
 	--	print(key)
 	--	print(value)
 	--end
-	--print("HeroVoiceLines.FamiliarUnequipVoiceLines[1]")
-	--for key,value in pairs(HeroVoiceLines.FamiliarUnequipVoiceLines[1]) do
-	--	print(key)
-	--	print(value)
-	--end
+	--print("printing Table")
+	--DebugPrintTable(GlobalVoiceLines.FamiliarEquipVoiceLines)
 end
 
 function SetUpReturnPlayerMelinoe()
@@ -120,6 +141,15 @@ function SetUpReturnPlayerMelinoe()
 	CurrentRun.Hero.DamagedSound = "/VO/MelinoeEmotes/EmoteHurt"
 	CurrentRun.Hero.ChokingSound = "/VO/MelinoeEmotes/EmoteStunned"
 
+	--Ensuring corrent Weapon Model
+	for _, traitData in ipairs( CurrentRun.Hero.Traits ) do
+		if traitData.ReplacementGrannyModels ~= nil then
+			for originalModel, attachmentModel in pairs(traitData.ReplacementGrannyModels) do
+				SetThingProperty({ Property = "GrannyAlternateModelAttachment", Value = attachmentModel, OriginalAttachmentModel = originalModel, DestinationId = CurrentRun.Hero.ObjectId })
+			end
+		end	
+	end
+	HandleWeaponAnimSwaps()
 end
 
 modutil.mod.Path.Wrap("SetupMap", function(base, source, args)
@@ -154,21 +184,6 @@ modutil.mod.Path.Wrap("SetupHeroObject", function(baseFunc, CurrentRoom)
 	if HeroHasTrait("ChronosAspect") then
 		SetUpPlayerChronos()
 	end
-	--print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-	--print("HeroData.LowHealthVoiceLines")
-	--if HeroData and HeroData.LowHealthVoiceLines then
-	--	for key,value in pairs(HeroData.LowHealthVoiceLines) do
-	--		print(key)
-	--	end
-	--end
-	--print("@@@@@@@!@!@@@@@@@@@@@@@@@@@")
-	--print("New Value HeroVoiceLines")
-	--if HeroVoiceLines then
-	--	for key,value in pairs(HeroVoiceLines) do
-	--		print(key)
-	--	end
-	--end
-
 end)
 
 -- Switch WeaponAspect by interacting with a Character

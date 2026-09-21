@@ -29,7 +29,6 @@ AddChronosGameStateReq(HeroVoiceLines.EagleIncomingVoiceLines[1])
 AddChronosGameStateReq(HeroVoiceLines.PickaxeUseInProgressVoiceLines[2])
 AddChronosGameStateReq(HeroVoiceLines.PickaxeDepositDestroyedVoiceLines[1])
 AddChronosGameStateReq(HeroVoiceLines.ShovelVoiceLines[1])
-
 AddChronosGameStateReq(HeroVoiceLines.ShovelFoundBombVoiceLines[1])
 AddChronosGameStateReq(HeroVoiceLines.ExorcismStartVoiceLines[1])
 AddChronosGameStateReq(HeroVoiceLines.ExorcismStartVoiceLines[2])
@@ -39,7 +38,6 @@ AddChronosGameStateReq(HeroVoiceLines.ExorcismSucceededVoiceLines[1])
 AddChronosGameStateReq(HeroVoiceLines.PlantInteractVoiceLines[1])
 AddChronosGameStateReq(HeroVoiceLines.PlantInteractVoiceLines[2])
 AddChronosGameStateReq(HeroVoiceLines.PlantInteractVoiceLines[3])
-
 AddChronosGameStateReq(HeroVoiceLines.FamiliarUnequipVoiceLines)
 AddChronosGameStateReq(HeroVoiceLines.FamiliarHarvestVoiceLines[1])
 AddChronosGameStateReq(HeroVoiceLines.FamiliarHarvestVoiceLines[2])
@@ -206,192 +204,942 @@ AddChronosGameStateReq(HeroVoiceLines.OverlookVoiceLines[2])
 AddChronosGameStateReq(HeroVoiceLines.OverlookVoiceLines[3])
 AddChronosGameStateReq(HeroVoiceLines.OverlookVoiceLines[4])
 AddChronosGameStateReq(HeroVoiceLines.OverlookVoiceLines[5])
-AddChronosGameStateReq(HeroVoiceLines.OverlookVoiceLines[6])
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-AddChronosGameStateReq()
-
-
-
+AddChronosGameStateReq(HeroVoiceLines.OverlookVoiceLines[6]) --Didn't finish this section
+AddChronosGameStateReq(HeroVoiceLines.OverlookLeaveVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.UsedFamilyPortraitVoiceLines[2])
+AddChronosGameStateReq(HeroVoiceLines.UsedFamilyPortraitVoiceLines[3])
+AddChronosGameStateReq(HeroVoiceLines.UsedFamilyPortraitVoiceLines[4])
+AddChronosGameStateReq(HeroVoiceLines.CoveredFamilyPortraitVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.StoryResetStartVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.StoryResetEndVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.TavernaVictoryVoiceLines)
+AddChronosGameStateReq(HeroVoiceLines.SurfaceShopUsedVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.WellShopUsedVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.WellShopUsedVoiceLines[2])
+AddChronosGameStateReq(HeroVoiceLines.WellShopSoldOutVoiceLines)
+AddChronosGameStateReq(HeroVoiceLines.SellTraitShopUsedVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.SellTraitShopSoldOutVoiceLines)
+AddChronosGameStateReq(HeroVoiceLines.SoldTraitVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.ChamberMoverUsedVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.ChamberMoverUsedVoiceLines[2])
+AddChronosGameStateReq(HeroVoiceLines.ChamberMoverUsedVoiceLines[3])
+AddChronosGameStateReq(HeroVoiceLines.FishingInitiatedVoiceLines[2])
+AddChronosGameStateReq(HeroVoiceLines.FishNotCaughtVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.FishNotCaughtVoiceLines[2])
+AddChronosGameStateReq(HeroVoiceLines.FishNotCaughtTooLateVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.FishNotCaughtTooLateVoiceLines[2])
+AddChronosGameStateReq(HeroVoiceLines.FishNotCaughtWayTooLateVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.FishNotCaughtWayTooLateVoiceLines[2])
+AddChronosGameStateReq(HeroVoiceLines.UsedAquariumVoiceLines)
+AddChronosGameStateReq(HeroVoiceLines.DieHardShadeRecruitVoiceLines)
+AddChronosGameStateReq(HeroVoiceLines.ShadeEavesdropVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.ShadeEavesdropVoiceLines[2])
+AddChronosGameStateReq(HeroVoiceLines.ShadeEavesdropVoiceLines[3])
+AddChronosGameStateReq(HeroVoiceLines.ShadeEavesdropVoiceLines[4])
+AddChronosGameStateReq(HeroVoiceLines.ShadeEavesdropVoiceLines[5])
+AddChronosGameStateReq(HeroVoiceLines.FountainPrayerVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.AdmireOlympusStatueVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.AdmireZagreusStatueVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.AdmireDreamCertificateVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.AdmireHypnosStatueVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.UsedStarJarVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.StoppedSingingVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.RegionClearedVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.RegionClearedVoiceLines[2])
+AddChronosGameStateReq(HeroVoiceLines.GiftRackLockedVoiceLines)
+AddChronosGameStateReq(HeroVoiceLines.OpenedQuestLogSingleQuestCompleteVoiceLines)
+AddChronosGameStateReq(HeroVoiceLines.OpenedQuestLogMultiQuestsCompleteVoiceLines)
+AddChronosGameStateReq(HeroVoiceLines.OpenedQuestLogNewQuestsAddedVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.OpenedQuestLogVoiceLines)
+AddChronosGameStateReq(HeroVoiceLines.CashedOutQuestVoiceLines[2])
+AddChronosGameStateReq(HeroVoiceLines.PlayRandomMusicVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.BountyBoardOpenedVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.BountyBoardOpenedVoiceLines[2])
+AddChronosGameStateReq(HeroVoiceLines.BountyBoardOpenedVoiceLines[3])
+AddChronosGameStateReq(HeroVoiceLines.BountyBoardOpenedVoiceLines[4])
+AddChronosGameStateReq(HeroVoiceLines.BountyEarnedVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.PackagedBountyClearedVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.PackagedBountyClearedVoiceLines[2])
+AddChronosGameStateReq(HeroVoiceLines.DreamRunsUnlockedVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.DreamRunEnterVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.DreamRunEnterVoiceLines[2])
+AddChronosGameStateReq(HeroVoiceLines.DreamBiomeStartVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.DreamBiomeStartVoiceLines[2])
+AddChronosGameStateReq(HeroVoiceLines.DreamBiomeStartVoiceLines[3])
+AddChronosGameStateReq(HeroVoiceLines.DreamRoomExitVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.DreamRoomExitVoiceLines[2])
+AddChronosGameStateReq(HeroVoiceLines.DreamPostBossEntranceVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.DreamPostBossExitVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.DreamRunClearedVoiceLines[1])
+AddChronosGameStateReq(HeroVoiceLines.ReceivedSupplyDropVoiceLines[1])
+--Move to GlobalVoiceLines
+AddChronosGameStateReq(GlobalVoiceLines.UsedFountainVoiceLines[1]) --Added Chronos
+AddChronosGameStateReq(GlobalVoiceLines.UsedFountainVoiceLines[2]) --Added Chronos
+AddChronosGameStateReq(GlobalVoiceLines.UsedFountainVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.UsedFountainVoiceLines[4]) --Added Chronos
+AddChronosGameStateReq(GlobalVoiceLines.UsedFountainVoiceLines[5])
+AddChronosGameStateReq(GlobalVoiceLines.UsedTelescopeVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.CannotUseZoomOutVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.CannotUseRewardFinderVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.CannotUseRewardFinderVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.UsedRewardFinderVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.ErisNotSightedVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.BiomeStateChangeStartVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.TaskBegunVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.TaskBegunVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.TaskBegunVoiceLines[3]) --Add Chronos Quips here
+AddChronosGameStateReq(GlobalVoiceLines.StartNewRunVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.StartNewRunVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.StartNewRunVoiceLines[4]) -- Add Chronos Quips here
+AddChronosGameStateReq(GlobalVoiceLines.StartSurfaceRunVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.StartPostTrueEndingRunIntroVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.StartMiscRunVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarFrogCostumeUnlocked[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarRavenCostumeUnlocked[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarCatCostumeUnlocked[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarHoundCostumeUnlocked[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarPolecatCostumeUnlocked[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarAngryCostumeUnlocked[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarCoolCostumeUnlocked[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarCuteCostumeUnlocked[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarChillCostumeUnlocked[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarHotCostumeUnlocked[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarDreamCostumeUnlocked[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarToughCostumeUnlocked[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarDarkCostumeUnlocked[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarMiscCostumeUnlocked[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarFrogSwitchCostumeVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarRavenSwitchCostumeVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarCatSwitchCostumeVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarHoundSwitchCostumeVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarPolecatSwitchCostumeVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarMiscSwitchCostumeVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarSwitchToDefaultCostumeVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarCostumeReactionVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.BadgeUpgradedVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.BadgeUpgradedVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.BadgeUpgradedVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.BadgeUpgradedVoiceLines[4])
+AddChronosGameStateReq(GlobalVoiceLines.BadgeUpgradedVoiceLines[5])
+AddChronosGameStateReq(GlobalVoiceLines.BadgeUpgradedVoiceLines[6])
+AddChronosGameStateReq(GlobalVoiceLines.BadgeUpgradedVoiceLines[7])
+AddChronosGameStateReq(GlobalVoiceLines.BadgeUpgradedVoiceLines[8])
+AddChronosGameStateReq(GlobalVoiceLines.BadgeUpgradedVoiceLines[9])
+AddChronosGameStateReq(GlobalVoiceLines.BadgeUpgradedVoiceLines[10])
+AddChronosGameStateReq(GlobalVoiceLines.BadgeUpgradedVoiceLines[11])
+AddChronosGameStateReq(GlobalVoiceLines.StartNewPackagedBountyVoiceLines[1][2])
+AddChronosGameStateReq(GlobalVoiceLines.StartNewPackagedBountyVoiceLines[1][3])
+AddChronosGameStateReq(GlobalVoiceLines.StartNewPackagedBountyVoiceLines[1][4])
+AddChronosGameStateReq(GlobalVoiceLines.StartNewPackagedBountyVoiceLines[1][5])
+AddChronosGameStateReq(GlobalVoiceLines.CombatBeginsVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.CombatBeginsVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.KillingEnemyVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.KillingEnemyVoiceLines[7])
+AddChronosGameStateReq(GlobalVoiceLines.RevengeKillingEnemyVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.SteamTrapKillVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.OddSheepSightedVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.OddSheepSightedVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.SatyrsSightedVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.ChronosLegionsSightedVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.AutomatonsSightedLines)
+AddChronosGameStateReq(GlobalVoiceLines.SatyrGuestSmallTalkVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.LeavingArenaVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.ReturnedFromElysiumVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.MonstersSightedVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.CombatResolvedVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.CombatResolvedVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.CombatResolvedLowHealthVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.BarelySurvivedBossFightVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.DreamRunFinalBossGreetingVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.CatFamiliarBossFightLastHitVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.CatFamiliarBossFightLastHitVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.CatFamiliarBossFightLastHitVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.CocoonRewardFoundVoiceLines[1])
 AddChronosGameStateReq(GlobalVoiceLines.OutOfManaVoiceLines[1]) --works
 AddChronosGameStateReq(GlobalVoiceLines.OutOfManaVoiceLines[2]) --works
+AddChronosGameStateReq(GlobalVoiceLines.UsedHealDropVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.UsedManaDropVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.UsedShieldDropVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.UsedLastStandDropVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.UsedMoneyDropVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.UsedPowerDrinkVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.UsedCharonPointsDropVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.SpottedContractItemVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.ClaimedContractItemVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.PickedMoonSpellVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.FieldsRewardClaimedVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.FieldsExitsUnlockedVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.MiscUpgradePickedVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.MiscUpgradePickedVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.MiscUpgradePickedVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.FieldsPassiveEnemiesSpottedVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.FieldsPassiveEnemiesSpottedVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.FieldsEnemiesSpottedVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.FieldsEnemiesSpottedVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.FieldsEnemiesSpottedVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.FieldsEnemiesSpottedVoiceLines[4])
+AddChronosGameStateReq(GlobalVoiceLines.FieldsEnemiesSpottedVoiceLines[5])
+AddChronosGameStateReq(GlobalVoiceLines.FieldsEnemiesSpottedVoiceLines[6])
+AddChronosGameStateReq(GlobalVoiceLines.FieldsEnemiesSpottedVoiceLines[7])
+AddChronosGameStateReq(GlobalVoiceLines.HarvestPointFoundVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.HarvestPointFoundVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.ResourceFoundVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.FoundSeedVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.BreakableHighValueDestroyedVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.HarvestBonusResourceVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.PositiveReactionVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.CatReactionVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.RavenReactionVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.HoundReactionVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.PolecatReactionVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.NegativeReactionVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.AnomalyReactionVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.NemesisDealDeclineVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.SaluteVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.SaluteVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.SaluteVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.WebDestroyedVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.FrustratedVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.FrustratedVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.PurchasedConsumableVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.RushWellShopItemVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.StandardWellShopItemVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.StandardWellShopItemVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.PurchasedLastStandVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.PurchasedDamageSelfDropVoicelines)
+AddChronosGameStateReq(GlobalVoiceLines.AlchemyStartVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.CookingStartedVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.CookingPendingVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.CookingCompleteVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.AllCardsUnlockedVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.MelMusicChoiceVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.WardedDoorVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.WardedDoorVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.EndTechTestVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.InsufficientMetaCurrencyVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.InvalidResourceInteractionVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.MelSighVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.MelIcarusSendOffVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.MiscEndVoiceLines_Moros[1])
+AddChronosGameStateReq(GlobalVoiceLines.MiscFarewellVoiceLines_Icarus[1])
+AddChronosGameStateReq(GlobalVoiceLines.MiscEndVoiceLines_Dora[1])
+AddChronosGameStateReq(GlobalVoiceLines.MiscEndVoiceLines_Eris[1])
+AddChronosGameStateReq(GlobalVoiceLines.MiscEndVoiceLines_Nemesis[1])
+AddChronosGameStateReq(GlobalVoiceLines.MiscEndVoiceLines_Hecate[1])
+AddChronosGameStateReq(GlobalVoiceLines.MiscEndVoiceLines_Odysseus[1])
+AddChronosGameStateReq(GlobalVoiceLines.MiscEndVoiceLines_Skelly[1])
+AddChronosGameStateReq(GlobalVoiceLines.MiscEndVoiceLines_Hypnos[1])
+AddChronosGameStateReq(GlobalVoiceLines.MiscEndVoiceLines_Bouldy[1])
+AddChronosGameStateReq(GlobalVoiceLines.MiscEndVoiceLines_Charon[1])
+AddChronosGameStateReq(GlobalVoiceLines.BoonUsedVoiceLines[10])
+AddChronosGameStateReq(GlobalVoiceLines.BoonUsedVoiceLines[11])
+AddChronosGameStateReq(GlobalVoiceLines.BoonUsedVoiceLines[12])
+AddChronosGameStateReq(GlobalVoiceLines.BoonUsedVoiceLines[13])
+AddChronosGameStateReq(GlobalVoiceLines.TalentDropUsedVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.TalentDropUsedVoiceLines[4])
+AddChronosGameStateReq(GlobalVoiceLines.CatGreetingVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.CritterGreetingVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.ThankingCharacterVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.ThankingIcarusVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.ThankingAthenaVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.ThankingDionysusVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.ThankingHadesVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.DarknessUnlockedVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.ChaosSeedsUnlockedVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.ThankingChaosVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.FoundRareBoonVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.DevotionChoicePresentedVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.GodRejectedVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.GodRejectedVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.GodRejectedVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.GodRejectedVoiceLines[4])
+AddChronosGameStateReq(GlobalVoiceLines.GodRejectedVoiceLines[5])
+AddChronosGameStateReq(GlobalVoiceLines.GodRejectedVoiceLines[6])
+AddChronosGameStateReq(GlobalVoiceLines.GodRejectedVoiceLines[7])
+AddChronosGameStateReq(GlobalVoiceLines.GodRejectedVoiceLines[8])
+AddChronosGameStateReq(GlobalVoiceLines.GodRejectedVoiceLines[9])
+AddChronosGameStateReq(GlobalVoiceLines.GodRejectedVoiceLines[10])
+AddChronosGameStateReq(GlobalVoiceLines.GodRejectedVoiceLines[11])
+AddChronosGameStateReq(GlobalVoiceLines.ForkingPathVoiceLines[1][1])
+AddChronosGameStateReq(GlobalVoiceLines.ForkingPathVoiceLines[1][2])
+AddChronosGameStateReq(GlobalVoiceLines.ForkingPathVoiceLines[1][3])
+AddChronosGameStateReq(GlobalVoiceLines.RecordRunDepthVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.EnteredReprieveRoomVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredReprieveRoomVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredReprieveRoomVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredReprieveRoomVoiceLines[4])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredReprieveRoomVoiceLines[5])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredReprieveRoomVoiceLines[6])
+AddChronosGameStateReq(GlobalVoiceLines.BoardedFlagshipVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[4])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[5])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[6])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[7])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[8])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[9])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[10])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[11])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[12])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[13])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[14])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[15])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterMiscStartLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][1])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][2])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][3])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][4])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][5])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][6])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][7])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][8])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][9])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][10])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][11])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][12])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][13])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][14])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][15])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][16])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][17])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][18])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][19])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][20])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][21])
+AddChronosGameStateReq(GlobalVoiceLines.MiniBossEncounterEndVoiceLines[1][22])
+AddChronosGameStateReq(GlobalVoiceLines.CrawlerMiniBossEncounterStartVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.CrawlerMiniBossEncounterStartVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.CharybdisEncounterStartVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.TalosEncounterStartVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.TalosEncounterStartVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.FoundShopVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.CosmeticChangeVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.PinnedItemVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarUpgradedGlobalVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarUpgradedGlobalVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.GiftGivenVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.PostRevealGlobalVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.MiscWeaponEquipVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.MiscWeaponEquipVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.MiscWeaponEquipVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.MiscWeaponEquipVoiceLines[4])
+AddChronosGameStateReq(GlobalVoiceLines.MiscWeaponEquipVoiceLines[5])
+AddChronosGameStateReq(GlobalVoiceLines.MiscWeaponEquipVoiceLines[6])
+AddChronosGameStateReq(GlobalVoiceLines.MiscWeaponEquipVoiceLines[7])
+AddChronosGameStateReq(GlobalVoiceLines.MiscWeaponEquipVoiceLines[8])
+AddChronosGameStateReq(GlobalVoiceLines.SwitchedWeaponUpgradeVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.SwitchedWeaponUpgradeVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarEquipVoiceLines[1]) --Added Chronos quips
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarPostTreatVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarPostTreatVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarPostTreatVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarPostTreatVoiceLines[4])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarPostTreatVoiceLines[5])
+AddChronosGameStateReq(GlobalVoiceLines.FamiliarPostTreatVoiceLines[6])
+AddChronosGameStateReq(GlobalVoiceLines.CardInspectVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.OlympusAssaultReactionLines)
+AddChronosGameStateReq(GlobalVoiceLines.AutomatonAttackReactionLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.ActiveStatueSpottedVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.StatueActivatedVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.TyphonSummonReactionVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.ApproachingHouseLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.ApproachingHouseLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.InfiltratingHouseLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.GreetingNeoChronosLines)
+AddChronosGameStateReq(GlobalVoiceLines.SkippedEncounterVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.HypnosDreamSaluteVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.ChallengeEncounterActivatedLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.ChallengeEncounterEnemySightedVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.ChallengeEncounterClearedVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.ChallengeSwitchOpenedVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.EliteEncounterInitiatedLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.EliteEncounterClearedLines)
+AddChronosGameStateReq(GlobalVoiceLines.PerfectClearEncounterInitiatedLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.PerfectClearGotHitVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.PerfectClearEncounterConcludedLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.PerfectClearEncounterConcludedLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.MetaRewardStandUsedVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.ExtraDoorEncounterStartVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.ExtraDoorEncounterStartVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.PalaceEntranceUsedVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.PalaceEntranceUsedVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.PalaceEntranceUsedVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.PalaceEntranceUsedVoiceLines[4])
+AddChronosGameStateReq(GlobalVoiceLines.PalaceObservationVoiceLines)
+AddChronosGameStateReq(GlobalVoiceLines.PostBossHiddenExitUsedVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.PostBossHiddenExitUsedVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.RoomOpeningMainDoorVoiceLines[1])
+--BountyData.lua
+AddChronosGameStateReq(GlobalVoiceLines.StartPackagedBountyRunVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.StartPackagedBountyRunVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.StartPackagedBountyRunVoiceLines[3])
+--CodexData.lua
+AddChronosGameStateReq(CodexData.ChthonicGods.Entries.NPC_Hecate_01.EntryReadVoiceLines)
+AddChronosGameStateReq(CodexData.ChthonicGods.Entries.PlayerUnit.EntryReadVoiceLines)
+--ConsumableData.lua
+AddChronosGameStateReq(ConsumableData.RoomRewardConsolationPrize.ConsumedVoiceLines)
+AddChronosGameStateReq(ConsumableData.RoomMoneyDrop.OnSpawnVoiceLines)
+AddChronosGameStateReq(ConsumableData.MaxHealthDrop.OnSpawnVoiceLines)
+AddChronosGameStateReq(ConsumableData.MaxManaDrop.OnSpawnVoiceLines)
+AddChronosGameStateReq(ConsumableData.TalentDrop.OnSpawnVoiceLines)
+AddChronosGameStateReq(ConsumableData.MetaCurrencyDrop.ConsumedVoiceLines[1])
+AddChronosGameStateReq(ConsumableData.MetaCurrencyDrop.ConsumedVoiceLines[2])
+AddChronosGameStateReq(ConsumableData.GiftDrop.OnSpawnVoiceLines)
+AddChronosGameStateReq(ConsumableData.MixerMythicDrop.OnSpawnVoiceLines)
+AddChronosGameStateReq(ConsumableData.DreamPointsDrop.OnSpawnVoiceLines)
+--CosmeticData.lua
+AddChronosGameStateReq(WorldUpgradeData.DefaultCosmeticItem.PreRevealVoiceLines[1])
+AddChronosGameStateReq(WorldUpgradeData.Cosmetic_TentBlanket01c.RevealReactionVoiceLines[1])
+AddChronosGameStateReq(WorldUpgradeData.Cosmetic_EmployeeOfTheMonth.RevealReactionVoiceLines[1])
+AddChronosGameStateReq(WorldUpgradeData.Cosmetic_ThanPoster.RevealReactionVoiceLines[1]) --Didn't Finish All this category /VO/Melinoe_3672
+
+--DeathLoopData.lua
+AddChronosGameStateReq(GlobalVoiceLines.DeathVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.DeathVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.DeathReturnVoiceLines[5])
+AddChronosGameStateReq(GlobalVoiceLines.DeathReturnVoiceLines[8])
+AddChronosGameStateReq(GlobalVoiceLines.DeathReturnVoiceLines[9])
+AddChronosGameStateReq(GlobalVoiceLines.DeathReturnVoiceLines[10])
+AddChronosGameStateReq(GlobalVoiceLines.DeathReturnVoiceLines[11])
+AddChronosGameStateReq(GlobalVoiceLines.DeathReturnVoiceLines[20])
+AddChronosGameStateReq(GlobalVoiceLines.DeathReturnVoiceLines[21])
+AddChronosGameStateReq(GlobalVoiceLines.DeathReturnVoiceLines[22])
+AddChronosGameStateReq(GlobalVoiceLines.DeathReturnVoiceLines[23])
+AddChronosGameStateReq(GlobalVoiceLines.DeathReturnVoiceLines[24])
+AddChronosGameStateReq(GlobalVoiceLines.DeathReturnVoiceLines[25])
+AddChronosGameStateReq(GlobalVoiceLines.DeathReturnVoiceLines[26])
+AddChronosGameStateReq(GlobalVoiceLines.DeathReturnVoiceLines[27])
+AddChronosGameStateReq(GlobalVoiceLines.DeathReturnVoiceLines[28])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[1])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[2])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[3])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[4])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[5])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[6])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[7])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[8])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[9])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[10])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[12])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[13])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[14])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[15])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[16])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[17])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[18])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[19])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[20])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[21])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[22])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[23])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[24])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[25])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[26])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[27])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[28])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[29])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[30])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[31])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[32])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[33])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[34])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[35])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[36])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[37])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[38])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[39])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[40])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[41])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[42])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[43])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[44])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[45])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[46])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[47])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[48])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[49])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[50])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[51])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[52])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[53])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[54])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[55])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[56])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[57])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[58])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[59])
+AddChronosGameStateReq(GlobalVoiceLines.EnteredDeathAreaVoiceLines[60])
+--EncounterData_Arachne.lua
+AddChronosGameStateReq(EncounterData.BaseArachneCombat.EnterVoiceLines[1])
+AddChronosGameStateReq(EncounterData.BaseArachneCombat.EnterVoiceLines[2])
+AddChronosGameStateReq(EncounterData.BaseArachneCombat.EnterVoiceLines[4])
+--EncounterData_Boss.lua
+AddChronosGameStateReq(EncounterData.BossInfestedCerberus01.EnterVoiceLines[1])
+AddChronosGameStateReq(EncounterData.BossInfestedCerberus01.EnterVoiceLines[2])
+AddChronosGameStateReq(EncounterData.BossInfestedCerberus01.EnterVoiceLines[3])
+AddChronosGameStateReq(EncounterData.BossInfestedCerberus01.EnterVoiceLines[4])
+AddChronosGameStateReq(EncounterData.BossInfestedCerberus01.EnterVoiceLines[5])
+AddChronosGameStateReq(EncounterData.BossTyphonHead01.PreFightVoiceLines[1])
+AddChronosGameStateReq(EncounterData.BossTyphonHead01.PreFightVoiceLines[2])
+AddChronosGameStateReq(EncounterData.BossTyphonHead01.FightStartVoiceLines[1])
+AddChronosGameStateReq(EncounterData.BossTyphonHead01.FightStartVoiceLines[4])
+AddChronosGameStateReq(EncounterData.BossTyphonHead01.FightStartVoiceLines[5])
+AddChronosGameStateReq(EncounterData.BossTyphonHead01.FightStartVoiceLines[6])
+AddChronosGameStateReq(EncounterData.BossTyphonHead01.FightStartVoiceLines[7])
+AddChronosGameStateReq(EncounterData.BossTyphonHead01.FightStartVoiceLines[8])
+AddChronosGameStateReq(EncounterData.BossTyphonHead01.FightStartVoiceLines[9])
+AddChronosGameStateReq(EncounterData.BossTyphonHead01.FightStartVoiceLines[10])
+--EncounterData_Challenge
+AddChronosGameStateReq(EncounterData.GeneratedAnomalyB.DistanceTriggers[1].VoiceLines[1]) --Errored check why
+---EncounterData_Devotion
+AddChronosGameStateReq(EncounterData.BaseDevotion.RewardSpawnVoiceLines[1])
+AddChronosGameStateReq(EncounterData.BaseDevotion.DistanceTriggers[2].VoiceLines[1])
+AddChronosGameStateReq(EncounterData.BaseDevotion.DistanceTriggers[2].VoiceLines[2])
+AddChronosGameStateReq()
+AddChronosGameStateReq()
+--FamiliarData.lua
+AddChronosGameStateReq(FamiliarData.RavenFamiliar.EquipVoiceLines[1])
+AddChronosGameStateReq(FamiliarData.CatFamiliar.EquipVoiceLines[1])
+AddChronosGameStateReq(FamiliarData.FrogFamiliar.EquipVoiceLines[1])
+AddChronosGameStateReq(FamiliarData.HoundFamiliar.EquipVoiceLines[1])
+AddChronosGameStateReq(FamiliarData.PolecatFamiliar.EquipVoiceLines[1])
+AddChronosGameStateReq()
+AddChronosGameStateReq()
+AddChronosGameStateReq()
+AddChronosGameStateReq()
+AddChronosGameStateReq()
+AddChronosGameStateReq()
+AddChronosGameStateReq()
+AddChronosGameStateReq()
+AddChronosGameStateReq()
+AddChronosGameStateReq()
+AddChronosGameStateReq()
+AddChronosGameStateReq()
+AddChronosGameStateReq()
+AddChronosGameStateReq()
+AddChronosGameStateReq()
+AddChronosGameStateReq()
+AddChronosGameStateReq()
+AddChronosGameStateReq()
+
+
+
+
 
 
 -- Adding Chronos Voice Lines
  local YesChronosReq = 
 {
     Path = {"CurrentRun", "Hero", "TraitDictionary"},
-    IsAny = {"ChronosAspect", },
+    HasAny = {"ChronosAspect", },
 }
 
---Adding VoiceLines
+---- Adding VoiceLines ----
+
+--Adding Blocked Death
 table.insert(HeroVoiceLines.BlockDeathVoiceLines[1], { Cue = "/VO/Chronos_0319", Text = "Not so fast...", GameStateRequirements = YesChronosReq })
 table.insert(HeroVoiceLines.BlockDeathVoiceLines[1], { Cue = "/VO/Chronos_0299", Text = "Am I supposed to be impressed?", GameStateRequirements = YesChronosReq })
 table.insert(HeroVoiceLines.BlockDeathVoiceLines[1], { Cue = "/VO/Chronos_1220", Text = "I am feeling better already!", GameStateRequirements = YesChronosReq })
 table.insert(HeroVoiceLines.BlockDeathVoiceLines[1], { Cue = "/VO/Chronos_1213", Text = "Rejuvenation...!", GameStateRequirements = YesChronosReq })
 
+-- Drank a Fountain in DreamRun
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[1], { Cue = "/VO/Chronos_1102", Text = "Refreshing, is it not?", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[1], { Cue = "/VO/Chronos_1103", Text = "The source of life...", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[1], { Cue = "/VO/Chronos_1105", Text = "For the road ahead.", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[1], { Cue = "/VO/Chronos_1106", Text = "The water runs clear.", GameStateRequirements = YesChronosReq})
+-- Drank a Fountain after boss
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[2], { Cue = "/VO/Chronos_1102", Text = "Refreshing, is it not?", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[2], { Cue = "/VO/Chronos_1103", Text = "The source of life...", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[2], { Cue = "/VO/Chronos_1105", Text = "For the road ahead.", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[2], { Cue = "/VO/Chronos_1106", Text = "The water runs clear.", GameStateRequirements = YesChronosReq})
+-- Drank a Fountain mid room
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[4], { Cue = "/VO/Chronos_1102", Text = "Refreshing, is it not?", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[4], { Cue = "/VO/Chronos_1103", Text = "The source of life...", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[4], { Cue = "/VO/Chronos_1105", Text = "For the road ahead.", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[4], { Cue = "/VO/Chronos_1106", Text = "The water runs clear.", GameStateRequirements = YesChronosReq})
+
+--Equip Raven
+local RavenCond = 
+{
+    {
+    Path = {"CurrentRun", "Hero", "TraitDictionary"},
+    HasAny = {"ChronosAspect", },
+    },
+    {
+        Path = { "GameState", "EquippedFamiliar" },
+        IsAny = { "RavenFamiliar" },
+    },
+}
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0683", Text = "Foul bird!",GameStateRequirements = RavenCond })
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0684", Text = "A {#Emph}bird{#Prev}, in {#Emph}here?", GameStateRequirements = RavenCond })
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0685", Text = "{#Emph}Pff! {#Prev}Feathers!", GameStateRequirements = RavenCond })
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0686", Text = "Begone, {#Emph}bird!", GameStateRequirements = RavenCond })
+
+--Equip Frog
+local FrogCond = 
+{
+    {
+    Path = {"CurrentRun", "Hero", "TraitDictionary"},
+    HasAny = {"ChronosAspect", },
+    },
+    {
+        Path = { "GameState", "EquippedFamiliar" },
+        IsAny = { "FrogFamiliar" },
+    },
+}
+
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0958", Text = "Contemptible {#Emph}toad!",GameStateRequirements = FrogCond })
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0959", Text = "A common toad, in {#Emph}here?", GameStateRequirements = FrogCond })
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0960", Text = "Foul {#Emph}frog!", GameStateRequirements = FrogCond })
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0961", Text = "What is this {#Emph}frog?", GameStateRequirements = FrogCond })
+--Equip Cat
+local CatCond = 
+{
+    {
+    Path = {"CurrentRun", "Hero", "TraitDictionary"},
+    HasAny = {"ChronosAspect", },
+    },
+    {
+        Path = { "GameState", "EquippedFamiliar" },
+        IsAny = { "CatFamiliar" },
+    },
+}
+
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0679", Text = "Accursed feline!",GameStateRequirements = CatCond })
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0680", Text = "Damnable creature.", GameStateRequirements = CatCond })
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0681", Text = "Back off, {#Emph}cat.", GameStateRequirements = CatCond })
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0682", Text = "It {#Emph}scratched {#Prev}me!", GameStateRequirements = CatCond })
+--Equip Hound
+local HoundCond = 
+{
+    {
+    Path = {"CurrentRun", "Hero", "TraitDictionary"},
+    HasAny = {"ChronosAspect", },
+    },
+    {
+        Path = { "GameState", "EquippedFamiliar" },
+        IsAny = { "HoundFamiliar" },
+    },
+}
+--Equip Cat
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0915", Text = "{#Emph}Heel{#Prev}, foul beast!",GameStateRequirements = HoundCond })
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0916", Text = "Back, you {#Emph}dog.", GameStateRequirements = HoundCond })
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0917", Text = "Malicious {#Emph}cur!", GameStateRequirements = HoundCond })
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0918", Text = "You mongrel!", GameStateRequirements = HoundCond })
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0919", Text = "Contemptible hound!", GameStateRequirements = HoundCond })
+--Equip Weasel
+local PolecatCond = 
+{
+    {
+    Path = {"CurrentRun", "Hero", "TraitDictionary"},
+    HasAny = {"ChronosAspect", },
+    },
+    {
+        Path = { "GameState", "EquippedFamiliar" },
+        IsAny = { "PolecatFamiliar" },
+    },
+}
+
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0950", Text = "Get off of me, weasel!",GameStateRequirements = PolecatCond })
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0951", Text = "You dare scratch me, weasel?", GameStateRequirements = PolecatCond })
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0952", Text = "Ill-tempered little brute!", GameStateRequirements = PolecatCond })
+table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0953", Text = "A {#Emph}weasel {#Prev}bred for war?", GameStateRequirements = PolecatCond })
+
+
+--Heal / Fountain
+--{ Cue = "/VO/Chronos_1214", Text = "Time heals all wounds..." }
+--{ Cue = "/VO/Chronos_1219", Text = "Heal me faster, blast you all!" },
+
+-- Enemies?
+--{ Cue = "/VO/Chronos_0621", Text = "You rabble-rousing miscreant, {#Emph}again?", PlayFirst = true },
+--{ Cue = "/VO/Chronos_0311", Text = "A lasting pain..." },
+--{ Cue = "/VO/Chronos_0312", Text = "It lingers, does it not?" },
+--{ Cue = "/VO/Chronos_0313", Text = "Wither..." },
+--{ Cue = "/VO/Chronos_0314", Text = "Begone..." },
+--{ Cue = "/VO/Chronos_0315", Text = "Begone from here..." },
+--{ Cue = "/VO/Chronos_0316", Text = "You shall be cut in twain..." },
+--{ Cue = "/VO/Chronos_0317", Text = "You shall be brought to heel!" },
+--{ Cue = "/VO/Chronos_0318", Text = "Expire..." },
+--{ Cue = "/VO/Chronos_0319", Text = "Not so fast..." },
+--	{ Cue = "/VO/Chronos_0320", Text = "You cannot run forever..." },
+--{ Cue = "/VO/Chronos_0321", Text = "Heedless whelp." },
+--{ Cue = "/VO/Chronos_0322", Text = "Impetuous of you..." },
+--{ Cue = "/VO/Chronos_0323", Text = "There..." },
+--{ Cue = "/VO/Chronos_0324", Text = "Prepared for more?" },
+--{ Cue = "/VO/Chronos_0325", Text = "What now?" },
+--{ Cue = "/VO/Chronos_0326", Text = "How daft you are..." },
+--{ Cue = "/VO/Chronos_0327", Text = "Learn some respect!" },
+--{ Cue = "/VO/Chronos_0328", Text = "You had it coming." },
+--{ Cue = "/VO/Chronos_0329", Text = "We are not done." },
+--{ Cue = "/VO/Chronos_0330", Text = "Another, then?" },
+--{ Cue = "/VO/Chronos_0331", Text = "Relent." },
+--{ Cue = "/VO/Chronos_0332", Text = "Relent, blast you!" },
+--{ Cue = "/VO/Chronos_0333", Text = "Embarrassing." },
+--{ Cue = "/VO/Chronos_0338", Text = "My scythe shall find you." },
+--{ Cue = "/VO/Chronos_0294", Text = "Your strength shall fail you..." },
+--{ Cue = "/VO/Chronos_0295", Text = "But one more cut or two..." },
+--{ Cue = "/VO/Chronos_0296", Text = "You only make things worse!" },
+
+--Generic MiniBoss
+--{ Cue = "/VO/Chronos_0339", Text = "How frightening." },
+--	{ Cue = "/VO/Chronos_0340", Text = "{#Emph}Ohh{#Prev}, how fierce." },
+--	{ Cue = "/VO/Chronos_0341", Text = "Oh dear." },
+--	{ Cue = "/VO/Chronos_0342", Text = "{#Emph}Oh no...!" },
+--	{ Cue = "/VO/Chronos_0343", Text = "Shall that be all?" },
+--	{ Cue = "/VO/Chronos_0344", Text = "{#Emph}Tut-tut...!" },
+--	{ Cue = "/VO/Chronos_0345", Text = "Do cut it out?" },
+--	{ Cue = "/VO/Chronos_0348", Text = "Are you quite done?" },
+--	{ Cue = "/VO/Chronos_0153", Text = "{#Emph}Temper!" },
+--	{ Cue = "/VO/Chronos_0154", Text = "The {#Emph}nerve!" },
+
+
+--Won Encounter
+--{ Cue = "/VO/Chronos_0014", Text = "I think not."
+--{ Cue = "/VO/Chronos_0095", Text = "That shall not work.",
+
+--Assassin miniboss
+--{ Cue = "/VO/Chronos_0931", Text = "Come to assassinate me with those knives?",
+
+--Hecate
+--{ Cue = "/VO/Chronos_0930", Text = "That staff of yours is no match for my scythe.",
+--{ Cue = "/VO/Chronos_0932", Text = "Those torches of yours made you easy to detect.",
+--{ Cue = "/VO/Chronos_0336", Text = "Too slow, my girl..." },
+--{ Cue = "/VO/Chronos_0337", Text = "Alas, my girl..." },
+--{ Cue = "/VO/Chronos_0298", Text = "My girl, would you please die?" },
+--{ Cue = "/VO/Chronos_1230", Text = "Such a night...",
+
+--For Path Of Stars
+--{ Cue = "/VO/Chronos_0674", Text = "The Moon shines even here..." },
+--{ Cue = "/VO/Chronos_0672", Text = "The Moon's own light..." },
+
+--Return from polymorph
+--{ Cue = "/VO/Chronos_0656", Text = "You are the sheep here." },
+--{ Cue = "/VO/Chronos_0657", Text = "This foul trick." },
+
+--Eris
+--{ Cue = "/VO/Chronos_0201", Text = "What did you hope you would accomplish here?" },
+--{ Cue = "/VO/Chronos_0258", Text = "What did you expect would change this time?",
+--{ Cue = "/VO/Chronos_0935", Text = "You look absurd with those newfangled armaments.",
+--{ Cue = "/VO/Chronos_0336", Text = "Too slow, my girl..." },
+--{ Cue = "/VO/Chronos_0337", Text = "Alas, my girl..." },
+--{ Cue = "/VO/Chronos_0298", Text = "My girl, would you please die?" },
+--{ Cue = "/VO/Chronos_0310", Text = "Have you no dignity at all?" },
+--{ Cue = "/VO/Chronos_0372", Text = "Arrogant child." },
+--{ Cue = "/VO/Chronos_0373", Text = "Ignorant child." },
+--{ Cue = "/VO/Chronos_0374", Text = "Mannerless child..." },
+--{ Cue = "/VO/Chronos_0375", Text = "Contemptuous child..." },
+
+--Beat Prometheus
+--{ Cue = "/VO/Chronos_0197", Text = "An inevitable outcome, nothing more.", PlayFirst = true },
+--{ Cue = "/VO/Chronos_0198", Text = "We must do this again some other time." },
+--{ Cue = "/VO/Chronos_0257", Text = "The same predictable result, yet you persist.",
+--{ Cue = "/VO/Chronos_0472", Text = "You ought not have anticipated any other outcome.",
+
+--Fighting Prometheus
+--{ Cue = "/VO/Chronos_0927", Text = "Decided to give poor Typhon a break?",
+--{ Cue = "/VO/Chronos_0928", Text = "How shall Olympus withstand Typhon with you here?",
+
+-- Typhon
+--{ Cue = "/VO/Chronos_0467", Text = "Thus history repeats as it is wont to do.",
+--{ Cue = "/VO/Chronos_0261", Text = "That is what you get for all the inconvenience you caused!",
+--{ Cue = "/VO/Chronos_0939", Text = "This night shall go no different from the last.",
+--{ Cue = "/VO/Chronos_0308", Text = "This is the end for you." },
+--{ Cue = "/VO/Chronos_0309", Text = "You have already lost." },
+--Cue = "/VO/Chronos_1122", Text = "{#Emph}Now{#Prev}, monster, exactly as before!"
+--{ Cue = "/VO/Chronos_1069", Text = "Come forth, Typhon!", PlayFirst = true },
+--{ Cue = "/VO/Chronos_1067", Text = "Oh, Typhon...?" },
+--{ Cue = "/VO/Chronos_1068", Text = "Oh, Typhon?" },
+--Cue = "/VO/Chronos_1122", Text = "{#Emph}Now{#Prev}, monster, exactly as before!"
+
+--Typhon Health Bar missing
+--{ Cue = "/VO/Chronos_0310", Text = "Have you no dignity at all?" },
+
+--Zag
+--{ Cue = "/VO/Chronos_0626", Text = "What a meddlesome child that Hades has in you." },
+--{ Cue = "/VO/Chronos_0936", Text = "At least you bring a proper weapon to our fight.",
+--{ Cue = "/VO/Chronos_0300", Text = "Youthful vigor, nothing more." },
+--{ Cue = "/VO/Chronos_1244", Text = "Your father's old technique...", PlayFirst = true },
+--{ Cue = "/VO/Chronos_1245", Text = "Your father's wrath..." },
+--{ Cue = "/VO/Chronos_1246", Text = "Did Hades teach you that?" },
+--{ Cue = "/VO/Chronos_1247", Text = "You have your father's {#Emph}mood..." },
+--{ Cue = "/VO/Chronos_1248", Text = "You truly are your father's child." },
+--{ Cue = "/VO/Chronos_0372", Text = "Arrogant child." },
+--{ Cue = "/VO/Chronos_0373", Text = "Ignorant child." },
+--{ Cue = "/VO/Chronos_0374", Text = "Mannerless child..." },
+--{ Cue = "/VO/Chronos_0375", Text = "Contemptuous child..." },
+
+--Zag Attack
+--{ Cue = "/VO/Chronos_0293", Text = "Our family's favorite trick..." },
+--{ Cue = "/VO/Chronos_0696", Text = "Your father's tricks?" },
+
+--Polymepheus
+--{ Cue = "/VO/Chronos_0925", Text = "Are you enjoying this nightly routine?",
+--{ Cue = "/VO/Chronos_1064", Text = "Expecting someone else?"
+--{ Cue = "/VO/Chronos_0008", Text = "Greetings, little one." },
+--{ Cue = "/VO/Chronos_0024", Text = "How fare you, little one?" },
+
+--Scylla
+--{ Cue = "/VO/Chronos_0929", Text = "Night after night you carry on like this?",
+--{ Cue = "/VO/Chronos_0783", Text = "Right on Time." },
+--{ Cue = "/VO/Chronos_0029", Text = "Greetings." }
+--{ Cue = "/VO/Chronos_1119", Text = "Without further ado..." }
+
+--Asterius
+--{ Cue = "/VO/Chronos_0933", Text = "That axe of yours looks awfully unwieldy to me.",
+--{ Cue = "/VO/Chronos_0936", Text = "At least you bring a proper weapon to our fight.",
+
+--Theseus
+--{ Cue = "/VO/Chronos_0395", Text = "You would dare?" },
+--{ Cue = "/VO/Chronos_0397", Text = "Absurd..." },
+--{ Cue = "/VO/Chronos_0398", Text = "Preposterous..." },
+
+--Theseus EM
+--{ Cue = "/VO/Chronos_0935", Text = "You look absurd with those newfangled armaments.",
+
+--Hades
+--{ Cue = "/VO/Chronos_0937", Text = "You mock me with all these nightly affronts.",
+--{ Cue = "/VO/Chronos_0938", Text = "Go on, face me again, see if I care!",
+--{ Cue = "/VO/Chronos_0338", Text = "My scythe shall find you." },
+--{ Cue = "/VO/Chronos_0372", Text = "Arrogant child." },
+--{ Cue = "/VO/Chronos_0373", Text = "Ignorant child." },
+--{ Cue = "/VO/Chronos_0374", Text = "Mannerless child..." },
+--{ Cue = "/VO/Chronos_0375", Text = "Contemptuous child..." },
+--{ Cue = "/VO/Chronos_0382", Text = "You upstart!" },
+
+--Hades Attack
+--{ Cue = "/VO/Chronos_0293", Text = "Our family's favorite trick..." },
+--{ Cue = "/VO/Chronos_0878", Text = "Accursed... child..." },
+
+--Lost Death Defiance
+--{ Cue = "/VO/Chronos_1506", Text = "{#Emph}Augh...! {#Prev}How utterly mortifying...!" }
+--{ Cue = "/VO/Chronos_1526", Text = "{#Emph}Aaaugh... impossible...!" }
+
+--timer low
+--{ Cue = "/VO/Chronos_0301", Text = "Time is running out..." },
+--{ Cue = "/VO/Chronos_0302", Text = "Time grows short..." },
+
+--Cerberus
+--{ Cue = "/VO/Chronos_1072", Text = "To have come all this way..." },
+--{ Cue = "/VO/Chronos_0008", Text = "Greetings, little one." },
+--{ Cue = "/VO/Chronos_0024", Text = "How fare you, little one?" },
+--{ Cue = "/VO/Chronos_1225", Text = "{#Emph}<Scoff>"
+--{ Cue = "/VO/Chronos_0027", Text = "{#Emph}There {#Prev}you are." },
+
+--Reach low Health
+
+--Beat Encounter with low health
+--{ Cue = "/VO/Chronos_0303", Text = "Oh-{#Emph}ho...!" },
+--{ Cue = "/VO/Chronos_0304", Text = "Ah-{#Emph}hah...!" },
+--{ Cue = "/VO/Chronos_0305", Text = "{#Emph}<Laugh>" },
+--{ Cue = "/VO/Chronos_0306", Text = "{#Emph}<Chuckle>" },
+
+
+--Dark Side
+--{ Cue = "/VO/Chronos_0362", Text = "Such ferocity." },
+--{ Cue = "/VO/Chronos_0363", Text = "Such rancor." },
+--{ Cue = "/VO/Chronos_0364", Text = "Such rage." },
+
+--Dodge
+--{ Cue = "/VO/Chronos_0365", Text = "Mm." },
+---{ Cue = "/VO/Chronos_0366", Text = "Mm, mm!" },
+--{ Cue = "/VO/Chronos_0367", Text = "Tsk, tsk..." },
+--{ Cue = "/VO/Chronos_0370", Text = "Manners...!" },
+--{ Cue = "/VO/Chronos_0353", Text = "Oh...?" },
+--{ Cue = "/VO/Chronos_0355", Text = "Please." },
+--{ Cue = "/VO/Chronos_0356", Text = "Pishposh." },
+--{ Cue = "/VO/Chronos_0347", Text = "Embarrassing..." },
+--{ Cue = "/VO/Chronos_0349", Text = "{#Emph}Uh-uh!" },
+--{ Cue = "/VO/Chronos_0348", Text = "Are you quite done?" },
+
+--losing
+--{ Cue = "/VO/Chronos_0389", Text = "You..." },
+--{ Cue = "/VO/Chronos_0390", Text = "How..." },
+--{ Cue = "/VO/Chronos_0391", Text = "How...?" },
+--{ Cue = "/VO/Chronos_0392", Text = "But..." },
+--{ Cue = "/VO/Chronos_0393", Text = "This..." },
+--{ Cue = "/VO/Chronos_0394", Text = "I..." },
+
+
+--Zeus boon
+--Cue = "/VO/Chronos_1324", Text = "If you already have the might of Zeus, then this bodes well!",
+
+--Poseidon boon
+--Cue = "/VO/Chronos_1325", Text = "The strength of my strong son Poseidon already at hand!",
+
+--Defeated Chronos
+--{ Cue = "/VO/Chronos_0396", Text = "History repeats...",
+
+
+-- Low Health
+--{ Cue = "/VO/Chronos_0400", Text = "Ridiculous..." },
+--{ Cue = "/VO/Chronos_0401", Text = "Unbelievable..." },
+--{ Cue = "/VO/Chronos_0402", Text = "Outrageous..." },
+--{ Cue = "/VO/Chronos_0403", Text = "Damnation..." },
+--{ Cue = "/VO/Chronos_0389", Text = "You..." },
+--{ Cue = "/VO/Chronos_0390", Text = "How..." },
+--{ Cue = "/VO/Chronos_0391", Text = "How...?" },
+--{ Cue = "/VO/Chronos_0392", Text = "But..." },
+--{ Cue = "/VO/Chronos_0393", Text = "This..." },
+
+--Hades Invis
+--{ Cue = "/VO/Chronos_0691", Text = "Show yourself!", PlayFirst = true },
+--{ Cue = "/VO/Chronos_0692", Text = "Where did you go..." },
+-- Cue = "/VO/Chronos_0693", Text = "A trick of the eye." },
+--{ Cue = "/VO/Chronos_0694", Text = "You cannot hide." },
+--{ Cue = "/VO/Chronos_0695", Text = "You little sneak!" },
+
+--Devotion Gods angry
+--{ Cue = "/VO/Chronos_0267", Text = "{#Emph}Urgh... gah..." },
+--{ Cue = "/VO/Chronos_0268", Text = "How... {#Emph}dare..." },
+--{ Cue = "/VO/Chronos_0273", Text = "Why... you..." },
+--{ Cue = "/VO/Chronos_0881", Text = "You... damnable..." },
+--{ Cue = "/VO/Chronos_0882", Text = "{#Emph}Guh... {#Prev}absurd..." },
+--{ Cue = "/VO/Chronos_0879", Text = "{#Emph}Gah... {#Prev}again...?",
+--{ Cue = "/VO/Chronos_0883", Text = "Even... now...",
+--{ Cue = "/VO/Chronos_0274", Text = "Time... out...",
+
+--Devotion gods won
+--{ Cue = "/VO/Chronos_0543", Text = "You gods..." }  --last Start Here
+
+--Blocked
+--{ Cue = "/VO/Chronos_0873", Text = "I... think... {#Emph}not." }
+
+--Start New Run
+--{ Cue = "/VO/Chronos_0245", Text = "Three... two... {#Emph}one..." },
+--{ Cue = "/VO/Chronos_0246", Text = "Three... two... {#Emph}one...!" },
+--{ Cue = "/VO/Chronos_0247", Text = "Three... two... {#Emph}one!", PlayFirst = true },
+--{ Cue = "/VO/Chronos_0248", Text = "Three... two... {#Emph}one." },
+--{ Cue = "/VO/Chronos_0249", Text = "This... ends... {#Emph}now...!" },
+--{ Cue = "/VO/Chronos_0250", Text = "This... ends... {#Emph}now..." },
+--{ Cue = "/VO/Chronos_0251", Text = "Time... to... {#Emph}die...!" },
+--{ Cue = "/VO/Chronos_0252", Text = "Time... is... {#Emph}up...!" },
+
+
+--Furies: Megera
+--{ Cue = "/VO/Chronos_1491", Text = "Who exactly do you think I am? Do you take me for?!", PreLineWait = 1.3 }
+--{ Cue = "/VO/Chronos_1493", Text = "But by all means, {#Emph}please{#Prev}, go ahead and try! Or {#Emph}do {#Prev}it, better yet!" }
+
+--Fishing Successful
+--Cue = "/VO/Chronos_0456", Text = "Behold!",
+
+--Reached Olympus
+--{ Cue = "/VO/Chronos_1226", Text = "Olympus..." }
+
+--Lernie
+--{ Cue = "/VO/Chronos_1071", Text = "Oh good, you have arrived." },
+--{ Cue = "/VO/Chronos_0783", Text = "Right on Time." },
+
+--Lernie Start Fight
+--{ Cue = "/VO/Chronos_0348", Text = "Are you quite done?" }
+
+--Mount Olympus
+--{ Cue = "/VO/Chronos_1120", Text = "Foul weather, is it not?" },
+
+--Summit
+--{ Cue = "/VO/Chronos_1112", Text = "{#Emph}Giant of Storms!" },
+
+--Dress
+--{ Cue = "/VO/Chronos_0659", Text = "This is my chosen form."
