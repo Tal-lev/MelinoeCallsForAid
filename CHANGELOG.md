@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-09-22
+
 ### Added
 
 - First version of the mod!
+
+[unreleased]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/0.1.0...HEAD
+[0.1.0]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/fcb01e8e89ce90a033f35896954c090b2770b900...0.1.0

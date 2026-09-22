@@ -5,7 +5,7 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "JarlUlsfark"
 name = "MelinoeCallsForAid"
-versionNumber = "0.0.1"
+versionNumber = "0.1.0"
 description = "Experimental Beta ver: Allow to play as other Characters."
 websiteUrl = "https://github.com/Tal-lev/MelinoeCallsForAid"
 containsNsfwContent = false
