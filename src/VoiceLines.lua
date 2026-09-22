@@ -980,6 +980,8 @@ table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0
 --{ Cue = "/VO/Chronos_1064", Text = "Expecting someone else?"
 --{ Cue = "/VO/Chronos_0008", Text = "Greetings, little one." },
 --{ Cue = "/VO/Chronos_0024", Text = "How fare you, little one?" },
+--{ Cue = "/VO/Chronos_0656", Text = "You are the sheep here." },
+--{ Cue = "/VO/Chronos_0658", Text = "Livestock..." },
 
 --Scylla
 --{ Cue = "/VO/Chronos_0929", Text = "Night after night you carry on like this?",
@@ -1020,6 +1022,7 @@ table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0
 --timer low
 --{ Cue = "/VO/Chronos_0301", Text = "Time is running out..." },
 --{ Cue = "/VO/Chronos_0302", Text = "Time grows short..." },
+--{ Cue = "/VO/Chronos_1211", Text = "No Time for you to spare...",
 
 --Cerberus
 --{ Cue = "/VO/Chronos_1072", Text = "To have come all this way..." },
@@ -1143,3 +1146,43 @@ table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0
 
 --Dress
 --{ Cue = "/VO/Chronos_0659", Text = "This is my chosen form."
+
+--Familiar outfit change
+--{ Cue = "/VO/Chronos_0662", Text = "Oh...!", PlayFirst = true },
+--{ Cue = "/VO/Chronos_0666", Text = "If you could see yourself." },
+
+-- Chronos Legions
+--{ Cue = "/VO/Chronos_0676", Text = "My legions are susceptible..." },
+--{ Cue = "/VO/Chronos_0678", Text = "Get your {#Emph}own {#Prev}servants!" },
+--{ Cue = "/VO/Chronos_0921", Text = "What lunacy is {#Emph}this?" },
+--{ Cue = "/VO/Chronos_0653", Text = "My {#Emph}legions!" },
+
+--Gifting
+--{ Cue = "/VO/Chronos_0412", Text = "Here, I insist!" },
+--{ Cue = "/VO/Chronos_0413", Text = "Here!" },
+--{ Cue = "/VO/Chronos_0414", Text = "For you!" },
+--{ Cue = "/VO/Chronos_0415", Text = "A little gift!" },
+
+--Artemis
+--{ Cue = "/VO/Chronos_0203", Text = "A visitor, at this hour?",
+--{ Cue = "/VO/Chronos_0206", Text = "We meet again, my girl.",
+--{ Cue = "/VO/Chronos_0984", Text = "Looking for someone?",
+--{ Cue = "/VO/Chronos_1048", Text = "You again...",
+
+--Icarus
+--{ Cue = "/VO/Chronos_0203", Text = "A visitor, at this hour?",
+--{ Cue = "/VO/Chronos_0984", Text = "Looking for someone?",
+--{ Cue = "/VO/Chronos_1048", Text = "You again...",
+
+--Arachne Costume
+--{ Cue = "/VO/Chronos_0946", Text = "My, what a lovely dress.",
+--{ Cue = "/VO/Chronos_0948", Text = "Oh good, you brought a change of clothes!",
+--{ Cue = "/VO/Chronos_0807", Text = "Your silk is still intact?",
+--{ Cue = "/VO/Chronos_0808", Text = "That silk lasted this long?",
+--{ Cue = "/VO/Chronos_0809", Text = "Your silk has served you well.",
+
+--Athena
+--{ Cue = "/VO/Chronos_1209", Text = "You seem a little short of breath...",
+--{ Cue = "/VO/Chronos_1210", Text = "You seem rather in a hurry...",
+--{ Cue = "/VO/Chronos_0798", Text = "You look a bit unwell.",
+--{ Cue = "/VO/Chronos_1207", Text = "You are late.",
