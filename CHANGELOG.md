@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adding Special Presentation
   - Entering Chaos Gate
   - Exiting Chaos Gate
+  - Oceanus Room Exit
+  - Oceanus Room Entry
 - Adding Chronos quips
   - Drinking Fountains
   - Equipping Familiars
