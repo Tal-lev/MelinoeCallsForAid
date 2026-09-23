@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Biome Timer Low
   - Kill Last Enemy in Room
   - Gifting Gods
-  - Finding Zeus/Poseidon boons
+  - Finding Zeus/Poseidon/Selene boons
 
 ## [0.1.0] - 2026-09-22
 
