@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Devotion God rejected
   - Reach Low Health
   - Beat Encounter with low Health
+  - Heal
   - Biome Timer Low
   - Kill Last Enemy in Room
   - Gifting Gods
