@@ -116,6 +116,42 @@ table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0
 table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0952", Text = "Ill-tempered little brute!", GameStateRequirements = PolecatCond })
 table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0953", Text = "A {#Emph}weasel {#Prev}bred for war?", GameStateRequirements = PolecatCond })
 
+--Starting New Run
+table.insert(GlobalVoiceLines.StartNewRunVoiceLines[4],{ Cue = "/VO/Chronos_0245", Text = "Three... two... {#Emph}one...",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.StartNewRunVoiceLines[4],{ Cue = "/VO/Chronos_0246", Text = "Three... two... {#Emph}one...!",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.StartNewRunVoiceLines[4],{ Cue = "/VO/Chronos_0247", Text = "Three... two... {#Emph}one!",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.StartNewRunVoiceLines[4],{ Cue = "/VO/Chronos_0248", Text = "Three... two... {#Emph}one.",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.StartNewRunVoiceLines[4],{ Cue = "/VO/Chronos_0249", Text = "This... ends... {#Emph}now...!",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.StartNewRunVoiceLines[4],{ Cue = "/VO/Chronos_0250", Text = "This... ends... {#Emph}now...",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.StartNewRunVoiceLines[4],{ Cue = "/VO/Chronos_0251", Text = "Time... to... {#Emph}die...!",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.StartNewRunVoiceLines[4],{ Cue = "/VO/Chronos_0252", Text = "Time... is... {#Emph}up...!",GameStateRequirements = YesChronosReq })
+
+--Devotion Gods angry
+table.insert(GlobalVoiceLines.GodRejectedVoiceLines[11],{ Cue = "/VO/Chronos_0267", Text = "{#Emph}Urgh... gah...",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.GodRejectedVoiceLines[11],{ Cue = "/VO/Chronos_0268", Text = "How... {#Emph}dare...",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.GodRejectedVoiceLines[11],{ Cue = "/VO/Chronos_0273", Text = "Why... you...",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.GodRejectedVoiceLines[11],{ Cue = "/VO/Chronos_0881", Text = "You... damnable...",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.GodRejectedVoiceLines[11],{ Cue = "/VO/Chronos_0882", Text = "{#Emph}Guh... {#Prev}absurd...",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.GodRejectedVoiceLines[11],{ Cue = "/VO/Chronos_0879", Text = "{#Emph}Gah... {#Prev}again...?",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.GodRejectedVoiceLines[11],{ Cue = "/VO/Chronos_0883", Text = "Even... now...",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.GodRejectedVoiceLines[11],{ Cue = "/VO/Chronos_0274", Text = "Time... out...",GameStateRequirements = YesChronosReq })
+
+--Beat Encounter with low health
+table.insert(GlobalVoiceLines.CombatResolvedLowHealthVoiceLines[2],{ Cue = "/VO/Chronos_0303", Text = "Oh-{#Emph}ho...!",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.CombatResolvedLowHealthVoiceLines[2],{ Cue = "/VO/Chronos_0304", Text = "Ah-{#Emph}hah...!",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.CombatResolvedLowHealthVoiceLines[2],{ Cue = "/VO/Chronos_0305", Text = "{#Emph}<Laugh>",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.CombatResolvedLowHealthVoiceLines[2],{ Cue = "/VO/Chronos_0306", Text = "{#Emph}<Chuckle>",GameStateRequirements = YesChronosReq })
+
+--Timer low
+table.insert(HeroVoiceLines.BiomeTimerAboutToExpireVoiceLines[2],{ Cue = "/VO/Chronos_0301", Text = "Time is running out...",GameStateRequirements = YesChronosReq })
+table.insert(HeroVoiceLines.BiomeTimerAboutToExpireVoiceLines[2],{ Cue = "/VO/Chronos_0302", Text = "Time grows short...",GameStateRequirements = YesChronosReq })
+table.insert(HeroVoiceLines.BiomeTimerAboutToExpireVoiceLines[2],{ Cue = "/VO/Chronos_1211", Text = "No Time for you to spare...",GameStateRequirements = YesChronosReq })
+
+--Kill Last Enemy in room
+table.insert(GlobalVoiceLines.KillingEnemyVoiceLines[1],{ Cue = "/VO/Chronos_0313", Text = "Wither...",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.KillingEnemyVoiceLines[1],{ Cue = "/VO/Chronos_0314", Text = "Begone...",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.KillingEnemyVoiceLines[1],{ Cue = "/VO/Chronos_0327", Text = "Learn some respect!",GameStateRequirements = YesChronosReq })
+
 
 --Heal / Fountain
 --{ Cue = "/VO/Chronos_1214", Text = "Time heals all wounds..." }
@@ -125,9 +161,6 @@ table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0
 --{ Cue = "/VO/Chronos_0621", Text = "You rabble-rousing miscreant, {#Emph}again?", PlayFirst = true },
 --{ Cue = "/VO/Chronos_0311", Text = "A lasting pain..." },
 --{ Cue = "/VO/Chronos_0312", Text = "It lingers, does it not?" },
---{ Cue = "/VO/Chronos_0313", Text = "Wither..." },
---{ Cue = "/VO/Chronos_0314", Text = "Begone..." },
---{ Cue = "/VO/Chronos_0315", Text = "Begone from here..." },
 --{ Cue = "/VO/Chronos_0316", Text = "You shall be cut in twain..." },
 --{ Cue = "/VO/Chronos_0317", Text = "You shall be brought to heel!" },
 --{ Cue = "/VO/Chronos_0318", Text = "Expire..." },
@@ -139,7 +172,6 @@ table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0
 --{ Cue = "/VO/Chronos_0324", Text = "Prepared for more?" },
 --{ Cue = "/VO/Chronos_0325", Text = "What now?" },
 --{ Cue = "/VO/Chronos_0326", Text = "How daft you are..." },
---{ Cue = "/VO/Chronos_0327", Text = "Learn some respect!" },
 --{ Cue = "/VO/Chronos_0328", Text = "You had it coming." },
 --{ Cue = "/VO/Chronos_0329", Text = "We are not done." },
 --{ Cue = "/VO/Chronos_0330", Text = "Another, then?" },
@@ -287,10 +319,6 @@ table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0
 --{ Cue = "/VO/Chronos_1506", Text = "{#Emph}Augh...! {#Prev}How utterly mortifying...!" }
 --{ Cue = "/VO/Chronos_1526", Text = "{#Emph}Aaaugh... impossible...!" }
 
---timer low
---{ Cue = "/VO/Chronos_0301", Text = "Time is running out..." },
---{ Cue = "/VO/Chronos_0302", Text = "Time grows short..." },
---{ Cue = "/VO/Chronos_1211", Text = "No Time for you to spare...",
 
 --Cerberus
 --{ Cue = "/VO/Chronos_1072", Text = "To have come all this way..." },
@@ -301,11 +329,7 @@ table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0
 
 --Reach low Health
 
---Beat Encounter with low health
---{ Cue = "/VO/Chronos_0303", Text = "Oh-{#Emph}ho...!" },
---{ Cue = "/VO/Chronos_0304", Text = "Ah-{#Emph}hah...!" },
---{ Cue = "/VO/Chronos_0305", Text = "{#Emph}<Laugh>" },
---{ Cue = "/VO/Chronos_0306", Text = "{#Emph}<Chuckle>" },
+
 
 
 --Dark Side
@@ -377,16 +401,6 @@ table.insert(GlobalVoiceLines.FamiliarEquipVoiceLines[1], { Cue = "/VO/Chronos_0
 
 --Blocked
 --{ Cue = "/VO/Chronos_0873", Text = "I... think... {#Emph}not." }
-
---Start New Run
---{ Cue = "/VO/Chronos_0245", Text = "Three... two... {#Emph}one..." },
---{ Cue = "/VO/Chronos_0246", Text = "Three... two... {#Emph}one...!" },
---{ Cue = "/VO/Chronos_0247", Text = "Three... two... {#Emph}one!", PlayFirst = true },
---{ Cue = "/VO/Chronos_0248", Text = "Three... two... {#Emph}one." },
---{ Cue = "/VO/Chronos_0249", Text = "This... ends... {#Emph}now...!" },
---{ Cue = "/VO/Chronos_0250", Text = "This... ends... {#Emph}now..." },
---{ Cue = "/VO/Chronos_0251", Text = "Time... to... {#Emph}die...!" },
---{ Cue = "/VO/Chronos_0252", Text = "Time... is... {#Emph}up...!" },
 
 
 --Furies: Megera
