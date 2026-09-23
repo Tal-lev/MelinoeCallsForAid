@@ -716,6 +716,94 @@ function mod.ChronosStartBlinkTrailPresentation()
 	Destroy({ Id = finalAnchor })
 end
 
+function mod.ChronosLeaveRoomSecretDoorPresentation(currentRun, secretDoor)
+	HideCombatUI( "LeaveRoomSecretDoorPresentation" )
+	AddInputBlock({ Name = "LeaveRoomSecretDoorPresentation" })
+	ToggleCombatControl( { "AdvancedTooltip" } , false, "LeaveRoom" )
+
+	local nextRoomData = RoomData[secretDoor.Room.Name] or secretDoor.Room
+	
+	SetAudioEffectState({ Name = "SpellCharge", Value = 0 })
+	-- preserve audio/VO presentation
+	CleanupCustomRoomSounds()
+	PlaySound({ Name = "/SFX/Menu Sounds/ChaosRoomEnterExit" })
+	thread( PlayVoiceLines, HeroVoiceLines.SecretUnlockedVoiceLines )
+	thread( InCombatText, secretDoor.ObjectId, "SecretPassageOpened", 1 )
+	Stop({ Id = CurrentRun.Hero.ObjectId })
+
+	if GameState.TextLinesRecord.ChaosFirstPickUp then
+		--local unequipAnimation = GetEquippedWeaponValue("UnequipAnimation") or "MelinoeIdleWeaponless"
+		SetAnimation({ Name = "Enemy_Chronos_CastFastFire", DestinationId = CurrentRun.Hero.ObjectId, SpeedMultiplier = 2 })
+		wait( 0.5 )
+		--SetAnimation({ Name = "Melinoe_Witchcraft_Start", DestinationId = CurrentRun.Hero.ObjectId, })
+	else
+		wait( 2.0 )
+		--local unequipAnimation = GetEquippedWeaponValue("UnequipAnimation") or "MelinoeIdleWeaponless"
+		SetAnimation({ Name = "Enemy_Chronos_CastFastFire", DestinationId = CurrentRun.Hero.ObjectId })
+		wait( 1.0 )
+		--SetAnimation({ Name = "Melinoe_Witchcraft_Start", DestinationId = CurrentRun.Hero.ObjectId, })
+		wait( 0.9 )
+	end
+
+	thread( DoRumble, { { ScreenPreWait = 0.02, Fraction = 0.15, Duration = 0.7 }, } )
+	Flash({ Id = CurrentRun.Hero.ObjectId, Speed = 0.5, MinFraction = 0, MaxFraction = 1.0, Color = Color.White, Duration = 1.0, ExpireAfterCycle = false })
+	AdjustColorGrading({ Name = secretDoor.EntranceColorGrade or "Chaos", Duration = 0.7 })
+
+	wait(0.6)
+
+	-- The 'damage hit' happens here
+	if secretDoor.HealthCost ~= nil and secretDoor.HealthCost > 0 then
+		CreateAnimation({ Name = "SacrificeHealthFx", DestinationId = CurrentRun.Hero.ObjectId })
+		PlaySound({ Name = "/VO/MelinoeEmotes/EmoteHurt", Id = CurrentRun.Hero.ObjectId })
+		thread( DisplayPlayerDamageText, { triggeredById = CurrentRun.Hero.ObjectId, PercentMaxDealt = secretDoor.HealthCost/CurrentRun.Hero.MaxHealth, DamageAmount = secretDoor.HealthCost } )
+	end
+	AdjustFullscreenBloom({ Name = "NewType09", Duration = 0.1 })
+
+	wait( 0.2 )
+
+	--SetAnimation({ Name = "Melinoe_Witchcraft_End", DestinationId = CurrentRun.Hero.ObjectId, })
+	AdjustFullscreenBloom({ Name = "Off", Duration = 0.3 })
+	PlaySound({ Name = "/Leftovers/SFX/PlayerRespawn" })
+
+	-- She goes through the Oceanus-style sequence of jumping up and in
+	PanCamera({ Id = secretDoor.ObjectId, Duration = 1.1, OffsetY = -50, EaseOut = 0 })	
+
+	wait( 0.3 )	
+
+	SetAnimation({ Name = "Player_Chronos_DashFire", DestinationId = CurrentRun.Hero.ObjectId, SpeedMultiplier = 0.5 })
+	wait( 0.2 )
+	SetAlpha({Id = CurrentRun.Hero.ObjectId, Fraction = 0, Duration = 0})
+	CreateAnimation({ Name = "ChronosTeleportFxFront", DestinationId = CurrentRun.Hero.ObjectId })
+
+	wait( 0.35 )
+
+	PlaySound({ Name = "/VO/MelinoeEmotes/EmoteEvading" })
+	local args = {}
+	args.SuccessDistance = 20
+	args.DisableCollision = true
+	local exitPath = {}
+	table.insert( exitPath, secretDoor.ObjectId )
+	thread( MoveHeroAlongPath, exitPath, args )	
+	
+	wait( 0.2 )
+	
+	PanCamera({ Id = secretDoor.ObjectId, Duration = 1.2, OffsetY = 85, Retarget = true})
+	thread( DoRumble, { { ScreenPreWait = 0.02, Fraction = 0.15, Duration = 0.25 }, } )
+	thread( SlightDescent )
+	
+	local doorHeal = GetDoorHealAmount( CurrentRun )
+	if doorHeal > 0 then
+		thread( OnPlayerHealed, CurrentRun.Hero, { ActualHealAmount = doorHeal } )
+	end
+
+	FullScreenFadeOutAnimation( nextRoomData.LeavePrevRoomWipeAnimation or currentRun.CurrentRoom.LeaveWipeAnimation )
+
+	WaitForSpeechFinished()
+
+	RemoveInputBlock({ Name = "LeaveRoomSecretDoorPresentation" })
+	ToggleCombatControl( { "AdvancedTooltip" } , true, "LeaveRoom" )
+end
+
 function mod.ChronosPlayerTeleport( weaponData, traitArgs, triggerArgs )
 	SetAlpha({Id = CurrentRun.Hero.ObjectId, Fraction = 0, Duration = 0})
 	CreateAnimation({ Name = "ChronosTeleportFxFront", DestinationId = CurrentRun.Hero.ObjectId })
@@ -737,6 +825,15 @@ modutil.mod.Path.Wrap("StartBlinkTrailPresentation", function(baseFunc)
 		mod.ChronosStartBlinkTrailPresentation()
 	else
 		baseFunc()
+	end
+end)
+
+--Chaos gate entrance Chronos
+modutil.mod.Path.Wrap("LeaveRoomSecretDoorPresentation",  function(baseFunc,currentRun, secretDoor) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosLeaveRoomSecretDoorPresentation(currentRun, secretDoor)
+	else
+		baseFunc(currentRun, secretDoor)
 	end
 end)
 

@@ -249,9 +249,9 @@ table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/Ch
 --Encounter MiniBoss Assassin
 table.insert(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[3],{ Cue = "/VO/Chronos_0931", Text = "Come to assassinate me with those knives?",GameStateRequirements = YesChronosReq })
 
---Heal / Fountain
---{ Cue = "/VO/Chronos_1214", Text = "Time heals all wounds..." }
---{ Cue = "/VO/Chronos_1219", Text = "Heal me faster, blast you all!" },
+--Health
+table.insert(GlobalVoiceLines.UsedHealDropVoiceLines[1],{ Cue = "/VO/Chronos_1214", Text = "Time heals all wounds...",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.UsedHealDropVoiceLines[1],{ Cue = "/VO/Chronos_1219", Text = "Heal me faster, blast you all!",GameStateRequirements = YesChronosReq })
 
 -- Enemies?
 --{ Cue = "/VO/Chronos_0621", Text = "You rabble-rousing miscreant, {#Emph}again?", PlayFirst = true },
@@ -515,6 +515,7 @@ table.insert(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[3],{ Cue = "/VO/C
 --{ Cue = "/VO/Chronos_0807", Text = "Your silk is still intact?",
 --{ Cue = "/VO/Chronos_0808", Text = "That silk lasted this long?",
 --{ Cue = "/VO/Chronos_0809", Text = "Your silk has served you well.",
+--{ Cue = "/VO/Chronos_0664", Text = "A new look!" },
 
 --Athena
 --{ Cue = "/VO/Chronos_1209", Text = "You seem a little short of breath...",
@@ -550,5 +551,9 @@ table.insert(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[3],{ Cue = "/VO/C
 --{ Cue = "/VO/Chronos_1352", Text = "{#Emph}Centaur Heart? Centaur Gold!",
 --{ Cue = "/VO/Chronos_1394", Text = "{#Emph}Pom? Gold.",
 --{ Cue = "/VO/Chronos_1395", Text = "{#Emph}Armor? Gold!",
+
+--Time Elemental
+--{ Cue = "/VO/Chronos_1224", Text = "What is that Tempus {#Emph}doing?!",
+--{ Cue = "/VO/Chronos_1224", Text = "What is that Tempus {#Emph}doing?!",
 
 --Check /VO/Intercom_
