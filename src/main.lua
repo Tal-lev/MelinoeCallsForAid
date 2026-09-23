@@ -38,12 +38,19 @@ config = chalk.auto 'config.lua'
 -- ^ this updates our `.cfg` file in the config folder!
 public.config = config -- so other mods can access our config
 
+---@module 'zerp-MelSkin'
+melskin = rom.mods["zerp-MelSkin"]
+
 local function on_ready()
 	-- what to do when we are ready, but not re-do on reload.
 	if config.enabled == false then return end
 	mod = modutil.mod.Mod.Register(_PLUGIN.guid)
 
 	import 'ready.lua'
+
+	if melskin and melskin.RegisterCustomCharacter then
+		import 'MelSkin.lua'
+	end
 end
 
 local function on_reload()

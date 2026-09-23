@@ -22,8 +22,8 @@ JarlUlsfark-SilenceMelinoeHelperMod = "1.0.0"
 
 # Uncomment the section to add any soft dependecies.
 # Learn more about them here https://sgg-modding.github.io/Hades2ModWiki/docs/creating-mods/first-mod-guide/mod-template#packagerom_soft_deps
-# [package.rom_soft_deps]
-# AuthorName-ModName = "0.0.0"
+[package.rom_soft_deps]
+zerp-MelSkin = "1.19.0"
 
 [build]
 icon = "./icon.png"
