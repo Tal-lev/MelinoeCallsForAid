@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Exiting Chaos Gate
   - Oceanus Room Exit
   - Oceanus Room Entry
+  - Olympus Sky Exit
+  - Olympus Sky Entry
 - Adding Chronos quips
   - Drinking Fountains
   - Equipping Familiars
@@ -27,6 +29,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Gifting Gods
   - Finding Zeus/Poseidon/Selene boons
   - Miniboss Encounter Start
+- Removing incompatible Hammer
+  - Axe Attack speed
 
 ## [0.1.0] - 2026-09-22
 
