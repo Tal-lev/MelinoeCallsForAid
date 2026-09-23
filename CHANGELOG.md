@@ -7,9 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- DEV: Split The Muting Mel's quips into a helper mod "SilenceMelinoeHelperMod"
-  - Making SilenceMelinoeHelperMod a dependency for this mod
-- DEV: Moving all imports to main.lua
+- Compatibility with MelSkin mod
 - Adding Special Presentation
   - Entering Chaos Gate
   - Exiting Chaos Gate
@@ -32,6 +30,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Miniboss Encounter Start
 - Removing incompatible Hammer
   - Axe Attack speed
+- DEV: Split The Muting Mel's quips into a helper mod "SilenceMelinoeHelperMod"
+  - Making SilenceMelinoeHelperMod a dependency for this mod
+- DEV: Moving all imports to main.lua
 
 ## [0.1.0] - 2026-09-22
 
