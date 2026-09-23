@@ -52,11 +52,11 @@ local chronosDressData = {
         GrannyTexture = "Models/Chronos/ChronosShadow_Color",
         Outline =
         {
-            R = game.Color.Turquoise[1],
-            G = game.Color.Turquoise[2],
-            B = game.Color.Turquoise[3],
+            R = game.Color.ChronosVoice[1],
+            G = game.Color.ChronosVoice[2],
+            B = game.Color.ChronosVoice[3],
             Opacity = 0.7,
-            Thickness = 3,
+            Thickness = 2,
             Threshold = 0.6,
             FadeInDuration = 0.6,
         },

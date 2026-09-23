@@ -46,8 +46,19 @@ local function on_ready()
 	if config.enabled == false then return end
 	mod = modutil.mod.Mod.Register(_PLUGIN.guid)
 
+	import "text.lua"
+	import "Animations.lua"
+	import "Projectiles.lua"
+	import "DashBoons.lua"
+	import "VoiceLines.lua"
 	import 'ready.lua'
-
+	modutil.once_loaded.game(function()
+		import "Costumes.lua"
+		import "Hammers.lua"
+		import "WeaponShop.lua"
+		SetupRunData()
+		--end
+	end)
 	if melskin and melskin.RegisterCustomCharacter then
 		import 'MelSkin.lua'
 	end
@@ -57,7 +68,7 @@ local function on_reload()
 	-- what to do when we are ready, but also again on every reload.
 	-- only do things that are safe to run over and over.
 	if config.enabled == false then return end
-
+	import "ChronosPresentationFunctions.lua"
 	import 'reload.lua'
 end
 
