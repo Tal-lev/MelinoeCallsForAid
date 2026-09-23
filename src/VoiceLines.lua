@@ -136,6 +136,17 @@ table.insert(GlobalVoiceLines.GodRejectedVoiceLines[11],{ Cue = "/VO/Chronos_087
 table.insert(GlobalVoiceLines.GodRejectedVoiceLines[11],{ Cue = "/VO/Chronos_0883", Text = "Even... now...",GameStateRequirements = YesChronosReq })
 table.insert(GlobalVoiceLines.GodRejectedVoiceLines[11],{ Cue = "/VO/Chronos_0274", Text = "Time... out...",GameStateRequirements = YesChronosReq })
 
+--Reach low Health
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/Chronos_0400", Text = "Ridiculous...",GameStateRequirements = YesChronosReq })
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/Chronos_0401", Text = "Unbelievable...",GameStateRequirements = YesChronosReq })
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/Chronos_0402", Text = "Outrageous...",GameStateRequirements = YesChronosReq })
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/Chronos_0403", Text = "Damnation...",GameStateRequirements = YesChronosReq })
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/Chronos_0389", Text = "You...",GameStateRequirements = YesChronosReq })
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/Chronos_0390", Text = "How...",GameStateRequirements = YesChronosReq })
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/Chronos_0391", Text = "How...?",GameStateRequirements = YesChronosReq })
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/Chronos_0392", Text = "But...",GameStateRequirements = YesChronosReq })
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/Chronos_0393", Text = "This...",GameStateRequirements = YesChronosReq })
+
 --Beat Encounter with low health
 table.insert(GlobalVoiceLines.CombatResolvedLowHealthVoiceLines[2],{ Cue = "/VO/Chronos_0303", Text = "Oh-{#Emph}ho...!",GameStateRequirements = YesChronosReq })
 table.insert(GlobalVoiceLines.CombatResolvedLowHealthVoiceLines[2],{ Cue = "/VO/Chronos_0304", Text = "Ah-{#Emph}hah...!",GameStateRequirements = YesChronosReq })
@@ -152,6 +163,89 @@ table.insert(GlobalVoiceLines.KillingEnemyVoiceLines[1],{ Cue = "/VO/Chronos_031
 table.insert(GlobalVoiceLines.KillingEnemyVoiceLines[1],{ Cue = "/VO/Chronos_0314", Text = "Begone...",GameStateRequirements = YesChronosReq })
 table.insert(GlobalVoiceLines.KillingEnemyVoiceLines[1],{ Cue = "/VO/Chronos_0327", Text = "Learn some respect!",GameStateRequirements = YesChronosReq })
 
+--Gifting Icarus
+table.insert(GlobalVoiceLines.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0412", Text = "Here, I insist!",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0413", Text = "Here!",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0414", Text = "For you!",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0415", Text = "A little gift!",GameStateRequirements = YesChronosReq })
+--Gifting Aphrodite
+table.insert(LootData.AphroditeUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0412", Text = "Here, I insist!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.AphroditeUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0413", Text = "Here!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.AphroditeUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0414", Text = "For you!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.AphroditeUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0415", Text = "A little gift!",GameStateRequirements = YesChronosReq })
+--Gifting Apollo
+table.insert(LootData.ApolloUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0412", Text = "Here, I insist!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.ApolloUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0413", Text = "Here!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.ApolloUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0414", Text = "For you!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.ApolloUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0415", Text = "A little gift!",GameStateRequirements = YesChronosReq })
+--Gifting Ares
+table.insert(LootData.AresUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0412", Text = "Here, I insist!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.AresUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0413", Text = "Here!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.AresUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0414", Text = "For you!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.AresUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0415", Text = "A little gift!",GameStateRequirements = YesChronosReq })
+--Gifting Demeter
+table.insert(LootData.DemeterUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0412", Text = "Here, I insist!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.DemeterUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0413", Text = "Here!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.DemeterUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0414", Text = "For you!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.DemeterUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0415", Text = "A little gift!",GameStateRequirements = YesChronosReq })
+--Gifting Heph
+table.insert(LootData.HephaestusUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0412", Text = "Here, I insist!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.HephaestusUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0413", Text = "Here!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.HephaestusUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0414", Text = "For you!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.HephaestusUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0415", Text = "A little gift!",GameStateRequirements = YesChronosReq })
+--Gifting Hera
+table.insert(LootData.HeraUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0412", Text = "Here, I insist!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.HeraUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0413", Text = "Here!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.HeraUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0414", Text = "For you!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.HeraUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0415", Text = "A little gift!",GameStateRequirements = YesChronosReq })
+--Gifting Hermes
+table.insert(LootData.HermesUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0412", Text = "Here, I insist!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.HermesUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0413", Text = "Here!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.HermesUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0414", Text = "For you!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.HermesUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0415", Text = "A little gift!",GameStateRequirements = YesChronosReq })
+--Gifting Hestia
+table.insert(LootData.HestiaUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0412", Text = "Here, I insist!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.HestiaUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0413", Text = "Here!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.HestiaUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0414", Text = "For you!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.HestiaUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0415", Text = "A little gift!",GameStateRequirements = YesChronosReq })
+--Gifting Poseidon
+table.insert(LootData.PoseidonUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0412", Text = "Here, I insist!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.PoseidonUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0413", Text = "Here!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.PoseidonUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0414", Text = "For you!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.PoseidonUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0415", Text = "A little gift!",GameStateRequirements = YesChronosReq })
+--Gifting Selene
+table.insert(LootData.SpellDrop.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0412", Text = "Here, I insist!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.SpellDrop.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0413", Text = "Here!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.SpellDrop.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0414", Text = "For you!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.SpellDrop.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0415", Text = "A little gift!",GameStateRequirements = YesChronosReq })
+--Gifting Zeus
+table.insert(LootData.ZeusUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0412", Text = "Here, I insist!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.ZeusUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0413", Text = "Here!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.ZeusUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0414", Text = "For you!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.ZeusUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0415", Text = "A little gift!",GameStateRequirements = YesChronosReq })
+
+--Boon of Zeus
+table.insert(LootData.ZeusUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1324", Text = "If you already have the might of Zeus, then this bodes well!",GameStateRequirements = YesChronosReq })
+--Boon of Poseidon
+table.insert(LootData.PoseidonUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1325", Text = "The strength of my strong son Poseidon already at hand!",GameStateRequirements = YesChronosReq })
+--Boon of Selene
+table.insert(LootData.SpellDrop.OnSpawnVoiceLines[1], { Cue = "/VO/Chronos_0674", Text = "The Moon shines even here...",GameStateRequirements = YesChronosReq })
+table.insert(LootData.SpellDrop.OnSpawnVoiceLines[1], { Cue = "/VO/Chronos_0672", Text = "The Moon's own light...",GameStateRequirements = YesChronosReq })
+
+-- Encounter Generic MiniBoss Start
+table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/Chronos_0339", Text = "How frightening.",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/Chronos_0340", Text = "{#Emph}Ohh{#Prev}, how fierce.",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/Chronos_0341", Text = "Oh dear.",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/Chronos_0342", Text = "{#Emph}Oh no...!",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/Chronos_0343", Text = "Shall that be all?",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/Chronos_0344", Text = "{#Emph}Tut-tut...!",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/Chronos_0345", Text = "Do cut it out?",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/Chronos_0348", Text = "Are you quite done?",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/Chronos_0153", Text = "{#Emph}Temper!",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/Chronos_0154", Text = "The {#Emph}nerve!",GameStateRequirements = YesChronosReq })
+
+--Encounter MiniBoss Assassin
+table.insert(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[3],{ Cue = "/VO/Chronos_0931", Text = "Come to assassinate me with those knives?",GameStateRequirements = YesChronosReq })
 
 --Heal / Fountain
 --{ Cue = "/VO/Chronos_1214", Text = "Time heals all wounds..." }
@@ -183,25 +277,12 @@ table.insert(GlobalVoiceLines.KillingEnemyVoiceLines[1],{ Cue = "/VO/Chronos_032
 --{ Cue = "/VO/Chronos_0295", Text = "But one more cut or two..." },
 --{ Cue = "/VO/Chronos_0296", Text = "You only make things worse!" },
 
---Generic MiniBoss
---{ Cue = "/VO/Chronos_0339", Text = "How frightening." },
---	{ Cue = "/VO/Chronos_0340", Text = "{#Emph}Ohh{#Prev}, how fierce." },
---	{ Cue = "/VO/Chronos_0341", Text = "Oh dear." },
---	{ Cue = "/VO/Chronos_0342", Text = "{#Emph}Oh no...!" },
---	{ Cue = "/VO/Chronos_0343", Text = "Shall that be all?" },
---	{ Cue = "/VO/Chronos_0344", Text = "{#Emph}Tut-tut...!" },
---	{ Cue = "/VO/Chronos_0345", Text = "Do cut it out?" },
---	{ Cue = "/VO/Chronos_0348", Text = "Are you quite done?" },
---	{ Cue = "/VO/Chronos_0153", Text = "{#Emph}Temper!" },
---	{ Cue = "/VO/Chronos_0154", Text = "The {#Emph}nerve!" },
+
 
 
 --Won Encounter
 --{ Cue = "/VO/Chronos_0014", Text = "I think not."
 --{ Cue = "/VO/Chronos_0095", Text = "That shall not work.",
-
---Assassin miniboss
---{ Cue = "/VO/Chronos_0931", Text = "Come to assassinate me with those knives?",
 
 --Hecate
 --{ Cue = "/VO/Chronos_0930", Text = "That staff of yours is no match for my scythe.",
@@ -211,9 +292,7 @@ table.insert(GlobalVoiceLines.KillingEnemyVoiceLines[1],{ Cue = "/VO/Chronos_032
 --{ Cue = "/VO/Chronos_0298", Text = "My girl, would you please die?" },
 --{ Cue = "/VO/Chronos_1230", Text = "Such a night...",
 
---For Path Of Stars
---{ Cue = "/VO/Chronos_0674", Text = "The Moon shines even here..." },
---{ Cue = "/VO/Chronos_0672", Text = "The Moon's own light..." },
+
 
 --Return from polymorph
 --{ Cue = "/VO/Chronos_0656", Text = "You are the sheep here." },
@@ -327,11 +406,6 @@ table.insert(GlobalVoiceLines.KillingEnemyVoiceLines[1],{ Cue = "/VO/Chronos_032
 --{ Cue = "/VO/Chronos_1225", Text = "{#Emph}<Scoff>"
 --{ Cue = "/VO/Chronos_0027", Text = "{#Emph}There {#Prev}you are." },
 
---Reach low Health
-
-
-
-
 --Dark Side
 --{ Cue = "/VO/Chronos_0362", Text = "Such ferocity." },
 --{ Cue = "/VO/Chronos_0363", Text = "Such rancor." },
@@ -357,27 +431,8 @@ table.insert(GlobalVoiceLines.KillingEnemyVoiceLines[1],{ Cue = "/VO/Chronos_032
 --{ Cue = "/VO/Chronos_0393", Text = "This..." },
 --{ Cue = "/VO/Chronos_0394", Text = "I..." },
 
-
---Zeus boon
---Cue = "/VO/Chronos_1324", Text = "If you already have the might of Zeus, then this bodes well!",
-
---Poseidon boon
---Cue = "/VO/Chronos_1325", Text = "The strength of my strong son Poseidon already at hand!",
-
 --Defeated Chronos
 --{ Cue = "/VO/Chronos_0396", Text = "History repeats...",
-
-
--- Low Health
---{ Cue = "/VO/Chronos_0400", Text = "Ridiculous..." },
---{ Cue = "/VO/Chronos_0401", Text = "Unbelievable..." },
---{ Cue = "/VO/Chronos_0402", Text = "Outrageous..." },
---{ Cue = "/VO/Chronos_0403", Text = "Damnation..." },
---{ Cue = "/VO/Chronos_0389", Text = "You..." },
---{ Cue = "/VO/Chronos_0390", Text = "How..." },
---{ Cue = "/VO/Chronos_0391", Text = "How...?" },
---{ Cue = "/VO/Chronos_0392", Text = "But..." },
---{ Cue = "/VO/Chronos_0393", Text = "This..." },
 
 --Hades Invis
 --{ Cue = "/VO/Chronos_0691", Text = "Show yourself!", PlayFirst = true },
@@ -439,11 +494,7 @@ table.insert(GlobalVoiceLines.KillingEnemyVoiceLines[1],{ Cue = "/VO/Chronos_032
 --{ Cue = "/VO/Chronos_0921", Text = "What lunacy is {#Emph}this?" },
 --{ Cue = "/VO/Chronos_0653", Text = "My {#Emph}legions!" },
 
---Gifting
---{ Cue = "/VO/Chronos_0412", Text = "Here, I insist!" },
---{ Cue = "/VO/Chronos_0413", Text = "Here!" },
---{ Cue = "/VO/Chronos_0414", Text = "For you!" },
---{ Cue = "/VO/Chronos_0415", Text = "A little gift!" },
+
 
 --Artemis
 --{ Cue = "/VO/Chronos_0203", Text = "A visitor, at this hour?",
