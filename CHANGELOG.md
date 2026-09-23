@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Equipping Familiars
   - Starting New Run
   - Devotion God rejected
+  - Reach Low Health
   - Beat Encounter with low Health
   - Biome Timer Low
   - Kill Last Enemy in Room
