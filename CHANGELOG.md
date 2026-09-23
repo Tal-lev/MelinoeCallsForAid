@@ -17,6 +17,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Beat Encounter with low Health
   - Biome Timer Low
   - Kill Last Enemy in Room
+  - Gifting Gods
+  - Finding Zeus/Poseidon boons
 
 ## [0.1.0] - 2026-09-22
 
