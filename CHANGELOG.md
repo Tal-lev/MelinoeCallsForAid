@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - DEV: Split The Muting Mel's quips into a helper mod "SilenceMelinoeHelperMod"
   - Making SilenceMelinoeHelperMod a dependency for this mod
+- DEV: Moving all imports to main.lua
+- Adding Special Presentation
+  - Entering Chaos Gate
+  - Exiting Chaos Gate
 - Adding Chronos quips
   - Drinking Fountains
   - Equipping Familiars
