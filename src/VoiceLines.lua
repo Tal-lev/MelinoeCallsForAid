@@ -125,6 +125,8 @@ table.insert(GlobalVoiceLines.StartNewRunVoiceLines[4],{ Cue = "/VO/Chronos_0249
 table.insert(GlobalVoiceLines.StartNewRunVoiceLines[4],{ Cue = "/VO/Chronos_0250", Text = "This... ends... {#Emph}now...",GameStateRequirements = YesChronosReq })
 table.insert(GlobalVoiceLines.StartNewRunVoiceLines[4],{ Cue = "/VO/Chronos_0251", Text = "Time... to... {#Emph}die...!",GameStateRequirements = YesChronosReq })
 table.insert(GlobalVoiceLines.StartNewRunVoiceLines[4],{ Cue = "/VO/Chronos_0252", Text = "Time... is... {#Emph}up...!",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.StartNewRunVoiceLines[4],{ Cue = "/VO/Chronos_1336", Text = "Time to go.",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.StartNewRunVoiceLines[4],{ Cue = "/VO/Chronos_1337", Text = "Right! Time to go.",GameStateRequirements = YesChronosReq })
 
 --Devotion Gods angry
 table.insert(GlobalVoiceLines.GodRejectedVoiceLines[11],{ Cue = "/VO/Chronos_0267", Text = "{#Emph}Urgh... gah...",GameStateRequirements = YesChronosReq })
@@ -519,3 +521,34 @@ table.insert(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[3],{ Cue = "/VO/C
 --{ Cue = "/VO/Chronos_1210", Text = "You seem rather in a hurry...",
 --{ Cue = "/VO/Chronos_0798", Text = "You look a bit unwell.",
 --{ Cue = "/VO/Chronos_1207", Text = "You are late.",
+
+--General Farewell / Goodbye
+--{ Cue = "/VO/Chronos_1033", Text = "Farewell!", PlayFirst = true },
+--{ Cue = "/VO/Chronos_1037", Text = "See you later!" },
+--{ Cue = "/VO/Chronos_1037_B", Text = "See you later!" },
+--{ Cue = "/VO/Chronos_1040", Text = "Another time!" },
+--{ Cue = "/VO/Chronos_1041", Text = "Do take care!" },
+--{ Cue = "/VO/Chronos_1045", Text = "Go on then!" },
+
+--Charon / Destroying gold?
+--{ Cue = "/VO/Chronos_1340", Text = "{#Emph}Solid Gold!", PlayFirst = true },
+--{ Cue = "/VO/Chronos_1338", Text = "{#Emph}To Gold!" },
+--{ Cue = "/VO/Chronos_1339", Text = "{#Emph}To Gold!" },
+--{ Cue = "/VO/Chronos_1341", Text = "{#Emph}A golden opportunity!" },
+--{ Cue = "/VO/Chronos_1342", Text = "{#Emph}Gold." },
+--{ Cue = "/VO/Chronos_1343", Text = "{#Emph}Gold!" },
+--{ Cue = "/VO/Chronos_1344", Text = "{#Emph}Boon? Gold!",
+
+--Loot?
+--Cue = "/VO/Chronos_1345", Text = "{#Emph}Onion? Gold!"
+--{ Cue = "/VO/Chronos_1346", Text = "{#Emph}Ashes? Gold!",
+--{ Cue = "/VO/Chronos_1347", Text = "{#Emph}Bones? Gold.",
+--{ Cue = "/VO/Chronos_1348", Text = "{#Emph}Nectar? Gold.",
+--{ Cue = "/VO/Chronos_1349", Text = "{#Emph}Hammer? Gold.",
+--{ Cue = "/VO/Chronos_1350", Text = "{#Emph}Moon? Gold!",
+--{ Cue = "/VO/Chronos_1351", Text = "{#Emph}Tonic? Gold!",
+--{ Cue = "/VO/Chronos_1352", Text = "{#Emph}Centaur Heart? Centaur Gold!",
+--{ Cue = "/VO/Chronos_1394", Text = "{#Emph}Pom? Gold.",
+--{ Cue = "/VO/Chronos_1395", Text = "{#Emph}Armor? Gold!",
+
+--Check /VO/Intercom_
