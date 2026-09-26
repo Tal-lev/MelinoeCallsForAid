@@ -24,6 +24,7 @@ JarlUlsfark-SilenceMelinoeHelperMod = "1.0.0"
 # Learn more about them here https://sgg-modding.github.io/Hades2ModWiki/docs/creating-mods/first-mod-guide/mod-template#packagerom_soft_deps
 [package.rom_soft_deps]
 zerp-MelSkin = "1.19.0"
+NikkelM-Zagreus_Journey = "1.3.0"
 
 [build]
 icon = "./icon.png"
