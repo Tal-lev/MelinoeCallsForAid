@@ -25,6 +25,8 @@ A Hades II mod that allows you to play as other Characters.
 - Art
   - New Hammer Icon
   - Mana related Icons
+  - Hex related Icons
+  - Portrait expressions
 - Zagreus Journyey
   - Quips are not muted
   - Run Start Gate animation missing
