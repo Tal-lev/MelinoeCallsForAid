@@ -11,12 +11,23 @@ A Hades II mod that allows you to play as other Characters.
 
 ## Missing features
 
-- Demeter and Apollo Dash boons
-- Some of Melinoe's quips are not muted
-- Most of Chronos's quips
+- Traits
+  - Dash Boons
+    - Demeter
+    - Apollo
+- Chronos Hexes
+  - Summon Healing Tempus (instead of potion spell)
+  - Outward/Inward Ring
+  - Countdown to death?
+- A lot of Chronos's quips are missing
 - Interaction Animations may be glitchy
 - Missing Chronos Portrait in conversations (similar to Mel's Background in Zagreus Journey mod)
-- New Hammer Icon Art
+- Art
+  - New Hammer Icon
+  - Mana related Icons
+- Zagreus Journyey
+  - Quips are not muted
+  - Run Start Gate animation missing
 
 ## Installation
 
