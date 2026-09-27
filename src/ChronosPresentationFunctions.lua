@@ -642,6 +642,350 @@ function mod.ChronosLeaveRoomSecretDoorPresentation(currentRun, secretDoor)
 	ToggleCombatControl( { "AdvancedTooltip" } , true, "LeaveRoom" )
 end
 
+function mod.ChronosExitBiomeGRoomPresentation( currentRun, exitDoor )
+	AddInputBlock({ Name = "LeaveRoomPresentation" })
+	ToggleCombatControl( { "AdvancedTooltip" } , false, "LeaveRoom" )
+	HideCombatUI( "ExitBiomeGRoomPresentation" )
+	LeaveRoomAudio( currentRun, exitDoor )
+
+	if exitDoor ~= nil then
+		if exitDoor.AdditionalIcons ~= nil and not IsEmpty( exitDoor.AdditionalIcons ) then
+			Destroy({ Ids = GetAllValues( exitDoor.AdditionalIcons ) })
+			exitDoor.AdditionalIcons = nil
+		end
+		DestroyDoorRewardPresenation( exitDoor )
+		if exitDoor.ExitDoorOpenAnimation ~= nil then
+			SetAnimation({ DestinationId = exitDoor.ObjectId, Name = exitDoor.ExitDoorOpenAnimation })
+		end
+	end
+
+	thread( PlayVoiceLines, HeroVoiceLines.OceanusExitVoiceLines, true )
+
+	Stop({ Id = CurrentRun.Hero.ObjectId })
+	wait (0.01)
+
+	PlaySound({ Name = "/SFX/Menu Sounds/GeneralWhooshMENULoudLow" })
+	local unequipAnimation = GetEquippedWeaponValue("UnequipAnimation") or "MelinoeIdleWeaponless"
+	CreateAnimation({ Name = "ChronosTeleportFxFront", DestinationId = CurrentRun.Hero.ObjectId })
+	SetAlpha({ Id = currentRun.Hero.ObjectId, Fraction = 0.0, Duration = 0.5 })
+	--SetAnimation({ Name = unequipAnimation, DestinationId = CurrentRun.Hero.ObjectId })
+	PanCamera({ Id = exitDoor.ObjectId, Duration = 1.1, OffsetY = -50, EaseOut = 0 })
+	
+	wait( 0.5 )	
+
+	--SetAnimation({ Name = "Melinoe_Drop_Exit_Start", DestinationId = CurrentRun.Hero.ObjectId, SpeedMultiplier = 0.5 })
+	SetThingProperty({ DestinationId = CurrentRun.Hero.ObjectId, Property = "Tallness", Value = 400 })
+
+	wait( 0.35 )
+
+	PlaySound({ Name = "/VO/MelinoeEmotes/EmoteEvading" })
+	local args = {}
+	args.SuccessDistance = 20
+	args.DisableCollision = true
+	local exitPath = {}
+	table.insert( exitPath, exitDoor.ObjectId )
+	thread( MoveHeroAlongPath, exitPath, args )	
+	
+	wait( 0.20 )
+	
+	thread( SlightDescent )
+	PanCamera({ Id = exitDoor.ObjectId, Duration = 1.2, OffsetY = 85, Retarget = true})
+	thread( DoRumble, { { ScreenPreWait = 0.02, Fraction = 0.15, Duration = 0.25 }, } )
+
+	FullScreenFadeOutAnimation( "RoomTransitionIn_Down" )
+
+	WaitForSpeechFinished()
+
+	RemoveInputBlock({ Name = "LeaveRoomPresentation" })
+	ToggleCombatControl( { "AdvancedTooltip" } , true, "LeaveRoom" )	
+end
+
+function mod.ChronosEnterBiomeGRoomPresentation( currentRun, currentRoom )
+	AddInputBlock({ Name = "BiomeGRoomEntrance" })
+	local roomIntroSequenceDuration = currentRoom.IntroSequenceDuration or RoomData.BaseRoom.IntroSequenceDuration or 0.0
+	AdjustFullscreenBloom({ Name = "NewType09" })
+	SetAlpha({ Id = currentRun.Hero.ObjectId, Fraction = 0.0, Duration = 1.0 })
+	wait(0.03)
+	if currentRoom.HeroEndPoint ~= nil then
+		AngleTowardTarget({ Id = currentRun.Hero.ObjectId, DestinationId = currentRoom.HeroEndPoint })
+		Teleport({ Id = currentRun.Hero.ObjectId, DestinationId = currentRoom.HeroEndPoint })
+	end
+	LockCamera({ Id = currentRun.Hero.ObjectId, Duration = 0, OffsetY = -150 })
+	AdjustZLocation({ Id = currentRun.Hero.ObjectId, Distance = 1800, Duration = 0.0 })
+	PanCamera({ Id = currentRun.Hero.ObjectId, Duration = 1.2, EaseIn = 0, Retarget = true})
+	wait(0.03)
+
+	ApplyUpwardForce({ Id = currentRun.Hero.ObjectId, Speed = -100 })
+	FadeIn({ Duration = 0.0 })
+	FullScreenFadeInAnimation( "RoomTransitionOut_Down" )
+	wait(0.3)
+
+	
+	AdjustFullscreenBloom({ Name = "Off", Duration = 1.0 })
+	wait(0.03)
+
+	thread( PlayVoiceLines, currentRoom.Encounter.EnterVoiceLines or currentRoom.EnterVoiceLines, true )
+	thread( PlayVoiceLines, GlobalVoiceLines[currentRoom.EnterGlobalVoiceLines], true )
+
+	thread(DelayedRemoveInputBlock, 0.35, "BiomeGRoomEntrance")
+	
+	wait (0.33)
+	ShakeScreen({ Speed = 150, Distance = 6, Duration = 0.15, FalloffSpeed = 500, Angle = 90 })
+	thread( DoRumble, { { ScreenPreWait = 0.02, Fraction = 0.18, Duration = 0.8 }, } )
+	SetAlpha({ Id = currentRun.Hero.ObjectId, Fraction = 1.0, Duration = 1.0 })
+	CreateAnimation({ Name = "ChronosTeleportFxFront", DestinationId = CurrentRun.Hero.ObjectId })
+	CreateAnimation({ Name = "MelEntranceSplash", DestinationId = CurrentRun.Hero.ObjectId })
+end
+
+--Exiting Special Room P
+function mod.ChronosOlympusSkyExitPresentation( currentRun, exitDoor )
+
+	CurrentRun.CurrentRoom.NextRoomEntranceFunctionNameOverride = exitDoor.NextRoomEntranceFunctionName
+	CurrentRun.CurrentRoom.NextRoomEntranceFunctionArgsOverride = exitDoor.NextRoomEntranceFunctionArgs
+	AddInputBlock({ Name = "OlympusLeaveRoomPresentation" })
+	
+	ToggleCombatControl( { "AdvancedTooltip" } , false, "LeaveRoom" )
+	HideCombatUI( "OlympusLeaveRoomPresentation" )
+
+	local exitDoorId = exitDoor.ObjectId
+	local door = MapState.OfferedExitDoors[exitDoorId]
+
+	Stop({ Id = CurrentRun.Hero.ObjectId })
+	waitUnmodified (0.01)
+	PlayInteractAnimation( exitDoorId, { Animation = GetEquippedWeaponValue( "WeaponInteractAnimation" ) } )
+
+	if door ~= nil then
+		thread( DestroyDoorRewardPresenation, door )
+		if door.ExitDoorOpenAnimation ~= nil then
+			SetAnimation({ DestinationId = exitDoorId, Name = door.ExitDoorOpenAnimation })
+			thread( DoRumble, { { ScreenPreWait = 0.02, Fraction = 0.15, Duration = 0.4 }, } )
+			-- wait( 0.7 )
+		end
+	end
+
+	local heroExitIds = GetIdsByType({ Name = "HeroExit" })
+	local heroExitPointId = GetClosest({ Id = exitDoorId, DestinationIds = heroExitIds, Distance = 800 })
+	if heroExitPointId <= 0 and exitDoorId ~= nil then
+		heroExitPointId = exitDoorId
+	end
+
+	thread( PlayVoiceLines, HeroVoiceLines.OlympusSkyExitVoiceLines, false )
+
+	local args = {}
+	args.SuccessDistance = 20
+	args.DisableCollision = true
+	local exitPath = {}
+	table.insert( exitPath, exitDoor.ObjectId )
+	thread( MoveHeroAlongPath, exitPath, args )
+
+	waitUnmodified (0.01)
+
+	local jumpSound = PlaySound({ Name = "/SFX/BombFusePreExplode", Id = exitDoor.ObjectId })
+	local unequipAnimation = GetEquippedWeaponValue("UnequipAnimation") or "MelinoeIdleWeaponless"
+	--SetAnimation({ Name = unequipAnimation, DestinationId = CurrentRun.Hero.ObjectId, SpeedMultiplier = 1.8 })
+	Flash({ Id = exitDoorId, Speed = 0.65, MinFraction = 0, MaxFraction = 1.0, Color = Color.White, ExpireAfterCycle = true})
+
+	waitUnmodified( 0.5 )
+
+	PlaySound({ Name = "/VO/MelinoeEmotes/EmoteEvading", Id = CurrentRun.Hero.ObjectId })
+	--SetAnimation({ Name = "Melinoe_CrossCast_Start_Fast", DestinationId = CurrentRun.Hero.ObjectId, })
+	PanCamera({ Id = exitDoor.ObjectId, Duration = 1.5, OffsetY = -400, Retarget = true })
+	
+	waitUnmodified( 0.18 )
+
+	PlaySound({ Name = "/VO/MelinoeEmotes/EmoteEvading", Id = CurrentRun.Hero.ObjectId })
+
+	thread( DoRumble, { { ScreenPreWait = 0.02, Fraction = 0.15, Duration = 0.25 }, } )
+	--SetAnimation({ Name = "MelinoeCrossCastHold", DestinationId = CurrentRun.Hero.ObjectId })
+	ShakeScreen({ Speed = 400, Distance = 4, Angle = 0, FalloffSpeed = 1000, Duration = 1.0 })
+	CreateAnimation({ Name = "ChronosTeleportFxFront", DestinationId = CurrentRun.Hero.ObjectId })
+
+	waitUnmodified( 0.05 )
+	PlaySound({ Name = "/SFX/OlympusJumpLaunchOnly" })
+	StopSound({ Id = jumpSound, Duration = 0.2 })
+	jumpSound = nil
+
+	AdjustZLocation({ Id = CurrentRun.Hero.ObjectId, Distance = 1400, Duration = 0.35, })
+
+	waitUnmodified( 0.12 )
+
+	SetAlpha({ Id = currentRun.Hero.ObjectId, Fraction = 0, Duration = 0.2 })
+	PlaySound({ Name = "/Leftovers/World Sounds/MapZoomInShortHigh" })
+
+	LeaveRoomAudio( currentRun, exitDoor )
+	if exitDoor.Room.ExitTowardsFunctionName ~= nil then
+		CallFunctionName( exitDoor.Room.ExitTowardsFunctionName, exitDoor, exitDoor.Room.ExitTowardsFunctionArgs )
+	end
+
+	if door ~= nil and door.ExitDoorCloseAnimation ~= nil then
+		SetAnimation({ DestinationId = exitDoorId, Name = door.ExitDoorCloseAnimation })
+		thread( DoRumble, { { ScreenPreWait = 0.02, Fraction = 0.15, Duration = 0.2 }, } )
+	end
+
+	IgnoreGravity({ Id = CurrentRun.Hero.ObjectId })
+	FullScreenFadeOutAnimation( "RoomTransitionIn_Up" )
+
+	WaitForSpeechFinished()
+
+	RemoveInputBlock({ Name = "OlympusLeaveRoomPresentation" })
+	ToggleCombatControl( { "AdvancedTooltip" } , true, "LeaveRoom" )
+end
+
+--Chronos Entrance P
+function mod.ChronosOlympusSkyEntrancePresentation( currentRun, currentRoom, args )
+	args = args or {}
+	SessionMapState.SkyEntranceInProgress = true
+	currentRoom.BlockAggro = true
+	local notifyName = args.NotifyName or "SkyEntranceInput"
+	currentRoom.EntrancePresentationNotifyName = notifyName
+
+	local startPointOptions = GetIds({ Name = "SkySpawnPoints" }) or { currentRoom.HeroEndPoint }
+	local startPoint = nil
+
+	if ActiveEnemies ~= nil and not IsEmpty(ActiveEnemies) then
+		startPoint = GetClosest({ Id = GetRandomValue(ActiveEnemies).ObjectId, DestinationIds = startPointOptions,  })
+	else
+		startPoint = GetRandomValue(startPointOptions)
+	end
+
+	AddInputBlock({ Name = "OlympusSkyEntrancePresentation" })
+	SetPlayerInvulnerable( "OlympusSkyEntrance" )
+	if not args.NoInput then
+		ToggleCombatControl( CombatControlsDefaults, false, "OlympusSkyEntrancePresentation" )
+	end
+	local roomIntroSequenceDuration = currentRoom.IntroSequenceDuration or RoomData.BaseRoom.IntroSequenceDuration or 0.0
+	AdjustFullscreenBloom({ Name = "NewType09" })
+
+	if startPoint ~= nil then
+		AngleTowardTarget({ Id = currentRun.Hero.ObjectId, DestinationId = startPoint })
+		Teleport({ Id = currentRun.Hero.ObjectId, DestinationId = startPoint })
+	end
+	LockCamera({ Id = currentRun.Hero.ObjectId, Duration = 0, OffsetY = -150 })
+	PanCamera({ Id = currentRun.Hero.ObjectId, Duration = 1.2, EaseIn = 0, Retarget = true})
+	AdjustZoom({ Fraction = 0.5, LerpTime = 0.0 })
+	wait(0.03)
+	local airSoundId = PlaySound({ Name = "/Leftovers/Ambience/WhippingWindLoopLoud", Id = CurrentRun.Hero.ObjectId })
+	PlaySound({ Name = "/SFX/GasBomb", Id = CurrentRun.Hero.ObjectId })
+
+	ApplyUpwardForce({ Id = currentRun.Hero.ObjectId, Speed = -100 })
+	FadeIn({ Duration = 0.0 })
+	FullScreenFadeInAnimation( "RoomTransitionOut_Down" )
+
+	RemoveInputBlock({ Name = "OlympusSkyEntrancePresentation" })
+	RemoveInputBlock({ Name = "StartRoom" })
+	RemoveInputBlock({ Name = "StartRoomPresentation" })
+
+	-- Start these earlier than normal in this case
+	local encounterData = EncounterData[currentRoom.Encounter.Name] or currentRoom.Encounter
+	RunEventsGeneric( encounterData.EncounterSpawnsStartEvents, currentRoom.Encounter )
+	currentRoom.Encounter.RanEncounterSpawnsStartEvents = true
+
+	SetAnimation({ Name = "HeroTouchdownCircle", DestinationId = CurrentRun.Hero.ObjectId })
+	SetAlpha({ Id = currentRun.Hero.ObjectId, Fraction = 0.0, Duration = 0.0 })
+	SetUnitProperty({ Property = "MoveGraphic", Value = nil, DestinationId = CurrentRun.Hero.ObjectId })
+	SetUnitProperty({ Property = "CollideWithUnits", Value = false, DestinationId = CurrentRun.Hero.ObjectId })
+	SetUnitProperty({ Property = "CollideWithObstacles", Value = false, DestinationId = CurrentRun.Hero.ObjectId })
+
+	AdjustZoom({ Fraction = currentRoom.ZoomFraction, LerpTime = 3.65 })
+
+	wait(1.0) -- buffer before you can dash-to-slam-down
+
+	if not GameState.SkyEntranceInputSuccess and GameState.SkyEntranceIntroduced then
+		CheckObjectiveSet("SkyEntranceInput")
+	end
+
+	SetWeaponProperty({ WeaponName = "WeaponBlink", DestinationId = CurrentRun.Hero.ObjectId, Property = "Enabled", Value = false })
+	ToggleCombatControl( { "Rush" }, true, "OlympusSkyEntrancePresentation" )
+	NotifyOnControlPressed({ Names = { "Rush" }, Notify = notifyName, Timeout = 2.35 })
+
+
+	thread( PlayVoiceLines, HeroVoiceLines.OlympusSkyEntranceVoiceLines, false )
+
+	waitUntil( notifyName )
+
+	if not _eventTimeoutRecord[notifyName] then
+		thread( MarkObjectiveComplete, "SkyEntranceInput" )
+		GameState.SkyEntranceInputSuccess = true
+	else
+		thread( MarkObjectiveFailed, "SkyEntranceInput" )
+	end
+	GameState.SkyEntranceIntroduced = true
+
+	Stop({ Id = currentRun.Hero.ObjectId })
+	AddInputBlock({ Name = "OlympusSkyEntrancePresentation" })
+
+	if IsLocationBlocked({ Id = currentRun.Hero.ObjectId }) then
+		LockCamera({ Id = currentRun.Hero.ObjectId, Duration = 0.3 })
+		local destinationId = GetClosest({ Id = currentRun.Hero.ObjectId, DestinationIds = GetIds({ Name = "SpawnPoints" }) })
+		if destinationId == nil or destinationId == 0 then
+			destinationId = currentRoom.HeroEndPoint
+		end
+		Teleport({ Id = currentRun.Hero.ObjectId, DestinationId = destinationId })
+		wait( 0.15 )
+	end
+
+	wait( 0.01 )
+
+	PlaySound({ Name = "/SFX/OlympusJumpSlam", Id = CurrentRun.Hero.ObjectId })
+	PlaySound({ Name = "/VO/MelinoeEmotes/EmoteAttackingFierce", Id = CurrentRun.Hero.ObjectId })
+
+	StopSound({ Id = airSoundId, Duration = 0.2 })
+
+	AdjustZLocation({ Id = currentRun.Hero.ObjectId, Distance = 500, Duration = 0.0 })
+	ApplyUpwardForce({ Id = currentRun.Hero.ObjectId, Speed = -2000 })
+	SetAlpha({ Id = currentRun.Hero.ObjectId, Fraction = 0.0, Duration = 0.0 })
+	--SetAnimation({ Name = "Melinoe_Drop_Exit_End", DestinationId = CurrentRun.Hero.ObjectId })
+
+	wait( 0.05 )
+
+	SetAlpha({ Id = currentRun.Hero.ObjectId, Fraction = 1.0, Duration = 0.25 })
+	SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
+	StopAnimation({ DestinationId = CurrentRun.Hero.ObjectId, Names = { "HeroTouchdownCircleA", "HeroTouchdownCircleShadow", "HeroTouchdownFx" } })
+
+	SetUnitProperty({ Property = "CollideWithUnits", Value = true, DestinationId = CurrentRun.Hero.ObjectId })
+	SetUnitProperty({ Property = "CollideWithObstacles", Value = true, DestinationId = CurrentRun.Hero.ObjectId })
+	--SetUnitProperty({ Property = "MoveGraphic", Value = "MelinoeRun", DestinationId = CurrentRun.Hero.ObjectId })
+	AdjustFullscreenBloom({ Name = "Off", Duration = 1.0 })
+
+	wait( 0.03 )
+
+	thread( PlayVoiceLines, currentRoom.Encounter.EnterVoiceLines or currentRoom.EnterVoiceLines, true )
+	thread( PlayVoiceLines, GlobalVoiceLines[currentRoom.EnterGlobalVoiceLines], true )
+
+	wait( 0.1 )
+
+	currentRoom.BlockAggro = false
+	CreateProjectileFromUnit({ Name = "HeroSkyTouchdown", Id = currentRun.Hero.ObjectId, DestinationId = currentRun.Hero.ObjectId, FireFromTarget = true })
+	
+	SetAlpha({ Id = dropShadow, Fraction = 0, Duration = 0.03 })
+	ShakeScreen({ Speed = 150, Distance = 6, Duration = 0.15, FalloffSpeed = 500, Angle = 90 })
+	thread( DoRumble, { { ScreenPreWait = 0.02, Fraction = 0.18, Duration = 0.8 }, } )
+	
+	-- Aggro all units
+	for id, enemy in pairs( ShallowCopyTable( ActiveEnemies ) ) do
+		if not enemy.IsDead and not enemy.IsAggroed then
+			enemy.AggroWhenReady = true
+			enemy.ForcedWeaponInterrupt = true
+			enemy.AggroReactionTime = nil
+			enemy.AggroReactionTimeMin = 0.05
+			enemy.AggroReactionTimeMax = 0.3
+			SetThreadWait(enemy.AIThreadName, 0.01)
+			notifyExistingWaiters(enemy.AINotifyName)
+		end
+	end
+
+	wait( 0.4 )
+
+	RemoveInputBlock({ Name = "OlympusSkyEntrancePresentation" })
+	ToggleCombatControl( CombatControlsDefaults, true, "OlympusSkyEntrancePresentation" )
+	SetWeaponProperty({ WeaponName = "WeaponBlink", DestinationId = CurrentRun.Hero.ObjectId, Property = "Enabled", Value = true })
+
+	wait( 0.05 )
+	
+	SessionMapState.SkyEntranceInProgress = nil
+	SetPlayerVulnerable( "OlympusSkyEntrance" )
+end
+
 --Chronos Dash Blink
 function mod.ChronosStartBlinkTrailPresentation()
 	if not IsEmpty(MapState.BlinkDropTrail) then

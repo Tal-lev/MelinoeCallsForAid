@@ -94,19 +94,20 @@ function SetUpPlayerChronos()
 	CurrentRun.Hero.DamagedSound = "/VO/Chronos_0387"
 	CurrentRun.Hero.ChokingSound = "/VO/Chronos_0387"
 	--CurrentRun.Hero.ChokingSound = "/VO/Chronos_0385"
-	--DamagedSound = "/VO/MelinoeEmotes/EmoteHurt",
-	--ChokingSound = "/VO/MelinoeEmotes/EmoteStunned",
+
 	--FrozenSound = "/VO/MelinoeEmotes/EmoteHurt",
 	--UnFrozenSound = "/VO/MelinoeEmotes/EmoteGasping",
 
-	--print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-	--print("HeroVoiceLines.FamiliarUnequipVoiceLines")
-	--for key,value in pairs(HeroVoiceLines.FamiliarUnequipVoiceLines) do
-	--	print(key)
-	--	print(value)
-	--end
-	--print("printing Table")
-	--DebugPrintTable(GlobalVoiceLines.FamiliarEquipVoiceLines)
+	--ManaBar
+	--ScreenData.HUD.ComponentData.ManaMeterFill.Animation = "ChronosManaBarFill"
+	--ScreenData.HUD.ComponentData.ManaMeterReserve.Animation = "ChronosManaBarReserveFill"
+	--ScreenData.HUD.ComponentData.ManaMeterReserve.TextArgs.Color = { 204, 204, 51, 255 }
+	
+
+	--DestroyGroup({ Name = "HUD_Main" })
+	--CreateGroup( { Name = "HUD_Main" } )
+	--InsertGroupInFront({ Name = "HUD_Main", DestinationName = "HUD_Backing" })
+
 end
 
 function SetUpReturnPlayerMelinoe()
@@ -150,10 +151,31 @@ function SetUpReturnPlayerMelinoe()
 		end	
 	end
 	HandleWeaponAnimSwaps()
+
+	--ManaBar
+	--ScreenData.HUD.ComponentData.ManaMeterFill.Animation = "ManaBarFill"
+	--ScreenData.HUD.ComponentData.ManaMeterReserve.Animation = "ManaBarReserveFill"
+	--ScreenData.HUD.ComponentData.ManaMeterReserve.TextArgs.Color = { 180, 168, 255, 255 }
+	--DestroyGroup({ Name = "HUD_Main" })
+	--CreateGroup( { Name = "HUD_Main" } )
+	--InsertGroupInFront({ Name = "HUD_Main", DestinationName = "HUD_Backing" })
 end
 
 modutil.mod.Path.Wrap("SetupMap", function(base, source, args)
 	LoadPackages({ Name = "JarlUlsfark-MelinoeCallsForAid", IgnoreAssert = true })
+	if CurrentRun and CurrentRun.Hero then
+		if ScreenData and ScreenData.HUD then
+			if HeroHasTrait("ChronosAspect") then
+				ScreenData.HUD.ComponentData.ManaMeterFill.Animation = "ChronosManaBarFill"
+				ScreenData.HUD.ComponentData.ManaMeterReserve.Animation = "ChronosManaBarReserveFill"
+				ScreenData.HUD.ComponentData.ManaMeterReserve.TextArgs.Color = { 204, 204, 51, 255 }
+			else
+				ScreenData.HUD.ComponentData.ManaMeterFill.Animation = "ManaBarFill"
+				ScreenData.HUD.ComponentData.ManaMeterReserve.Animation = "ManaBarReserveFill"
+				ScreenData.HUD.ComponentData.ManaMeterReserve.TextArgs.Color = { 180, 168, 255, 255 }
+			end
+		end
+	end
 	return base(source, args)
 end)
 
@@ -269,6 +291,52 @@ modutil.mod.Path.Wrap("RoomEntrancePortal",  function(baseFunc,currentRun, curre
 		baseFunc(currentRun, currentRoom, args)
 	end
 end)
+
+--Exit G Room
+modutil.mod.Path.Wrap("ExitBiomeGRoomPresentation",  function(baseFunc,currentRun, exitDoor) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosExitBiomeGRoomPresentation( currentRun, exitDoor )
+	else
+		baseFunc(currentRun, exitDoor)
+	end
+end)
+
+--Entrance G Room
+modutil.mod.Path.Wrap("EnterBiomeGRoomPresentation",  function(baseFunc,currentRun, currentRoom) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosEnterBiomeGRoomPresentation( currentRun, currentRoom )
+	else
+		baseFunc(currentRun, currentRoom)
+	end
+end)
+
+--Exit P Sky Room
+modutil.mod.Path.Wrap("OlympusSkyExitPresentation",  function(baseFunc,currentRun, exitDoor) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosOlympusSkyExitPresentation( currentRun, exitDoor )
+	else
+		baseFunc(currentRun, exitDoor)
+	end
+end)
+
+--Entrance P Sky Room
+modutil.mod.Path.Wrap("OlympusSkyEntrancePresentation",  function(baseFunc, currentRun, currentRoom, args) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosOlympusSkyEntrancePresentation(  currentRun, currentRoom, args )
+	else
+		baseFunc( currentRun, currentRoom, args)
+	end
+end)
+
+--Mana Indicator
+--modutil.mod.Path.Wrap("ShowManaMeter",  function(baseFunc, args) 
+--	if HeroHasTrait("ChronosAspect") then
+--		mod.ChronosShowManaMeter( args )
+--	else
+--		baseFunc( args )
+--	end
+--end)
+
 
 ChronosAspect = {
 	InheritFrom = { "WeaponEnchantmentTrait" },
@@ -490,6 +558,9 @@ ChronosAspect = {
 				SwapOnFire = "WeaponAxe2",
 				FireFx = "ChronosScythePreAttackSparkleSwingRight",
 			},
+			ProjectileProperties = {
+				Damage = 40,
+			}
 			ExcludeLinked = true,
 		},
 		{
@@ -505,6 +576,9 @@ ChronosAspect = {
 				SwapOnFire = "WeaponAxe",
 				FireFx = "ChronosScythePreAttackSparkleSwingLeft",
 			},
+			ProjectileProperties = {
+				Damage = 40,
+			}
 			ExcludeLinked = true,
 		},
 		--Omega Attack
@@ -522,7 +596,7 @@ ChronosAspect = {
 				NumProjectiles = 1,
 			},
 			ProjectileProperties = {
-				Damage = 150,
+				Damage = 120,
 			}
 		},
 		--Dash Attack
@@ -539,6 +613,9 @@ ChronosAspect = {
 				SwapOnFire = "WeaponAxe",
 				FireFx = "ChronosScythePreAttackSparkleSwingLeft",
 			},
+			ProjectileProperties = {
+				Damage = 40,
+			}
 			ExcludeLinked = true,
 		},
 		-- Special

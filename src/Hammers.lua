@@ -264,4 +264,13 @@ table.insert(TraitData.AxeDashAttackTrait.GameStateRequirements, {
 			Path = {"CurrentRun", "Hero", "TraitDictionary"},
 			HasNone = {"ChronosAspect", },
 })
+table.insert(TraitData.AxeAttackRecoveryTrait.GameStateRequirements, {
+			Path = {"CurrentRun", "Hero", "TraitDictionary"},
+			HasNone = {"ChronosAspect", },
+})
+
+table.insert(TraitData.SprintShieldBoon.GameStateRequirements, {
+			Path = {"CurrentRun", "Hero", "TraitDictionary"},
+			HasNone = {"ChronosAspect", },
+})
 
