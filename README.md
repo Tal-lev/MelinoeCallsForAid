@@ -26,6 +26,8 @@ While the mod has been tested decently well it is recommended to backup your sav
 
 ## Credits
 
+- @zerp on the modding discord for MelSkin compatibility and ManaBar reactivity
+
 ## Issues
 
 Report any issues on the mod in the [Hades Modding discord](https://discord.gg/KuMbyrN) or [github](https://github.com/Tal-lev/MelinoeCallsForAid/issues)  
