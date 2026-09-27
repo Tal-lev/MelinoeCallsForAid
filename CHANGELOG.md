@@ -28,8 +28,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Gifting Gods
   - Finding Zeus/Poseidon/Selene boons
   - Miniboss Encounter Start
-- Removing incompatible Hammer
+- Removing incompatible Traits
   - Axe Attack speed
+  - Hermes - Nitro Boost
 - Changing the color of the manabar (changes between rooms)
 - DEV: Split The Muting Mel's quips into a helper mod "SilenceMelinoeHelperMod"
   - Making SilenceMelinoeHelperMod a dependency for this mod
