@@ -36,6 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Balance
   - Slight increase to Attack Damage 29 -> 40
   - Reduction of Omega Attack Damage 150 -> 120
+  - Hera Dash Boon Damage 30 -> 40
 - Changing the color of the manabar (changes between rooms)
 - DEV: Split The Muting Mel's quips into a helper mod "SilenceMelinoeHelperMod"
   - Making SilenceMelinoeHelperMod a dependency for this mod
