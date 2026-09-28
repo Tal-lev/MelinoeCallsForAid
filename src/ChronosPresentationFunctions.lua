@@ -1062,3 +1062,63 @@ function mod.ChronosPlayerTeleport( weaponData, traitArgs, triggerArgs )
 	SetAlpha({Id = CurrentRun.Hero.ObjectId, Fraction = 1, Duration = 0.0})
 	CreateAnimation({ Name = "ChronosTeleportFxFront", DestinationId = CurrentRun.Hero.ObjectId })
 end
+
+--Interact Animation
+function mod.ChronosPlayInteractAnimation( interactableObjectId, args )
+	args = args or {}
+
+	--if not args.SkipInputBlock then
+	--	AddTimerBlock( CurrentRun, "MelinoeInteractEquip" )
+	--	AddInputBlock({ Name = "MelinoeInteractEquip" })
+	--end
+
+	--SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
+	--AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = interactableObjectId })
+	thread( DoRumble, { { ScreenPreWait = 0.02, RightFraction = 0.17, Duration = 0.1 }, } )
+	--if interactableObjectId then
+	--	waitUnmodified( 0.08 )
+	--end
+	--if not args.SkipInputBlock then
+	--	thread( RemoveInteractAnimationInputBlock )
+	--end
+	waitUnmodified( 0.08 )
+end
+
+function mod.ChronosPlayUnequipAnimation( args )
+	wait( 0.35 )
+	local animation = "NPC_Chronos_Enlightened_Hover"
+	if animation ~= nil then
+		--SetAnimation({ Name = animation, DestinationId = CurrentRun.Hero.ObjectId })
+		wait( 0.34 )
+		CreateAnimation({ Name = "HecateTeleportFxFrontFast", DestinationId = CurrentRun.Hero.ObjectId, OffsetZ = 40, Scale = 0.60, DrawGroup = "FX_Standing_Add" })
+	end
+end
+
+function mod.ChronosPreNarrativeUnequipAnimation()
+	if SessionMapState.WeaponsDisabled then
+		return false
+	end
+	Halt({ Id = CurrentRun.Hero.ObjectId })
+	EndRamWeapons({ Id = CurrentRun.Hero.ObjectId })
+	local animation = "NPC_Chronos_Enlightened_Hover"
+	--SetAnimation({ Name = animation, DestinationId = CurrentRun.Hero.ObjectId })
+
+end
+
+function mod.ChronosPickupWeaponKitInteractPresentation( weaponKit )
+	--AddInputBlock({ Name = "MelinoeInteractEquip" })
+	--SetAnimation({ Name = "Melinoe_InteractToEquip", DestinationId = CurrentRun.Hero.ObjectId })
+	--CreateAnimation({ Name = "ItemGet_Weapon", DestinationId = CurrentRun.Hero.ObjectId })
+	--AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = weaponKit.ObjectId })
+	thread( DoRumble, { { ScreenPreWait = 0.02, RightFraction = 0.17, Duration = 0.2 }, } )
+	--if interactableObjectId then
+	--	wait( 0.08 )
+	--	CreateAnimation({ Name = "ItemGet_Weapon", DestinationId = CurrentRun.Hero.ObjectId, Scale = 1.0 })
+	--end
+	--thread( RemoveInteractAnimationInputBlock )
+	wait( 0.11 )
+	--CreateAnimation({ Name = "ItemGet_Weapon", DestinationId = CurrentRun.Hero.ObjectId, Scale = 1.5 })
+end
+
+--Hug Hecate
+--Hug Persephone

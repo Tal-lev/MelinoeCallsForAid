@@ -253,6 +253,23 @@ table.insert(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[3],{ Cue = "/VO/C
 table.insert(GlobalVoiceLines.UsedHealDropVoiceLines[1],{ Cue = "/VO/Chronos_1214", Text = "Time heals all wounds...",GameStateRequirements = YesChronosReq })
 table.insert(GlobalVoiceLines.UsedHealDropVoiceLines[1],{ Cue = "/VO/Chronos_1219", Text = "Heal me faster, blast you all!",GameStateRequirements = YesChronosReq })
 
+--Hecate Greetings
+table.insert(GlobalVoiceLines.HecateBossGreetingLines[7],{ Cue = "/VO/Chronos_0930", Text = "That staff of yours is no match for my scythe.", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.HecateBossGreetingLines[7],{ Cue = "/VO/Chronos_0932", Text = "Those torches of yours made you easy to detect.", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.HecateBossGreetingLines[7],{ Cue = "/VO/Chronos_1230", Text = "Such a night...", GameStateRequirements = YesChronosReq })
+
+--Hecate Defeated
+table.insert(HeroVoiceLines.HecateDefeatedVoiceLines[6],{ Cue = "/VO/Chronos_0336", Text = "Too slow, my girl...", GameStateRequirements = YesChronosReq })
+table.insert(HeroVoiceLines.HecateDefeatedVoiceLines[6],{ Cue = "/VO/Chronos_0337", Text = "Alas, my girl...", GameStateRequirements = YesChronosReq })
+table.insert(HeroVoiceLines.HecateDefeatedVoiceLines[6],{ Cue = "/VO/Chronos_0298", Text = "My girl, would you please die?", GameStateRequirements = YesChronosReq })
+
+-- Infested Cerberus fight start 
+table.insert(EncounterData.BossInfestedCerberus01.EnterVoiceLines[5],{ Cue = "/VO/Chronos_1072", Text = "To have come all this way...",GameStateRequirements = YesChronosReq })
+table.insert(EncounterData.BossInfestedCerberus01.EnterVoiceLines[5],{ Cue = "/VO/Chronos_0008", Text = "Greetings, little one.",GameStateRequirements = YesChronosReq })
+table.insert(EncounterData.BossInfestedCerberus01.EnterVoiceLines[5],{ Cue = "/VO/Chronos_0024", Text = "How fare you, little one?",GameStateRequirements = YesChronosReq })
+table.insert(EncounterData.BossInfestedCerberus01.EnterVoiceLines[5],{ Cue = "/VO/Chronos_1225", Text = "{#Emph}<Scoff>",GameStateRequirements = YesChronosReq })
+table.insert(EncounterData.BossInfestedCerberus01.EnterVoiceLines[5],{ Cue = "/VO/Chronos_0027", Text = "{#Emph}There {#Prev}you are.",GameStateRequirements = YesChronosReq })
+
 --Typhon Start Fight
 table.insert(EncounterData.BossTyphonHead01.FightStartVoiceLines[6],{ Cue = "/VO/Chronos_0310", Text = "Have you no dignity at all?",GameStateRequirements = YesChronosReq })
 
@@ -286,8 +303,16 @@ table.insert(EnemyData.NPC_Icarus_01.EncounterStartVoiceLines[4], { Cue = "/VO/C
 --Start of Artemis Encounters
 table.insert(EnemyData.NPC_Artemis_01.EncounterStartVoiceLines[3], { Cue = "/VO/Chronos_0203", Text = "A visitor, at this hour?", GameStateRequirements = YesChronosReq})
 table.insert(EnemyData.NPC_Artemis_01.EncounterStartVoiceLines[3], { Cue = "/VO/Chronos_0206", Text = "We meet again, my girl.", GameStateRequirements = YesChronosReq})
-table.insert(EnemyData.NPC_Artemis_01.EncounterStartVoiceLines[3], { Cue = "/VO/Chronos_0984", Text = "Looking for someone?",, GameStateRequirements = YesChronosReq})
-table.insert(EnemyData.NPC_Artemis_01.EncounterStartVoiceLines[3], { Cue = "/VO/Chronos_1048", Text = "You again...",, GameStateRequirements = YesChronosReq})
+table.insert(EnemyData.NPC_Artemis_01.EncounterStartVoiceLines[3], { Cue = "/VO/Chronos_0984", Text = "Looking for someone?", GameStateRequirements = YesChronosReq})
+table.insert(EnemyData.NPC_Artemis_01.EncounterStartVoiceLines[3], { Cue = "/VO/Chronos_1048", Text = "You again...", GameStateRequirements = YesChronosReq})
+
+--Costume
+table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/Chronos_0946", Text = "My, what a lovely dress.", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/Chronos_0948", Text = "Oh good, you brought a change of clothes!", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/Chronos_0807", Text = "Your silk is still intact?", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/Chronos_0808", Text = "That silk lasted this long?", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/Chronos_0809", Text = "Your silk has served you well.", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/Chronos_0664", Text = "A new look!", GameStateRequirements = YesChronosReq})
 
 -- Enemies?
 --{ Cue = "/VO/Chronos_0621", Text = "You rabble-rousing miscreant, {#Emph}again?", PlayFirst = true },
@@ -318,14 +343,6 @@ table.insert(EnemyData.NPC_Artemis_01.EncounterStartVoiceLines[3], { Cue = "/VO/
 --Won Encounter
 --{ Cue = "/VO/Chronos_0014", Text = "I think not."
 --{ Cue = "/VO/Chronos_0095", Text = "That shall not work.",
-
---Hecate
---{ Cue = "/VO/Chronos_0930", Text = "That staff of yours is no match for my scythe.",
---{ Cue = "/VO/Chronos_0932", Text = "Those torches of yours made you easy to detect.",
---{ Cue = "/VO/Chronos_0336", Text = "Too slow, my girl..." },
---{ Cue = "/VO/Chronos_0337", Text = "Alas, my girl..." },
---{ Cue = "/VO/Chronos_0298", Text = "My girl, would you please die?" },
---{ Cue = "/VO/Chronos_1230", Text = "Such a night...",
 
 --Return from polymorph
 --{ Cue = "/VO/Chronos_0656", Text = "You are the sheep here." },
@@ -415,13 +432,6 @@ table.insert(EnemyData.NPC_Artemis_01.EncounterStartVoiceLines[3], { Cue = "/VO/
 --{ Cue = "/VO/Chronos_1506", Text = "{#Emph}Augh...! {#Prev}How utterly mortifying...!" }
 --{ Cue = "/VO/Chronos_1526", Text = "{#Emph}Aaaugh... impossible...!" }
 
---Cerberus
---{ Cue = "/VO/Chronos_1072", Text = "To have come all this way..." },
---{ Cue = "/VO/Chronos_0008", Text = "Greetings, little one." },
---{ Cue = "/VO/Chronos_0024", Text = "How fare you, little one?" },
---{ Cue = "/VO/Chronos_1225", Text = "{#Emph}<Scoff>"
---{ Cue = "/VO/Chronos_0027", Text = "{#Emph}There {#Prev}you are." },
-
 --Dark Side
 --{ Cue = "/VO/Chronos_0362", Text = "Such ferocity." },
 --{ Cue = "/VO/Chronos_0363", Text = "Such rancor." },
@@ -494,13 +504,7 @@ table.insert(EnemyData.NPC_Artemis_01.EncounterStartVoiceLines[3], { Cue = "/VO/
 --{ Cue = "/VO/Chronos_0921", Text = "What lunacy is {#Emph}this?" },
 --{ Cue = "/VO/Chronos_0653", Text = "My {#Emph}legions!" },
 
---Arachne Costume
---{ Cue = "/VO/Chronos_0946", Text = "My, what a lovely dress.",
---{ Cue = "/VO/Chronos_0948", Text = "Oh good, you brought a change of clothes!",
---{ Cue = "/VO/Chronos_0807", Text = "Your silk is still intact?",
---{ Cue = "/VO/Chronos_0808", Text = "That silk lasted this long?",
---{ Cue = "/VO/Chronos_0809", Text = "Your silk has served you well.",
---{ Cue = "/VO/Chronos_0664", Text = "A new look!" },
+
 
 --Athena
 --{ Cue = "/VO/Chronos_1209", Text = "You seem a little short of breath...",

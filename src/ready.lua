@@ -328,14 +328,38 @@ modutil.mod.Path.Wrap("OlympusSkyEntrancePresentation",  function(baseFunc, curr
 	end
 end)
 
---Mana Indicator
---modutil.mod.Path.Wrap("ShowManaMeter",  function(baseFunc, args) 
---	if HeroHasTrait("ChronosAspect") then
---		mod.ChronosShowManaMeter( args )
---	else
---		baseFunc( args )
---	end
---end)
+--Interact
+modutil.mod.Path.Wrap("PlayInteractAnimation",  function(baseFunc, interactableObjectId, args) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosPlayInteractAnimation(  interactableObjectId, args )
+	else
+		baseFunc( interactableObjectId, args)
+	end
+end)
+
+modutil.mod.Path.Wrap("PlayUnequipAnimation",  function( baseFunc, args ) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosPlayUnequipAnimation( args )
+	else
+		baseFunc( args )
+	end
+end)
+
+modutil.mod.Path.Wrap("PreNarrativeUnequipAnimation",  function(baseFunc) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosPreNarrativeUnequipAnimation()
+	else
+		baseFunc()
+	end
+end)
+
+modutil.mod.Path.Wrap("PickupWeaponKitInteractPresentation",  function(baseFunc, weaponKit) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosPickupWeaponKitInteractPresentation(weaponKit)
+	else
+		baseFunc(weaponKit)
+	end
+end)
 
 
 ChronosAspect = {
