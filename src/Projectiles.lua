@@ -166,7 +166,7 @@ sjson.hook(file, function(data)
 		},
         Effects = {
 			{
-				Name = "DemeterSlow",
+				Name = "LegacyChillEffect",
 				IgnoreName = "_PlayerUnit",
 				Duration = 8.0,
 				Stacks = true,
@@ -174,11 +174,11 @@ sjson.hook(file, function(data)
 				IsVulnerabilityEffect = true,
 				MaxStacks = 10,
 				Active = true,
-				StartFx = "DemeterSlowImpact",
-				ReapplyFx = "DemeterSlowImpactReapply",
+				--StartFx = "DemeterSlowImpact",
+				--ReapplyFx = "DemeterSlowImpactReapply",
 				Sound = "/SFX/Player Sounds/DemeterFrozenDebuffSFX",
 				StopSoundOnFinishFade = 0.5,
-				FrontFx = "DemeterSlowFront",
+				Vfx = "DemeterSlowFront",
 				--BackFx = "DemeterSlowBack",
 				FlashFrontFxWhenExpiring = true,
 				--FlashBackFxWhenExpiring = true,

@@ -253,6 +253,42 @@ table.insert(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[3],{ Cue = "/VO/C
 table.insert(GlobalVoiceLines.UsedHealDropVoiceLines[1],{ Cue = "/VO/Chronos_1214", Text = "Time heals all wounds...",GameStateRequirements = YesChronosReq })
 table.insert(GlobalVoiceLines.UsedHealDropVoiceLines[1],{ Cue = "/VO/Chronos_1219", Text = "Heal me faster, blast you all!",GameStateRequirements = YesChronosReq })
 
+--Typhon Start Fight
+table.insert(EncounterData.BossTyphonHead01.FightStartVoiceLines[6],{ Cue = "/VO/Chronos_0310", Text = "Have you no dignity at all?",GameStateRequirements = YesChronosReq })
+
+--Prometheus Memory Game
+table.insert(EnemyData.Prometheus.MemoryAttackIntroVoiceLines[4],{ Cue = "/VO/Chronos_0928", Text = "How shall Olympus withstand Typhon with you here?",GameStateRequirements = YesChronosReq })
+
+--Prometheus Kill Lines
+table.insert(EnemyData.Prometheus.BossKillVoiceLines[4],{ Cue = "/VO/Chronos_0197", Text = "An inevitable outcome, nothing more.", GameStateRequirements = YesChronosReq})
+table.insert(EnemyData.Prometheus.BossKillVoiceLines[4],{ Cue = "/VO/Chronos_0198", Text = "We must do this again some other time.", GameStateRequirements = YesChronosReq})
+table.insert(EnemyData.Prometheus.BossKillVoiceLines[4],{ Cue = "/VO/Chronos_0257", Text = "The same predictable result, yet you persist.", GameStateRequirements = YesChronosReq})
+table.insert(EnemyData.Prometheus.BossKillVoiceLines[4],{ Cue = "/VO/Chronos_0472", Text = "You ought not have anticipated any other outcome.", GameStateRequirements = YesChronosReq})
+
+--Scylla Greetings
+table.insert(GlobalVoiceLines.ScyllaGreetingLines[2],{ Cue = "/VO/Chronos_0929", Text = "Night after night you carry on like this?", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.ScyllaGreetingLines[2],{ Cue = "/VO/Chronos_0783", Text = "Right on Time.", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.ScyllaGreetingLines[2],{ Cue = "/VO/Chronos_0029", Text = "Greetings.", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.ScyllaGreetingLines[2],{ Cue = "/VO/Chronos_1119", Text = "Without further ado...", GameStateRequirements = YesChronosReq})
+
+--Fishing Caught
+table.insert(GlobalVoiceLines.FishCaughtVoiceLines[1],{ Cue = "/VO/Chronos_0456", Text = "Behold!", GameStateRequirements = YesChronosReq})
+
+--Familiar Switching Costume
+table.insert(GlobalVoiceLines.FamiliarMiscSwitchCostumeVoiceLines[1], { Cue = "/VO/Chronos_0662", Text = "Oh...!", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.FamiliarMiscSwitchCostumeVoiceLines[1], { Cue = "/VO/Chronos_0666", Text = "If you could see yourself.", GameStateRequirements = YesChronosReq})
+
+--Start of Icarus Encounters
+table.insert(EnemyData.NPC_Icarus_01.EncounterStartVoiceLines[4], { Cue = "/VO/Chronos_0203", Text = "A visitor, at this hour?", GameStateRequirements = YesChronosReq})
+table.insert(EnemyData.NPC_Icarus_01.EncounterStartVoiceLines[4], { Cue = "/VO/Chronos_0984", Text = "Looking for someone?", GameStateRequirements = YesChronosReq})
+table.insert(EnemyData.NPC_Icarus_01.EncounterStartVoiceLines[4], { Cue = "/VO/Chronos_1048", Text = "You again...", GameStateRequirements = YesChronosReq})
+
+--Start of Artemis Encounters
+table.insert(EnemyData.NPC_Artemis_01.EncounterStartVoiceLines[3], { Cue = "/VO/Chronos_0203", Text = "A visitor, at this hour?", GameStateRequirements = YesChronosReq})
+table.insert(EnemyData.NPC_Artemis_01.EncounterStartVoiceLines[3], { Cue = "/VO/Chronos_0206", Text = "We meet again, my girl.", GameStateRequirements = YesChronosReq})
+table.insert(EnemyData.NPC_Artemis_01.EncounterStartVoiceLines[3], { Cue = "/VO/Chronos_0984", Text = "Looking for someone?",, GameStateRequirements = YesChronosReq})
+table.insert(EnemyData.NPC_Artemis_01.EncounterStartVoiceLines[3], { Cue = "/VO/Chronos_1048", Text = "You again...",, GameStateRequirements = YesChronosReq})
+
 -- Enemies?
 --{ Cue = "/VO/Chronos_0621", Text = "You rabble-rousing miscreant, {#Emph}again?", PlayFirst = true },
 --{ Cue = "/VO/Chronos_0311", Text = "A lasting pain..." },
@@ -279,9 +315,6 @@ table.insert(GlobalVoiceLines.UsedHealDropVoiceLines[1],{ Cue = "/VO/Chronos_121
 --{ Cue = "/VO/Chronos_0295", Text = "But one more cut or two..." },
 --{ Cue = "/VO/Chronos_0296", Text = "You only make things worse!" },
 
-
-
-
 --Won Encounter
 --{ Cue = "/VO/Chronos_0014", Text = "I think not."
 --{ Cue = "/VO/Chronos_0095", Text = "That shall not work.",
@@ -293,8 +326,6 @@ table.insert(GlobalVoiceLines.UsedHealDropVoiceLines[1],{ Cue = "/VO/Chronos_121
 --{ Cue = "/VO/Chronos_0337", Text = "Alas, my girl..." },
 --{ Cue = "/VO/Chronos_0298", Text = "My girl, would you please die?" },
 --{ Cue = "/VO/Chronos_1230", Text = "Such a night...",
-
-
 
 --Return from polymorph
 --{ Cue = "/VO/Chronos_0656", Text = "You are the sheep here." },
@@ -313,15 +344,8 @@ table.insert(GlobalVoiceLines.UsedHealDropVoiceLines[1],{ Cue = "/VO/Chronos_121
 --{ Cue = "/VO/Chronos_0374", Text = "Mannerless child..." },
 --{ Cue = "/VO/Chronos_0375", Text = "Contemptuous child..." },
 
---Beat Prometheus
---{ Cue = "/VO/Chronos_0197", Text = "An inevitable outcome, nothing more.", PlayFirst = true },
---{ Cue = "/VO/Chronos_0198", Text = "We must do this again some other time." },
---{ Cue = "/VO/Chronos_0257", Text = "The same predictable result, yet you persist.",
---{ Cue = "/VO/Chronos_0472", Text = "You ought not have anticipated any other outcome.",
-
 --Fighting Prometheus
 --{ Cue = "/VO/Chronos_0927", Text = "Decided to give poor Typhon a break?",
---{ Cue = "/VO/Chronos_0928", Text = "How shall Olympus withstand Typhon with you here?",
 
 -- Typhon
 --{ Cue = "/VO/Chronos_0467", Text = "Thus history repeats as it is wont to do.",
@@ -334,9 +358,6 @@ table.insert(GlobalVoiceLines.UsedHealDropVoiceLines[1],{ Cue = "/VO/Chronos_121
 --{ Cue = "/VO/Chronos_1067", Text = "Oh, Typhon...?" },
 --{ Cue = "/VO/Chronos_1068", Text = "Oh, Typhon?" },
 --Cue = "/VO/Chronos_1122", Text = "{#Emph}Now{#Prev}, monster, exactly as before!"
-
---Typhon Health Bar missing
---{ Cue = "/VO/Chronos_0310", Text = "Have you no dignity at all?" },
 
 --Zag
 --{ Cue = "/VO/Chronos_0626", Text = "What a meddlesome child that Hades has in you." },
@@ -363,12 +384,6 @@ table.insert(GlobalVoiceLines.UsedHealDropVoiceLines[1],{ Cue = "/VO/Chronos_121
 --{ Cue = "/VO/Chronos_0024", Text = "How fare you, little one?" },
 --{ Cue = "/VO/Chronos_0656", Text = "You are the sheep here." },
 --{ Cue = "/VO/Chronos_0658", Text = "Livestock..." },
-
---Scylla
---{ Cue = "/VO/Chronos_0929", Text = "Night after night you carry on like this?",
---{ Cue = "/VO/Chronos_0783", Text = "Right on Time." },
---{ Cue = "/VO/Chronos_0029", Text = "Greetings." }
---{ Cue = "/VO/Chronos_1119", Text = "Without further ado..." }
 
 --Asterius
 --{ Cue = "/VO/Chronos_0933", Text = "That axe of yours looks awfully unwieldy to me.",
@@ -399,7 +414,6 @@ table.insert(GlobalVoiceLines.UsedHealDropVoiceLines[1],{ Cue = "/VO/Chronos_121
 --Lost Death Defiance
 --{ Cue = "/VO/Chronos_1506", Text = "{#Emph}Augh...! {#Prev}How utterly mortifying...!" }
 --{ Cue = "/VO/Chronos_1526", Text = "{#Emph}Aaaugh... impossible...!" }
-
 
 --Cerberus
 --{ Cue = "/VO/Chronos_1072", Text = "To have come all this way..." },
@@ -443,16 +457,6 @@ table.insert(GlobalVoiceLines.UsedHealDropVoiceLines[1],{ Cue = "/VO/Chronos_121
 --{ Cue = "/VO/Chronos_0694", Text = "You cannot hide." },
 --{ Cue = "/VO/Chronos_0695", Text = "You little sneak!" },
 
---Devotion Gods angry
---{ Cue = "/VO/Chronos_0267", Text = "{#Emph}Urgh... gah..." },
---{ Cue = "/VO/Chronos_0268", Text = "How... {#Emph}dare..." },
---{ Cue = "/VO/Chronos_0273", Text = "Why... you..." },
---{ Cue = "/VO/Chronos_0881", Text = "You... damnable..." },
---{ Cue = "/VO/Chronos_0882", Text = "{#Emph}Guh... {#Prev}absurd..." },
---{ Cue = "/VO/Chronos_0879", Text = "{#Emph}Gah... {#Prev}again...?",
---{ Cue = "/VO/Chronos_0883", Text = "Even... now...",
---{ Cue = "/VO/Chronos_0274", Text = "Time... out...",
-
 --Devotion gods won
 --{ Cue = "/VO/Chronos_0543", Text = "You gods..." }  --last Start Here
 
@@ -464,8 +468,6 @@ table.insert(GlobalVoiceLines.UsedHealDropVoiceLines[1],{ Cue = "/VO/Chronos_121
 --{ Cue = "/VO/Chronos_1491", Text = "Who exactly do you think I am? Do you take me for?!", PreLineWait = 1.3 }
 --{ Cue = "/VO/Chronos_1493", Text = "But by all means, {#Emph}please{#Prev}, go ahead and try! Or {#Emph}do {#Prev}it, better yet!" }
 
---Fishing Successful
---Cue = "/VO/Chronos_0456", Text = "Behold!",
 
 --Reached Olympus
 --{ Cue = "/VO/Chronos_1226", Text = "Olympus..." }
@@ -486,28 +488,11 @@ table.insert(GlobalVoiceLines.UsedHealDropVoiceLines[1],{ Cue = "/VO/Chronos_121
 --Dress
 --{ Cue = "/VO/Chronos_0659", Text = "This is my chosen form."
 
---Familiar outfit change
---{ Cue = "/VO/Chronos_0662", Text = "Oh...!", PlayFirst = true },
---{ Cue = "/VO/Chronos_0666", Text = "If you could see yourself." },
-
 -- Chronos Legions
 --{ Cue = "/VO/Chronos_0676", Text = "My legions are susceptible..." },
 --{ Cue = "/VO/Chronos_0678", Text = "Get your {#Emph}own {#Prev}servants!" },
 --{ Cue = "/VO/Chronos_0921", Text = "What lunacy is {#Emph}this?" },
 --{ Cue = "/VO/Chronos_0653", Text = "My {#Emph}legions!" },
-
-
-
---Artemis
---{ Cue = "/VO/Chronos_0203", Text = "A visitor, at this hour?",
---{ Cue = "/VO/Chronos_0206", Text = "We meet again, my girl.",
---{ Cue = "/VO/Chronos_0984", Text = "Looking for someone?",
---{ Cue = "/VO/Chronos_1048", Text = "You again...",
-
---Icarus
---{ Cue = "/VO/Chronos_0203", Text = "A visitor, at this hour?",
---{ Cue = "/VO/Chronos_0984", Text = "Looking for someone?",
---{ Cue = "/VO/Chronos_1048", Text = "You again...",
 
 --Arachne Costume
 --{ Cue = "/VO/Chronos_0946", Text = "My, what a lovely dress.",
@@ -553,7 +538,6 @@ table.insert(GlobalVoiceLines.UsedHealDropVoiceLines[1],{ Cue = "/VO/Chronos_121
 --{ Cue = "/VO/Chronos_1395", Text = "{#Emph}Armor? Gold!",
 
 --Time Elemental
---{ Cue = "/VO/Chronos_1224", Text = "What is that Tempus {#Emph}doing?!",
 --{ Cue = "/VO/Chronos_1224", Text = "What is that Tempus {#Emph}doing?!",
 
 --Check /VO/Intercom_
