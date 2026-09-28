@@ -31,10 +31,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Gifting Gods
   - Finding Zeus/Poseidon/Selene boons
   - Miniboss Encounter Start
-  - Starting Typhon Fight
+  - Hecate Greetings
+  - Hecate Defeated
+  - Scylla Greetings
+  - Cerberus fight start
   - Prometheus Memory game
   - Prometheus Kill
-  - Scylla Greetings
+  - Starting Typhon Fight
   - Familiar Costume Switch
   - Icarus Encouter Starts
   - Artemis Encounter Starts
