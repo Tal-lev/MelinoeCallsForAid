@@ -12,8 +12,7 @@ A Hades II mod that allows you to play as other Characters.
 ## Missing features
 
 - Traits
-  - Dash Boons
-    - Demeter
+  - Demeter Dash Boons
 - Chronos Hexes
   - Summon Healing Tempus (instead of potion spell)
   - Outward/Inward Ring
@@ -21,7 +20,7 @@ A Hades II mod that allows you to play as other Characters.
 - A lot of Chronos's quips are missing
 - Interaction Animations may be glitchy
 - Missing Chronos Portrait in conversations (similar to Mel's Background in Zagreus Journey mod)
-- Art
+- Art [Artists Wanted]
   - New Hammer Icon
   - Mana related Icons
   - Hex related Icons
