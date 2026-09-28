@@ -14,7 +14,6 @@ A Hades II mod that allows you to play as other Characters.
 - Traits
   - Dash Boons
     - Demeter
-    - Apollo
 - Chronos Hexes
   - Summon Healing Tempus (instead of potion spell)
   - Outward/Inward Ring
