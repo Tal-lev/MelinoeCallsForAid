@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Entering Zagreus Journey Nightmare Gate
   - Landing in Zagreus Journey
   - Fishing!
+  - Mining
+- Removing incompatible Traits
+  - Sudden Cleaver 
 
 ## [0.2.1] - 2026-09-28
 
