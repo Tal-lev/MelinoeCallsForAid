@@ -37,9 +37,9 @@ function mod.ChronosRoomEntranceDrop( currentRun, currentRoom, args)
 	--SetAnimation({ Name = "Melinoe_Drop_Exit_End", DestinationId = CurrentRun.Hero.ObjectId })
 
 	wait(0.3)
-
+	
 	SetAlpha({ Id = currentRun.Hero.ObjectId, Fraction = 1.0, Duration = 1.0 })
-
+	SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = currentRun.Hero.ObjectId })
 	wait(0.03)
 
 	thread( PlayVoiceLines, currentRoom.Encounter.EnterVoiceLines or currentRoom.EnterVoiceLines, true )
@@ -47,7 +47,7 @@ function mod.ChronosRoomEntranceDrop( currentRun, currentRoom, args)
 	SetAlpha({ Id = currentRun.Hero.ObjectId, Fraction = 1.0, Duration = 0 })
 	CreateAnimation({ Name = "ChronosTeleportFxFront", DestinationId = CurrentRun.Hero.ObjectId })
 	wait (0.33)
-	SetAnimation({ Name = args.LandingAnimation or "Melinoe_Drop_Entrance_Fire", DestinationId = CurrentRun.Hero.ObjectId })
+	--SetAnimation({ Name = args.LandingAnimation or "Melinoe_Drop_Entrance_Fire", DestinationId = CurrentRun.Hero.ObjectId })
 	SetAlpha({ Id = dropShadow, Fraction = 0, Duration = 0.03 })
 	ShakeScreen({ Speed = 150, Distance = 6, Duration = 0.15, FalloffSpeed = 500, Angle = 90 })
 	thread( DoRumble, { { ScreenPreWait = 0.02, Fraction = 0.18, Duration = 0.8 }, } )
@@ -615,7 +615,7 @@ function mod.ChronosLeaveRoomSecretDoorPresentation(currentRun, secretDoor)
 
 	wait( 0.35 )
 
-	PlaySound({ Name = "/VO/MelinoeEmotes/EmoteEvading" })
+	--PlaySound({ Name = "/VO/MelinoeEmotes/EmoteEvading" })
 	local args = {}
 	args.SuccessDistance = 20
 	args.DisableCollision = true
@@ -1118,6 +1118,251 @@ function mod.ChronosPickupWeaponKitInteractPresentation( weaponKit )
 	--thread( RemoveInteractAnimationInputBlock )
 	wait( 0.11 )
 	--CreateAnimation({ Name = "ItemGet_Weapon", DestinationId = CurrentRun.Hero.ObjectId, Scale = 1.5 })
+end
+
+--Fishing animation
+function mod.ChronosFishingStartPresentation( source, args )
+
+	for massiveTraitName, v in pairs(SessionMapState.ReadiedMassiveAttacks) do
+		local traitData = TraitData[massiveTraitName]
+		StopAnimation({ Name = traitData.BlastReadyVfx, DestinationId = CurrentRun.Hero.ObjectId })
+		StopAnimation({ Name = traitData.BlastReadyDarkVfx, DestinationId = CurrentRun.Hero.ObjectId })
+	end
+
+	local fishingPointId = args.FishingPointId
+	local fishingAnimationPointId = args.FishingAnimationPointId
+
+	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = fishingPointId })
+	local unequipAnim = GetEquippedWeaponValue( "UnequipAnimation" )
+	if unequipAnim ~= nil then
+		SetAnimation({ Name = unequipAnim, DestinationId = CurrentRun.Hero.ObjectId,  })
+	end
+	wait(1.0)
+
+	thread( PlayVoiceLines, HeroVoiceLines.FishingInitiatedVoiceLines, true )
+
+	SetAnimation({ Name = "Enemy_Chronos_SwingLeftPreFire", DestinationId = CurrentRun.Hero.ObjectId })
+	wait(0.65)
+
+	Destroy({ Id = fishingPointId })
+	--SetAlpha({ Id = fishingPointId, Fraction = 0 })
+	SetAlpha({ Id = args.FishingPointId, Fraction = 0.0 })
+	BlockVfx({ DestinationId = args.FishingPointId })
+
+	local currentRoom = CurrentHubRoom or CurrentRun.CurrentRoom
+	local roomData = RoomData[currentRoom.Name] or currentRoom
+
+	SetAnimation({ Name = "FishingBobberIdle", DestinationId = fishingAnimationPointId })
+	CreateAnimation({ Name = "FishingSplashA", DestinationId = fishingAnimationPointId })
+	PlaySound({ Name = roomData.FishingStartSound or "/Leftovers/SFX/FishingPlunk", Id = fishingAnimationPointId })
+	thread( DoRumble, { { ScreenPreWait = 0.06, RightFraction = 0.18, Duration = 0.2 }, } )
+
+	local showedObjective = CheckObjectiveSet("Fishing")
+	HideCombatUI("Fishing")
+	if GameState.FishingSuccesses ~= nil and GameState.FishingSuccesses >= 1 then
+		thread( InCombatTextArgs, { Text = "Fishing_Hint", TargetId = CurrentRun.Hero.ObjectId, OffsetY = -205, SkipRise = true, SkipFlash = true, Duration = 2.5, PreDelay = 1.0, ShadowScaleX = 0.66 } )
+	else
+		thread( InCombatTextArgs, { Text = "Fishing_Hint_NewPlayer", TargetId = CurrentRun.Hero.ObjectId, OffsetY = -205, SkipRise = true, SkipFlash = true, Duration = 2.5, PreDelay = 1.0, ShadowScaleX = 0.66 } )
+	end
+
+	if roomData.ZoomFraction ~= nil then
+		AdjustZoom({ Fraction = roomData.ZoomFraction + 0.03, LerpTime = 2.5 })
+	else
+		AdjustZoom({ Fraction = 1.03, LerpTime = 2.5 })
+	end
+
+	thread( FishingInProgressPresentation )
+end
+
+function mod.ChronosFishingInProgressPresentation()
+
+	local fidgetInterval = RandomFloat( FishingData.FidgetInterval.Min, FishingData.FidgetInterval.Max )	
+
+	wait ( fidgetInterval )
+
+	if CurrentRun.Hero.FishingInput then
+		return
+	end
+	--SetAnimation({ Name = "Melinoe_Fishing_Fidget", DestinationId = CurrentRun.Hero.ObjectId })
+
+	wait ( 10.5 - fidgetInterval )
+
+	if CurrentRun.Hero.FishingInput then
+		return
+	end
+	thread( PlayVoiceLines, HeroVoiceLines.FishingInProgressVoiceLines, true )
+
+end
+
+function mod.ChronosFishingEndPresentation( fishData, fishingAnimationPointId, args )
+
+	SetAlpha({ Id = fishingAnimationPointId, Fraction = 0, Duration = 0 })
+
+	local currentRoom = CurrentHubRoom or CurrentRun.CurrentRoom
+	local roomData = RoomData[currentRoom.Name] or currentRoom
+
+	if fishData ~= nil and args.Success then
+
+		GameState.FishingSuccesses = (GameState.FishingSuccesses or 0) + 1
+		CurrentRun.FishingSuccesses = (CurrentRun.FishingSuccesses or 0) + 1
+		GameState.FishCaught[fishData.Name] = (GameState.FishCaught[fishData.Name] or 0) + 1
+		CurrentRun.FishCaught[fishData.Name] = (CurrentRun.FishCaught[fishData.Name] or 0) + 1
+		if args.UsedFamiliar then
+			GameState.FishingSuccessesFamiliar = (GameState.FishingSuccessesFamiliar or 0) + 1
+			CurrentRun.FishingSuccessesFamiliar = (CurrentRun.FishingSuccessesFamiliar or 0) + 1
+		else
+			GameState.FishingSuccessesManual = (GameState.FishingSuccessesManual or 0) + 1
+			CurrentRun.FishingSuccessesManual = (CurrentRun.FishingSuccessesManual or 0) + 1
+		end
+
+		thread( MarkObjectiveComplete, "Fishing" )
+		thread( PlayVoiceLines, fishData.FishCaughtVoiceLines, nil, nil, args )
+
+		CreateAnimation({ Name = "FishingSplashA", DestinationId = fishingAnimationPointId })
+		CreateAnimation({ Name = "FishingSplashB", DestinationId = fishingAnimationPointId })
+		
+		--Shake({ Id = CurrentRun.Hero.ObjectId, Distance = 2, Speed = 200, Duration = 0.35 })
+		PlaySound({ Name = "/SFX/CriticalHit" })
+		if args.UsedFamiliar then
+			PlaySound({ Name = "/SFX/Familiars/CatMeowExclaim2", Id = MapState.FamiliarUnit.ObjectId })
+		else
+			PlaySound({ Name = "/SFX/Enemy Sounds/Chronos/EmoteAttackingMelee" })
+		end
+		thread( DoRumble, { { ScreenPreWait = 0.04, RightFraction = 0.28, Duration = 0.4 }, } )
+		wait(0.1)
+		PlaySound({ Name = "/SFX/Player Sounds/ZagreusWhooshDropIn" })
+
+		wait(0.2)
+		--Shake({ Id = CurrentRun.Hero.ObjectId, Distance = 2, Speed = 200, Duration = 0.35 })
+		PlaySound({ Name = "/SFX/Enemy Sounds/Megaera/MegDeathSplash", Id = fishingAnimationPointId })
+		--PlaySound({ Name = "/VO/MelinoeEmotes/EmoteCharging" })
+		if not args.UsedFamiliar then
+			SetAnimation({ Name = "Enemy_Chronos_SwingLeftFire", DestinationId = CurrentRun.Hero.ObjectId, SpeedMultiplier = 2 })
+		end
+		thread( DoRumble, { { ScreenPreWait = 0.7, LeftFraction = 0.35, Duration = 0.4 }, } )
+		
+		local resourceTimes = 1
+		if RandomChance( GetTotalHeroTraitValue("DoubleToolRewardChance") * GetTotalHeroTraitValue( "LuckMultiplier", { IsMultiplier = true })) then
+			resourceTimes = resourceTimes + 1
+		end
+		
+		if resourceTimes > 1 then
+			thread( ChaosRewardIncreasedPresentation, fishingAnimationPointId )
+			waitUnmodified( 0.25, RoomThreadName )
+		end
+		AddResource( fishData.Name, 1 * resourceTimes, "Fishing" )
+
+		thread( GrantElementFromTool, "ToolFishingRod2" )
+
+		PlaySound({ Name = "/Leftovers/SFX/VictoryScreenUpdateSFX", Delay = 1 })
+
+		local fishingText = "Fishing_SuccessGoodTitle"
+
+		if not CurrentRun.Hero.IsDead then
+			thread( PlayVoiceLines, fishData.FishIdentifiedVoiceLines, nil, nil, args )
+		end
+
+		thread( DisplayInfoBanner, nil, {
+			Icon = fishData.Name,
+			TitleText = fishingText,
+			SubtitleText = "Fishing_SuccessSubtitle",
+			SubtitleData = { LuaKey = "TempTextData", LuaValue = fishData },
+			IconOffsetY = 6,
+			SubtitleOffsetY = 60,
+			HighlightIcon = true,
+			IconMoveSpeed = 0.1,
+			IconScale = 1.0,
+			AdditionalAnimation = "FishCatchPresentationSparkles",
+			IconBackingAnimationName = "LocationBackingIrisSmallSubtitleIn",
+			IconBackingAnimationOutName = "LocationBackingIrisSmallSubtitleOut",
+			AnimationName = "InfoBannerFishingIn",
+			AnimationOutName = "InfoBannerFishingOut",
+		})
+
+		CheckCodexUnlock( "Fish", fishData.Name )
+
+		wait ( 0.22 )
+		ApplyForce({ Id = CurrentRun.Hero.ObjectId, Speed = 640, Angle = GetAngleBetween({ DestinationId = CurrentRun.Hero.ObjectId, Id = fishingAnimationPointId}) })
+
+		wait( 0.88 )
+
+		if MapState.FamiliarUnit ~= nil and MapState.FamiliarUnit.Name == "CatFamiliar" then
+			PlaySound({ Name = MapState.FamiliarUnit.VictorySound or "/EmptyCue", Id = MapState.FamiliarUnit.ObjectId })
+		end
+
+	else
+		GameState.FishingFails = (GameState.FishingFails or 0) + 1
+		CurrentRun.FishingFails = (CurrentRun.FishingFails or 0) + 1
+
+		thread( MarkObjectiveFailed, "Fishing" )
+		--Shake({ Id = CurrentRun.Hero.ObjectId, Distance = 2, Speed = 200, Duration = 0.35 })
+		SetAnimation({ Name = "Enemy_Chronos_BattleOutro_Start", DestinationId = CurrentRun.Hero.ObjectId })
+		PlaySound({ Name = roomData.FishingFailSound or "/Leftovers/SFX/BigSplashRing", Delay = 0.3 })
+		PlaySound({ Name = "/SFX/CrappyRewardDrop", Delay = 0.5 })
+
+		PlaySound({ Name = "/Leftovers/SFX/ImpCrowdLaugh" })
+		thread( DoRumble, { { ScreenPreWait = 0.02, RightFraction = 0.17, Duration = 0.7 }, } )
+
+		if CurrentRun.Hero.FishingState == "TooLate" then
+			thread( PlayVoiceLines, HeroVoiceLines.FishNotCaughtTooLateVoiceLines, true )
+		elseif CurrentRun.Hero.FishingState == "WayLate" then
+			thread( PlayVoiceLines, HeroVoiceLines.FishNotCaughtWayTooLateVoiceLines, true )
+		else
+			thread( PlayVoiceLines, HeroVoiceLines.FishNotCaughtVoiceLines, true )
+		end
+		thread( InCombatTextArgs, { TargetId = fishingAnimationPointId, Text = "Fishing_Missed", Duration = 2.0, PreDelay = 0.6 } )
+		wait( 1.1 )
+	end
+	CurrentRun.Hero.FishingStarted = false
+	RemoveTimerBlock( CurrentRun, "Fishing" )
+	UnfreezePlayerUnit("Fishing")
+	UnblockCombatUI("Fishing")
+	
+	for massiveTraitName, v in pairs(SessionMapState.ReadiedMassiveAttacks) do
+		local traitData = TraitData[massiveTraitName]
+		CreateAnimation({ Name = traitData.BlastReadyVfx, DestinationId = CurrentRun.Hero.ObjectId })
+		CreateAnimation({ Name = traitData.BlastReadyDarkVfx, DestinationId = CurrentRun.Hero.ObjectId })
+	end
+
+	if roomData.ZoomFraction ~= nil then
+		AdjustZoom({ Fraction = roomData.ZoomFraction, LerpTime = 1.5 })
+	else
+		AdjustZoom({ Fraction = 1.0, LerpTime = 1.5 })
+	end
+	if not MapState.InOverlook then
+		PanCamera({ Id = CurrentRun.Hero.ObjectId, Duration = 0.5 })
+	end
+	if not roomData.IgnoreFishingCameraClamps then
+		local cameraClamps = roomData.CameraClamps or GetDefaultClampIds()
+		SetCameraClamp({ Ids = cameraClamps, SoftClamp = roomData.SoftClamp })
+	end
+end
+
+--Mining
+function mod.ChronosPickaxeStartPresentation( source, args, user )	
+	thread( PlayVoiceLines, HeroVoiceLines.PickaxeUseInProgressVoiceLines, true )
+
+	SetAnimation({ Name = "Enemy_Chronos_SwingLeftPreFire", DestinationId = user.ObjectId })
+
+	AngleTowardTarget({ Id = user.ObjectId, DestinationId = source.ObjectId })
+
+	--PlaySound({ Name = "/VO/MelinoeEmotes/EmoteEvading", Id = user.ObjectId })
+
+	waitUnmodified( 0.06, user.PreHarvestThreadName )
+	PlaySound({ Name = "/SFX/Enemy Sounds/Chronos/EmoteAttackingRanged", Id = user.ObjectId })
+
+	SetAnimation({ Name = "Enemy_Chronos_SwingLeftFire", DestinationId = user.ObjectId })
+	waitUnmodified( 0.1, user.PreHarvestThreadName )
+	CreateAnimation({ Name = "HarvestPickaxeSwing", DestinationId = user.ObjectId })
+	waitUnmodified( 0.1, user.PreHarvestThreadName )
+
+	CreateAnimation({ Name = "OreHarvestSpark", DestinationId = source.ObjectId })
+	CreateAnimation({ Name = "OreHarvestSpike", DestinationId = source.ObjectId, Group = "FX_Standing_Add" })
+
+	Shake({ Id = source.ObjectId, Distance = 2, Speed = 300, Duration = 0.32 })
+	PlaySound({ Name = "/SFX/PickaxeHitSFX", Id = source.ObjectId })
+
+	waitUnmodified( 0.3, user.PreHarvestThreadName )
 end
 
 --Hug Hecate

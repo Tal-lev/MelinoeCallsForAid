@@ -353,14 +353,37 @@ modutil.mod.Path.Wrap("PreNarrativeUnequipAnimation",  function(baseFunc)
 	end
 end)
 
-modutil.mod.Path.Wrap("PickupWeaponKitInteractPresentation",  function(baseFunc, weaponKit) 
+modutil.mod.Path.Wrap("FishingStartPresentation",  function(baseFunc, source, args) 
 	if HeroHasTrait("ChronosAspect") then
-		mod.ChronosPickupWeaponKitInteractPresentation(weaponKit)
+		mod.ChronosFishingStartPresentation( source, args )
 	else
-		baseFunc(weaponKit)
+		baseFunc(source, args)
 	end
 end)
 
+modutil.mod.Path.Wrap("FishingInProgressPresentation",  function(baseFunc) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosFishingInProgressPresentation()
+	else
+		baseFunc()
+	end
+end)
+
+modutil.mod.Path.Wrap("FishingEndPresentation",  function(baseFunc, fishData, fishingAnimationPointId, args) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosFishingEndPresentation( fishData, fishingAnimationPointId, args )
+	else
+		baseFunc(fishData, fishingAnimationPointId, args)
+	end
+end)
+
+modutil.mod.Path.Wrap("PickaxeStartPresentation",  function(baseFunc, source, args, user) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosPickaxeStartPresentation( source, args, user )	
+	else
+		baseFunc(source, args, user)
+	end
+end)
 
 ChronosAspect = {
 	InheritFrom = { "WeaponEnchantmentTrait" },
@@ -577,7 +600,7 @@ ChronosAspect = {
 		{
 			WeaponName = "WeaponAxe",
 			WeaponProperties = {
-				ChargeStartAnimation = "Enemy_Chronos_SwingLeftPreFire",
+				ChargeStartAnimation = "Enemy_Chronos_SwingRightPreFire",
 				FireGraphic = "Enemy_Chronos_SwingRightFire",
 				SwapOnFire = "WeaponAxe2",
 				FireFx = "ChronosScythePreAttackSparkleSwingRight",
@@ -595,7 +618,7 @@ ChronosAspect = {
 		{
 			WeaponName = "WeaponAxe2",
 			WeaponProperties = {
-				ChargeStartAnimation = "Enemy_Chronos_SwingRightPreFire",
+				ChargeStartAnimation = "Enemy_Chronos_SwingLeftPreFire",
 				FireGraphic = "Enemy_Chronos_SwingLeftFire",
 				SwapOnFire = "WeaponAxe",
 				FireFx = "ChronosScythePreAttackSparkleSwingLeft",
