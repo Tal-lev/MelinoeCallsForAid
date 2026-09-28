@@ -36,6 +36,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Prometheus Kill
   - Scylla Greetings
   - Familiar Costume Switch
+  - Icarus Encouter Starts
+  - Artemis Encounter Starts
 - Removing incompatible Traits
   - Axe Attack speed
   - Hermes - Nitro Boost
