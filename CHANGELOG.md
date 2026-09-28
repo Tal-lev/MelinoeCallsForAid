@@ -31,6 +31,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Gifting Gods
   - Finding Zeus/Poseidon/Selene boons
   - Miniboss Encounter Start
+  - Starting Typhon Fight
+  - Prometheus Memory game
+  - Prometheus Kill
 - Removing incompatible Traits
   - Axe Attack speed
   - Hermes - Nitro Boost
