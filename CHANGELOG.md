@@ -35,6 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Prometheus Memory game
   - Prometheus Kill
   - Scylla Greetings
+  - Familiar Costume Switch
 - Removing incompatible Traits
   - Axe Attack speed
   - Hermes - Nitro Boost
