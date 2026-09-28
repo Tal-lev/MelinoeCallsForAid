@@ -52,6 +52,12 @@ function mod.ChronosPoseidonRush(weaponData, functionArgs, triggerArgs )
   CreateProjectileFromUnit({ Name = functionArgs.ProjectileName, Id = CurrentRun.Hero.ObjectId, DamageMultiplier = functionArgs.DamageMultiplier, FireFromTarget = true, ProjectileCap = 1 })
 end
 
+function mod.ChronosApolloRush(weaponData, functionArgs, triggerArgs ) 
+  CreateProjectileFromUnit({ Name = functionArgs.ProjectileName, Id = CurrentRun.Hero.ObjectId, DamageMultiplier = functionArgs.DamageMultiplier, FireFromTarget = true, ProjectileCap = 1 })
+  wait(0.6)
+  CreateProjectileFromUnit({ Name = functionArgs.ProjectileName, Id = CurrentRun.Hero.ObjectId, DamageMultiplier = functionArgs.DamageMultiplier, FireFromTarget = true, ProjectileCap = 1 })
+end
+
 function mod.ChronosHestiaSprintFlames(weaponData, functionArgs, triggerArgs )
 	SessionMapState.LastHestiaProjectileId = CreateProjectileFromUnit({ Name =  functionArgs.ProjectileName, DestinationId = CurrentRun.Hero.ObjectId, Id = CurrentRun.Hero.ObjectId, DamageMultiplier = functionArgs.DamageMultiplier, FizzleOldestProjectileCount = functionArgs.MaxSpawns })
   wait(0.05)
@@ -64,6 +70,14 @@ function mod.ChronosHestiaSprintFlames(weaponData, functionArgs, triggerArgs )
   SessionMapState.LastHestiaProjectileId = CreateProjectileFromUnit({ Name =  functionArgs.ProjectileName, DestinationId = CurrentRun.Hero.ObjectId, Id = CurrentRun.Hero.ObjectId, DamageMultiplier = functionArgs.DamageMultiplier, FizzleOldestProjectileCount = functionArgs.MaxSpawns })
 end
 
+function mod.ApplyBlindEffect( weaponData, functionArgs, triggerArgs )
+	local effectName = functionArgs.EffectName 
+	local dataProperties = MergeAllTables({
+		EffectData[effectName].EffectData, 
+		functionArgs.EffectArgs
+	})
+	ApplyEffect( { DestinationId = victim.ObjectId, Id = CurrentRun.Hero.ObjectId, EffectName = effectName, DataProperties = dataProperties } )
+end
   
 ------ Adding GameStateRequirements for all
 -- Zeus
@@ -270,7 +284,7 @@ OverwriteTableKeys(TraitData, {
     OnWeaponFiredFunctions =
 		{
 			ValidWeapons = {"WeaponBlink", },	
-      FunctionName = _PLUGIN.guid .. "." .. "ChronosPoseidonRush",
+     		FunctionName = _PLUGIN.guid .. "." .. "ChronosPoseidonRush",
 			FunctionArgs = 
 			{
 				ProjectileName = "ChronosRushPoseidonBlast",
@@ -289,6 +303,68 @@ OverwriteTableKeys(TraitData, {
 				},
 			},
     },
+    GameStateRequirements = {
+      {
+        Path = {"CurrentRun", "Hero", "TraitDictionary"},
+        HasAll = {"ChronosAspect"}
+      }
+    },
+  },
+
+  ChronosApolloSprintBoon = {
+    Icon = "Boon_Apollo_28",
+		InheritFrom = { "BaseTrait", "FireBoon"},
+		Slot = "Rush",
+		RarityLevels =
+		{
+			Common =
+			{
+				Multiplier = 80/80,
+			},
+			Rare =
+			{
+				Multiplier = 100/80,
+			},
+			Epic =
+			{
+				Multiplier = 120/80,
+			},
+			Heroic =
+			{
+				Multiplier = 140/80,
+			},
+		},
+    OnWeaponFiredFunctions =
+		{
+			ValidWeapons = {"WeaponBlink", },	
+      		FunctionName = _PLUGIN.guid .. "." .. "ChronosApolloRush",
+			FunctionArgs = 
+			{
+				ProjectileName = "ChronosRushApolloBlast",
+				DamageMultiplier = 1,
+				ReportValues = 
+				{ 
+					ReportedMultiplier = "DamageMultiplier" 
+				},
+			},
+    },
+	OnEnemyDamagedAction = 
+	{
+		ValidProjectiles = { "ChronosRushApolloBlast"},
+		EffectName = "BlindEffect",
+		Chance = 
+		{ 
+			BaseValue = 0.20,
+			AbsoluteStackValues =
+			{
+				[1] = 0.05,
+				[2] = 0.03,
+				[3] = 0.02,
+				[4] = 0.01,
+			},
+		},
+		ReportValues = { ReportedChance = "Chance"}
+	},
     GameStateRequirements = {
       {
         Path = {"CurrentRun", "Hero", "TraitDictionary"},
@@ -413,6 +489,9 @@ table.insert( LootData.HeraUpgrade.PriorityUpgrades, 4, "ChronosHeraSprintBoon" 
 --Poseidon
 table.insert( LootData.PoseidonUpgrade.WeaponUpgrades, "ChronosPoseidonSprintBoon" )
 table.insert( LootData.PoseidonUpgrade.PriorityUpgrades, 4, "ChronosPoseidonSprintBoon" )
+--Apollo
+table.insert( LootData.ApolloUpgrade.WeaponUpgrades, "ChronosApolloSprintBoon" )
+table.insert( LootData.ApolloUpgrade.PriorityUpgrades, 4, "ChronosApolloSprintBoon" )
 --Hestia
 table.insert( LootData.HestiaUpgrade.WeaponUpgrades, "ChronosHestiaSprintBoon" )
 table.insert( LootData.HestiaUpgrade.PriorityUpgrades, 4, "ChronosHestiaSprintBoon" )

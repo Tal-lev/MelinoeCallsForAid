@@ -560,7 +560,7 @@ ChronosAspect = {
 			},
 			ProjectileProperties = {
 				Damage = 40,
-			}
+			},
 			ExcludeLinked = true,
 		},
 		{
@@ -578,7 +578,7 @@ ChronosAspect = {
 			},
 			ProjectileProperties = {
 				Damage = 40,
-			}
+			},
 			ExcludeLinked = true,
 		},
 		--Omega Attack
@@ -597,7 +597,7 @@ ChronosAspect = {
 			},
 			ProjectileProperties = {
 				Damage = 120,
-			}
+			},
 		},
 		--Dash Attack
 		{
@@ -615,7 +615,7 @@ ChronosAspect = {
 			},
 			ProjectileProperties = {
 				Damage = 40,
-			}
+			},
 			ExcludeLinked = true,
 		},
 		-- Special
