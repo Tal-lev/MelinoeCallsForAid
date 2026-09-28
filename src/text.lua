@@ -206,6 +206,16 @@ sjson.hook(file, function(data)
 
     table.insert(data.Texts, sjson.to_object(
     {
+      Id = "ChronosDemeterSprintBoon",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Frigid Dash",
+      Description = "Your {$Keywords.Dash} create a gust of wind that that slows enemies.",
+    },
+    TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+    {
       Id = "ChronosApolloSprintBoon",
       InheritFrom = "BaseBoonMultiline",
       DisplayName = "Blinding Dash",

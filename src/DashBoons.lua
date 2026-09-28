@@ -221,11 +221,11 @@ OverwriteTableKeys(TraitData, {
 				ProjectileName = "ProjectileHeraOmega",
 				DamageMultiplier = 
 				{
-					BaseValue = 0.25,
+					BaseValue = 0.3333,
 					DecimalPlaces = 4, -- Needs additional precision due to the number being operated on
 					AbsoluteStackValues = 
 					{
-						[1] = 0.0625,
+						[1] = 0.0833,
 					},
 				},
 				ReportValues = 
@@ -311,6 +311,60 @@ OverwriteTableKeys(TraitData, {
     },
   },
 
+ --Demeter
+  ChronosDemeterSprintBoon = {
+    Icon = "Boon_Demeter_28",
+		InheritFrom = { "BaseTrait", "WaterBoon" },
+		Slot = "Rush",
+		RarityLevels =
+		{
+			Common =
+			{
+				Multiplier = 80/80,
+			},
+			Rare =
+			{
+				Multiplier = 100/80,
+			},
+			Epic =
+			{
+				Multiplier = 120/80,
+			},
+			Heroic =
+			{
+				Multiplier = 140/80,
+			},
+		},
+    OnWeaponFiredFunctions =
+	{
+		ValidWeapons = {"WeaponBlink", },	
+		FunctionName = _PLUGIN.guid .. "." .. "ChronosHeraRushProjectileSpawn",
+		FunctionArgs = 
+		{
+			ProjectileName = "HadesOneDemeterRushProjectile",
+			DamageMultiplier = 
+			{
+				BaseValue = 0.25,
+				DecimalPlaces = 4, -- Needs additional precision due to the number being operated on
+				AbsoluteStackValues = 
+				{
+					[1] = 0.0625,
+				},
+			},
+			ReportValues = 
+			{ 
+				ReportedMultiplier = "DamageMultiplier" 
+			},
+		},
+    },
+    GameStateRequirements = {
+      {
+        Path = {"CurrentRun", "Hero", "TraitDictionary"},
+        HasAll = {"ChronosAspect"}
+      }
+    },
+  },
+  --Apollo
   ChronosApolloSprintBoon = {
     Icon = "Boon_Apollo_28",
 		InheritFrom = { "BaseTrait", "FireBoon"},
@@ -364,6 +418,35 @@ OverwriteTableKeys(TraitData, {
 			},
 		},
 		ReportValues = { ReportedChance = "Chance"}
+	},
+	StatLines =
+	{
+		"BlindChanceStatDisplay1",
+	},
+	ExtractValues =
+	{
+		{
+			Key = "ReportedChance",
+			ExtractAs = "Chance",
+			Format = "LuckModifiedPercent",
+		},
+		{
+			ExtractAs = "BlindDuration",
+			SkipAutoExtract = true,
+			External = true,
+			BaseType = "EffectData",
+			BaseName = "BlindEffect",
+			BaseProperty = "Duration",
+		},
+		{
+			ExtractAs = "BlindChance",
+			SkipAutoExtract = true,
+			External = true,
+			BaseType = "EffectData",
+			BaseName = "BlindEffect",
+			BaseProperty = "MissChance",
+			Format = "Percent"
+		},
 	},
     GameStateRequirements = {
       {
@@ -489,6 +572,9 @@ table.insert( LootData.HeraUpgrade.PriorityUpgrades, 4, "ChronosHeraSprintBoon" 
 --Poseidon
 table.insert( LootData.PoseidonUpgrade.WeaponUpgrades, "ChronosPoseidonSprintBoon" )
 table.insert( LootData.PoseidonUpgrade.PriorityUpgrades, 4, "ChronosPoseidonSprintBoon" )
+--Demeter
+table.insert( LootData.DemeterUpgrade.WeaponUpgrades, "ChronosDemeterSprintBoon" )
+table.insert( LootData.DemeterUpgrade.PriorityUpgrades, 4, "ChronosDemeterSprintBoon" )
 --Apollo
 table.insert( LootData.ApolloUpgrade.WeaponUpgrades, "ChronosApolloSprintBoon" )
 table.insert( LootData.ApolloUpgrade.PriorityUpgrades, 4, "ChronosApolloSprintBoon" )
