@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 - Adding Dash Boons
+  - Demeter
   - Apollo
 - Compatibility with MelSkin mod
 - Adding Special Presentation
