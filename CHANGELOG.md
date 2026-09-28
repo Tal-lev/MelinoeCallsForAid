@@ -30,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Kill Last Enemy in Room
   - Gifting Gods
   - Finding Zeus/Poseidon/Selene boons
+  - Changing Costume
   - Miniboss Encounter Start
   - Hecate Greetings
   - Hecate Defeated
