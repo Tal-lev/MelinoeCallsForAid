@@ -1365,5 +1365,408 @@ function mod.ChronosPickaxeStartPresentation( source, args, user )
 	waitUnmodified( 0.3, user.PreHarvestThreadName )
 end
 
+--Shoveling
+function mod.ChronosShovelStartPresentation( source, args, user )
+
+	AddOnDamagedFunction( user, "ShovelPointUseCanceled" )
+	user.OnHostilePolymorphFunctionName = "ShovelPointUseCanceled"
+	user.PreHarvestThreadName = "ShovelStartPresentation"
+
+	waitUnmodified( 0.02, user.PreHarvestThreadName )
+
+	SetAnimation({ Name = "Enemy_Chronos_GrindPreFire", DestinationId = user.ObjectId })	
+	AngleTowardTarget({ Id = user.ObjectId, DestinationId = source.ObjectId })
+	waitUnmodified(0.5, user.PreHarvestThreadName)
+	CreateAnimation({ Name = "ShovelDirtIn", DestinationId = user.ObjectId })
+	waitUnmodified(0.17, user.PreHarvestThreadName)
+
+	SetAnimation({ Name = "Enemy_Chronos_GrindFire", DestinationId = user.ObjectId })
+	thread( DoRumble, { { ScreenPreWait = 0.02, Fraction = 0.7, Duration = 0.2 }, } )	
+	ShakeScreen({ Speed = 300, Distance = 6, Duration = 0.1, FalloffSpeed = 10000, Angle = 90 })
+	waitUnmodified( RandomFloat(0.3, 0.3), user.PreHarvestThreadName )
+
+	thread( PlayVoiceLines, HeroVoiceLines.ShovelVoiceLines, true )
+
+	Shake({ Id = user.ObjectId, Speed = 100, Distance = 1, Duration = 0.3 })
+	thread( DoRumble, { { ScreenPreWait = 0.02, Fraction = 0.5, Duration = 0.5 }, } )
+	waitUnmodified( 0.3, user.PreHarvestThreadName )
+
+	Shake({ Id = user.ObjectId, Speed = 200, Distance = 2, Duration = 0.2 })
+	waitUnmodified( 0.2, user.PreHarvestThreadName )
+
+	SetAnimation({ Name = "Enemy_Chronos_GrindPostFire", DestinationId = user.ObjectId })
+	waitUnmodified( 0.1, user.PreHarvestThreadName )
+
+	ShakeScreen({ Speed = 300, Distance = 6, Duration = 0.1, FalloffSpeed = 10000, Angle = 90 })	
+	RemoveOnDamagedFunction( user, "ShovelPointUseCanceled" )
+	user.OnHostilePolymorphFunctionName = nil
+	CreateAnimation({ Name = "ShovelDirtOutSpray", DestinationId = source.ObjectId })
+	waitUnmodified( 0.12 )
+
+end
+
+function mod.ChronosHarvestStartPresentation( source, args, user )
+	args = args or {}
+
+	AddOnDamagedFunction( user, "HarvestPointUseCanceled" )
+	user.OnHostilePolymorphFunctionName = "HarvestPointUseCanceled"
+	user.PreHarvestThreadName = "HarvestStartPresentation"
+
+	SetAnimation({ Name = "Enemy_Chronos_DashPreFire", DestinationId = user.ObjectId })
+	AngleTowardTarget({ Id = user.ObjectId, DestinationId = source.ObjectId })
+
+	waitUnmodified( 0.1, user.PreHarvestThreadName )
+
+	-- thread( PlayVoiceLines, args.VoiceLines or HeroVoiceLines.HarvestVoiceLines, true )
+
+	waitUnmodified( 0.1, user.PreHarvestThreadName )
+
+	RemoveOnDamagedFunction( user, "HarvestPointUseCanceled" )
+	user.OnHostilePolymorphFunctionName = nil
+
+	PlaySound({ Name = source.PickUpSound or "/SFX/ResourceGatherSFX", Id = user.ObjectId })
+
+	SetAnimation({ Name = "Player_Chronos_DashFire", DestinationId = user.ObjectId })
+	waitUnmodified(0.1)
+
+	if args.PresentationFunctionName ~= nil then
+		CallFunctionName( args.PresentationFunctionName, source, args, user )
+	else
+		UsedHarvestPointPresentation( source, args, user )
+	end
+	
+end
+
+function mod.ChronosFamiliarHarvestStartPresentation( source, args, user )
+	local familiar = MapState.FamiliarUnit
+	familiar.BlockVictoryPresentation = true
+
+	local originalCanGuard = familiar.CanGuard
+	familiar.CanGuard = false
+
+	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = familiar.ObjectId })
+	--SetAnimation({ Name = "Melinoe_CrossCast_Start_Fast", DestinationId = CurrentRun.Hero.ObjectId })
+	CreateAnimation({ Name = "ItemGet_Tool", DestinationId = CurrentRun.Hero.ObjectId })
+	PlaySound({ Name = "/Leftovers/World Sounds/Caravan Interior/FloatingRockInteract", Id = CurrentRun.Hero.ObjectId })
+
+	PolecatFamiliarStopAI( familiar )
+
+	thread( PlayVoiceLines, HeroVoiceLines.FamiliarHarvestVoiceLines, true )
+
+	waitUnmodified( 0.25 )
+	PlaySound({ Name = familiar.EquipSound or "/EmptyCue", Id = familiar.ObjectId })
+	--SetAnimation({ Name = "MelinoeCrossCast", DestinationId = CurrentRun.Hero.ObjectId })
+	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = source.ObjectId, })
+	if not familiar.Burrowing then
+		CreateAnimation({ Name = "ItemGet_Tool", DestinationId = familiar.ObjectId, OffsetZ = -60 })
+	end
+
+	waitUnmodified( 0.15 )
+
+	thread( BackPlayerUpForHarvest, user, source )
+
+	local currentRoom = CurrentHubRoom or CurrentRun.CurrentRoom
+	local roomData = RoomData[currentRoom.Name] or currentRoom
+
+	if not IsWithinDistance({ Id = familiar.ObjectId, DestinationId = source.ObjectId, Distance = familiar.MinDistanceToTeleportForHarvestPoints })
+		or ( roomData.PolecatFamiliarMovementRequiresLineOfSight and not HasLineOfSight({ Id = familiar.ObjectId, DestinationId = source.ObjectId, StopsUnits = true }) )
+		or familiar.Burrowing then
+
+		if not familiar.Burrowing then
+			SetAnimation({ Name = "Familiar_Polecat_DropIn_Exit", DestinationId = familiar.ObjectId })
+			wait(0.2)
+
+			-- teleport to the closest spawn point first
+			FamiliarTeleportPresentation( familiar )
+			SetAlpha({ Id = familiar.ObjectId, Fraction = 0.0, Duration = 0.2 })
+			wait( 0.21 )
+		end
+
+		local spawnPointId = GetClosest({ Id = source.ObjectId, DestinationName = "SpawnPoints", DestinationIds = GetIdsByType({ Name = "FamiliarPoint" }), RequiredLocationUnblocked = true, })
+		if spawnPointId == 0 then
+			-- fall back to the hero's position if no spawn points exist
+			spawnPointId = CurrentRun.Hero.ObjectId
+		end
+		Teleport({ Id =  familiar.ObjectId, DestinationId = spawnPointId })
+		AngleTowardTarget({ Id = familiar.ObjectId, DestinationId = source.ObjectId })
+		FamiliarTeleportPresentation( familiar )
+		SetAnimation({ Name = "Familiar_Polecat_DropIn_Enter", DestinationId = familiar.ObjectId })
+		SetAlpha({ Id = familiar.ObjectId, Fraction = 1.0, Duration = 0.2 })
+		wait( 0.18 )
+
+		PolecatFamiliarMoveToLocation( familiar, { Id = source.ObjectId, SuccessDistance = 130 } )
+	else
+		-- speed up for non-teleport version
+		local initialSpeed = GetUnitDataValue({ Id = familiar.ObjectId, Property = "Speed" })
+		SetUnitProperty({ Property = "Speed", Value = 900, DestinationId = familiar.ObjectId })
+		PolecatFamiliarMoveToLocation( familiar, { Id = source.ObjectId, SuccessDistance = 130 } )
+		SetUnitProperty({ Property = "Speed", Value = initialSpeed, DestinationId = familiar.ObjectId })
+	end
+
+	waitUnmodified(0.05)
+	AngleTowardTarget({ Id = familiar.ObjectId, DestinationId = source.ObjectId })
+	waitUnmodified(0.05)
+	SetAnimation({ DestinationId = familiar.ObjectId, Name = "Familiar_Polecat_Harvest" })
+	waitUnmodified(0.3)
+
+	PlaySound({ Name = source.PickUpSound or "/SFX/ResourceGatherSFX", Id = user.ObjectId })
+	thread( UsedHarvestPointPresentation, source, args, user )
+	familiar.BlockVictoryPresentation = false
+	familiar.CanGuard = originalCanGuard
+end
+
+function mod.ChronosFamiliarShovelStartPresentation( source, args, user )
+
+	local familiar = MapState.FamiliarUnit
+
+	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = familiar.ObjectId })
+	--SetAnimation({ Name = "Melinoe_CrossCast_Start_Fast", DestinationId = CurrentRun.Hero.ObjectId })
+	CreateAnimation({ Name = "ItemGet_Tool", DestinationId = CurrentRun.Hero.ObjectId })
+	PlaySound({ Name = "/Leftovers/World Sounds/Caravan Interior/FloatingRockInteract", Id = CurrentRun.Hero.ObjectId })
+
+	HoundFamiliarStopAI( familiar )
+
+	thread( PlayVoiceLines, HeroVoiceLines.FamiliarHarvestVoiceLines, true )
+
+	waitUnmodified( 0.25 )
+	PlaySound({ Name = familiar.EquipSound or "/EmptyCue", Id = familiar.ObjectId })
+	--SetAnimation({ Name = "MelinoeCrossCast", DestinationId = CurrentRun.Hero.ObjectId })
+	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = source.ObjectId, })
+	CreateAnimation({ Name = "ItemGet_Tool", DestinationId = familiar.ObjectId, OffsetZ = -60 })
+
+	waitUnmodified( 0.15 )
+
+	if familiar.HarvestSound ~= nil then
+		PlaySound({ Name = familiar.HarvestSound, Id = familiar.ObjectId })
+	end
+
+	thread( BackPlayerUpForHarvest, user, source )
+
+	local currentRoom = CurrentHubRoom or CurrentRun.CurrentRoom
+	local roomData = RoomData[currentRoom.Name] or currentRoom
+
+	if not IsWithinDistance({ Id = familiar.ObjectId, DestinationId = source.ObjectId, Distance = familiar.MinDistanceToTeleportForShovelPoints })
+		or ( roomData.HoundFamiliarMovementRequiresLineOfSight and not HasLineOfSight({ Id = familiar.ObjectId, DestinationId = source.ObjectId, StopsUnits = true }) ) then
+
+		SetAnimation({ Name = "Familiar_Hound_DropIn_Exit", DestinationId = familiar.ObjectId })
+		wait(0.2)
+
+		-- teleport to the closest spawn point first
+		FamiliarTeleportPresentation( familiar )
+		SetAlpha({ Id = familiar.ObjectId, Fraction = 0.0, Duration = 0.2 })
+		wait( 0.21 )
+
+		local spawnPointId = GetClosest({ Id = source.ObjectId, DestinationName = "SpawnPoints", DestinationIds = GetIdsByType({ Name = "FamiliarPoint" }), RequiredLocationUnblocked = true, })
+		if spawnPointId == 0 then
+			-- fall back to the hero's position if no spawn points exist
+			spawnPointId = CurrentRun.Hero.ObjectId
+		end
+		Teleport({ Id =  familiar.ObjectId, DestinationId = spawnPointId })
+		AngleTowardTarget({ Id = familiar.ObjectId, DestinationId = source.ObjectId })
+		FamiliarTeleportPresentation( familiar )
+		SetAnimation({ Name = "Familiar_Hound_DropIn_Enter", DestinationId = familiar.ObjectId })
+		SetAlpha({ Id = familiar.ObjectId, Fraction = 1.0, Duration = 0.2 })
+		wait( 0.18 )
+	end
+
+	AdjustFamiliarPathfinding( familiar, { NodeDistance = 16, NodeSuccessDistance = 8 } )
+	HoundFamiliarMoveToLocation( familiar, { Id = source.ObjectId, KeepStandingOnFinish = true, SuccessDistance = 100 } )
+	AdjustFamiliarPathfinding( familiar, { ResetNodeDistances = true })
+
+	waitUnmodified(0.05)
+	AngleTowardTarget({ Id = familiar.ObjectId, DestinationId = source.ObjectId })
+	waitUnmodified(0.05)
+	SetAnimation({ DestinationId = familiar.ObjectId, Name = "Familiar_Hound_Dig_ShovelPoint" })
+	waitUnmodified(0.18)
+	CreateAnimation({ Name = "ShovelDirtInSprayHound", DestinationId = familiar.ObjectId })
+	waitUnmodified(0.35)
+	CreateAnimation({ Name = "ShovelDirtOutSprayHound", DestinationId = source.ObjectId })
+	waitUnmodified(0.4)
+end
+
+function mod.ChronosFamiliarPickaxeStartPresentation( source, args, user )
+
+	local familiar = MapState.FamiliarUnit
+	familiar.BlockVictoryPresentation = true
+
+	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = familiar.ObjectId })
+	--SetAnimation({ Name = "Melinoe_CrossCast_Start_Fast", DestinationId = CurrentRun.Hero.ObjectId })
+	CreateAnimation({ Name = "ItemGet_Tool", DestinationId = CurrentRun.Hero.ObjectId })
+	PlaySound({ Name = "/Leftovers/World Sounds/Caravan Interior/FloatingRockInteract", Id = CurrentRun.Hero.ObjectId })
+
+	RavenFamiliarStopAI( familiar )
+
+	thread( PlayVoiceLines, HeroVoiceLines.FamiliarHarvestVoiceLines, true )
+
+	waitUnmodified( 0.25 )
+	PlaySound({ Name = familiar.EquipSound or "/EmptyCue", Id = familiar.ObjectId })
+	--SetAnimation({ Name = "MelinoeCrossCast", DestinationId = CurrentRun.Hero.ObjectId })
+	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = source.ObjectId, })
+	if familiar.TargetHeight ~= familiar.SkyHeight then
+		CreateAnimation({ Name = "ItemGet_Tool", DestinationId = familiar.ObjectId, OffsetZ = -60 })
+	end
+
+	waitUnmodified( 0.15 )
+
+	if familiar.HarvestSound ~= nil then
+		PlaySound({ Name = familiar.HarvestSound, Id = familiar.ObjectId })
+	end
+
+	thread( BackPlayerUpForHarvest, user, source )
+
+	if GetDistance({ Id = familiar.ObjectId, DestinationId = source.ObjectId }) >= familiar.MinDistanceToTeleportWhenMining or familiar.TargetHeight == familiar.SkyHeight then
+		if familiar.TargetHeight ~= familiar.SkyHeight then
+			-- teleport to the closest spawn point first
+			FamiliarTeleportPresentation( familiar )
+			SetAlpha({ Id = familiar.ObjectId, Fraction = 0.0, Duration = 0.2 })
+			wait( 0.21 )
+		end
+
+		local currentRoom = CurrentHubRoom or CurrentRun.CurrentRoom
+		local roomData = RoomData[currentRoom.Name] or currentRoom
+
+		local spawnPointId = GetClosest({ Id = source.ObjectId, DestinationName = "SpawnPoints", DestinationIds = GetIdsByType({ Name = "FamiliarPoint" }), RequiredLocationUnblocked = true, })
+		if spawnPointId == 0 then
+			-- fall back to the hero's position if no spawn points exist
+			spawnPointId = CurrentRun.Hero.ObjectId
+		end
+		Teleport({ Id =  familiar.ObjectId, DestinationId = spawnPointId })
+		AngleTowardTarget({ Id = familiar.ObjectId, DestinationId = source.ObjectId })
+		FamiliarTeleportPresentation( familiar )
+		SetAnimation({ Name = "Familiar_Raven_Idle", DestinationId = familiar.ObjectId })
+		familiar.TargetHeight = familiar.FlightHeight
+		AdjustZLocation({ Id = familiar.ObjectId, Distance = familiar.FlightHeight - GetZLocation({ Id = familiar.ObjectId }), Duration = 0 })
+		SetAlpha({ Id = familiar.ObjectId, Fraction = 1.0, Duration = 0.2 })
+		wait( 0.18 )
+	end
+
+	RavenFamiliarMoveToLocation( familiar, { Id = source.ObjectId, KeepFlyingOnFinish = true, SuccessDistance = 120, NotifyDistance = 150 } )
+	waitUnmodified(0.05)
+	AngleTowardTarget({ Id = familiar.ObjectId, DestinationId = source.ObjectId })
+	waitUnmodified(0.26)
+	SetAnimation({ DestinationId = familiar.ObjectId, Name = "Familiar_Raven_Mine" })
+	waitUnmodified(0.41)
+	CreateAnimation({ Name = "OreHarvestSpark", DestinationId = source.ObjectId })
+	CreateAnimation({ Name = "OreHarvestSpike", DestinationId = source.ObjectId, Group = "FX_Standing_Add" })
+	familiar.BlockVictoryPresentation = false
+
+end
+
+function mod.ChronosFamiliarExorcismStartPresentation( source, args, user )
+
+	-- PlaySound({ Name = "/SFX/Enemy Sounds/Exalted/ExaltedPreAttackFlashSoundBow" })
+
+	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = MapState.FamiliarUnit.ObjectId })
+	--SetAnimation({ Name = "Melinoe_CrossCast_Start_Fast", DestinationId = CurrentRun.Hero.ObjectId })
+	CreateAnimation({ Name = "ItemGet_Tool", DestinationId = CurrentRun.Hero.ObjectId })
+	PlaySound({ Name = "/Leftovers/World Sounds/Caravan Interior/FloatingRockInteract", Id = CurrentRun.Hero.ObjectId })
+
+	thread( PlayVoiceLines, HeroVoiceLines.FamiliarHarvestVoiceLines, true )
+
+	waitUnmodified( 0.25 )
+	PlaySound({ Name = MapState.FamiliarUnit.EquipSound or "/EmptyCue", Id = MapState.FamiliarUnit.ObjectId })
+	--SetAnimation({ Name = "MelinoeCrossCast", DestinationId = CurrentRun.Hero.ObjectId })
+	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = source.ObjectId, })
+	CreateAnimation({ Name = "ItemGet_Tool", DestinationId = MapState.FamiliarUnit.ObjectId, OffsetZ = -60 })
+
+	waitUnmodified( 0.15 )
+
+	if MapState.FamiliarUnit.HarvestSound ~= nil then
+		PlaySound({ Name = MapState.FamiliarUnit.HarvestSound, Id = MapState.FamiliarUnit.ObjectId })
+	end
+
+	PlaySound({ Name = "/SFX/ThanatosAttackBell" })
+	thread( BackPlayerUpForHarvest, user, source )
+	FrogFamiliarMoveToLocation( MapState.FamiliarUnit )
+	waitUnmodified( 0.35 )
+
+	if MapState.FamiliarUnit.EffortSound ~= nil then
+		PlaySound({ Name = MapState.FamiliarUnit.EffortSound, Id = MapState.FamiliarUnit.ObjectId })
+	end
+	SetAnimation({ DestinationId = MapState.FamiliarUnit.ObjectId, Name = "Familiar_Frog_Exorcise" })
+
+	AdjustColorGrading({ Name = "Team09", Duration = 0.3 })
+	ShakeScreen({ Speed = 400, Distance = 3, Duration = 1.0, FalloffSpeed = 2000 })
+	AdjustRadialBlurStrength({ Fraction = 0.5, Duration = 0.3 })
+	AdjustRadialBlurDistance({ Fraction = 1.15, Duration = 1.1 })
+	AngleTowardTarget({ Id = MapState.FamiliarUnit.ObjectId, DestinationId = source.ObjectId })
+	PlaySound({ Name = "/Leftovers/Menu Sounds/EmoteAscended" })
+	waitUnmodified( 1.1 )
+
+	AdjustColorGrading({ Name = "Off", Duration = 0.3 })
+	AdjustRadialBlurStrength({ Fraction = 0, Duration = 0.3 })
+	AdjustRadialBlurDistance({ Fraction = 0, Duration = 0.3  })
+end
+
+function mod.ChronosFamiliarFishingPresentation( fishingPoint )
+
+	AddInputBlock({ Name = "MelFamiliarFishing" })
+	AddTimerBlock( CurrentRun, "Fishing" )
+
+	local familiar = MapState.FamiliarUnit
+
+	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = familiar.ObjectId })
+	--SetAnimation({ Name = "Melinoe_CrossCast_Start_Fast", DestinationId = CurrentRun.Hero.ObjectId })
+	CreateAnimation({ Name = "ItemGet_Tool", DestinationId = CurrentRun.Hero.ObjectId })
+	PlaySound({ Name = "/Leftovers/World Sounds/Caravan Interior/FloatingRockInteract", Id = CurrentRun.Hero.ObjectId })
+	PlaySound({ Name = familiar.EquipSound or "/EmptyCue", Id = familiar.ObjectId })
+
+	CatFamiliarStopAI( familiar )
+
+	thread( PlayVoiceLines, HeroVoiceLines.FamiliarHarvestVoiceLines, true )
+
+	waitUnmodified( 0.25 )
+	--SetAnimation({ Name = "MelinoeCrossCast", DestinationId = CurrentRun.Hero.ObjectId })
+	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = fishingPoint.ObjectId, })
+	CreateAnimation({ Name = "ItemGet_Tool", DestinationId = MapState.FamiliarUnit.ObjectId, OffsetZ = -60 })
+
+	waitUnmodified( 0.15 )
+	
+	if GetDistance({ Id = familiar.ObjectId, DestinationId = fishingPoint.ObjectId }) >= FamiliarData.CatFamiliar.MinDistanceToTeleportForFishing then
+		SetAnimation({ Name = "Familiar_Cat_DropIn_Exit", DestinationId = familiar.ObjectId })
+		familiar.Awake = true
+		wait(0.2)
+		-- teleport to the closest spawn point first
+		FamiliarTeleportPresentation( familiar )
+		SetAlpha({ Id = familiar.ObjectId, Fraction = 0.0, Duration = 0.2 })
+		wait( 0.2 )
+		AngleTowardTarget({ Id = familiar.ObjectId, DestinationId = fishingPoint.ObjectId })
+		PlaySound({ Name = "/SFX/Familiars/CatGrumpy", Id = familiar.ObjectId })
+
+		local currentRoom = CurrentHubRoom or CurrentRun.CurrentRoom
+		local roomData = RoomData[currentRoom.Name] or currentRoom
+
+		local spawnPointId = GetClosest({ Id = fishingPoint.ObjectId, DestinationName = "SpawnPoints", DestinationIds = GetIdsByType({ Name = "FamiliarPoint" }), RequiredLocationUnblocked = true, })
+		if spawnPointId == 0 then
+			-- fall back to the hero's position if no spawn points exist
+			spawnPointId = CurrentRun.Hero.ObjectId
+		end
+		Teleport({ Id =  familiar.ObjectId, DestinationId = spawnPointId })
+		FamiliarTeleportPresentation( familiar )
+		SetAnimation({ Name = "Familiar_Cat_DropIn_Enter", DestinationId = familiar.ObjectId })
+		SetAlpha({ Id = familiar.ObjectId, Fraction = 1.0, Duration = 0.2 })
+		wait( 0.18 )
+	end
+
+	CatFamiliarMoveToLocation( familiar, { Id = fishingPoint.ObjectId, StayAwake = true, SuccessDistance = 150, OnFailGoToNearestToGoal = true } )
+	wait( 0.02 )
+	AngleTowardTarget({ Id = familiar.ObjectId, DestinationId = fishingPoint.ObjectId })
+	SetAnimation({ Name = "Familiar_Cat_Fish_Start", DestinationId = familiar.ObjectId })
+	wait( RandomFloat( 1.0, 1.5 ) )
+
+	SetAnimation({ Name = "Familiar_Cat_Fish_Swipe", DestinationId = familiar.ObjectId })
+	
+	wait( 0.2 )
+
+	RemoveInputBlock({ Name = "MelFamiliarFishing" })
+	RemoveTimerBlock( CurrentRun, "Fishing" )
+
+	SetAnimation({ Name = "FishingPointUsed", DestinationId = fishingPoint.ObjectId })
+
+	PlaySound({ Name = "/SFX/Player Sounds/ZagreusGunReloadCompleteFlashLucifer" })
+
+	ReenableFamiliar( familiar, { InitialDelay = 1.0, MoveToRandomLocation = true } )
+
+end
 --Hug Hecate
 --Hug Persephone

@@ -377,11 +377,88 @@ modutil.mod.Path.Wrap("FishingEndPresentation",  function(baseFunc, fishData, fi
 	end
 end)
 
+--Mining
 modutil.mod.Path.Wrap("PickaxeStartPresentation",  function(baseFunc, source, args, user) 
 	if HeroHasTrait("ChronosAspect") then
 		mod.ChronosPickaxeStartPresentation( source, args, user )	
 	else
 		baseFunc(source, args, user)
+	end
+end)
+
+-- Mining
+modutil.mod.Path.Wrap("ShovelStartPresentation",  function(baseFunc, source, args, user) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosShovelStartPresentation( source, args, user )	
+	else
+		baseFunc(source, args, user)
+	end
+end)
+
+-- Picking Flower
+modutil.mod.Path.Wrap("HarvestStartPresentation",  function(baseFunc, source, args, user) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosHarvestStartPresentation( source, args, user )	
+	else
+		baseFunc(source, args, user)
+	end
+end)
+
+-- Familiar Harvest
+modutil.mod.Path.Wrap("HarvestStartPresentation",  function(baseFunc, source, args, user) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosHarvestStartPresentation( source, args, user )	
+	else
+		baseFunc(source, args, user)
+	end
+end)
+
+modutil.mod.Path.Wrap("FamiliarHarvestStartPresentation",  function(baseFunc, source, args, user) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosFamiliarHarvestStartPresentation( source, args, user )
+	else
+		baseFunc(source, args, user)
+	end
+end)
+
+modutil.mod.Path.Wrap("FamiliarShovelStartPresentation",  function(baseFunc, source, args, user) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosFamiliarShovelStartPresentation( source, args, user )
+	else
+		baseFunc(source, args, user)
+	end
+end)
+
+modutil.mod.Path.Wrap("FamiliarPickaxeStartPresentation",  function(baseFunc, source, args, user) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosFamiliarPickaxeStartPresentation( source, args, user )	
+	else
+		baseFunc(source, args, user)
+	end
+end)
+
+modutil.mod.Path.Wrap("FamiliarExorcismStartPresentation",  function(baseFunc, source, args, user) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosFamiliarExorcismStartPresentation( source, args, user )	
+	else
+		baseFunc(source, args, user)
+	end
+end)
+
+modutil.mod.Path.Wrap("FamiliarFishingPresentation",  function(baseFunc, fishingPoint) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosFamiliarFishingPresentation( fishingPoint )	
+	else
+		baseFunc(fishingPoint)
+	end
+end)
+
+--Petting Cerberus
+modutil.mod.Path.Wrap("PetCerberus",  function(baseFunc, cerberus) 
+	if HeroHasTrait("ChronosAspect") then
+		FailToPetCerberus( cerberus )	
+	else
+		baseFunc(cerberus)
 	end
 end)
 

@@ -268,7 +268,7 @@ sjson.hook(file, function(data)
 
     table.insert(data.Texts, sjson.to_object(
     {
-      Id = "ChronosCircleIn",
+      Id = "ChronosCircleInTalent",
       InheritFrom = "BaseBoonMultiline",
       DisplayName = "Closing In",
       Description = "Your {$Keywords.Spell} fires an additional shrinking ring that deals {#BoldFormatGraft}200 {#Prev}Damage.",
