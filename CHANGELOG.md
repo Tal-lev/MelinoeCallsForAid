@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Landing in Zagreus Journey
   - Fishing!
   - Mining
-  - Shovel
+  - Shoveling
 - Removing incompatible GodVFX from Chronos Special
 - Removing Melinoe's Hammers when using Chronos
 - Balance:
