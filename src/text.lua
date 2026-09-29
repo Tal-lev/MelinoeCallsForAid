@@ -173,6 +173,26 @@ sjson.hook(file, function(data)
 		TextOrder)
 	)
 
+    table.insert(data.Texts, sjson.to_object(
+		{
+			Id = "ChronosSpecialDamage",
+			InheritFrom = "BaseBoonMultiline",
+			DisplayName = "Wind Cuts",
+			Description = "Your {$Keywords.Special} deals low damage at a rapid interval."
+		},
+		TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+		{
+			Id = "ChronosTriplePurge",
+			InheritFrom = "BaseBoonMultiline",
+			DisplayName = "Golden Sale",
+			Description = "Your Boons purge for triple the gold."
+		},
+		TextOrder)
+	)
+
     --Dash Boons
     table.insert(data.Texts, sjson.to_object(
     {
@@ -227,9 +247,31 @@ sjson.hook(file, function(data)
     table.insert(data.Texts, sjson.to_object(
     {
       Id = "ChronosHestiaSprintBoon",
-      InheritFrom = "BaseBoon",
+      InheritFrom = "BaseBoonMultiline",
       DisplayName = "Heat Dash",
       Description = "Your {$Keywords.Dash} leaves a cinder trail, and any damage you take from burning is reduced to {$TraitData.ChronosHestiaSprintBoon.DamageClamps.Value}.",
+    },
+    TextOrder)
+	)
+
+    --Hexes
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "SpellChronosCircleTrait",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Wheel of Time",
+      Description = "Your {$Keywords.Spell} fires an expanding ring that deals {#BoldFormatGraft}200 {#Prev}Damage.",
+    },
+    TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosCircleIn",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Closing In",
+      Description = "Your {$Keywords.Spell} fires an additional shrinking ring that deals {#BoldFormatGraft}200 {#Prev}Damage.",
     },
     TextOrder)
 	)

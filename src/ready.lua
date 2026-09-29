@@ -503,7 +503,7 @@ ChronosAspect = {
 		{
 			ChargeWeaponStages = 
 			{
-				{ ManaCost = 20, WeaponProperties = { NumProjectiles = 1, FireEndGraphic = "null" }, Wait = 0.2, ChannelSlowEventOnEnter = true, HideStageReachedFx = true },
+				{ ManaCost = 30, WeaponProperties = { NumProjectiles = 1, FireEndGraphic = "null" }, Wait = 0.2, ChannelSlowEventOnEnter = true, HideStageReachedFx = true },
 			},
 			FireSounds =
 			{
@@ -544,6 +544,10 @@ ChronosAspect = {
 				},
 
 			},
+		},
+		WeaponAxeSpecialSwing = 
+		{
+			ManaCost = 20,
 		},
 		WeaponCast = 
 		{

@@ -151,105 +151,123 @@ table.insert(TraitData.HestiaSprintBoon.GameStateRequirements, {
 OverwriteTableKeys(TraitData, {
   --Zeus
    ChronosZeusSprintBoon = 
- {
-		InheritFrom = { "ZeusSprintBoon" },
-		OnWeaponFiredFunctions = 
-		{
-			ValidWeapons = {"WeaponBlink", "WeaponSprint"},
-			FunctionName = _PLUGIN.guid .. "." .. "ChronosZeusSprintZap",
-			FunctionArgs = 
+	{
+			InheritFrom = { "ZeusSprintBoon" },
+			OnWeaponFiredFunctions = 
 			{
-				ProjectileName = "ZeusSprintStrike",
-				Cooldown = 0.35,
-				RunFunctionNameOnTarget = "ZeusSprintSpend",
-				Range = 655,
-				DamageMultiplier =
+				ValidWeapons = {"WeaponBlink", "WeaponSprint"},
+				FunctionName = _PLUGIN.guid .. "." .. "ChronosZeusSprintZap",
+				FunctionArgs = 
 				{
-					BaseValue = 1,
-					AbsoluteStackValues =
+					ProjectileName = "ZeusSprintStrike",
+					Cooldown = 0.35,
+					RunFunctionNameOnTarget = "ZeusSprintSpend",
+					Range = 655,
+					DamageMultiplier =
 					{
-						[1] = 0.25,
+						BaseValue = 1,
+						AbsoluteStackValues =
+						{
+							[1] = 0.25,
+						},
+					},
+					ReportValues = 
+					{ 
+						ReportedMultiplier = "DamageMultiplier",
+						ReportedCost = "CostPerStrike",
+						ReportedFuse = "Cooldown",
 					},
 				},
-				ReportValues = 
-				{ 
-					ReportedMultiplier = "DamageMultiplier",
-					ReportedCost = "CostPerStrike",
-					ReportedFuse = "Cooldown",
-				},
 			},
-		},
-    GameStateRequirements = {
-      {
-        Path = {"CurrentRun", "Hero", "TraitDictionary"},
-        HasAll = {"ChronosAspect"}
-      }
-    },
-  },
-  
-  --Hera
-  ChronosHeraSprintBoon = 
- {
-		Icon = "Boon_Hera_28",
-		InheritFrom = { "BaseTrait", "FireBoon" },
-		Slot = "Rush",
-		RarityLevels =
-		{
-			Common =
+			GameStateRequirements = {
 			{
-				Multiplier = 1.00,
+				Path = {"CurrentRun", "Hero", "TraitDictionary"},
+				HasAll = {"ChronosAspect"}
+			}
 			},
-			Rare =
+			ExtractValues =
 			{
-				Multiplier = 1.25,
-			},
-			Epic =
-			{
-				Multiplier = 1.50,
-			},
-			Heroic =
-			{
-				Multiplier = 1.75,
-			},
-		},
-		OnWeaponFiredFunctions =
-		{
-			ValidWeapons = {"WeaponBlink", },	
-			FunctionName = _PLUGIN.guid .. "." .. "ChronosHeraRushProjectileSpawn",
-			FunctionArgs = 
-			{
-				ProjectileName = "ProjectileHeraOmega",
-				DamageMultiplier = 
 				{
-					BaseValue = 0.3333,
-					DecimalPlaces = 4, -- Needs additional precision due to the number being operated on
-					AbsoluteStackValues = 
-					{
-						[1] = 0.0833,
-					},
+					Key = "ReportedMultiplier",
+					ExtractAs = "Damage",
+					Format = "MultiplyByBase",
+					BaseType = "Projectile",
+					BaseName = "ZeusSprintStrike",
+					BaseProperty = "Damage",
 				},
-				ReportValues = 
-				{ 
-					ReportedMultiplier = "DamageMultiplier" 
+				{
+					ExtractAs = "Fuse",
+						Key = "ReportedFuse",
+					SkipAutoExtract = true,
+					DecimalPlaces = 2,
 				},
 			}
-		},
-		StatLines =
+	},
+  
+  --Hera
+	ChronosHeraSprintBoon = 
+	{
+	Icon = "Boon_Hera_28",
+	InheritFrom = { "BaseTrait", "FireBoon" },
+	Slot = "Rush",
+	RarityLevels =
+	{
+		Common =
 		{
-			"HeraRiftDamageStatDisplay1",
+			Multiplier = 1.00,
 		},
-		ExtractValues = 
+		Rare =
 		{
+			Multiplier = 1.25,
+		},
+		Epic =
+		{
+			Multiplier = 1.50,
+		},
+		Heroic =
+		{
+			Multiplier = 1.75,
+		},
+	},
+	OnWeaponFiredFunctions =
+	{
+		ValidWeapons = {"WeaponBlink", },	
+		FunctionName = _PLUGIN.guid .. "." .. "ChronosHeraRushProjectileSpawn",
+		FunctionArgs = 
+		{
+			ProjectileName = "ProjectileHeraOmega",
+			DamageMultiplier = 
 			{
-				Key = "ReportedMultiplier",
-				ExtractAs = "Damage",
-				Format = "MultiplyByBase",
-				BaseType = "Projectile",
-				BaseName = "ProjectileHeraOmega",
-				BaseProperty = "Damage",
+				BaseValue = 0.3333,
+				DecimalPlaces = 4, -- Needs additional precision due to the number being operated on
+				AbsoluteStackValues = 
+				{
+					[1] = 0.0833,
+				},
 			},
+			ReportValues = 
+			{ 
+				ReportedMultiplier = "DamageMultiplier" 
+			},
+		}
+	},
+	StatLines =
+	{
+		"HeraRiftDamageStatDisplay1",
+	},
+	ExtractValues = 
+	{
+		{
+			Key = "ReportedMultiplier",
+			ExtractAs = "Damage",
+			Format = "MultiplyByBase",
+			BaseType = "Projectile",
+			BaseName = "ProjectileHeraOmega",
+			BaseProperty = "Damage",
 		},
-    GameStateRequirements = {
+	},
+    GameStateRequirements = 
+	{
       {
         Path = {"CurrentRun", "Hero", "TraitDictionary"},
         HasAll = {"ChronosAspect"}
@@ -260,81 +278,93 @@ OverwriteTableKeys(TraitData, {
   --Poseidon
   ChronosPoseidonSprintBoon = {
     Icon = "Boon_Poseidon_28",
-		InheritFrom = { "BaseTrait", "WaterBoon" },
-		Slot = "Rush",
-		RarityLevels =
+	InheritFrom = { "BaseTrait", "WaterBoon" },
+	Slot = "Rush",
+	RarityLevels =
+	{
+		Common =
 		{
-			Common =
+			Multiplier = 80/80,
+		},
+		Rare =
+		{
+			Multiplier = 100/80,
+		},
+		Epic =
+		{
+			Multiplier = 120/80,
+		},
+		Heroic =
+		{
+			Multiplier = 140/80,
+		},
+	},
+    OnWeaponFiredFunctions =
+	{
+		ValidWeapons = {"WeaponBlink", },	
+		FunctionName = _PLUGIN.guid .. "." .. "ChronosPoseidonRush",
+		FunctionArgs = 
+		{
+			ProjectileName = "ChronosRushPoseidonBlast",
+			DamageMultiplier = 
 			{
-				Multiplier = 80/80,
+				BaseValue = 1,
+				DecimalPlaces = 4, -- Needs additional precision due to the number being operated on
+				AbsoluteStackValues = 
+				{
+					[1] = 0.0625,
+				},
 			},
-			Rare =
-			{
-				Multiplier = 100/80,
-			},
-			Epic =
-			{
-				Multiplier = 120/80,
-			},
-			Heroic =
-			{
-				Multiplier = 140/80,
+			ReportValues = 
+			{ 
+				ReportedMultiplier = "DamageMultiplier" 
 			},
 		},
-    OnWeaponFiredFunctions =
+	},
+	GameStateRequirements = 
+	{
 		{
-			ValidWeapons = {"WeaponBlink", },	
-     		FunctionName = _PLUGIN.guid .. "." .. "ChronosPoseidonRush",
-			FunctionArgs = 
-			{
-				ProjectileName = "ChronosRushPoseidonBlast",
-				DamageMultiplier = 
-				{
-					BaseValue = 1,
-					DecimalPlaces = 4, -- Needs additional precision due to the number being operated on
-					AbsoluteStackValues = 
-					{
-						[1] = 0.0625,
-					},
-				},
-				ReportValues = 
-				{ 
-					ReportedMultiplier = "DamageMultiplier" 
-				},
-			},
-    },
-    GameStateRequirements = {
-      {
-        Path = {"CurrentRun", "Hero", "TraitDictionary"},
-        HasAll = {"ChronosAspect"}
-      }
-    },
+			Path = {"CurrentRun", "Hero", "TraitDictionary"},
+			HasAll = {"ChronosAspect"}
+		}
+	},
+	ExtractValues = 
+	{
+		{
+			Key = "ReportedMultiplier",
+			ExtractAs = "Damage",
+			Format = "MultiplyByBase",
+			BaseType = "Projectile",
+			BaseName = "ProjectileHeraOmega",
+			BaseProperty = "Damage",
+		},
+	},
   },
 
  --Demeter
-  ChronosDemeterSprintBoon = {
+	ChronosDemeterSprintBoon = {
     Icon = "Boon_Demeter_28",
-		InheritFrom = { "BaseTrait", "WaterBoon" },
-		Slot = "Rush",
-		RarityLevels =
+	InheritFrom = { "BaseTrait", "WaterBoon" },
+	Slot = "Rush",
+	RarityLevels =
+	{
+		Common =
 		{
-			Common =
-			{
-				Multiplier = 80/80,
-			},
-			Rare =
-			{
-				Multiplier = 100/80,
-			},
-			Epic =
-			{
-				Multiplier = 120/80,
-			},
-			Heroic =
-			{
-				Multiplier = 140/80,
-			},
+			Multiplier = 80/80,
 		},
+		Rare =
+		{
+			Multiplier = 100/80,
+		},
+		Epic =
+		{
+			Multiplier = 120/80,
+		},
+		Heroic =
+		{
+			Multiplier = 140/80,
+		},
+	},
     OnWeaponFiredFunctions =
 	{
 		ValidWeapons = {"WeaponBlink", },	
@@ -363,6 +393,17 @@ OverwriteTableKeys(TraitData, {
         HasAll = {"ChronosAspect"}
       }
     },
+	ExtractValues =
+	{
+		{
+			Key = "ReportedMultiplier",
+			ExtractAs = "Damage",
+			Format = "MultiplyByBase",
+			BaseType = "Projectile",
+			BaseName = "ProjectileHeraOmega",
+			BaseProperty = "Damage",
+		},
+	},
   },
   --Apollo
   ChronosApolloSprintBoon = {
@@ -396,10 +437,6 @@ OverwriteTableKeys(TraitData, {
 			{
 				ProjectileName = "ChronosRushApolloBlast",
 				DamageMultiplier = 1,
-				ReportValues = 
-				{ 
-					ReportedMultiplier = "DamageMultiplier" 
-				},
 			},
     },
 	OnEnemyDamagedAction = 
@@ -448,7 +485,8 @@ OverwriteTableKeys(TraitData, {
 			Format = "Percent"
 		},
 	},
-    GameStateRequirements = {
+    GameStateRequirements = 
+	{
       {
         Path = {"CurrentRun", "Hero", "TraitDictionary"},
         HasAll = {"ChronosAspect"}
@@ -456,7 +494,7 @@ OverwriteTableKeys(TraitData, {
     },
   },
 
-  ChronosHestiaSprintBoon = 
+	ChronosHestiaSprintBoon = 
 	{
 		Icon = "Boon_Hestia_28",
 		InheritFrom = { "BaseTrait", "FireBoon" },
@@ -506,10 +544,10 @@ OverwriteTableKeys(TraitData, {
 		{
 			"SprintDamageStatDisplay1",
 		},
-		 OnWeaponFiredFunctions =
+		OnWeaponFiredFunctions =
 		{
 			ValidWeapons = {"WeaponBlink", },	
-      FunctionName = _PLUGIN.guid .. "." .. "ChronosHestiaSprintFlames",
+			FunctionName = _PLUGIN.guid .. "." .. "ChronosHestiaSprintFlames",
 			FunctionArgs = 
 			{
 				ProjectileName = "HestiaSprintPuddle",
@@ -552,7 +590,8 @@ OverwriteTableKeys(TraitData, {
 				BaseProperty = "Damage",
 			},
 		},
-    GameStateRequirements = {
+    GameStateRequirements = 
+	{
       {
         Path = {"CurrentRun", "Hero", "TraitDictionary"},
         HasAll = {"ChronosAspect"}

@@ -53,6 +53,7 @@ local function on_ready()
 	import "VoiceLines.lua"
 	import "ManaIndicator.lua"
 	import "Modify_god_VFX.lua"
+	import "Hexes.lua"
 	import 'ready.lua'
 	modutil.once_loaded.game(function()
 		import "Costumes.lua"

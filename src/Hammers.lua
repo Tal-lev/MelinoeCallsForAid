@@ -55,6 +55,15 @@ function mod.ChronosDualGrind ( weaponData, traitArgs, triggerArgs )
     local projectileId = CreateProjectileFromUnit({ WeaponName = weaponName, Name = projectileName, Id = CurrentRun.Hero.ObjectId, DestinationId = CurrentRun.Hero.ObjectId, Angle = PlayerAngle, FireFromTarget = false })
 end
 
+--Ensuring you start a run as the character
+ModUtil.Path.Wrap("GetTraitValue", function(baseFunc, traitData)
+	if HeroHasTrait("ChronosTriplePurge") then
+		return ( 3 * baseFunc(traitData))
+    else
+        return baseFunc(traitData)
+	end
+end)
+
 OverwriteTableKeys( TraitData, {
     ChronosTelescopicSwing = 
     {
@@ -98,9 +107,36 @@ OverwriteTableKeys( TraitData, {
         },
     },
 
+    ChronosSpecialDamage = 
+    {
+        InheritFrom = { "WeaponTrait", "AxeHammerTrait" },
+        Icon = "Hammer_Axe_40",
+        GameStateRequirements =
+        {
+            {
+            Path = { "CurrentRun", "Hero", "Weapons", },
+            HasAll = { "WeaponAxe", },
+            },
+            {
+            Path = { "GameState", "LastWeaponUpgradeName", "WeaponAxe", },
+            IsAny = {"ChronosAspect", }
+            },
+        },
+        PropertyChanges = 
+        {
+            {
+				WeaponName = "WeaponAxeSpecial",
+                ProjectileName = "ChronosGrindVacuum",
+				ProjectileProperties = {
+					Damage = 2,
+				},
+			},
+        },
+    },
+
     ChronosRadialCast = 
     {
-         InheritFrom = { "WeaponTrait", "AxeHammerTrait" },
+        InheritFrom = { "WeaponTrait", "AxeHammerTrait" },
         Icon = "Hammer_Axe_40",
         GameStateRequirements =
         {
@@ -223,6 +259,24 @@ OverwriteTableKeys( TraitData, {
             },
         },
     },
+
+    ChronosTriplePurge = 
+    {
+        InheritFrom = { "WeaponTrait", "AxeHammerTrait" },
+        Icon = "Hammer_Axe_40",
+        GameStateRequirements =
+        {
+            {
+            Path = { "CurrentRun", "Hero", "Weapons", },
+            HasAll = { "WeaponAxe", },
+            },
+            {
+            Path = { "GameState", "LastWeaponUpgradeName", "WeaponAxe", },
+            IsAny = {"ChronosAspect", }
+            },
+        },
+        --Trait option in Wrap GetTraitValue
+    },
 })
 
 --Adding Hammers to pool
@@ -230,6 +284,9 @@ table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosTelescopicSwing")
 table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosRadialCast")
 table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosTeleportRift")
 table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosDualGrind")
+table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosSpecialDamage")
+table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosTriplePurge")
+
 
 --Removing Hammers from pool
 table.insert(TraitData.AxeSpinSpeedTrait.GameStateRequirements, {
@@ -269,6 +326,18 @@ table.insert(TraitData.AxeAttackRecoveryTrait.GameStateRequirements, {
 			HasNone = {"ChronosAspect", },
 })
 table.insert(TraitData.AxeChargedSpecialTrait.GameStateRequirements, {
+			Path = {"CurrentRun", "Hero", "TraitDictionary"},
+			HasNone = {"ChronosAspect", },
+})
+table.insert(TraitData.AxeArmorTrait.GameStateRequirements, {
+			Path = {"CurrentRun", "Hero", "TraitDictionary"},
+			HasNone = {"ChronosAspect", },
+})
+table.insert(TraitData.AxeSecondStageTrait.GameStateRequirements, {
+			Path = {"CurrentRun", "Hero", "TraitDictionary"},
+			HasNone = {"ChronosAspect", },
+})
+table.insert(TraitData.AxeSturdyTrait.GameStateRequirements, {
 			Path = {"CurrentRun", "Hero", "TraitDictionary"},
 			HasNone = {"ChronosAspect", },
 })
