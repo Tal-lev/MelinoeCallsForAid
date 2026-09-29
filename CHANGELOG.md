@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Adding Chronos Hexes
+  - Wheel of Time
 - Adding Special Presentation
   - Entering Zagreus Journey Nightmare Gate
   - Landing in Zagreus Journey
