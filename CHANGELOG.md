@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Adding Chronos Hexes
   - Wheel of Time
+- Adding Chronos Hammers
+  - Golden Sale
+  - Wind Cuts
 - Adding Special Presentation
   - Entering Zagreus Journey Nightmare Gate
   - Landing in Zagreus Journey
@@ -20,6 +23,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Balance:
   - Omega Attack Mana Cost 20->30
   - Omega Special Mana Cost 30->20
+- Fix:
+  - Crash when gaining a pom with some of the dash boons
 
 ## [0.2.1] - 2026-09-28
 
