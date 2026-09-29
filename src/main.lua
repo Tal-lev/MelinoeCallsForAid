@@ -52,6 +52,7 @@ local function on_ready()
 	import "DashBoons.lua"
 	import "VoiceLines.lua"
 	import "ManaIndicator.lua"
+	import "Modify_god_VFX.lua"
 	import 'ready.lua'
 	modutil.once_loaded.game(function()
 		import "Costumes.lua"
@@ -80,6 +81,7 @@ local function on_ready_late()
 	--import 'Costumes_late.lua'
 	import 'ready_late.lua'
 	import "ManaIndicatorLate.lua"
+	import "ChronosPresentationFunctionsLate.lua"
 end
 
 local function on_reload_late()
