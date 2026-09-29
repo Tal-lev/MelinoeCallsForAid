@@ -18,8 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Fishing!
   - Mining
 - Removing incompatible GodVFX from Chronos Special
-- Removing incompatible Traits
-  - Sudden Cleaver
+- Removing Melinoe's Hammers when using Chronos
 - Balance:
   - Omega Attack Mana Cost 20->30
   - Omega Special Mana Cost 30->20
