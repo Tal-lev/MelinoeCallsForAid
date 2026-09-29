@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Landing in Zagreus Journey
   - Fishing!
   - Mining
+- Removing incompatible GodVFX from Chronos Special
 - Removing incompatible Traits
   - Sudden Cleaver 
 
