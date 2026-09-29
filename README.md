@@ -19,9 +19,9 @@ A Hades II mod that allows you to play as other Characters.
 - Interaction Animations may be glitchy
 - Missing Chronos Portrait in conversations (similar to Mel's Background in Zagreus Journey mod)
 - Art [Artists Wanted]
-  - New Hammer Icon
+  - New Hammer Icons
+  - New Hex Icons
   - Mana related Icons
-  - Hex related Icons
   - Portrait expressions
 - Zagreus Journey
   - Quips are not muted
