@@ -25,7 +25,6 @@ A Hades II mod that allows you to play as other Characters.
   - Portrait expressions
 - Zagreus Journey
   - Quips are not muted
-  - Run Start Gate animation missing
 
 ## Installation
 
