@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Fishing!
   - Mining
   - Shoveling
+  - Harvesting
+  - Familiar Gathering
 - Removing incompatible GodVFX from Chronos Special
 - Removing Melinoe's Hammers when using Chronos
 - Balance:
