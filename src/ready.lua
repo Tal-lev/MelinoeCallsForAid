@@ -464,6 +464,7 @@ end)
 
 ChronosAspect = {
 	InheritFrom = { "WeaponEnchantmentTrait" },
+	PreEquipWeapons = {"WeaponChronosSummon"},
 	RarityLevels =
 	{
 		Common =

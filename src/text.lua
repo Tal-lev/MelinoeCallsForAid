@@ -276,5 +276,45 @@ sjson.hook(file, function(data)
     TextOrder)
 	)
 
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosCircleBlindTalent",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Blinding Halo",
+      Description = "Your {$Keywords.Spell} inflicts {$Keywords.Blind} on affected enemies.",
+    },
+    TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosCircleGlowTalent",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Shining Halo",
+      Description = "Your {$Keywords.Spell} inflicts {$Keywords.DelayedKnockback} on affected enemies.",
+    },
+    TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosCircleWeakTalent",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Bewildering Halo",
+      Description = "Your {$Keywords.Spell} inflicts {$Keywords.Weak} on affected enemies.",
+    },
+    TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosCircleDamageTalent",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Old Scars",
+      Description = "Your {$Keywords.Spell} deals increased damage.",
+    },
+    TextOrder)
+	)
+
 return data
 end)

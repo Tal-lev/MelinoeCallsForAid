@@ -15,13 +15,6 @@ OverwriteTableKeys( TraitData, {
 		{
 			"ManaSpendCostStatDisplay1",
 		},
-        GameStateRequirements = 
-        {
-            {
-                Path = {"CurrentRun", "Hero", "TraitDictionary"},
-                HasAll = {"ChronosAspect"}
-            }
-        },
 		OnProjectileDeathFunction = 
 		{
 			Name = _PLUGIN.guid .. "." .. "ChronosCheckCircleCharge",
@@ -54,32 +47,8 @@ OverwriteTableKeys( TraitData, {
 		{
 			{
 				Format = "ManaSpendCost",
-				WeaponName = "WeaponSpellPolymorph",
+				WeaponName = "WeaponSpellChronosCircle",
 				ExtractAs = "ManaCost",
-			},
-			{
-				External = true,
-				BaseType = "EffectData",
-				BaseName = "PolymorphTag",
-				BaseProperty = "Duration",
-				ExtractAs = "PolymorphDuration",
-			},
-			{
-				External = true,
-				BaseType = "ProjectileBase",
-				BaseName = "ProjectileSpellPolymorph",
-				BaseProperty = "NumJumps",
-				Format = "TotalTargets",
-				ExtractAs = "Bounces",
-				SkipAutoExtract = true,
-			},
-			{
-				External = true,
-				BaseType = "ProjectileBase",
-				BaseName = "MorphDamageProjectile",
-				BaseProperty = "Damage",
-				ExtractAs = "PolymorphDamage",
-				SkipAutoExtract = true,
 			},
 		},
 
@@ -103,6 +72,3 @@ OverwriteTableKeys( TraitData, {
 		},
 	},
 })
-
---Adding Hammers to pool
---table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "SpellChronosCircleTrait")
