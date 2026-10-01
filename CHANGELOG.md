@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Adding Chronos Hexes
   - Wheel of Time
+  - Summon Tempus
 - Adding Chronos Hammers
   - Golden Sale
   - Wind Cuts
