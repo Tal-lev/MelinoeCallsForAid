@@ -13,7 +13,6 @@ A Hades II mod that allows you to play as other Characters.
 
 - Chronos Hexes
   - Summon Healing Tempus (instead of potion spell)
-  - Outward/Inward Ring
   - Countdown to death?
 - A lot of Chronos's quips are missing
 - Interaction Animations may be glitchy
