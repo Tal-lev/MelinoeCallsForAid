@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Cerberus Petting
 - Removing incompatible GodVFX from Chronos Special
 - Removing Melinoe's Hammers when using Chronos
+- Removing Melinoe's Hexes when using Chronos
 - Balance:
   - Omega Attack Mana Cost 20->30
   - Omega Special Mana Cost 30->20
