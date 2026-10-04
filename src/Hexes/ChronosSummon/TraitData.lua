@@ -1,3 +1,21 @@
+function mod.ChronosEndSpellSummon( enemy, weaponData )
+	local OrigDuration = weaponData.Duration
+	local NewDuration = OrigDuration
+	for i,traitData in pairs(GetHeroTraitValues("ChronosSummonModifiers")) do
+		if weaponData and traitData.ValidWeapons and Contains(traitData.ValidWeapons, weaponData.Name ) then
+			if traitData.AddDuration then
+				NewDuration = NewDuration + traitData.AddDuration
+			end
+		end
+	end
+	wait( NewDuration, RoomThreadName )
+	for i, data in pairs( GetHeroTraitValues("OnSummonDeathFunction")) do
+		CallFunctionName( data.Name, enemy, data.Args )
+	end
+	Kill( enemy )
+	RemoveValueAndCollapse(MapState.SpellSummons, enemy )
+end
+
 function mod.ChronosSpellSummon( weaponData, traitArgs, triggerArgs )
 	local wasFirst = true
 	if not ShouldFireFirstTimeOlympian() then
@@ -9,7 +27,11 @@ function mod.ChronosSpellSummon( weaponData, traitArgs, triggerArgs )
 	end
 	IncrementTableValue( SessionMapState, "SpellFired" )
 	local enemyName = "TimeElemental2"
+	if HeroHasTrait("ChronosDoubleHealTalent") then
+		enemyName = "TimeElemental2Double"
+	end
 	local enemyData = EnemyData[enemyName]
+
 	local hasEnemy = false
 
 	if triggerArgs.Charge >= 1 and weaponData.FullChargeOverride then
@@ -74,22 +96,6 @@ function mod.ChronosSpellSummon( weaponData, traitArgs, triggerArgs )
 		end
 	end
 
-	for i, data in pairs( GetHeroTraitValues("AddSummonWeaponsToTraits") ) do
-		if CurrentRun.Hero.SlottedTraits[data.Slot] then
-			local trait = GetHeroTrait(CurrentRun.Hero.SlottedTraits[data.Slot])
-			if trait.AddOutgoingDamageModifiers then
-				local damageData = DeepCopyTable(trait.AddOutgoingDamageModifiers)
-				damageData.ValidWeapons = nil
-				damageData.ValidWeaponsLookup = nil
-				AddOutgoingDamageModifier( newEnemy, damageData )
-			end
-			if trait.Name == "ApolloSpecialBoon" then
-				newEnemy.ProjectileBlastRadiusMultiplier = 1.4
-				newEnemy.ProjectileScaleMultiplier = 1.4
-			end
-		end
-	end
-
 	if CurrentRun.CurrentRoom.Encounter ~= nil and CurrentRun.CurrentRoom.Encounter.ActiveEnemyCap ~= nil then
 		local activeCapWeight = newEnemy.ActiveCapWeight or 1
 		CurrentRun.CurrentRoom.Encounter.ActiveEnemyCap = math.min(ConstantsData.MaxActiveEnemyCount, CurrentRun.CurrentRoom.Encounter.ActiveEnemyCap + activeCapWeight)
@@ -136,7 +142,7 @@ function mod.ChronosSpellSummon( weaponData, traitArgs, triggerArgs )
 	AddOutline( outlineData )
 
 	if not HeroHasTrait("SummonPermanenceTalent") then
-		thread(EndSpellSummon, newEnemy, weaponData)
+		thread(mod.ChronosEndSpellSummon, newEnemy, weaponData)
 	end
 end
 

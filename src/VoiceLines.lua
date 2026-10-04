@@ -456,6 +456,7 @@ table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/Chronos_0
 --{ Cue = "/VO/Chronos_0392", Text = "But..." },
 --{ Cue = "/VO/Chronos_0393", Text = "This..." },
 --{ Cue = "/VO/Chronos_0394", Text = "I..." },
+--{ Cue = "/VO/Chronos_1306", Text = "No, wait!" }
 
 --Defeated Chronos
 --{ Cue = "/VO/Chronos_0396", Text = "History repeats...",
@@ -543,5 +544,39 @@ table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/Chronos_0
 
 --Time Elemental
 --{ Cue = "/VO/Chronos_1224", Text = "What is that Tempus {#Emph}doing?!",
+
+--Apollo
+--{ Cue = "/VO/Chronos_1262", Text = "The light of the {#Emph}sun?!" },
+--{ Cue = "/VO/Chronos_1261", Text = "Far too much blasted light..." },
+
+--Ares
+--{ Cue = "/VO/Chronos_1269", Text = "The vicious god of war..." },
+--{ Cue = "/VO/Chronos_1270", Text = "I'll show that Ares real war..." },
+
+--Demeter
+--{ Cue = "/VO/Chronos_1259", Text = "Unseasonably cold...!" },
+--{ Cue = "/VO/Chronos_1260", Text = "A {#Emph}chill {#Prev}here in these {#Emph}depths?"
+
+--Heph
+--{ Cue = "/VO/Chronos_1265", Text = "The forge-god strikes...!" },
+--{ Cue = "/VO/Chronos_1266", Text = "What {#Emph}is {#Prev}that clanging sound?", PlayFirst = true },
+
+--Hera
+--{ Cue = "/VO/Chronos_1255", Text = "That so-called {#Emph}Queen?!", PlayFirst = true },
+--{ Cue = "/VO/Chronos_1256", Text = "My son's beloved wife?" },
+
+--Hestia
+--{ Cue = "/VO/Chronos_1267", Text = "You dusted off old {#Emph}Hestia!", PlayFirst = true },
+--{ Cue = "/VO/Chronos_1268", Text = "Seems rather warm in here...!" }
+
+--Poseidon
+--{ Cue = "/VO/Chronos_1257", Text = "That seafaring {#Emph}brat..." },
+--{ Cue = "/VO/Chronos_1258", Text = "That water-loving {#Emph}scamp..." },
+
+--Zeus
+--{ Cue = "/VO/Chronos_1278", Text = "{#Emph}This {#Prev}shall come as a {#Emph}shock!" },
+--{ Cue = "/VO/Chronos_1279", Text = "A {#Emph}storm {#Prev}is coming!" },
+--{ Cue = "/VO/Chronos_1253", Text = "My son's billowing strength?!" },
+--{ Cue = "/VO/Chronos_1254", Text = "The mark of Zeus..." }
 
 --Check /VO/Intercom_

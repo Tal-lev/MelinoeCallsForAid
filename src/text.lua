@@ -316,5 +316,65 @@ sjson.hook(file, function(data)
     TextOrder)
 	)
 
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "SpellChronosSummonTrait",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Summon Tempus",
+      Description = "Your {$Keywords.Spell} Summons a Healing Tempus for 12 seconds.",
+    },
+    TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosSummonHealthTalent",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Tempus Vigor",
+      Description = "Your Summoned Tempus has {$TooltipData.ExtractData.MaxHealth} increased Max Health.",
+    },
+    TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosSummonDurationTalent",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "More Sand",
+      Description = "Your {$Keywords.Spell} Summon remains for +{$TooltipData.ExtractData.DurationAmount} seconds.",
+    },
+    TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosSummonUsesTalent",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Abundant Tempus",
+      Description = "You can use your {$Keywords.Spell} {#UpgradeFormat}+{$TooltipData.ExtractData.BonusUses} {#Prev}time before using a {$Keywords.Fountain}.",
+    },
+    TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosDoubleHealTalent",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Rejuvenation",
+      Description = "Your {$Keywords.Spell} Summon Healing twice as quickly.",
+    },
+    TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosRolloverUsesTalent",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Conservation",
+      Description = "Using {$Keywords.FountainPlural} grants {#UpgradeFormat}+{$TraitData.SpellChronosSummonTrait.MaxUses} {#Prev}uses of your {$Keywords.Spell}, even if you still have uses left.",
+    },
+    TextOrder)
+	)
+
 return data
 end)

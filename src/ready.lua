@@ -169,10 +169,18 @@ modutil.mod.Path.Wrap("SetupMap", function(base, source, args)
 				ScreenData.HUD.ComponentData.ManaMeterFill.Animation = "ChronosManaBarFill"
 				ScreenData.HUD.ComponentData.ManaMeterReserve.Animation = "ChronosManaBarReserveFill"
 				ScreenData.HUD.ComponentData.ManaMeterReserve.TextArgs.Color = { 204, 204, 51, 255 }
+				ManaIndicatorPresentation.AutoComplete.TransitionIn = "ChronosManaChargeIndicatorIn"
+				ManaIndicatorPresentation.AutoComplete.Fill = "ChronosManaChargeIndicatorFill"
+				ManaIndicatorPresentation.Hold.TransitionIn = "ChronosManaChargeIndicatorIn"
+				ManaIndicatorPresentation.Hold.Fill = "ChronosManaChargeIndicatorFill"
 			else
 				ScreenData.HUD.ComponentData.ManaMeterFill.Animation = "ManaBarFill"
 				ScreenData.HUD.ComponentData.ManaMeterReserve.Animation = "ManaBarReserveFill"
 				ScreenData.HUD.ComponentData.ManaMeterReserve.TextArgs.Color = { 180, 168, 255, 255 }
+				ManaIndicatorPresentation.AutoComplete.TransitionIn = "ManaChargeIndicatorIn"
+				ManaIndicatorPresentation.AutoComplete.Fill = "ManaChargeIndicatorFill"
+				ManaIndicatorPresentation.Hold.TransitionIn = "ManaChargeIndicatorIn"
+				ManaIndicatorPresentation.Hold.Fill = "ManaChargeIndicatorFill"
 			end
 		end
 	end
@@ -464,7 +472,6 @@ end)
 
 ChronosAspect = {
 	InheritFrom = { "WeaponEnchantmentTrait" },
-	PreEquipWeapons = {"WeaponChronosSummon"},
 	RarityLevels =
 	{
 		Common =

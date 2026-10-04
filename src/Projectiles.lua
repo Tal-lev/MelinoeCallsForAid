@@ -189,5 +189,21 @@ sjson.hook(file, function(data)
 		},
     })
 
+	table.insert(data.Projectiles,
+	{
+		Name = "TimeElementalHealBeam_AllyDouble",
+		InheritFrom = "TimeElementalHealBeam",
+		AffectsFriends = true,
+		AffectsEnemies = true,
+		CanHitWithoutDamage = true,
+		Effect =
+		{
+			Name = "TimeElementalHeal",
+			Duration = 0.01,
+			Amount = 2,
+			OnlyAffectName = "_PlayerUnit",
+		},
+	})
+
 	return data
 end)

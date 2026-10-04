@@ -1,4 +1,5 @@
 table.insert(SpellDisplayData.TraitSortOrder, 10, "SpellChronosCircleTrait")
+table.insert(WeaponSets.HeroSpellWeapons,"WeaponSpellChronosCircle")
 
 OverwriteTableKeys( SpellData, {
     ChronosCircle = 

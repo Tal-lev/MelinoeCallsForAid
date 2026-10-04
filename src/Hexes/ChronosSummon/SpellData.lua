@@ -1,4 +1,5 @@
 table.insert(SpellDisplayData.TraitSortOrder, 10, "SpellChronosSummonTrait")
+table.insert(WeaponSets.HeroSpellWeapons,"WeaponChronosSummon")
 
 OverwriteTableKeys( SpellData, {
 	ChronosSummon = 
@@ -18,15 +19,19 @@ OverwriteTableKeys( SpellData, {
 		{
 			Repeatable = 
 			{
-				"SummonSpeedTalent"
+				"ChronosSummonDurationTalent",
+				"ChronosSummonHealthTalent",
+				"CurrencyUseTalent",
 			},
 			Unique = 
 			{
-                "SummonSpeedTalent"  
+				"ChronosSummonUsesTalent",
+				"ChronosDoubleHealTalent",
+				"ChronosRolloverUsesTalent",
 			},
 			Legendary = 
 			{
-				"SummonSpeedTalent"
+				"SummonSpeedTalent",
 			},
 		},
     },
