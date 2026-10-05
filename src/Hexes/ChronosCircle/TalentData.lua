@@ -6,7 +6,7 @@ OverwriteTableKeys( TraitData, {
     ChronosCircleInTalent = 
     {
         InheritFrom = {"SpellTalentTrait"},
-        Icon = "Boon_Selene_121",
+        Icon = "Boon_Selene_115",
         ManaSpendCostModifiers = 
         {
             Add = 20,
@@ -51,7 +51,7 @@ OverwriteTableKeys( TraitData, {
     ChronosCircleBlindTalent = 
     {
         InheritFrom = {"SpellTalentTrait"},
-        Icon = "Boon_Selene_121",
+        Icon = "Boon_Selene_40",
         OnEnemyDamagedAction = 
         {
             ValidProjectiles = { "ChronosRadialOut" ,"ChronosRadialIn"},
@@ -93,7 +93,7 @@ OverwriteTableKeys( TraitData, {
     ChronosCircleGlowTalent = 
     {
         InheritFrom = {"SpellTalentTrait"},
-        Icon = "Boon_Selene_121",
+        Icon = "Boon_Selene_66",
         RarityLevels =
 		{
 			Common =
@@ -161,7 +161,7 @@ OverwriteTableKeys( TraitData, {
     ChronosCircleWeakTalent = 
     {
         InheritFrom = {"SpellTalentTrait"},
-        Icon = "Boon_Selene_121",
+        Icon = "Boon_Selene_48",
         OnEnemyDamagedAction = 
 		{
 			ValidProjectiles = { "ChronosRadialOut" ,"ChronosRadialIn" },
@@ -176,7 +176,7 @@ OverwriteTableKeys( TraitData, {
     ChronosCircleDamageTalent = 
     {
         InheritFrom = {"SpellTalentTrait"},
-        Icon = "Boon_Selene_121",
+        Icon = "Boon_Selene_77",
         RarityLevels =
 		{
 			Common =

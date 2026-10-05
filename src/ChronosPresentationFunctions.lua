@@ -1067,20 +1067,20 @@ end
 function mod.ChronosPlayInteractAnimation( interactableObjectId, args )
 	args = args or {}
 
-	--if not args.SkipInputBlock then
-	--	AddTimerBlock( CurrentRun, "MelinoeInteractEquip" )
-	--	AddInputBlock({ Name = "MelinoeInteractEquip" })
-	--end
+	if not args.SkipInputBlock then
+		AddTimerBlock( CurrentRun, "MelinoeInteractEquip" )
+		AddInputBlock({ Name = "MelinoeInteractEquip" })
+	end
 
-	--SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
-	--AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = interactableObjectId })
+	SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
+	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = interactableObjectId })
 	thread( DoRumble, { { ScreenPreWait = 0.02, RightFraction = 0.17, Duration = 0.1 }, } )
-	--if interactableObjectId then
-	--	waitUnmodified( 0.08 )
-	--end
-	--if not args.SkipInputBlock then
-	--	thread( RemoveInteractAnimationInputBlock )
-	--end
+	if interactableObjectId then
+		waitUnmodified( 0.08 )
+	end
+	if not args.SkipInputBlock then
+		thread( RemoveInteractAnimationInputBlock )
+	end
 	waitUnmodified( 0.08 )
 end
 
@@ -1088,7 +1088,7 @@ function mod.ChronosPlayUnequipAnimation( args )
 	wait( 0.35 )
 	local animation = "NPC_Chronos_Enlightened_Hover"
 	if animation ~= nil then
-		--SetAnimation({ Name = animation, DestinationId = CurrentRun.Hero.ObjectId })
+		SetAnimation({ Name = animation, DestinationId = CurrentRun.Hero.ObjectId })
 		wait( 0.34 )
 		CreateAnimation({ Name = "HecateTeleportFxFrontFast", DestinationId = CurrentRun.Hero.ObjectId, OffsetZ = 40, Scale = 0.60, DrawGroup = "FX_Standing_Add" })
 	end
@@ -1445,7 +1445,7 @@ function mod.ChronosFamiliarHarvestStartPresentation( source, args, user )
 	familiar.CanGuard = false
 
 	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = familiar.ObjectId })
-	--SetAnimation({ Name = "Melinoe_CrossCast_Start_Fast", DestinationId = CurrentRun.Hero.ObjectId })
+	SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
 	CreateAnimation({ Name = "ItemGet_Tool", DestinationId = CurrentRun.Hero.ObjectId })
 	PlaySound({ Name = "/Leftovers/World Sounds/Caravan Interior/FloatingRockInteract", Id = CurrentRun.Hero.ObjectId })
 
@@ -1455,7 +1455,7 @@ function mod.ChronosFamiliarHarvestStartPresentation( source, args, user )
 
 	waitUnmodified( 0.25 )
 	PlaySound({ Name = familiar.EquipSound or "/EmptyCue", Id = familiar.ObjectId })
-	--SetAnimation({ Name = "MelinoeCrossCast", DestinationId = CurrentRun.Hero.ObjectId })
+	SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
 	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = source.ObjectId, })
 	if not familiar.Burrowing then
 		CreateAnimation({ Name = "ItemGet_Tool", DestinationId = familiar.ObjectId, OffsetZ = -60 })
@@ -1520,7 +1520,7 @@ function mod.ChronosFamiliarShovelStartPresentation( source, args, user )
 	local familiar = MapState.FamiliarUnit
 
 	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = familiar.ObjectId })
-	--SetAnimation({ Name = "Melinoe_CrossCast_Start_Fast", DestinationId = CurrentRun.Hero.ObjectId })
+	SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
 	CreateAnimation({ Name = "ItemGet_Tool", DestinationId = CurrentRun.Hero.ObjectId })
 	PlaySound({ Name = "/Leftovers/World Sounds/Caravan Interior/FloatingRockInteract", Id = CurrentRun.Hero.ObjectId })
 
@@ -1530,7 +1530,7 @@ function mod.ChronosFamiliarShovelStartPresentation( source, args, user )
 
 	waitUnmodified( 0.25 )
 	PlaySound({ Name = familiar.EquipSound or "/EmptyCue", Id = familiar.ObjectId })
-	--SetAnimation({ Name = "MelinoeCrossCast", DestinationId = CurrentRun.Hero.ObjectId })
+	SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
 	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = source.ObjectId, })
 	CreateAnimation({ Name = "ItemGet_Tool", DestinationId = familiar.ObjectId, OffsetZ = -60 })
 
@@ -1590,7 +1590,7 @@ function mod.ChronosFamiliarPickaxeStartPresentation( source, args, user )
 	familiar.BlockVictoryPresentation = true
 
 	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = familiar.ObjectId })
-	--SetAnimation({ Name = "Melinoe_CrossCast_Start_Fast", DestinationId = CurrentRun.Hero.ObjectId })
+	SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
 	CreateAnimation({ Name = "ItemGet_Tool", DestinationId = CurrentRun.Hero.ObjectId })
 	PlaySound({ Name = "/Leftovers/World Sounds/Caravan Interior/FloatingRockInteract", Id = CurrentRun.Hero.ObjectId })
 
@@ -1600,7 +1600,7 @@ function mod.ChronosFamiliarPickaxeStartPresentation( source, args, user )
 
 	waitUnmodified( 0.25 )
 	PlaySound({ Name = familiar.EquipSound or "/EmptyCue", Id = familiar.ObjectId })
-	--SetAnimation({ Name = "MelinoeCrossCast", DestinationId = CurrentRun.Hero.ObjectId })
+	SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
 	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = source.ObjectId, })
 	if familiar.TargetHeight ~= familiar.SkyHeight then
 		CreateAnimation({ Name = "ItemGet_Tool", DestinationId = familiar.ObjectId, OffsetZ = -60 })
@@ -1657,7 +1657,7 @@ function mod.ChronosFamiliarExorcismStartPresentation( source, args, user )
 	-- PlaySound({ Name = "/SFX/Enemy Sounds/Exalted/ExaltedPreAttackFlashSoundBow" })
 
 	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = MapState.FamiliarUnit.ObjectId })
-	--SetAnimation({ Name = "Melinoe_CrossCast_Start_Fast", DestinationId = CurrentRun.Hero.ObjectId })
+	SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
 	CreateAnimation({ Name = "ItemGet_Tool", DestinationId = CurrentRun.Hero.ObjectId })
 	PlaySound({ Name = "/Leftovers/World Sounds/Caravan Interior/FloatingRockInteract", Id = CurrentRun.Hero.ObjectId })
 
@@ -1665,7 +1665,7 @@ function mod.ChronosFamiliarExorcismStartPresentation( source, args, user )
 
 	waitUnmodified( 0.25 )
 	PlaySound({ Name = MapState.FamiliarUnit.EquipSound or "/EmptyCue", Id = MapState.FamiliarUnit.ObjectId })
-	--SetAnimation({ Name = "MelinoeCrossCast", DestinationId = CurrentRun.Hero.ObjectId })
+	SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
 	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = source.ObjectId, })
 	CreateAnimation({ Name = "ItemGet_Tool", DestinationId = MapState.FamiliarUnit.ObjectId, OffsetZ = -60 })
 
@@ -1706,7 +1706,7 @@ function mod.ChronosFamiliarFishingPresentation( fishingPoint )
 	local familiar = MapState.FamiliarUnit
 
 	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = familiar.ObjectId })
-	--SetAnimation({ Name = "Melinoe_CrossCast_Start_Fast", DestinationId = CurrentRun.Hero.ObjectId })
+	SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
 	CreateAnimation({ Name = "ItemGet_Tool", DestinationId = CurrentRun.Hero.ObjectId })
 	PlaySound({ Name = "/Leftovers/World Sounds/Caravan Interior/FloatingRockInteract", Id = CurrentRun.Hero.ObjectId })
 	PlaySound({ Name = familiar.EquipSound or "/EmptyCue", Id = familiar.ObjectId })
@@ -1716,7 +1716,7 @@ function mod.ChronosFamiliarFishingPresentation( fishingPoint )
 	thread( PlayVoiceLines, HeroVoiceLines.FamiliarHarvestVoiceLines, true )
 
 	waitUnmodified( 0.25 )
-	--SetAnimation({ Name = "MelinoeCrossCast", DestinationId = CurrentRun.Hero.ObjectId })
+	SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
 	AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = fishingPoint.ObjectId, })
 	CreateAnimation({ Name = "ItemGet_Tool", DestinationId = MapState.FamiliarUnit.ObjectId, OffsetZ = -60 })
 
@@ -1770,3 +1770,301 @@ function mod.ChronosFamiliarFishingPresentation( fishingPoint )
 end
 --Hug Hecate
 --Hug Persephone
+
+function mod.ChronosSetupMelWalk( source, args )
+	SetUnitProperty({ Property = "StartGraphic", Value = "NPC_Chronos_Enlightened_Move_Start", DestinationId = CurrentRun.Hero.ObjectId })
+	SetUnitProperty({ Property = "MoveGraphic", Value = "NPC_Chronos_Enlightened_Move", DestinationId = CurrentRun.Hero.ObjectId })
+	SetUnitProperty({ Property = "StopGraphic", Value = "NPC_Chronos_Enlightened_Move_Stop", DestinationId = CurrentRun.Hero.ObjectId })
+	for i, rushWeaponName in pairs( WeaponSets.HeroRushWeapons ) do
+		SetWeaponProperty({ WeaponName = rushWeaponName, DestinationId = CurrentRun.Hero.ObjectId, Property = "Enabled", Value = false })
+	end
+	if MapState.InitialSpeed == nil then
+		MapState.InitialSpeed = GetUnitDataValue({ Id = CurrentRun.Hero.ObjectId, Property = "Speed" })
+	end
+	SetUnitProperty({ Property = "Speed", Value = 120, DestinationId = CurrentRun.Hero.ObjectId })
+end
+
+function mod.ChronosRestoreMelRun( source, args )
+	args = args or {}
+	if args.WaitForInputAllowed then
+		local notifyName = "RestoreMelRun_InputAllowed"
+		NotifyOnInputAllowed({ Notify = notifyName })
+		waitUntil( notifyName )
+	end
+	if MapState.InitialSpeed == nil then
+		return
+	end
+	if not args.SkipWalkStopAnimation then
+		SetAnimation({ Name = "NPC_Chronos_Enlightened_Move_Stop", DestinationId = CurrentRun.Hero.ObjectId })
+	end
+	SetUnitProperty({ Property = "StartGraphic", Value = "NPC_Chronos_Enlightened_Move_Start", DestinationId = CurrentRun.Hero.ObjectId })
+	SetUnitProperty({ Property = "MoveGraphic", Value = "NPC_Chronos_Enlightened_Move", DestinationId = CurrentRun.Hero.ObjectId })
+	SetUnitProperty({ Property = "StopGraphic", Value = "NPC_Chronos_Enlightened_Move_Stop", DestinationId = CurrentRun.Hero.ObjectId })
+	SetUnitProperty({ Property = "Speed", Value = MapState.InitialSpeed, DestinationId = CurrentRun.Hero.ObjectId })
+	MapState.InitialSpeed = nil
+end
+
+--Zagreus Journey
+if rom.mods['NikkelM-Zagreus_Journey'] then
+	--H1 Erebus exit presentation
+	function mod.ChronosModsNikkelMHadesBiomesShrineGateExitPresentation(currentRun, exitDoor, args)
+		AddInputBlock({ Name = "LeaveRoomPresentation" })
+		game.ToggleCombatControl({ "AdvancedTooltip" }, false, "LeaveRoom")
+		game.HideCombatUI("ContractExitPresentation")
+
+		Stop({ Id = currentRun.Hero.ObjectId })
+		game.wait(0.01)
+
+		PlaySound({ Name = "/SFX/Menu Sounds/GeneralWhooshMENULoudLow" })
+		AngleTowardTarget({ Id = currentRun.Hero.ObjectId, DestinationId = exitDoor.ObjectId })
+
+		local unequipAnimation = game.GetEquippedWeaponValue("UnequipAnimation") or "MelinoeIdleWeaponless"
+		SetAnimation({ Name = NPC_Chronos_Enlightened_Hover, DestinationId = currentRun.Hero.ObjectId })
+		PanCamera({ Id = exitDoor.ObjectId, Duration = 1.1, OffsetY = -50, EaseOut = 0 })
+		game.wait(0.5)
+		ModifySubtitles({ SuppressLyrics = true })
+
+		game.wait(0.35)
+
+		SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = currentRun.Hero.ObjectId })
+
+		currentRun.Hero.ExitAngle = GetAngle({ Id = currentRun.Hero.ObjectId })
+
+		game.PlayVoiceLines(game.HeroVoiceLines.ModsNikkelMHadesBiomes_ShrineGateEnterVoiceLines)
+
+		SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = currentRun.Hero.ObjectId })
+		game.wait(0.2)
+
+		-- Timed to destroy the preview when Mel does the interaction animation
+		if exitDoor ~= nil then
+			if exitDoor.AdditionalIcons ~= nil and not game.IsEmpty(exitDoor.AdditionalIcons) then
+				Destroy({ Ids = game.GetAllValues(exitDoor.AdditionalIcons) })
+				exitDoor.AdditionalIcons = nil
+			end
+			game.DestroyDoorRewardPresenation(exitDoor)
+			if exitDoor.ExitDoorOpenAnimation ~= nil then
+				SetAnimation({ DestinationId = exitDoor.ObjectId, Name = exitDoor.ExitDoorOpenAnimation })
+			end
+		end
+
+		
+		SetAlpha({ Id = exitDoor.ObjectId, Fraction = 0.0, Duration = 0.1 })
+		PlaySound({ Name = "/SFX/Enemy Sounds/Chronos/ChronosTeleport", Id = currentRun.Hero.ObjectId })
+		--CreateAnimation({ Name = "HadesContractFx", DestinationId = currentRun.Hero.ObjectId, })
+		game.wait(0.1)
+		--CreateAnimation({ Name = "HadesContractFx", DestinationId = currentRun.Hero.ObjectId, })
+		PlaySound({ Name = "/SFX/ShipsDoorTeleport", Id = currentRun.Hero.ObjectId })
+
+		game.wait(1.0)
+
+		CreateAnimation({ Name = "ChronosTeleportFxFront", DestinationId = CurrentRun.Hero.ObjectId })
+		--CreateAnimation({ Name = "ContractTeleportFx", DestinationId = currentRun.Hero.ObjectId, })
+		SetAlpha({ Id = currentRun.Hero.ObjectId, Fraction = 0, Duration = 0.1 })
+
+		game.wait(0.01)
+
+		ModifySubtitles({ SuppressLyrics = false })
+		game.FullScreenFadeOutAnimation("RoomTransitionIn_Down")
+		game.WaitForSpeechFinished()
+
+		RemoveInputBlock({ Name = "LeaveRoomPresentation" })
+		game.ToggleCombatControl({ "AdvancedTooltip" }, true, "LeaveRoom")
+	end
+
+
+	--Styx Entering Hub
+	function mod.ChronosModsNikkelMHadesBiomesReturnToStyxHubPresentation(currentRun, currentRoom, args)
+		AddInputBlock({ Name = "ModsNikkelMHadesBiomesReturnToStyxHubPresentation" })
+
+		local roomData = game.RoomData[currentRoom.Name] or currentRoom
+		local roomIntroSequenceDuration = roomData.IntroSequenceDuration or game.RoomData.BaseRoom.IntroSequenceDuration or 0.0
+
+		game.AddTimerBlock(currentRun, "StartRoom")
+		if roomData.TimerBlock ~= nil then
+			game.AddTimerBlock(currentRun, roomData.TimerBlock)
+		end
+		if roomData.RemoveTimerBlock ~= nil then
+			game.RemoveTimerBlock(currentRun, roomData.RemoveTimerBlock)
+		end
+
+		SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = currentRun.Hero.ObjectId })
+		SetAlpha({ Id = currentRun.Hero.ObjectId, Fraction = 0.0, Duration = 0 })
+		
+		
+
+		if currentRoom.HeroEndPoint ~= nil then
+			AngleTowardTarget({ Id = currentRun.Hero.ObjectId, DestinationId = currentRoom.HeroEndPoint })
+			Teleport({ Id = currentRun.Hero.ObjectId, DestinationId = currentRoom.HeroEndPoint })
+			PanCamera({ Id = currentRoom.HeroEndPoint, Duration = 0 })
+		end
+		game.wait(0.03)
+		
+
+		FadeIn({ Duration = 0.0 })
+		game.FullScreenFadeInAnimation()
+		SetAlpha({ Id = currentRun.Hero.ObjectId, Fraction = 1.0, Duration = 1.0 })
+		CreateAnimation({ Name = "ChronosTeleportFxFront", DestinationId = CurrentRun.Hero.ObjectId })
+		if roomData.DoorEntranceAnimation ~= nil then
+			game.thread(game.DoorEntranceAnimation, roomData.DoorEntranceAnimation)
+		end
+		if currentRoom.CameraEndPoint ~= nil then
+			PanCamera({ Id = currentRoom.CameraEndPoint, Duration = roomData.IntroPanDuration or roomIntroSequenceDuration })
+		end
+
+		if currentRoom.LocationText and not currentRoom.Encounter.BlockLocationText then
+			game.thread(game.DisplayBiomeLocationBanner, nil,
+				{
+					Text = currentRoom.LocationText,
+					DreamText = currentRoom.DreamLocationText,
+					SkipDreamSubtitle = true,
+					Delay = 0.65,
+					FadeColor = currentRoom.LocationTextColor or { 255, 0, 0, 255 },
+					Duration = 2.0,
+					AnimationName = currentRoom.LocationAnimName,
+					AnimationOutName = currentRoom.LocationAnimOutName,
+					IconBackingAnimationName = currentRoom.LocationTextAnimName,
+					IconBackingAnimationOutName = currentRoom.LocationTextAnimOutName,
+				})
+		end
+		game.thread(game.PlayVoiceLines, roomData.EnterVoiceLines, true)
+		game.wait(roomIntroSequenceDuration)
+
+		-- Allow cancelling the animation the same way you can after returning from a run
+		game.ToggleCombatControl({ "Rush" }, true, "DeathLoopStart")
+		local notifyName = "MelAwake"
+		NotifyOnControlPressed({ Names = { "Rush" }, Notify = notifyName, Timeout = 2.5 })
+		game.waitUntil(notifyName)
+		local didSkip = not _eventTimeoutRecord[notifyName]
+		if didSkip then
+			local originalWeaponRange = GetWeaponDataValue({
+				Id = currentRun.Hero.ObjectId,
+				WeaponName = "WeaponBlink",
+				Property = "WeaponRange"
+			})
+			-- Increase the range to allow blinking onto the bridge to the rooms
+			SetWeaponProperty({
+				WeaponName = "WeaponBlink",
+				DestinationId = currentRun.Hero.ObjectId,
+				Property = "WeaponRange",
+				Value = 512,
+				ValueChangeType = "Absolute"
+			})
+			FireWeaponFromUnit({ Weapon = "WeaponBlink", Id = currentRun.Hero.ObjectId })
+			-- Small delay before resetting, otherwise the blink above already uses the reset range
+			game.thread(function()
+				game.wait(0.1)
+				SetWeaponProperty({
+					WeaponName = "WeaponBlink",
+					DestinationId = currentRun.Hero.ObjectId,
+					Property = "WeaponRange",
+					Value = originalWeaponRange,
+					ValueChangeType = "Absolute"
+				})
+			end)
+		else
+			SetAnimation({ DestinationId = currentRun.Hero.ObjectId, Name = "NPC_Chronos_Enlightened_Hover" })
+		end
+
+		LockCamera({ Id = currentRun.Hero.ObjectId, Duration = 2.0 })
+		RemoveInputBlock({ Name = "ModsNikkelMHadesBiomesReturnToStyxHubPresentation" })
+		game.RemoveTimerBlock(currentRun, "StartRoom")
+
+		-- For the familiar spawn presentation - this gives the good-looking one, instead of the sudden spawn
+		game.RunEventsGeneric(game.RoomEventData.GlobalRoomInputUnblockedEvents, currentRoom)
+	end
+
+	function mod.ChronosForbiddenShopItemTaken(source, args)
+		args = args or {}
+		SetAnimation({ Name = "Enemy_Chronos_SwingLeftFire", DestinationId = game.CurrentRun.Hero.ObjectId })
+		game.thread(game.UseConsumableItem, source, args, game.CurrentRun.Hero)
+
+		local charonId = GetClosestUnitOfType({ Id = game.CurrentRun.Hero.ObjectId, DestinationName = "NPC_Charon_01" })
+
+		game.AddTimerBlock(game.CurrentRun, "StealPresentation")
+		AddInputBlock({ Name = "LeaveRoomPresentation" })
+		ToggleControl({ Names = { "AdvancedTooltip", }, Enabled = false })
+
+		game.HideCombatUI("StealPresentation")
+
+		game.thread(game.PlayVoiceLines, game.HeroVoiceLines.ForbiddenShopItemTakenVoiceLines)
+
+		game.wait(0.2)
+
+		game.StopSecretMusic()
+		game.EndAmbience(0.1)
+		StopAmbientSound({ All = true })
+
+		game.wait(0.2)
+		PlaySound({ Name = "/SFX/Menu Sounds/RecordScratch" })
+		SetThingProperty({ Property = "AmbientSound", Value = "/EmptyCue", DestinationId = charonId })
+
+		LockCamera({ Ids = { game.CurrentRun.Hero.ObjectId, charonId }, Duration = 0.22 })
+		FocusCamera({ Fraction = 0.975, Duration = 0.3, ZoomType = "Overshoot" })
+
+		game.wait(0.2)
+
+		AngleTowardTarget({ Id = charonId, DestinationId = game.CurrentRun.Hero.ObjectId })
+		game.thread(game.PlayVoiceLines, game.GlobalVoiceLines.CharonSurprisedVoiceLines)
+
+		game.wait(0.8)
+
+		AngleTowardTarget({ Id = game.CurrentRun.Hero.ObjectId, DestinationId = charonId })
+		game.wait(0.10)
+		SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = game.CurrentRun.Hero.ObjectId })
+
+		game.wait(2.0)
+		game.thread(game.PlayVoiceLines, game.HeroVoiceLines.ForbiddenShopItemCaughtVoiceLines)
+		SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = game.CurrentRun.Hero.ObjectId })
+
+		local soundId = PlaySound({ Name = "/Leftovers/Object Ambiences/ThunderLoop" })
+
+		ShakeScreen({ Speed = 500, Distance = 4, FalloffSpeed = 3000, Duration = 5.0 })
+
+		StopSound({ Id = soundId, Duration = 5 })
+		soundId = nil
+
+		AdjustFullscreenBloom({ Name = "LightningStrike", Duration = 0.1 })
+		AdjustRadialBlurStrength({ Fraction = 1.5, Duration = 0.1 })
+		AdjustRadialBlurDistance({ Fraction = 0.125, Duration = 0.1 })
+
+		LockCamera({ Ids = { game.CurrentRun.Hero.ObjectId }, Duration = 7 })
+
+		game.wait(2.0)
+
+		AdjustRadialBlurStrength({ Fraction = 0, Duration = 0.03 })
+		AdjustRadialBlurDistance({ Fraction = 0, Duration = 0.03 })
+
+		PlaySound({ Name = "/Leftovers/Menu Sounds/AscensionConfirm" })
+		game.thread(game.DoRumble, { { ScreenPreWait = 0.02, Fraction = 0.15, Duration = 0.7 }, })
+		Flash({ Id = game.CurrentRun.Hero.ObjectId, Speed = 0.5, MinFraction = 0, MaxFraction = 1.0, Color = game.Color.White, Duration = 1.0, ExpireAfterCycle = false })
+		AdjustColorGrading({ Name = "Chaos", Duration = 0.7 })
+
+		game.wait(0.7)
+
+		CreateAnimation({ Name = "ZagreusSecretDoorDiveFadeFx", DestinationId = game.CurrentRun.Hero.ObjectId })
+		SetAlpha({ Id = game.CurrentRun.Hero.ObjectId, Fraction = 0, Duration = 0.13 })
+
+		game.wait(0.4)
+		game.FullScreenFadeOutAnimation()
+		game.wait(0.2)
+
+		RemoveInputBlock({ Name = "LeaveRoomPresentation" })
+		ToggleControl({ Names = { "AdvancedTooltip", }, Enabled = true })
+
+		game.RemoveTimerBlock(game.CurrentRun, "StealPresentation")
+		args.NextMap = "CharonFight01"
+		-- Custom: Does nothing (but must be assigned or it will cause a nil error)
+		game.CurrentRun.CurrentRoom.ExitFunctionName = _PLUGIN.guid .. "." .. "ExitToCharonFightPresentation"
+
+		-- Delay any Hermes deliveries for one encounter, so they don't spawn in Charon's boss room after defeating him, which breaks the game
+		local pendingDeliveries = game.CurrentRun.Hero.TraitDictionary.StorePendingDeliveryItem
+		if pendingDeliveries ~= nil then
+			for _, trait in pairs(pendingDeliveries) do
+				trait.HoldRemainingRooms = (trait.HoldRemainingRooms or 0) + 1
+			end
+		end
+
+		CallFunctionName( "NikkelM-Zagreus_Journey.LeaveRoomWithNoDoor", source, args )
+	end
+end
+

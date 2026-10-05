@@ -9,7 +9,7 @@ OverwriteTableKeys( TraitData, {
     SpellChronosCircleTrait = 
 	{
 		InheritFrom = { "SpellTrait" },
-		Icon = "Boon_Selene_28",
+		Icon = "Boon_Selene_41",
 		PreEquipWeapons = { "WeaponSpellChronosCircle", },
 		StatLines =
 		{

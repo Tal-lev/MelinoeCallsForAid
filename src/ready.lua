@@ -107,7 +107,6 @@ function SetUpPlayerChronos()
 	--DestroyGroup({ Name = "HUD_Main" })
 	--CreateGroup( { Name = "HUD_Main" } )
 	--InsertGroupInFront({ Name = "HUD_Main", DestinationName = "HUD_Backing" })
-
 end
 
 function SetUpReturnPlayerMelinoe()
@@ -219,6 +218,10 @@ end)
 -- Switch WeaponAspect by interacting with a Character
 ModUtil.Path.Wrap("SpecialInteractSalute", function(baseFunc, usee, args)
 	baseFunc(usee, args)
+	if HeroHasTrait("ChronosAspect") then
+		wait(0.4)
+		SetAnimation({Name= "NPC_Chronos_Enlightened_Hover", DestinationId= CurrentRun.Hero.ObjectId})
+	end
 	-- Switching to Chronos
 	if CurrentHubRoom and CurrentHubRoom.Name and CurrentHubRoom.Name == "Hub_PreRun" and not HeroHasTrait("ChronosAspect") and usee.Name == "NPC_Chronos_02" then
 		if CurrentRun and CurrentRun.Hero and CurrentRun.Hero.Weapons and CurrentRun.Hero.Weapons.WeaponAxe then 
@@ -345,6 +348,226 @@ modutil.mod.Path.Wrap("PlayInteractAnimation",  function(baseFunc, interactableO
 	end
 end)
 
+--Interact
+modutil.mod.Path.Wrap("SetAnimation",  function(baseFunc, args) 
+	if args and args.DestinationId == 40000 then
+		print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+		print("printing args")
+		print(args.Name)
+		print(args.DestinationId)
+		print(debug.traceback())
+	end
+	return baseFunc( args)
+end)
+
+--Enter Room 
+modutil.mod.Path.Context.Env("RoomEntranceMaterialize", function ( currentRun, currentRoom, args )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+		if HeroHasTrait("ChronosAspect") then
+			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(Aargs)
+    end)
+end)
+
+--Attachment from exiting
+modutil.mod.Path.Context.Env("CheckAttachmentTextures", function ( source, args )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 and Aargs.Name == "MelinoeIdle" then
+			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(Aargs)
+    end)
+end)
+
+--Preline Animations
+modutil.mod.Path.Context.Env("PlayTextLine", function ( screen, textLines, prevLine, parentLine, source, args )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
+			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(Aargs)
+    end)
+end)
+
+--Exiting Asphodel function
+modutil.mod.Path.Context.Env("AnomalyExitPresentation", function ( currentRun, exitDoor )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
+		if HeroHasTrait("ChronosAspect") and args.DestinationId == 40000 then
+			args.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(args)
+    end)
+end)
+
+--Open KeepsakeRack
+modutil.mod.Path.Context.Env("OpenKeepsakeRackScreen", function ( source )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
+		if HeroHasTrait("ChronosAspect") and args.Name == "MelinoeEquip" then
+			args.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(args)
+    end)
+end)
+
+--Open Bounty 
+modutil.mod.Path.Context.Env("BountyBoardOpenedPresentation", function ( screen )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
+		if HeroHasTrait("ChronosAspect") and args.Name == "MelinoeEquip" then
+			args.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(args)
+    end)
+end)
+
+--Close Shrine menu
+modutil.mod.Path.Context.Env("ShrineScreenOpenFinishedPresentation", function ( screen )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
+		if HeroHasTrait("ChronosAspect") and args.Name == "MelinoeEquip" then
+			args.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(args)
+    end)
+end)
+
+--Boon menu
+modutil.mod.Path.Context.Env("UpgradeAcquiredPresentation", function ( screen, upgradeData )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
+		if HeroHasTrait("ChronosAspect") then
+			args.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(args)
+    end)
+end)
+--Boon menu
+modutil.mod.Path.Context.Env("BoonInteractPresentation", function ( source, args, textLines )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+		if HeroHasTrait("ChronosAspect") then
+			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(Aargs)
+    end)
+end)
+
+--Spell menu
+modutil.mod.Path.Context.Env("CloseSpellScreenPresentation", function ( screen, button )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
+		if HeroHasTrait("ChronosAspect") then
+			args.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(args)
+    end)
+end)
+
+--Spell Drop
+modutil.mod.Path.Context.Env("SpellDropInteractPresentation", function ( source, args, textLines )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+		if HeroHasTrait("ChronosAspect") then
+			args.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(Aargs)
+    end)
+end)
+
+
+--Salute
+modutil.mod.Path.Context.Env("SpecialInteractSalute", function ( usee, args )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+		if HeroHasTrait("ChronosAspect") then
+			if Aargs.Name == "MelinoeSalute" then
+				Aargs.Name = "NPC_Chronos_Enlightened_Greet"
+			elseif Aargs.DestinationId == 40000 then
+				Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+			end
+		end
+		return baseFunc(Aargs)
+    end)
+end)
+
+--WeaponShop
+modutil.mod.Path.Context.Env("WeaponShopScreenCloseFinishedPresentation", function ( screen, button )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
+		if HeroHasTrait("ChronosAspect") and args.Name == "MelinoeEquip" then
+			args.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(args)
+    end)
+end)
+
+--Admire Skelly
+modutil.mod.Path.Context.Env("SkellyStatueAdmire", function ( source, args )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
+			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(Aargs)
+    end)
+end)
+
+--Pet Frog
+modutil.mod.Path.Context.Env("FrogFamiliarSpecialInteractUnlockedInHub", function ( usee, args )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
+			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(Aargs)
+    end)
+end)
+
+--Pet Polecat
+modutil.mod.Path.Context.Env("PolecatFamiliarSpecialInteractUnlockedInHub", function ( usee, args )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
+			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(Aargs)
+    end)
+end)
+
+--Pet Hound
+modutil.mod.Path.Context.Env("HoundFamiliarSpecialInteractUnlockedInHub", function ( usee, args )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
+			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(Aargs)
+    end)
+end)
+
+--Pet Cat
+modutil.mod.Path.Context.Env("CatFamiliarSpecialInteractLockedInRun", function ( usee, args )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
+			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(Aargs)
+    end)
+end)
+
+--Pet Raven
+modutil.mod.Path.Context.Env("RavenFamiliarSpecialInteractLockedInRun", function ( usee, args )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
+			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(Aargs)
+    end)
+end)
+
+--Close Familiar Costume Screen
+modutil.mod.Path.Context.Env("UnequipFamiliarPresentation", function ( args )
+    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
+			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+		end
+		return baseFunc(Aargs)
+    end)
+end)
+
+
+
+
+
 modutil.mod.Path.Wrap("PlayUnequipAnimation",  function( baseFunc, args ) 
 	if HeroHasTrait("ChronosAspect") then
 		mod.ChronosPlayUnequipAnimation( args )
@@ -469,6 +692,65 @@ modutil.mod.Path.Wrap("PetCerberus",  function(baseFunc, cerberus)
 		baseFunc(cerberus)
 	end
 end)
+
+--Set walk
+modutil.mod.Path.Wrap("SetupMelWalk",  function(baseFunc, source, args) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosSetupMelWalk( source, args )
+	else
+		baseFunc(source, args)
+	end
+end)
+
+--Return Run
+modutil.mod.Path.Wrap("RestoreMelRun",  function(baseFunc, source, args) 
+	if HeroHasTrait("ChronosAspect") then
+		mod.ChronosRestoreMelRun( source, args )
+	else
+		baseFunc(ource, args)
+	end
+end)
+
+--ZJ wraps
+if rom.mods['NikkelM-Zagreus_Journey'] then
+	--Returning to Styx
+	modutil.mod.Path.Wrap("NikkelM-Zagreus_Journey.ModsNikkelMHadesBiomesReturnToStyxHubPresentation",  function(baseFunc, currentRun, currentRoom, args) 
+		if HeroHasTrait("ChronosAspect") then
+			mod.ChronosModsNikkelMHadesBiomesReturnToStyxHubPresentation(currentRun, currentRoom, args)
+		else
+			baseFunc(currentRun, currentRoom, args)
+		end
+	end)
+
+	--Stealing from Charon
+	modutil.mod.Path.Wrap("NikkelM-Zagreus_Journey.ModsNikkelMHadesBiomesReturnToStyxHubPresentation",  function(baseFunc, currentRun, currentRoom, args) 
+		if HeroHasTrait("ChronosAspect") then
+			mod.ChronosModsNikkelMHadesBiomesReturnToStyxHubPresentation(currentRun, currentRoom, args)
+		else
+			baseFunc(currentRun, currentRoom, args)
+		end
+	end)
+
+	--Robbing Charon
+	modutil.mod.Path.Wrap("NikkelM-Zagreus_Journey.ForbiddenShopItemTaken",  function(baseFunc, source, args) 
+		if HeroHasTrait("ChronosAspect") then
+			mod.ChronosForbiddenShopItemTaken(source, args)
+		else
+			baseFunc(currentRun, source, args)
+		end
+	end)
+
+	--Exit Erebus H1 door
+	modutil.mod.Path.Wrap("NikkelM-Zagreus_Journey.ModsNikkelMHadesBiomesShrineGateExitPresentation",  function(baseFunc, currentRun, exitDoor, args) 
+		if HeroHasTrait("ChronosAspect") then
+			mod.ChronosModsNikkelMHadesBiomesShrineGateExitPresentation(currentRun, exitDoor, args)
+		else
+			baseFunc(currentRun, exitDoor, args)
+		end
+	end)
+	
+
+end
 
 ChronosAspect = {
 	InheritFrom = { "WeaponEnchantmentTrait" },

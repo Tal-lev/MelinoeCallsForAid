@@ -2,7 +2,7 @@ OverwriteTableKeys( TraitData, {
     ChronosSummonHealthTalent = 
 	{
 		InheritFrom = {"SpellTalentTrait"},
-		Icon = "Boon_Selene_93",
+		Icon = "Boon_Selene_86",
         RarityLevels =
 		{
 			Common =
@@ -40,7 +40,7 @@ OverwriteTableKeys( TraitData, {
     ChronosSummonDurationTalent = 
 	{
 		InheritFrom = {"SpellTalentTrait"},
-		Icon = "Boon_Selene_93",
+		Icon = "Boon_Selene_36",
         RarityLevels =
 		{
 			Common =
@@ -79,7 +79,7 @@ OverwriteTableKeys( TraitData, {
     ChronosSummonUsesTalent = 
 	{
 		InheritFrom = {"SpellTalentTrait"},
-		Icon = "Boon_Selene_50",
+		Icon = "Boon_Selene_57",
 		RarityLevels =
 		{
 			Common =
@@ -151,7 +151,7 @@ OverwriteTableKeys( TraitData, {
     ChronosRolloverUsesTalent = 
 	{
 		InheritFrom = {"SpellTalentTrait", "LegendaryTalent" },
-		Icon = "Boon_Selene_87",
+		Icon = "Boon_Selene_119",
 		RolloverSpellUses = true,
 	},
 

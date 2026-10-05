@@ -151,7 +151,7 @@ OverwriteTableKeys( TraitData, {
 	SpellChronosSummonTrait = 
 	{
 		InheritFrom = { "SpellTrait" },
-		Icon = "Boon_Selene_31",
+		Icon = "Boon_Selene_38",
 		PreEquipWeapons = { "WeaponChronosSummon" },
 		FountainRefreshUses = true,
 		RemainingUses = 2,

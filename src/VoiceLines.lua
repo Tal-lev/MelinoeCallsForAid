@@ -228,8 +228,40 @@ table.insert(LootData.ZeusUpgrade.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0415"
 
 --Boon of Zeus
 table.insert(LootData.ZeusUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1324", Text = "If you already have the might of Zeus, then this bodes well!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.ZeusUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1278", Text = "{#Emph}This {#Prev}shall come as a {#Emph}shock!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.ZeusUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1279", Text = "A {#Emph}storm {#Prev}is coming!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.ZeusUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1253", Text = "My son's billowing strength?!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.ZeusUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1254", Text = "The mark of Zeus...",GameStateRequirements = YesChronosReq })
+
+--Boon of Hera
+table.insert(LootData.HeraUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1255", Text = "That so-called {#Emph}Queen?!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.HeraUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1256", Text = "My son's beloved wife?",GameStateRequirements = YesChronosReq })
+
 --Boon of Poseidon
 table.insert(LootData.PoseidonUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1325", Text = "The strength of my strong son Poseidon already at hand!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.PoseidonUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1257", Text = "That seafaring {#Emph}brat...",GameStateRequirements = YesChronosReq })
+table.insert(LootData.PoseidonUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1258", Text = "That water-loving {#Emph}scamp...",GameStateRequirements = YesChronosReq })
+
+--Boon of Demeter
+table.insert(LootData.DemeterUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1259", Text = "Unseasonably cold...!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.DemeterUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1260", Text = "A {#Emph}chill {#Prev}here in these {#Emph}depths?",GameStateRequirements = YesChronosReq })
+
+--Boon of Apollo
+table.insert(LootData.ApolloUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1262", Text = "The light of the {#Emph}sun?!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.ApolloUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1261", Text = "Far too much blasted light...",GameStateRequirements = YesChronosReq })
+
+--Boon of Hephaestus
+table.insert(LootData.HephaestusUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1265", Text = "The forge-god strikes...!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.HephaestusUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1266", Text = "What {#Emph}is {#Prev}that clanging sound?",GameStateRequirements = YesChronosReq })
+
+--Boon of Hestia
+table.insert(LootData.HestiaUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1267", Text = "You dusted off old {#Emph}Hestia!",GameStateRequirements = YesChronosReq })
+table.insert(LootData.HestiaUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1268", Text = "Seems rather warm in here...!",GameStateRequirements = YesChronosReq })
+
+--Boon of Ares
+table.insert(LootData.AresUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1269", Text = "The vicious god of war...",GameStateRequirements = YesChronosReq })
+table.insert(LootData.AresUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1270", Text = "I'll show that Ares real war...",GameStateRequirements = YesChronosReq })
+
 --Boon of Selene
 table.insert(LootData.SpellDrop.OnSpawnVoiceLines[1], { Cue = "/VO/Chronos_0674", Text = "The Moon shines even here...",GameStateRequirements = YesChronosReq })
 table.insert(LootData.SpellDrop.OnSpawnVoiceLines[1], { Cue = "/VO/Chronos_0672", Text = "The Moon's own light...",GameStateRequirements = YesChronosReq })
@@ -273,6 +305,19 @@ table.insert(EncounterData.BossInfestedCerberus01.EnterVoiceLines[5],{ Cue = "/V
 --Typhon Start Fight
 table.insert(EncounterData.BossTyphonHead01.FightStartVoiceLines[6],{ Cue = "/VO/Chronos_0310", Text = "Have you no dignity at all?",GameStateRequirements = YesChronosReq })
 
+--Polyphemus Greeting
+table.insert(GlobalVoiceLines.PolyphemusGreetingLines[6],{ Cue = "/VO/Chronos_0925", Text = "Are you enjoying this nightly routine?",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.PolyphemusGreetingLines[6],{ Cue = "/VO/Chronos_1064", Text = "Expecting someone else?",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.PolyphemusGreetingLines[6],{ Cue = "/VO/Chronos_0008", Text = "Greetings, little one.",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.PolyphemusGreetingLines[6],{ Cue = "/VO/Chronos_0024", Text = "How fare you, little one?",GameStateRequirements = YesChronosReq })
+
+--Polyphemus Kill
+table.insert(EnemyData.Polyphemus.BossKillVoiceLines[5],{ Cue = "/VO/Chronos_0656", Text = "You are the sheep here.",GameStateRequirements = YesChronosReq })
+table.insert(EnemyData.Polyphemus.BossKillVoiceLines[5],{ Cue = "/VO/Chronos_0658", Text = "Livestock...",GameStateRequirements = YesChronosReq })
+
+-- Entering Prometheus Fight
+table.insert(RoomData.P_Boss01.EnterVoiceLines[7],{ Cue = "/VO/Chronos_0927", Text = "Decided to give poor Typhon a break?",GameStateRequirements = YesChronosReq })
+
 --Prometheus Memory Game
 table.insert(EnemyData.Prometheus.MemoryAttackIntroVoiceLines[4],{ Cue = "/VO/Chronos_0928", Text = "How shall Olympus withstand Typhon with you here?",GameStateRequirements = YesChronosReq })
 
@@ -314,6 +359,61 @@ table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/Chronos_0
 table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/Chronos_0809", Text = "Your silk has served you well.", GameStateRequirements = YesChronosReq})
 table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/Chronos_0664", Text = "A new look!", GameStateRequirements = YesChronosReq})
 
+--Zagreus
+table.insert(GlobalVoiceLines.ZagreusBossGreetingLines[4],{ Cue = "/VO/Chronos_0626", Text = "What a meddlesome child that Hades has in you.", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.ZagreusBossGreetingLines[4],{ Cue = "/VO/Chronos_0936", Text = "At least you bring a proper weapon to our fight.", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.ZagreusBossGreetingLines[4],{ Cue = "/VO/Chronos_0300", Text = "Youthful vigor, nothing more.", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.ZagreusBossGreetingLines[4],{ Cue = "/VO/Chronos_1247", Text = "You have your father's {#Emph}mood...", GameStateRequirements = YesChronosReq})
+
+
+--Athena encounter end
+table.insert(EnemyData.NPC_Athena_01.EncounterEndVoiceLines[3],{ Cue = "/VO/Chronos_1209", Text = "You seem a little short of breath...", GameStateRequirements = YesChronosReq})
+table.insert(EnemyData.NPC_Athena_01.EncounterEndVoiceLines[3],{ Cue = "/VO/Chronos_1207", Text = "You are late.", GameStateRequirements = YesChronosReq})
+
+--Athena interact voicelines
+table.insert(EnemyData.NPC_Athena_01.InteractVoiceLines[1],{ Cue = "/VO/Chronos_1210", Text = "You seem rather in a hurry...", GameStateRequirements = YesChronosReq})
+table.insert(EnemyData.NPC_Athena_01.InteractVoiceLines[1],{ Cue = "/VO/Chronos_0798", Text = "You look a bit unwell.", GameStateRequirements = YesChronosReq})
+
+--Chronos Legions sighted
+table.insert(GlobalVoiceLines.ChronosLegionsSightedVoiceLines,{ Cue = "/VO/Chronos_0676", Text = "My legions are susceptible...", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.ChronosLegionsSightedVoiceLines,{ Cue = "/VO/Chronos_0678", Text = "Get your {#Emph}own {#Prev}servants!", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.ChronosLegionsSightedVoiceLines,{ Cue = "/VO/Chronos_0921", Text = "What lunacy is {#Emph}this?", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.ChronosLegionsSightedVoiceLines,{ Cue = "/VO/Chronos_0653", Text = "My {#Emph}legions!", GameStateRequirements = YesChronosReq })
+
+--Killing Eris
+table.insert(EnemyData.Eris.BossKillVoiceLines[4],{ Cue = "/VO/Chronos_0201", Text = "What did you hope you would accomplish here?", GameStateRequirements = YesChronosReq })
+table.insert(EnemyData.Eris.BossKillVoiceLines[4],{ Cue = "/VO/Chronos_0258", Text = "What did you expect would change this time?", GameStateRequirements = YesChronosReq })
+
+modutil.mod.Path.Wrap("DoPatches", function(baseFunc)
+    if rom.mods['NikkelM-Zagreus_Journey'] then
+    
+        --Robbing Charon
+        table.insert(HeroVoiceLines.ForbiddenShopItemTakenVoiceLines[2],{ Cue = "/VO/Chronos_1341", Text = "{#Emph}A golden opportunity!", GameStateRequirements = YesChronosReq })
+        table.insert(HeroVoiceLines.ForbiddenShopItemTakenVoiceLines[2],{ Cue = "/VO/Chronos_1343", Text = "{#Emph}Gold!", GameStateRequirements = YesChronosReq })
+        table.insert(HeroVoiceLines.ForbiddenShopItemTakenVoiceLines[2],{ Cue = "/VO/Chronos_1340", Text = "{#Emph}Solid Gold!", GameStateRequirements = YesChronosReq })
+        --Getting Caught Robbing Charon
+        table.insert(HeroVoiceLines.ForbiddenShopItemCaughtVoiceLines,{ Cue = "/VO/Chronos_0395", Text = "You would dare?", GameStateRequirements = YesChronosReq })
+        table.insert(HeroVoiceLines.ForbiddenShopItemCaughtVoiceLines,{ Cue = "/VO/Chronos_0397", Text = "Absurd...", GameStateRequirements = YesChronosReq })
+        table.insert(HeroVoiceLines.ForbiddenShopItemCaughtVoiceLines,{ Cue = "/VO/Chronos_0398", Text = "Preposterous...", GameStateRequirements = YesChronosReq })
+       
+
+
+        --Hades Room Entrance
+        table.insert(RoomData.D_Boss01.EnterVoiceLines[5],{ Cue = "/VO/Chronos_0937", Text = "You mock me with all these nightly affronts.", GameStateRequirements = YesChronosReq})
+        table.insert(RoomData.D_Boss01.EnterVoiceLines[5],{ Cue = "/VO/Chronos_0938", Text = "Go on, face me again, see if I care!", GameStateRequirements = YesChronosReq})
+        table.insert(RoomData.D_Boss01.EnterVoiceLines[5],{ Cue = "/VO/Chronos_0338", Text = "My scythe shall find you.", GameStateRequirements = YesChronosReq})
+        table.insert(RoomData.D_Boss01.EnterVoiceLines[5],{ Cue = "/VO/Chronos_0382", Text = "You upstart!", GameStateRequirements = YesChronosReq})
+
+        --Hades Injures player
+        table.insert(EnemyData.Hades.PlayerInjuredVoiceLines,1,{ Cue = "/VO/Chronos_0372", Text = "Arrogant child.", GameStateRequirements = YesChronosReq})
+        table.insert(EnemyData.Hades.PlayerInjuredVoiceLines,1,{ Cue = "/VO/Chronos_0373", Text = "Ignorant child.", GameStateRequirements = YesChronosReq})
+        table.insert(EnemyData.Hades.PlayerInjuredVoiceLines,1,{ Cue = "/VO/Chronos_0374", Text = "Mannerless child...", GameStateRequirements = YesChronosReq})
+        table.insert(EnemyData.Hades.PlayerInjuredVoiceLines,1,{ Cue = "/VO/Chronos_0375", Text = "Contemptuous child...", GameStateRequirements = YesChronosReq})
+    end
+    baseFunc()
+end)
+
+
 -- Enemies?
 --{ Cue = "/VO/Chronos_0621", Text = "You rabble-rousing miscreant, {#Emph}again?", PlayFirst = true },
 --{ Cue = "/VO/Chronos_0311", Text = "A lasting pain..." },
@@ -349,8 +449,6 @@ table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/Chronos_0
 --{ Cue = "/VO/Chronos_0657", Text = "This foul trick." },
 
 --Eris
---{ Cue = "/VO/Chronos_0201", Text = "What did you hope you would accomplish here?" },
---{ Cue = "/VO/Chronos_0258", Text = "What did you expect would change this time?",
 --{ Cue = "/VO/Chronos_0935", Text = "You look absurd with those newfangled armaments.",
 --{ Cue = "/VO/Chronos_0336", Text = "Too slow, my girl..." },
 --{ Cue = "/VO/Chronos_0337", Text = "Alas, my girl..." },
@@ -360,9 +458,6 @@ table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/Chronos_0
 --{ Cue = "/VO/Chronos_0373", Text = "Ignorant child." },
 --{ Cue = "/VO/Chronos_0374", Text = "Mannerless child..." },
 --{ Cue = "/VO/Chronos_0375", Text = "Contemptuous child..." },
-
---Fighting Prometheus
---{ Cue = "/VO/Chronos_0927", Text = "Decided to give poor Typhon a break?",
 
 -- Typhon
 --{ Cue = "/VO/Chronos_0467", Text = "Thus history repeats as it is wont to do.",
@@ -377,13 +472,9 @@ table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/Chronos_0
 --Cue = "/VO/Chronos_1122", Text = "{#Emph}Now{#Prev}, monster, exactly as before!"
 
 --Zag
---{ Cue = "/VO/Chronos_0626", Text = "What a meddlesome child that Hades has in you." },
---{ Cue = "/VO/Chronos_0936", Text = "At least you bring a proper weapon to our fight.",
---{ Cue = "/VO/Chronos_0300", Text = "Youthful vigor, nothing more." },
 --{ Cue = "/VO/Chronos_1244", Text = "Your father's old technique...", PlayFirst = true },
 --{ Cue = "/VO/Chronos_1245", Text = "Your father's wrath..." },
 --{ Cue = "/VO/Chronos_1246", Text = "Did Hades teach you that?" },
---{ Cue = "/VO/Chronos_1247", Text = "You have your father's {#Emph}mood..." },
 --{ Cue = "/VO/Chronos_1248", Text = "You truly are your father's child." },
 --{ Cue = "/VO/Chronos_0372", Text = "Arrogant child." },
 --{ Cue = "/VO/Chronos_0373", Text = "Ignorant child." },
@@ -393,14 +484,6 @@ table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/Chronos_0
 --Zag Attack
 --{ Cue = "/VO/Chronos_0293", Text = "Our family's favorite trick..." },
 --{ Cue = "/VO/Chronos_0696", Text = "Your father's tricks?" },
-
---Polymepheus
---{ Cue = "/VO/Chronos_0925", Text = "Are you enjoying this nightly routine?",
---{ Cue = "/VO/Chronos_1064", Text = "Expecting someone else?"
---{ Cue = "/VO/Chronos_0008", Text = "Greetings, little one." },
---{ Cue = "/VO/Chronos_0024", Text = "How fare you, little one?" },
---{ Cue = "/VO/Chronos_0656", Text = "You are the sheep here." },
---{ Cue = "/VO/Chronos_0658", Text = "Livestock..." },
 
 --Asterius
 --{ Cue = "/VO/Chronos_0933", Text = "That axe of yours looks awfully unwieldy to me.",
@@ -415,14 +498,7 @@ table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/Chronos_0
 --{ Cue = "/VO/Chronos_0935", Text = "You look absurd with those newfangled armaments.",
 
 --Hades
---{ Cue = "/VO/Chronos_0937", Text = "You mock me with all these nightly affronts.",
---{ Cue = "/VO/Chronos_0938", Text = "Go on, face me again, see if I care!",
---{ Cue = "/VO/Chronos_0338", Text = "My scythe shall find you." },
---{ Cue = "/VO/Chronos_0372", Text = "Arrogant child." },
---{ Cue = "/VO/Chronos_0373", Text = "Ignorant child." },
---{ Cue = "/VO/Chronos_0374", Text = "Mannerless child..." },
---{ Cue = "/VO/Chronos_0375", Text = "Contemptuous child..." },
---{ Cue = "/VO/Chronos_0382", Text = "You upstart!" },
+
 
 --Hades Attack
 --{ Cue = "/VO/Chronos_0293", Text = "Our family's favorite trick..." },
@@ -499,19 +575,7 @@ table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/Chronos_0
 --Dress
 --{ Cue = "/VO/Chronos_0659", Text = "This is my chosen form."
 
--- Chronos Legions
---{ Cue = "/VO/Chronos_0676", Text = "My legions are susceptible..." },
---{ Cue = "/VO/Chronos_0678", Text = "Get your {#Emph}own {#Prev}servants!" },
---{ Cue = "/VO/Chronos_0921", Text = "What lunacy is {#Emph}this?" },
---{ Cue = "/VO/Chronos_0653", Text = "My {#Emph}legions!" },
 
-
-
---Athena
---{ Cue = "/VO/Chronos_1209", Text = "You seem a little short of breath...",
---{ Cue = "/VO/Chronos_1210", Text = "You seem rather in a hurry...",
---{ Cue = "/VO/Chronos_0798", Text = "You look a bit unwell.",
---{ Cue = "/VO/Chronos_1207", Text = "You are late.",
 
 --General Farewell / Goodbye
 --{ Cue = "/VO/Chronos_1033", Text = "Farewell!", PlayFirst = true },
@@ -545,38 +609,5 @@ table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/Chronos_0
 --Time Elemental
 --{ Cue = "/VO/Chronos_1224", Text = "What is that Tempus {#Emph}doing?!",
 
---Apollo
---{ Cue = "/VO/Chronos_1262", Text = "The light of the {#Emph}sun?!" },
---{ Cue = "/VO/Chronos_1261", Text = "Far too much blasted light..." },
-
---Ares
---{ Cue = "/VO/Chronos_1269", Text = "The vicious god of war..." },
---{ Cue = "/VO/Chronos_1270", Text = "I'll show that Ares real war..." },
-
---Demeter
---{ Cue = "/VO/Chronos_1259", Text = "Unseasonably cold...!" },
---{ Cue = "/VO/Chronos_1260", Text = "A {#Emph}chill {#Prev}here in these {#Emph}depths?"
-
---Heph
---{ Cue = "/VO/Chronos_1265", Text = "The forge-god strikes...!" },
---{ Cue = "/VO/Chronos_1266", Text = "What {#Emph}is {#Prev}that clanging sound?", PlayFirst = true },
-
---Hera
---{ Cue = "/VO/Chronos_1255", Text = "That so-called {#Emph}Queen?!", PlayFirst = true },
---{ Cue = "/VO/Chronos_1256", Text = "My son's beloved wife?" },
-
---Hestia
---{ Cue = "/VO/Chronos_1267", Text = "You dusted off old {#Emph}Hestia!", PlayFirst = true },
---{ Cue = "/VO/Chronos_1268", Text = "Seems rather warm in here...!" }
-
---Poseidon
---{ Cue = "/VO/Chronos_1257", Text = "That seafaring {#Emph}brat..." },
---{ Cue = "/VO/Chronos_1258", Text = "That water-loving {#Emph}scamp..." },
-
---Zeus
---{ Cue = "/VO/Chronos_1278", Text = "{#Emph}This {#Prev}shall come as a {#Emph}shock!" },
---{ Cue = "/VO/Chronos_1279", Text = "A {#Emph}storm {#Prev}is coming!" },
---{ Cue = "/VO/Chronos_1253", Text = "My son's billowing strength?!" },
---{ Cue = "/VO/Chronos_1254", Text = "The mark of Zeus..." }
 
 --Check /VO/Intercom_
