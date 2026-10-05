@@ -13,16 +13,13 @@ A Hades II mod that allows you to play as other Characters.
 
 - Chronos Hexes
   - Countdown to death?
-- A lot of Chronos's quips are missing
-- Interaction Animations may be glitchy
+- Some of Chronos's quips are missing
 - Missing Chronos Portrait in conversations (similar to Mel's Background in Zagreus Journey mod)
 - Art [Artists Wanted]
   - New Hammer Icons
   - New Hex Icons
   - Mana related Icons
   - Portrait expressions
-- Zagreus Journey
-  - Quips are not muted
 
 ## Installation
 
