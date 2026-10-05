@@ -26,7 +26,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Robbing ----
   - Exiting Challenge room
 - Chronos Mana Animations made by @Yegitu on discord
-  - Mana Charge Fill 
+  - Mana Charge Fill
+- Adding Chronos Quips
+  - Robbing --- in ZJ
+  - Getting Caught by ---- in ZJ
+  - Starting *Redacted* Fight
+  - Getting injured by *Redacted*
 - Removing incompatible GodVFX from Chronos Special
 - Removing Melinoe's Hammers when using Chronos
 - Removing Melinoe's Hexes when using Chronos
