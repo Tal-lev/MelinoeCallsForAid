@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Landing
   - Robbing ----
   - Exiting Challenge room
+- Adding more Chronos quips
 - Chronos Mana Animations made by @Yegitu on discord
   - Mana Charge Fill
 - Adding Chronos Quips
