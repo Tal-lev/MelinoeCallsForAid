@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Golden Sale
   - Wind Cuts
 - Adding Special Presentation
+  - Salute
   - Fishing!
   - Mining
   - Shoveling
@@ -41,6 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Omega Special Mana Cost 30->20
 - Fix:
   - Crash when gaining a pom with some of the dash boons
+  - Interaction animations can be glitchy
 
 ## [0.2.1] - 2026-09-28
 
