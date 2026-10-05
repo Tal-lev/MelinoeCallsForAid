@@ -14,14 +14,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Golden Sale
   - Wind Cuts
 - Adding Special Presentation
-  - Entering Zagreus Journey Nightmare Gate
-  - Landing in Zagreus Journey
   - Fishing!
   - Mining
   - Shoveling
   - Harvesting
   - Familiar Gathering
   - Cerberus Petting
+- Adding Zagreus Journey Special Presentation
+  - Entering  Nightmare Gate
+  - Landing
+  - Robbing ----
+  - Exiting Challenge room
 - Chronos Mana Animations made by @Yegitu on discord
   - Mana Charge Fill 
 - Removing incompatible GodVFX from Chronos Special
