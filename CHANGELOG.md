@@ -27,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Robbing ----
   - Exiting Challenge room
 - Adding more Chronos quips
+- Mana Icons (Change at RunStart), Icon symbol design by @Yegitu on discord
 - Chronos Mana Animations made by @Yegitu on discord
   - Mana Charge Fill
 - Adding Chronos Quips
