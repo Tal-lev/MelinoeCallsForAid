@@ -30,6 +30,7 @@ While the mod has been tested decently well it is recommended to backup your sav
 ## Credits
 
 - @zerp on the modding discord for MelSkin compatibility and ManaBar reactivity
+- @Yegitu on the modding discord for Chronos Mana Charge Animation
 
 ## Issues
 
