@@ -24,6 +24,7 @@ Other fixes and improvements:
 - Fixed: Special boons cause Chronos Special to have Melinoe's special VFX.
 - Fixed: the game crash when gaining a pom with some of the Chronos dash boons.
 - Fixed: Interaction animation lead to Chronos animation glitching.
+- Fixed: Hero unexpected size Change during Zagreus Journey biomes
 
 ## [0.2.1] - 2026-09-28
 
