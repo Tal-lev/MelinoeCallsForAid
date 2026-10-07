@@ -384,6 +384,15 @@ table.insert(GlobalVoiceLines.ChronosLegionsSightedVoiceLines,{ Cue = "/VO/Chron
 table.insert(EnemyData.Eris.BossKillVoiceLines[4],{ Cue = "/VO/Chronos_0201", Text = "What did you hope you would accomplish here?", GameStateRequirements = YesChronosReq })
 table.insert(EnemyData.Eris.BossKillVoiceLines[4],{ Cue = "/VO/Chronos_0258", Text = "What did you expect would change this time?", GameStateRequirements = YesChronosReq })
 
+--Starting Combat
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/Chronos_0621", Text = "You rabble-rousing miscreant, {#Emph}again?", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/Chronos_0316", Text = "You shall be cut in twain...", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/Chronos_0317", Text = "You shall be brought to heel!", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/Chronos_0318", Text = "Expire...", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/Chronos_0338", Text = "My scythe shall find you.", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/Chronos_0331", Text = "Relent.", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/Chronos_0319", Text = "Not so fast...", GameStateRequirements = YesChronosReq })
+
 modutil.mod.Path.Wrap("DoPatches", function(baseFunc)
     if rom.mods['NikkelM-Zagreus_Journey'] then
     
@@ -415,14 +424,10 @@ end)
 
 
 -- Enemies?
---{ Cue = "/VO/Chronos_0621", Text = "You rabble-rousing miscreant, {#Emph}again?", PlayFirst = true },
+
 --{ Cue = "/VO/Chronos_0311", Text = "A lasting pain..." },
 --{ Cue = "/VO/Chronos_0312", Text = "It lingers, does it not?" },
---{ Cue = "/VO/Chronos_0316", Text = "You shall be cut in twain..." },
---{ Cue = "/VO/Chronos_0317", Text = "You shall be brought to heel!" },
---{ Cue = "/VO/Chronos_0318", Text = "Expire..." },
---{ Cue = "/VO/Chronos_0319", Text = "Not so fast..." },
---	{ Cue = "/VO/Chronos_0320", Text = "You cannot run forever..." },
+--{ Cue = "/VO/Chronos_0320", Text = "You cannot run forever..." },
 --{ Cue = "/VO/Chronos_0321", Text = "Heedless whelp." },
 --{ Cue = "/VO/Chronos_0322", Text = "Impetuous of you..." },
 --{ Cue = "/VO/Chronos_0323", Text = "There..." },
@@ -432,10 +437,8 @@ end)
 --{ Cue = "/VO/Chronos_0328", Text = "You had it coming." },
 --{ Cue = "/VO/Chronos_0329", Text = "We are not done." },
 --{ Cue = "/VO/Chronos_0330", Text = "Another, then?" },
---{ Cue = "/VO/Chronos_0331", Text = "Relent." },
 --{ Cue = "/VO/Chronos_0332", Text = "Relent, blast you!" },
 --{ Cue = "/VO/Chronos_0333", Text = "Embarrassing." },
---{ Cue = "/VO/Chronos_0338", Text = "My scythe shall find you." },
 --{ Cue = "/VO/Chronos_0294", Text = "Your strength shall fail you..." },
 --{ Cue = "/VO/Chronos_0295", Text = "But one more cut or two..." },
 --{ Cue = "/VO/Chronos_0296", Text = "You only make things worse!" },

@@ -35,5 +35,19 @@ sjson.hook(file, function(data)
 		HoldLastFrame = true,
 	})
 
+	table.insert(data.Animations,
+	{
+		Name = "ChronosHPManaBacking",
+		FilePath = "JarlUlsfark-MelinoeCallsForAid\\GUI\\HUD\\ChronosHPManaBacking",		
+		Material = "Unlit",
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "ExtraLifeChronos",
+		FilePath = "JarlUlsfark-MelinoeCallsForAid\\GUI\\HUD\\HealthBar_1upChronos",
+		Material = "Unlit",
+	})
+
 return data
 end)

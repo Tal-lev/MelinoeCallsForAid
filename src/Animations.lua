@@ -99,6 +99,20 @@ sjson.hook(file, function(data)
 	})
 
     table.insert(data.Animations,
+	{
+		Name = "Player_Chronos_Shadowed_Greeting",
+		InheritFrom = "Enemy_Chronos_Shadowed_Greeting",
+		ChainTo = "NPC_Chronos_Enlightened_Hover",
+	})
+
+    table.insert(data.Animations,
+	{
+		Name = "Player_Chronos_Enlightened_Explaining",
+		InheritFrom = "NPC_Chronos_Enlightened_Explaining",
+		ChainTo = "NPC_Chronos_Enlightened_Hover",
+	})
+
+    table.insert(data.Animations,
     {
       Name = "HadesOneDemeterRushProjectileHead",
       Type = "Book",

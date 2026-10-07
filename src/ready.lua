@@ -93,6 +93,14 @@ function SetUpPlayerChronos()
 	LoadVoiceBanks({ Name = "Chronos" })
 	CurrentRun.Hero.DamagedSound = "/VO/Chronos_0387"
 	CurrentRun.Hero.ChokingSound = "/VO/Chronos_0387"
+
+	Icons.Mana = "JarlUlsfark-MelinoeCallsForAid\\GUI\\Icons\\ChronosMana_2"
+	Icons.Mana_NoTooltip = "JarlUlsfark-MelinoeCallsForAid\\GUI\\Icons\\ChronosMana_2"
+	Icons.ManaUp = "JarlUlsfark-MelinoeCallsForAid\\GUI\\Icons\\ChronosManaUp_2"
+	Icons.ManaUp_NoTooltip = "JarlUlsfark-MelinoeCallsForAid\\GUI\\Icons\\ChronosManaUp_2"
+	Icons.ManaDown = "JarlUlsfark-MelinoeCallsForAid\\GUI\\Icons\\ChronosManaUp_2"
+	Icons.ManaLock = "JarlUlsfark-MelinoeCallsForAid\\GUI\\Icons\\ChronosManaLock_2"
+
 	--CurrentRun.Hero.ChokingSound = "/VO/Chronos_0385"
 
 	--FrozenSound = "/VO/MelinoeEmotes/EmoteHurt",
@@ -141,6 +149,13 @@ function SetUpReturnPlayerMelinoe()
 	CurrentRun.Hero.DamagedSound = "/VO/MelinoeEmotes/EmoteHurt"
 	CurrentRun.Hero.ChokingSound = "/VO/MelinoeEmotes/EmoteStunned"
 
+	Icons.Mana = "GUI\\Icons\\Mana"
+	Icons.Mana_NoTooltip = "GUI\\Icons\\Mana"
+	Icons.ManaUp = "GUI\\Icons\\ManaUp"
+	Icons.ManaUp_NoTooltip = "GUI\\Icons\\ManaUp"
+	Icons.ManaDown = "GUI\\Icons\\ManaUp"
+	Icons.ManaLock = "GUI\\Icons\\ManaLock"
+
 	--Ensuring corrent Weapon Model
 	for _, traitData in ipairs( CurrentRun.Hero.Traits ) do
 		if traitData.ReplacementGrannyModels ~= nil then
@@ -150,14 +165,6 @@ function SetUpReturnPlayerMelinoe()
 		end	
 	end
 	HandleWeaponAnimSwaps()
-
-	--ManaBar
-	--ScreenData.HUD.ComponentData.ManaMeterFill.Animation = "ManaBarFill"
-	--ScreenData.HUD.ComponentData.ManaMeterReserve.Animation = "ManaBarReserveFill"
-	--ScreenData.HUD.ComponentData.ManaMeterReserve.TextArgs.Color = { 180, 168, 255, 255 }
-	--DestroyGroup({ Name = "HUD_Main" })
-	--CreateGroup( { Name = "HUD_Main" } )
-	--InsertGroupInFront({ Name = "HUD_Main", DestinationName = "HUD_Backing" })
 end
 
 modutil.mod.Path.Wrap("SetupMap", function(base, source, args)
@@ -172,6 +179,9 @@ modutil.mod.Path.Wrap("SetupMap", function(base, source, args)
 				ManaIndicatorPresentation.AutoComplete.Fill = "ChronosManaChargeIndicatorFill"
 				ManaIndicatorPresentation.Hold.TransitionIn = "ChronosManaChargeIndicatorIn"
 				ManaIndicatorPresentation.Hold.Fill = "ChronosManaChargeIndicatorFill"
+				TextFormats.ManaFormat.Color = Color.ChronosVoice
+				TextFormats.UseTextManaFormat.Color = Color.ChronosVoice
+				ScreenData.HUD.ComponentData.HealthBack.Animation = "ChronosHPManaBacking"
 			else
 				ScreenData.HUD.ComponentData.ManaMeterFill.Animation = "ManaBarFill"
 				ScreenData.HUD.ComponentData.ManaMeterReserve.Animation = "ManaBarReserveFill"
@@ -180,6 +190,9 @@ modutil.mod.Path.Wrap("SetupMap", function(base, source, args)
 				ManaIndicatorPresentation.AutoComplete.Fill = "ManaChargeIndicatorFill"
 				ManaIndicatorPresentation.Hold.TransitionIn = "ManaChargeIndicatorIn"
 				ManaIndicatorPresentation.Hold.Fill = "ManaChargeIndicatorFill"
+				TextFormats.ManaFormat.Color = Color.RoyalBlue
+				TextFormats.UseTextManaFormat.Color = Color.RoyalBlue
+				ScreenData.HUD.ComponentData.HealthBack.Animation = "HPManaBacking"
 			end
 		end
 	end
@@ -219,7 +232,7 @@ end)
 ModUtil.Path.Wrap("SpecialInteractSalute", function(baseFunc, usee, args)
 	baseFunc(usee, args)
 	if HeroHasTrait("ChronosAspect") then
-		wait(0.4)
+		wait(0.8)
 		SetAnimation({Name= "NPC_Chronos_Enlightened_Hover", DestinationId= CurrentRun.Hero.ObjectId})
 	end
 	-- Switching to Chronos
@@ -349,26 +362,26 @@ modutil.mod.Path.Wrap("PlayInteractAnimation",  function(baseFunc, interactableO
 end)
 
 --Interact
-modutil.mod.Path.Wrap("SetAnimation",  function(baseFunc, args) 
-	if args and args.DestinationId == 40000 then
-		print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-		print("printing args")
-		print(args.Name)
-		print(args.DestinationId)
-		print(debug.traceback())
-	end
-	return baseFunc( args)
-end)
+--modutil.mod.Path.Wrap("SetAnimation",  function(baseFunc, args) 
+--	if args and args.DestinationId == 40000 then
+--		print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+--		print("printing args")
+--		print(args.Name)
+--		print(args.DestinationId)
+--		print(debug.traceback())
+--	end
+--	return baseFunc( args)
+--end)
 
 --Enter Room 
-modutil.mod.Path.Context.Env("RoomEntranceMaterialize", function ( currentRun, currentRoom, args )
-    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
-		if HeroHasTrait("ChronosAspect") then
-			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
-		end
-		return baseFunc(Aargs)
-    end)
-end)
+--modutil.mod.Path.Context.Env("RoomEntranceMaterialize", function ( currentRun, currentRoom, args )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+--		if HeroHasTrait("ChronosAspect") then
+--			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(Aargs)
+--    end)
+--end)
 
 --Attachment from exiting
 modutil.mod.Path.Context.Env("CheckAttachmentTextures", function ( source, args )
@@ -391,178 +404,201 @@ modutil.mod.Path.Context.Env("PlayTextLine", function ( screen, textLines, prevL
 end)
 
 --Exiting Asphodel function
-modutil.mod.Path.Context.Env("AnomalyExitPresentation", function ( currentRun, exitDoor )
-    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
-		if HeroHasTrait("ChronosAspect") and args.DestinationId == 40000 then
-			args.Name = "NPC_Chronos_Enlightened_Hover"
-		end
-		return baseFunc(args)
-    end)
-end)
+--modutil.mod.Path.Context.Env("AnomalyExitPresentation", function ( currentRun, exitDoor )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
+--		if HeroHasTrait("ChronosAspect") and args.DestinationId == 40000 then
+--			args.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(args)
+--    end)
+--end)
 
 --Open KeepsakeRack
-modutil.mod.Path.Context.Env("OpenKeepsakeRackScreen", function ( source )
-    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
-		if HeroHasTrait("ChronosAspect") and args.Name == "MelinoeEquip" then
-			args.Name = "NPC_Chronos_Enlightened_Hover"
-		end
-		return baseFunc(args)
-    end)
-end)
+--modutil.mod.Path.Context.Env("OpenKeepsakeRackScreen", function ( source )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
+--		if HeroHasTrait("ChronosAspect") and args.Name == "MelinoeEquip" then
+--			args.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(args)
+--    end)
+--end)
 
 --Open Bounty 
-modutil.mod.Path.Context.Env("BountyBoardOpenedPresentation", function ( screen )
-    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
-		if HeroHasTrait("ChronosAspect") and args.Name == "MelinoeEquip" then
-			args.Name = "NPC_Chronos_Enlightened_Hover"
-		end
-		return baseFunc(args)
-    end)
-end)
+--modutil.mod.Path.Context.Env("BountyBoardOpenedPresentation", function ( screen )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
+--		if HeroHasTrait("ChronosAspect") and args.Name == "MelinoeEquip" then
+--			args.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(args)
+--    end)
+--end)
 
 --Close Shrine menu
-modutil.mod.Path.Context.Env("ShrineScreenOpenFinishedPresentation", function ( screen )
-    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
-		if HeroHasTrait("ChronosAspect") and args.Name == "MelinoeEquip" then
-			args.Name = "NPC_Chronos_Enlightened_Hover"
-		end
-		return baseFunc(args)
-    end)
-end)
+--modutil.mod.Path.Context.Env("ShrineScreenOpenFinishedPresentation", function ( screen )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
+--		if HeroHasTrait("ChronosAspect") and args.Name == "MelinoeEquip" then
+--			args.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(args)
+--    end)
+--end)
 
 --Boon menu
-modutil.mod.Path.Context.Env("UpgradeAcquiredPresentation", function ( screen, upgradeData )
-    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
-		if HeroHasTrait("ChronosAspect") then
-			args.Name = "NPC_Chronos_Enlightened_Hover"
-		end
-		return baseFunc(args)
-    end)
-end)
+--modutil.mod.Path.Context.Env("UpgradeAcquiredPresentation", function ( screen, upgradeData )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
+--		if HeroHasTrait("ChronosAspect") then
+--			args.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(args)
+--    end)
+--end)
+
 --Boon menu
-modutil.mod.Path.Context.Env("BoonInteractPresentation", function ( source, args, textLines )
-    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
-		if HeroHasTrait("ChronosAspect") then
-			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
-		end
-		return baseFunc(Aargs)
-    end)
-end)
+--modutil.mod.Path.Context.Env("BoonInteractPresentation", function ( source, args, textLines )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+--		if HeroHasTrait("ChronosAspect") then
+--			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(Aargs)
+--    end)
+--end)
 
 --Spell menu
-modutil.mod.Path.Context.Env("CloseSpellScreenPresentation", function ( screen, button )
-    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
-		if HeroHasTrait("ChronosAspect") then
-			args.Name = "NPC_Chronos_Enlightened_Hover"
-		end
-		return baseFunc(args)
-    end)
-end)
+--modutil.mod.Path.Context.Env("CloseSpellScreenPresentation", function ( screen, button )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
+--		if HeroHasTrait("ChronosAspect") then
+--			args.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(args)
+--    end)
+--end)
 
 --Spell Drop
-modutil.mod.Path.Context.Env("SpellDropInteractPresentation", function ( source, args, textLines )
-    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
-		if HeroHasTrait("ChronosAspect") then
-			args.Name = "NPC_Chronos_Enlightened_Hover"
-		end
-		return baseFunc(Aargs)
-    end)
-end)
+--modutil.mod.Path.Context.Env("SpellDropInteractPresentation", function ( source, args, textLines )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+--		if HeroHasTrait("ChronosAspect") then
+--			args.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(Aargs)
+--    end)
+--end)
 
 
 --Salute
-modutil.mod.Path.Context.Env("SpecialInteractSalute", function ( usee, args )
-    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
-		if HeroHasTrait("ChronosAspect") then
-			if Aargs.Name == "MelinoeSalute" then
-				Aargs.Name = "NPC_Chronos_Enlightened_Greet"
-			elseif Aargs.DestinationId == 40000 then
-				Aargs.Name = "NPC_Chronos_Enlightened_Hover"
-			end
-		end
-		return baseFunc(Aargs)
-    end)
-end)
+--modutil.mod.Path.Context.Env("SpecialInteractSalute", function ( usee, args )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+--		if HeroHasTrait("ChronosAspect") then
+--			if Aargs.Name == "MelinoeSalute" then
+--				Aargs.Name = "NPC_Chronos_Enlightened_Greet"
+--			elseif Aargs.DestinationId == 40000 then
+--				Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+--			end
+--		end
+--		return baseFunc(Aargs)
+--    end)
+--end)
 
 --WeaponShop
-modutil.mod.Path.Context.Env("WeaponShopScreenCloseFinishedPresentation", function ( screen, button )
-    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
-		if HeroHasTrait("ChronosAspect") and args.Name == "MelinoeEquip" then
-			args.Name = "NPC_Chronos_Enlightened_Hover"
-		end
-		return baseFunc(args)
-    end)
-end)
+--modutil.mod.Path.Context.Env("WeaponShopScreenCloseFinishedPresentation", function ( screen, button )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
+--		if HeroHasTrait("ChronosAspect") and args.Name == "MelinoeEquip" then
+--			args.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(args)
+--    end)
+--end)
 
 --Admire Skelly
-modutil.mod.Path.Context.Env("SkellyStatueAdmire", function ( source, args )
-    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
-		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
-			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
-		end
-		return baseFunc(Aargs)
-    end)
-end)
+--modutil.mod.Path.Context.Env("SkellyStatueAdmire", function ( source, args )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+--		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
+--			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(Aargs)
+--    end)
+--end)
 
 --Pet Frog
-modutil.mod.Path.Context.Env("FrogFamiliarSpecialInteractUnlockedInHub", function ( usee, args )
-    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
-		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
-			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
-		end
-		return baseFunc(Aargs)
-    end)
-end)
+--modutil.mod.Path.Context.Env("FrogFamiliarSpecialInteractUnlockedInHub", function ( usee, args )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+--		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
+--			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(Aargs)
+--    end)
+--end)
 
 --Pet Polecat
-modutil.mod.Path.Context.Env("PolecatFamiliarSpecialInteractUnlockedInHub", function ( usee, args )
-    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
-		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
-			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
-		end
-		return baseFunc(Aargs)
-    end)
-end)
+--modutil.mod.Path.Context.Env("PolecatFamiliarSpecialInteractUnlockedInHub", function ( usee, args )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+--		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
+--			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(Aargs)
+--    end)
+--end)
 
 --Pet Hound
-modutil.mod.Path.Context.Env("HoundFamiliarSpecialInteractUnlockedInHub", function ( usee, args )
-    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
-		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
-			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
-		end
-		return baseFunc(Aargs)
-    end)
-end)
+--modutil.mod.Path.Context.Env("HoundFamiliarSpecialInteractUnlockedInHub", function ( usee, args )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+--		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
+--			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(Aargs)
+--    end)
+--end)
 
 --Pet Cat
-modutil.mod.Path.Context.Env("CatFamiliarSpecialInteractLockedInRun", function ( usee, args )
-    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
-		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
-			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
-		end
-		return baseFunc(Aargs)
-    end)
-end)
+--modutil.mod.Path.Context.Env("CatFamiliarSpecialInteractLockedInRun", function ( usee, args )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+--		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
+--			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(Aargs)
+--    end)
+--end)
 
 --Pet Raven
-modutil.mod.Path.Context.Env("RavenFamiliarSpecialInteractLockedInRun", function ( usee, args )
-    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
-		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
-			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
-		end
-		return baseFunc(Aargs)
-    end)
-end)
+--modutil.mod.Path.Context.Env("RavenFamiliarSpecialInteractLockedInRun", function ( usee, args )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+--		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
+--			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(Aargs)
+--    end)
+--end)
 
 --Close Familiar Costume Screen
-modutil.mod.Path.Context.Env("UnequipFamiliarPresentation", function ( args )
-    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
-		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
-			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
-		end
-		return baseFunc(Aargs)
-    end)
-end)
+--modutil.mod.Path.Context.Env("UnequipFamiliarPresentation", function ( args )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, Aargs)
+--		if HeroHasTrait("ChronosAspect") and Aargs.DestinationId == 40000 then
+--			Aargs.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(Aargs)
+--    end)
+--end)
+
+--Gift Presentation
+--modutil.mod.Path.Context.Env("ReceivedGiftPresentation", function ( npc, giftAnimation )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
+--		if HeroHasTrait("ChronosAspect") and args.DestinationId == 40000 then
+--			args.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(args)
+--    end)
+--end)
+
+--Post Gift Presentation
+--modutil.mod.Path.Context.Env("ReceivedGiftPresentationPost", function ( npc )
+--    modutil.mod.Path.Wrap("SetAnimation", function (baseFunc, args)
+--		if HeroHasTrait("ChronosAspect") and args.DestinationId == 40000 then
+--			args.Name = "NPC_Chronos_Enlightened_Hover"
+--		end
+--		return baseFunc(args)
+--    end)
+--end)
+
+
 
 
 
@@ -707,8 +743,18 @@ modutil.mod.Path.Wrap("RestoreMelRun",  function(baseFunc, source, args)
 	if HeroHasTrait("ChronosAspect") then
 		mod.ChronosRestoreMelRun( source, args )
 	else
-		baseFunc(ource, args)
+		baseFunc(source, args)
 	end
+end)
+
+--Replace last stand icon
+modutil.mod.Path.Wrap("AddLastStand",  function(baseFunc, args) 
+	if args.Icon and args.Icon == "ExtraLifeMel" then
+		if HeroHasTrait("ChronosAspect") then
+			args.Icon = "ExtraLifeChronos"
+		end
+	end
+	baseFunc( args)
 end)
 
 --ZJ wraps
@@ -752,6 +798,272 @@ if rom.mods['NikkelM-Zagreus_Journey'] then
 
 end
 
+function mod.SetupChronosAnimations()
+	local AnimationList = 
+	{ 
+		MelinoeIdle = "NPC_Chronos_Enlightened_Hover",
+		MelinoeDashStart = "Enemy_Chronos_DashPreFire",
+		MelinoeDash = "Player_Chronos_DashFire",
+		MelinoeStart = "NPC_Chronos_Enlightened_Move_Start",
+		MelinoeRun = "NPC_Chronos_Enlightened_Move",
+		MelinoeStop = "NPC_Chronos_Enlightened_Move_Stop",
+		MelinoeGetHit = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_GetHit_LastStand = "Enemy_Chronos_BattleOutro_Start",
+		Melinoe_LastStand_Fire = "Enemy_Chronos_BattleOutro_Start",
+		MelinoeDeathGetHit = "NPC_Chronos_Enlightened_Hover",
+		MelinoeDeathGetHitX = "Enemy_Chronos_BattleOutro_Start",
+		MelinoeGetHitSurfacePenalty = "NPC_Chronos_Enlightened_Hover",
+		MelinoeGetHitActionPose = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Cast_Start = "Enemy_Chronos_CastSlowFire",
+		Melinoe_Cast_StartLoop = "Enemy_Chronos_CastSlowPreFire",
+		Melinoe_Cast_Fire = "Enemy_Chronos_CastSlowFire",
+		Melinoe_Cast_End = "Enemy_Chronos_CastSlowPostFire",
+		Melinoe_Cast_Fire_Quick = "Enemy_Chronos_CastFastFire",
+		Melinoe_CrossCast_Start = "Enemy_Chronos_CastSlowFire",
+		Melinoe_ForwardCast_Unequip  = "Enemy_Chronos_CastSlowFire",
+		MelinoeEquip = "Player_Chronos_Shadowed_Greeting",
+		MelinoeActionIdle = "NPC_Chronos_Enlightened_Hover",
+		MelinoeInteract = "Player_Chronos_Shadowed_Greeting",
+		MelinoeBoonPreInteract = "Player_Chronos_Shadowed_Greeting",
+		MelinoeSalute = "NPC_Chronos_Enlightened_Greet",
+		MelinoeIdleWeaponless = "NPC_Chronos_Enlightened_Hover",
+		MelinoeSaluteToEquip = "NPC_Chronos_Enlightened_Hover",
+		MelinoeDeathReEnter = "NPC_Chronos_Enlightened_Hover",
+		MelinoeDeath = "Enemy_Chronos_BattleOutro_Start",
+		MelinoeDeathEscape = "Enemy_Chronos_BattleOutro_End",
+		MelinoeDeathEscape2 = "Enemy_Chronos_BattleOutro_End",
+		MelinoeDeathSuccess = "NPC_Chronos_Enlightened_Greet",
+		MelinoeDeathReEnterHeadUp = "NPC_Chronos_Enlightened_Hover",
+		MelinoeDeathReEnterToIdle = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DeathHover_Start = "NPC_Chronos_Enlightened_Hover",
+		MelinoeDeathReEnterToIdleCancelable = "NPC_Chronos_Enlightened_Hover",
+		MelinoeBoonInteractPowerUp = "Player_Chronos_Shadowed_Greeting",
+		MelinoeBoonInteract = "Player_Chronos_Shadowed_Greeting",
+		MelinoeBoonInteractLoop = "Player_Chronos_Shadowed_Greeting",
+		Melinoe_Gesture_ToWeaponless = "NPC_Chronos_Enlightened_Hover",
+		MelinoeInteractWeaponless = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_InteractToEquip = "NPC_Chronos_Enlightened_Hover",
+		
+		MelTalkPensive01 = "NPC_Chronos_Enlightened_Hover",
+		MelTalkPensive01Loop = "NPC_Chronos_Enlightened_Hover",
+		MelTalkPensive01ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
+		
+		MelTalkBrooding01 = "NPC_Chronos_Enlightened_Hover",
+		MelTalkBrooding01ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
+		MelTalkBroodingFull01 = "NPC_Chronos_Enlightened_Hover",
+		MelTalkBrooding01Loop = "NPC_Chronos_Enlightened_Hover",
+		MelTalkBrooding01LoopFull = "NPC_Chronos_Enlightened_Hover",
+		MelinoeSaluteToBrooding = "NPC_Chronos_Enlightened_Hover",
+
+		MelTalkGifting01 = "Enemy_Chronos_Shadowed_Greeting",
+		MelTalkGifting01ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
+		
+		MelTalkExplaining01 = "Player_Chronos_Enlightened_Explaining",
+		MelTalkExplaining01Loop = "Player_Chronos_Enlightened_Explaining",
+		MelTalkExplaining01LoopAlt = "Player_Chronos_Enlightened_Explaining",
+		MelTalkExplaining01ReturnToIdle = "Player_Chronos_Enlightened_Explaining",
+		MelTalkExplaining01Full = "Player_Chronos_Enlightened_Explaining",
+
+		MelTalkFlustered01 = "Player_Chronos_Enlightened_Explaining",
+		
+		Melinoe_Defiant = "NPC_Chronos_Enlightened_Hover",
+
+		MelTalkLookingDown01 = "NPC_Chronos_Enlightened_Hover",
+		
+		Melinoe_Gesture = "Enemy_Chronos_SittingGreeting",
+
+		Melinoe_Drop_Exit_FireLoop = "NPC_Chronos_Enlightened_Hover",
+
+		MelinoeBoonInteractPowerUpCancellable = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Exit_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Exit_FireLoop = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Exit_End = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Entrance_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Entrance_Fire = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Entrance_Fire_NoEquip = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Entrance_End = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Entrance_End_NoEquip = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_HeroLanding = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DiveExit_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DiveExit_Portal_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DiveExit_End = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DiveExit_Portal_End = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DiveEntrance_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DiveEntrance_End = "NPC_Chronos_Enlightened_Hover",
+
+		MelinoePetFrinos = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_PetPolecat = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_PetHound = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_PetCat = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Kneel_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Kneel_End = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_PetRaven = "NPC_Chronos_Enlightened_Hover",
+
+		Melinoe_Hug_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Hug_FireLoop = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Hug_End = "NPC_Chronos_Enlightened_Hover",
+
+		Melinoe_Tablet_Intro = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Tablet_Idle = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Tablet_Right_Start = "Enemy_Chronos_SwingRightPreFire",
+		Melinoe_Tablet_Right_Loop = "Enemy_Chronos_SwingRightPreFire",
+		Melinoe_Tablet_Right_End = "Enemy_Chronos_SwingRightFire",
+		Melinoe_Tablet_Left_Start = "Enemy_Chronos_SwingLeftPreFire",
+		Melinoe_Tablet_Left_Loop = "Enemy_Chronos_SwingLeftPreFire",
+		Melinoe_Tablet_Left_End = "Enemy_Chronos_SwingLeftFire",
+		Melinoe_Tablet_Both_Start = "Enemy_Chronos_CastSlowPreFire",
+		Melinoe_Tablet_Both_Loop = "Enemy_Chronos_CastSlowPreFire",
+		Melinoe_Tablet_Both_End = "Enemy_Chronos_CastSlowFire",
+		Melinoe_Tablet_ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
+		MelinoeExorcismFirstTimeEquip = "NPC_Chronos_Enlightened_Hover",
+
+
+		--"Enemy_Chronos_Knockdown_Frustrated",
+		--"Enemy_Chronos_SittingGreeting",
+		--"Enemy_Chronos_Shadowed_Greeting",
+	}
+
+	wait(0.2)
+	for fromAnim,toAnim in pairs(AnimationList) do
+		SwapAnimation({Name = fromAnim, DestinationName = toAnim})
+	end
+end
+
+function mod.SetupMelonieAnimations()
+	thread(mod.UnequipChronosAnimations)
+end
+
+function mod.UnequipChronosAnimations()
+	local AnimationList = 
+	{ 
+		MelinoeIdle = "NPC_Chronos_Enlightened_Hover",
+		MelinoeDashStart = "Enemy_Chronos_DashPreFire",
+		MelinoeDash = "Player_Chronos_DashFire",
+		MelinoeStart = "NPC_Chronos_Enlightened_Move_Start",
+		MelinoeRun = "NPC_Chronos_Enlightened_Move",
+		MelinoeStop = "NPC_Chronos_Enlightened_Move_Stop",
+		MelinoeGetHit = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_GetHit_LastStand = "Enemy_Chronos_BattleOutro_Start",
+		Melinoe_LastStand_Fire = "Enemy_Chronos_BattleOutro_Start",
+		MelinoeDeathGetHit = "NPC_Chronos_Enlightened_Hover",
+		MelinoeDeathGetHitX = "Enemy_Chronos_BattleOutro_Start",
+		MelinoeGetHitSurfacePenalty = "NPC_Chronos_Enlightened_Hover",
+		MelinoeGetHitActionPose = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Cast_Start = "Enemy_Chronos_CastSlowFire",
+		Melinoe_Cast_StartLoop = "Enemy_Chronos_CastSlowPreFire",
+		Melinoe_Cast_Fire = "Enemy_Chronos_CastSlowFire",
+		Melinoe_Cast_End = "Enemy_Chronos_CastSlowPostFire",
+		Melinoe_Cast_Fire_Quick = "Enemy_Chronos_CastFastFire",
+		Melinoe_CrossCast_Start = "Enemy_Chronos_CastSlowFire",
+		Melinoe_ForwardCast_Unequip  = "Enemy_Chronos_CastSlowFire",
+		MelinoeEquip = "Player_Chronos_Shadowed_Greeting",
+		MelinoeActionIdle = "NPC_Chronos_Enlightened_Hover",
+		MelinoeInteract = "Player_Chronos_Shadowed_Greeting",
+		MelinoeBoonPreInteract = "Player_Chronos_Shadowed_Greeting",
+		MelinoeSalute = "NPC_Chronos_Enlightened_Greet",
+		MelinoeIdleWeaponless = "NPC_Chronos_Enlightened_Hover",
+		MelinoeSaluteToEquip = "NPC_Chronos_Enlightened_Hover",
+		MelinoeDeathReEnter = "NPC_Chronos_Enlightened_Hover",
+		MelinoeDeath = "Enemy_Chronos_BattleOutro_Start",
+		MelinoeDeathEscape = "Enemy_Chronos_BattleOutro_End",
+		MelinoeDeathEscape2 = "Enemy_Chronos_BattleOutro_End",
+		MelinoeDeathSuccess = "NPC_Chronos_Enlightened_Greet",
+		MelinoeDeathReEnterHeadUp = "NPC_Chronos_Enlightened_Hover",
+		MelinoeDeathReEnterToIdle = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DeathHover_Start = "NPC_Chronos_Enlightened_Hover",
+		MelinoeDeathReEnterToIdleCancelable = "NPC_Chronos_Enlightened_Hover",
+		MelinoeBoonInteractPowerUp = "Player_Chronos_Shadowed_Greeting",
+		MelinoeBoonInteract = "Player_Chronos_Shadowed_Greeting",
+		MelinoeBoonInteractLoop = "Player_Chronos_Shadowed_Greeting",
+		Melinoe_Gesture_ToWeaponless = "NPC_Chronos_Enlightened_Hover",
+		MelinoeInteractWeaponless = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_InteractToEquip = "NPC_Chronos_Enlightened_Hover",
+		
+		MelTalkPensive01 = "NPC_Chronos_Enlightened_Hover",
+		MelTalkPensive01Loop = "NPC_Chronos_Enlightened_Hover",
+		MelTalkPensive01ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
+		
+		MelTalkBrooding01 = "NPC_Chronos_Enlightened_Hover",
+		MelTalkBrooding01ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
+		MelTalkBroodingFull01 = "NPC_Chronos_Enlightened_Hover",
+		MelTalkBrooding01Loop = "NPC_Chronos_Enlightened_Hover",
+		MelTalkBrooding01LoopFull = "NPC_Chronos_Enlightened_Hover",
+		MelinoeSaluteToBrooding = "NPC_Chronos_Enlightened_Hover",
+
+		MelTalkGifting01 = "Enemy_Chronos_Shadowed_Greeting",
+		MelTalkGifting01ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
+		
+		MelTalkExplaining01 = "Player_Chronos_Enlightened_Explaining",
+		MelTalkExplaining01Loop = "Player_Chronos_Enlightened_Explaining",
+		MelTalkExplaining01LoopAlt = "Player_Chronos_Enlightened_Explaining",
+		MelTalkExplaining01ReturnToIdle = "Player_Chronos_Enlightened_Explaining",
+		MelTalkExplaining01Full = "Player_Chronos_Enlightened_Explaining",
+
+		MelTalkFlustered01 = "Player_Chronos_Enlightened_Explaining",
+		
+		Melinoe_Defiant = "NPC_Chronos_Enlightened_Hover",
+
+		MelTalkLookingDown01 = "NPC_Chronos_Enlightened_Hover",
+		
+		Melinoe_Gesture = "Enemy_Chronos_SittingGreeting",
+
+		Melinoe_Drop_Exit_FireLoop = "NPC_Chronos_Enlightened_Hover",
+
+		MelinoeBoonInteractPowerUpCancellable = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Exit_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Exit_FireLoop = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Exit_End = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Entrance_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Entrance_Fire = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Entrance_Fire_NoEquip = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Entrance_End = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Entrance_End_NoEquip = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_HeroLanding = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DiveExit_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DiveExit_Portal_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DiveExit_End = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DiveExit_Portal_End = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DiveEntrance_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DiveEntrance_End = "NPC_Chronos_Enlightened_Hover",
+
+		MelinoePetFrinos = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_PetPolecat = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_PetHound = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_PetCat = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Kneel_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Kneel_End = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_PetRaven = "NPC_Chronos_Enlightened_Hover",
+
+		Melinoe_Hug_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Hug_FireLoop = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Hug_End = "NPC_Chronos_Enlightened_Hover",
+
+		Melinoe_Tablet_Intro = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Tablet_Idle = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Tablet_Right_Start = "Enemy_Chronos_SwingRightPreFire",
+		Melinoe_Tablet_Right_Loop = "Enemy_Chronos_SwingRightPreFire",
+		Melinoe_Tablet_Right_End = "Enemy_Chronos_SwingRightFire",
+		Melinoe_Tablet_Left_Start = "Enemy_Chronos_SwingLeftPreFire",
+		Melinoe_Tablet_Left_Loop = "Enemy_Chronos_SwingLeftPreFire",
+		Melinoe_Tablet_Left_End = "Enemy_Chronos_SwingLeftFire",
+		Melinoe_Tablet_Both_Start = "Enemy_Chronos_CastSlowPreFire",
+		Melinoe_Tablet_Both_Loop = "Enemy_Chronos_CastSlowPreFire",
+		Melinoe_Tablet_Both_End = "Enemy_Chronos_CastSlowFire",
+		Melinoe_Tablet_ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
+		MelinoeExorcismFirstTimeEquip = "NPC_Chronos_Enlightened_Hover",
+
+
+		--"Enemy_Chronos_Knockdown_Frustrated",
+		--"Enemy_Chronos_SittingGreeting",
+		--"Enemy_Chronos_Shadowed_Greeting",
+	}
+
+	wait(0.2)
+	for fromAnim,toAnim in pairs(AnimationList) do
+		SwapAnimation({Name = fromAnim, Reverse = true})
+	end
+end
+
 ChronosAspect = {
 	InheritFrom = { "WeaponEnchantmentTrait" },
 	RarityLevels =
@@ -789,32 +1101,12 @@ ChronosAspect = {
 	{
 		Melinoe_Axe_Mesh1 = "Melinoe_Axe_Mesh1",
 	},
-	SwapAnimations = {
-		["MelinoeIdle"] = "NPC_Chronos_Enlightened_Hover",
-		["MelinoeDashStart"] = "Enemy_Chronos_DashPreFire",
-		["MelinoeDash"] = "Player_Chronos_DashFire",
-		--["MelinoeSprint"] = "Melinoe_Axe_Sprint_FireLoop",
-		["MelinoeStart"] = "NPC_Chronos_Enlightened_Move_Start",
-		["MelinoeRun"] = "NPC_Chronos_Enlightened_Move",
-		["MelinoeStop"] = "NPC_Chronos_Enlightened_Move_Stop",
-		["MelinoeGetHit"] = "NPC_Chronos_Enlightened_Hover",
-		["Melinoe_GetHit_LastStand"] = "NPC_Chronos_Enlightened_Hover",
-
-		
-		["Melinoe_Cast_Start"] = "Enemy_Chronos_CastSlowFire",
-		["Melinoe_Cast_StartLoop"] = "Enemy_Chronos_CastSlowFire",
-		["Melinoe_Cast_Fire"] = "Enemy_Chronos_CastSlowFire",
-		["Melinoe_Cast_End"] = "Enemy_Chronos_CastSlowFire",			
-		["Melinoe_Cast_Fire_Quick"] = "Enemy_Chronos_CastSlowFire",
-
-		["Melinoe_CrossCast_Start"] = "Enemy_Chronos_CastSlowFire",
-		["Melinoe_ForwardCast_Unequip"] = "Enemy_Chronos_CastSlowFire",
-		
-		["MelinoeEquip"] = "NPC_Chronos_Enlightened_Hover",
-		["MelinoeActionIdle"] = "NPC_Chronos_Enlightened_Hover",
-		["MelinoeInteract"] = "NPC_Chronos_Enlightened_Hover",
-		["MelinoeBoonPreInteract"] = "NPC_Chronos_Enlightened_Hover",
+	SetupFunction = 
+	{
+		Name = _PLUGIN.guid .. "." .. "SetupChronosAnimations",
+		Threaded = true,
 	},
+	OnUnequipFunctionName = _PLUGIN.guid .. "." .. "SetupMelonieAnimations",
 	WeaponDataOverride =
 	{
 		WeaponAxe =
