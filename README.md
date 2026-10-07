@@ -1,7 +1,5 @@
 # MelinoeCallsForAid
 
-Experimental Beta version, use at this stage if you would like to help in testing.
-
 A Hades II mod that allows you to play as other Characters.
 
 ## Features
