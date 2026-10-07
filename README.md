@@ -9,16 +9,10 @@ A Hades II mod that allows you to play as other Characters.
 - Play as Chronos
   - Requires to Reach the True Ending
 
-## Missing features
+## Art [Artists Wanted]
 
-- Chronos Hexes
-  - Countdown to death?
-- Some of Chronos's quips are missing
-- Missing Chronos Portrait in conversations (similar to Mel's Background in Zagreus Journey mod)
-- Art [Artists Wanted]
   - New Hammer Icons
-  - New Hex Icons
-  - Mana related Icons
+  - New Hex Godsent Icons
   - Portrait expressions
 
 ## Installation
