@@ -917,6 +917,14 @@ function mod.SetupChronosAnimations()
 		Melinoe_Tablet_ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
 		MelinoeExorcismFirstTimeEquip = "NPC_Chronos_Enlightened_Hover",
 
+		Melinoe_Fishing_Start = "Enemy_Chronos_SwingLeftPreFire",
+		Melinoe_Fishing_Fidget = "Enemy_Chronos_SwingLeftPreFire",
+		Melinoe_Fishing_Success = "Enemy_Chronos_SwingLeftFire",
+		Melinoe_Fishing_Failure = "Enemy_Chronos_BattleOutro_Start",
+
+		MelinoePickAxeMineStart = "Enemy_Chronos_SwingLeftPreFire",
+		MelinoePickAxeMineSwing = "Enemy_Chronos_SwingLeftFire",
+
 
 		--"Enemy_Chronos_Knockdown_Frustrated",
 		--"Enemy_Chronos_SittingGreeting",
@@ -1051,6 +1059,14 @@ function mod.UnequipChronosAnimations()
 		Melinoe_Tablet_Both_End = "Enemy_Chronos_CastSlowFire",
 		Melinoe_Tablet_ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
 		MelinoeExorcismFirstTimeEquip = "NPC_Chronos_Enlightened_Hover",
+
+		Melinoe_Fishing_Start = "Enemy_Chronos_SwingLeftPreFire",
+		Melinoe_Fishing_Fidget = "Enemy_Chronos_SwingLeftPreFire",
+		Melinoe_Fishing_Success = "Enemy_Chronos_SwingLeftFire",
+		Melinoe_Fishing_Failure = "Enemy_Chronos_BattleOutro_Start",
+
+		MelinoePickAxeMineStart = "Enemy_Chronos_SwingLeftPreFire",
+		MelinoePickAxeMineSwing = "Enemy_Chronos_SwingLeftFire",
 
 
 		--"Enemy_Chronos_Knockdown_Frustrated",

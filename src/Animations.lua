@@ -102,6 +102,7 @@ sjson.hook(file, function(data)
 	{
 		Name = "Player_Chronos_Shadowed_Greeting",
 		InheritFrom = "Enemy_Chronos_Shadowed_Greeting",
+        GrannyAnimationSpeed = 1.75,
 		ChainTo = "NPC_Chronos_Enlightened_Hover",
 	})
 
@@ -109,6 +110,7 @@ sjson.hook(file, function(data)
 	{
 		Name = "Player_Chronos_Enlightened_Explaining",
 		InheritFrom = "NPC_Chronos_Enlightened_Explaining",
+        GrannyAnimationSpeed = 1.5,
 		ChainTo = "NPC_Chronos_Enlightened_Hover",
 	})
 

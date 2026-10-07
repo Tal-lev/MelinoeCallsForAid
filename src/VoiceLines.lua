@@ -365,7 +365,6 @@ table.insert(GlobalVoiceLines.ZagreusBossGreetingLines[4],{ Cue = "/VO/Chronos_0
 table.insert(GlobalVoiceLines.ZagreusBossGreetingLines[4],{ Cue = "/VO/Chronos_0300", Text = "Youthful vigor, nothing more.", GameStateRequirements = YesChronosReq})
 table.insert(GlobalVoiceLines.ZagreusBossGreetingLines[4],{ Cue = "/VO/Chronos_1247", Text = "You have your father's {#Emph}mood...", GameStateRequirements = YesChronosReq})
 
-
 --Athena encounter end
 table.insert(EnemyData.NPC_Athena_01.EncounterEndVoiceLines[3],{ Cue = "/VO/Chronos_1209", Text = "You seem a little short of breath...", GameStateRequirements = YesChronosReq})
 table.insert(EnemyData.NPC_Athena_01.EncounterEndVoiceLines[3],{ Cue = "/VO/Chronos_1207", Text = "You are late.", GameStateRequirements = YesChronosReq})
@@ -392,6 +391,13 @@ table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/Chronos_031
 table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/Chronos_0338", Text = "My scythe shall find you.", GameStateRequirements = YesChronosReq })
 table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/Chronos_0331", Text = "Relent.", GameStateRequirements = YesChronosReq })
 table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/Chronos_0319", Text = "Not so fast...", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/Chronos_0325", Text = "What now?", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/Chronos_0330", Text = "Another, then?", GameStateRequirements = YesChronosReq })
+
+--Won Combat
+table.insert(GlobalVoiceLines.CombatResolvedVoiceLines[3],{ Cue = "/VO/Chronos_0014", Text = "I think not.", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.CombatResolvedVoiceLines[3],{ Cue = "/VO/Chronos_0095", Text = "That shall not work.", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.CombatResolvedVoiceLines[3],{ Cue = "/VO/Chronos_0328", Text = "You had it coming.", GameStateRequirements = YesChronosReq })
 
 modutil.mod.Path.Wrap("DoPatches", function(baseFunc)
     if rom.mods['NikkelM-Zagreus_Journey'] then
@@ -432,20 +438,17 @@ end)
 --{ Cue = "/VO/Chronos_0322", Text = "Impetuous of you..." },
 --{ Cue = "/VO/Chronos_0323", Text = "There..." },
 --{ Cue = "/VO/Chronos_0324", Text = "Prepared for more?" },
---{ Cue = "/VO/Chronos_0325", Text = "What now?" },
+
 --{ Cue = "/VO/Chronos_0326", Text = "How daft you are..." },
---{ Cue = "/VO/Chronos_0328", Text = "You had it coming." },
+
 --{ Cue = "/VO/Chronos_0329", Text = "We are not done." },
---{ Cue = "/VO/Chronos_0330", Text = "Another, then?" },
+
 --{ Cue = "/VO/Chronos_0332", Text = "Relent, blast you!" },
 --{ Cue = "/VO/Chronos_0333", Text = "Embarrassing." },
 --{ Cue = "/VO/Chronos_0294", Text = "Your strength shall fail you..." },
 --{ Cue = "/VO/Chronos_0295", Text = "But one more cut or two..." },
---{ Cue = "/VO/Chronos_0296", Text = "You only make things worse!" },
 
---Won Encounter
---{ Cue = "/VO/Chronos_0014", Text = "I think not."
---{ Cue = "/VO/Chronos_0095", Text = "That shall not work.",
+--{ Cue = "/VO/Chronos_0296", Text = "You only make things worse!" },
 
 --Return from polymorph
 --{ Cue = "/VO/Chronos_0656", Text = "You are the sheep here." },
