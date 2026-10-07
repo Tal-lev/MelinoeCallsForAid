@@ -10,32 +10,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!--Releasenotes start-->
 ### Patch Highlights:
 
-- Added Chronos specific Hexes with their accompanying talents. Chronos can no longer use Melinoe's Hexes
-- Added two more Chronos specific Hammers. Chronos can no longer use Melinoe's Hammers
+- Added Chronos specific Hexes with their accompanying talents. Chronos can no longer use Melinoe's Hexes.
+- Added two more Chronos specific Hammers. Chronos can no longer use Melinoe's Hammers.
 
 Other fixes and improvements:
 
-- Added Chronos Mana UI - Mana Symbol and animations by @Yegitu on discord
-- Added Chronos Harvesting Animations
-- Added more Chronos Room transition Animations
+- Added Chronos Mana UI - Mana Symbol and animations by @Yegitu on discord.
+- Added Chronos Harvesting Animations.
+- Added more Chronos Room transition Animations.
 - Added many Chronos contextual quips, (200+ in game)
-- Balancing: Increased Omega Attack Mana Cost 20->30
+- Balancing: Increased Omega Attack Mana Cost 20->30 
 - Balancing: Reduced Omega Special Mana Cost 30->20
-- Fixed: Special boons cause Chronos Special to have Melinoe's special VFX
-- Fixed: the game crash when gaining a pom with some of the Chronos dash boons
-- Fixed: Interaction animation lead to Chronos animation glitching
+- Fixed: Special boons cause Chronos Special to have Melinoe's special VFX.
+- Fixed: the game crash when gaining a pom with some of the Chronos dash boons.
+- Fixed: Interaction animation lead to Chronos animation glitching.
 
 ## [0.2.1] - 2026-09-28
 
-- Fixed: game crash upon loading
+- Fixed: game crash upon loading.
 
 ## [0.2.0] - 2026-09-28
 
 <!--Releasenotes start-->
 ### Patch Highlights:
 
-- Added two Chronos Dash boons
-- Added compatibility with MelSkin mod
+- Added two Chronos Dash boons.
+- Added compatibility with MelSkin mod.
 - Added Chronos contextual quips, (50+ in game)
 
 Other fixes and improvements:
