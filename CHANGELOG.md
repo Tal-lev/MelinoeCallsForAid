@@ -20,6 +20,7 @@ Other fixes and improvements:
 - Added Chronos Harvesting Animations.
 - Added more Chronos Room transition Animations.
 - Added many Chronos contextual quips, (200+ in game)
+- Balancing: Attack, Omega Attack and Omega Special now stun enemies.
 - Balancing: Increased Omega Attack Mana Cost 20->30 
 - Balancing: Reduced Omega Special Mana Cost 30->20
 - Fixed: Special boons cause Chronos Special to have Melinoe's special VFX.
