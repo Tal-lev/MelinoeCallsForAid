@@ -7,96 +7,56 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Adding Chronos Hexes
-  - Wheel of Time
-  - Summon Tempus
-- Adding Chronos Hammers
-  - Golden Sale
-  - Wind Cuts
-- Adding Special Presentation
-  - Salute
-  - Fishing!
-  - Mining
-  - Shoveling
-  - Harvesting
-  - Familiar Gathering
-  - Cerberus Petting
-- Adding Zagreus Journey Special Presentation
-  - Entering  Nightmare Gate
-  - Landing
-  - Robbing ----
-  - Exiting Challenge room
-- Adding more Chronos quips
-- Mana Icons, Icon symbol design by @Yegitu on discord
-- Chronos Mana Animations made by @Yegitu on discord
-  - Mana Charge Fill
-- Adding Chronos Quips
-  - Robbing --- in ZJ
-  - Getting Caught by ---- in ZJ
-  - Starting *Redacted* Fight
-  - Getting injured by *Redacted*
-- Removing incompatible GodVFX from Chronos Special
-- Removing Melinoe's Hammers when using Chronos
-- Removing Melinoe's Hexes when using Chronos
-- Balance:
-  - Omega Attack Mana Cost 20->30
-  - Omega Special Mana Cost 30->20
-- Fix:
-  - Crash when gaining a pom with some of the dash boons
-  - Interaction animations can be glitchy
+<!--Releasenotes start-->
+### Patch Highlights:
+
+- Added Chronos specific Hexes with their accompanying talents. Chronos can no longer use Melinoe's Hexes
+- Added two more Chronos specific Hammers. Chronos can no longer use Melinoe's Hammers
+
+Other fixes and improvements:
+
+- Added Chronos Mana UI - Mana Symbol and animations by @Yegitu on discord
+- Added Chronos Harvesting Animations
+- Added more Chronos Room transition Animations
+- Added many Chronos contextual quips, (200+ in game)
+- Balancing: Increased Omega Attack Mana Cost 20->30
+- Balancing: Reduced Omega Special Mana Cost 30->20
+- Fixed: Special boons cause Chronos Special to have Melinoe's special VFX
+- Fixed: the game crash when gaining a pom with some of the Chronos dash boons
+- Fixed: Interaction animation lead to Chronos animation glitching
 
 ## [0.2.1] - 2026-09-28
 
+- Fixed: game crash upon loading
+
 ## [0.2.0] - 2026-09-28
 
-- Adding Dash Boons
-  - Demeter
-  - Apollo
-- Compatibility with MelSkin mod
-- Adding Special Presentation
-  - Entering Chaos Gate
-  - Exiting Chaos Gate
-  - Oceanus Room Exit
-  - Oceanus Room Entry
-  - Olympus Sky Exit
-  - Olympus Sky Entry
-- Adding Chronos quips
-  - Drinking Fountains
-  - Equipping Familiars
-  - Starting New Run
-  - Devotion God rejected
-  - Reach Low Health
-  - Beat Encounter with low Health
-  - Heal
-  - Biome Timer Low
-  - Kill Last Enemy in Room
-  - Gifting Gods
-  - Finding Zeus/Poseidon/Selene boons
-  - Changing Costume
-  - Miniboss Encounter Start
-  - Hecate Greetings
-  - Hecate Defeated
-  - Scylla Greetings
-  - Cerberus fight start
-  - Prometheus Memory game
-  - Prometheus Kill
-  - Starting Typhon Fight
-  - Familiar Costume Switch
-  - Icarus Encouter Starts
-  - Artemis Encounter Starts
-- Removing incompatible Traits
-  - Axe Attack speed
-  - Hermes - Nitro Boost
-- Balance
-  - Slight increase to Attack Damage 29 -> 40
-  - Reduction of Omega Attack Damage 150 -> 120
-  - Hera Dash Boon Damage 30 -> 40
-- Changing the color of the manabar (changes between rooms)
-- DEV: Split The Muting Mel's quips into a helper mod "SilenceMelinoeHelperMod"
-  - Making SilenceMelinoeHelperMod a dependency for this mod
-- DEV: Moving all imports to main.lua
+<!--Releasenotes start-->
+### Patch Highlights:
+
+- Added two Chronos Dash boons
+- Added compatibility with MelSkin mod
+- Added Chronos contextual quips, (50+ in game)
+
+Other fixes and improvements:
+
+- Added a few Chronos Room transition animations.
+- Added Chronos Mana bar, the change occurs between rooms.
+- Chronos can no longer use Hermes Nitro Boost boon.
+- Chronos can no longer use Axe Attack speed Hammer.
+- Balancing: Increased Attack damage 29 -> 40
+- Balancing: Reduced Omega Attack Damage 150 -> 120
+- Balancing: Increased Hera Dash Boon Damage 30 -> 40
+- Development: Split muting Melinoe's quips into a helper mod "SilenceMelinoeHelperMod"
+- Development: Moving all imports to main.lua
 
 ## [0.1.0] - 2026-09-22
+
+### Patch Highlights:
+
+- Added Chronos as a playable Character, after reaching the True Ending.
+- Added a few Chronos specific Dash boons, Chronos cannot use Melinoe's Dash boons.
+- Added four Chronos specific Hammers.
 
 ### Added
 
