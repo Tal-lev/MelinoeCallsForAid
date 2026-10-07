@@ -62,7 +62,18 @@ function SetUpPlayerChronos()
 	LoadPackages({Name = "ChronosReformed_Lavender", IgnoreAssert = true })
 	LoadPackages({Name = "ChronosReformed_Gilded", IgnoreAssert = true })
 	LoadPackages({Name = "ChronosReformed_Crimson", IgnoreAssert = true })
-	SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = 1.3 })
+	LoadPackages({ Name = "JarlUlsfark-MelinoeCallsForAidPortrait", IgnoreAssert = true })
+	if not HeroHasTrait("ModsNikkelMHadesBiomesPlayerScaleTrait") then
+		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = 1.3 })
+	end
+	if rom.mods['NikkelM-Zagreus_Journey'] then
+		ModdedPlayerScaleMultiplier = 1.17
+	end
+	if not HeroHasTrait("ModsNikkelMHadesBiomesPlayerScaleTrait") then
+		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = 1.3 })
+	else
+		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = ModdedPlayerScaleMultiplier })
+	end
 	SetThingProperty({ Property = "GrannyModel", Value = "ChronosReformed_Mesh", DestinationId = CurrentRun.Hero.ObjectId })
 	SetThingProperty({ Property = "Graphic", Value = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
 	SetThingProperty({ Property = "Tallness", Value = 400, DestinationId = CurrentRun.Hero.ObjectId })
@@ -118,7 +129,14 @@ function SetUpPlayerChronos()
 end
 
 function SetUpReturnPlayerMelinoe()
-	SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = 1 })
+	if rom.mods['NikkelM-Zagreus_Journey'] then
+		ModdedPlayerScaleMultiplier = 0.9
+	end
+	if not HeroHasTrait("ModsNikkelMHadesBiomesPlayerScaleTrait") then
+		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = 1 })
+	else
+		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = ModdedPlayerScaleMultiplier })
+	end
 	SetThingProperty({ Property = "GrannyModel", Value = "Melinoe_Mesh", DestinationId = CurrentRun.Hero.ObjectId })
 	SetThingProperty({ Property = "Graphic", Value = "LaurelCindersSpawner", DestinationId = CurrentRun.Hero.ObjectId })
 	SetThingProperty({ Property = "Tallness", Value = 200, DestinationId = CurrentRun.Hero.ObjectId })
@@ -925,6 +943,41 @@ function mod.SetupChronosAnimations()
 		MelinoePickAxeMineStart = "Enemy_Chronos_SwingLeftPreFire",
 		MelinoePickAxeMineSwing = "Enemy_Chronos_SwingLeftFire",
 
+		--Portraits
+		Portrait_Mel_Default_01 = "Portrait_MelAndChronos_Default_01",
+		Portrait_Mel_Default_01_Exit = "Portrait_MelAndChronos_Default_01_Exit",
+		Portrait_Mel_Proud_01 = "Portrait_MelAndChronos_Proud_01",
+		Portrait_Mel_Proud_01_Exit = "Portrait_MelAndChronos_Proud_01_Exit",
+		Portrait_Mel_Intense_01 = "Portrait_MelAndChronos_Intense_01",
+		Portrait_Mel_Intense_01_Exit = "Portrait_MelAndChronos_Intense_01_Exit",
+		Portrait_Mel_Vulnerable_01 = "Portrait_MelAndChronos_Vulnerable_01",
+		Portrait_Mel_Vulnerable_01_Exit = "Portrait_MelAndChronos_Vulnerable_01_Exit",
+		Portrait_Mel_Empathetic_01 = "Portrait_MelAndChronos_Empathetic_01",
+		Portrait_Mel_Empathetic_01_Exit = "Portrait_MelAndChronos_Empathetic_01_Exit",
+		Portrait_Mel_EmpatheticFlushed_01 = "Portrait_MelAndChronos_EmpatheticFlushed_01",
+		Portrait_Mel_EmpatheticFlushed_01_Exit = "Portrait_MelAndChronos_EmpatheticFlushed_01_Exit",
+		Portrait_Mel_Hesitant_01 = "Portrait_MelAndChronos_Hesitant_01",
+		Portrait_Mel_Hesitant_01_Exit = "Portrait_MelAndChronos_Hesitant_01_Exit",
+		Portrait_Mel_Casual_01 = "Portrait_MelAndChronos_Casual_01",
+		Portrait_Mel_Casual_01_Exit = "Portrait_MelAndChronos_Casual_01_Exit",
+		Portrait_Mel_Pleased_01 = "Portrait_MelAndChronos_Pleased_01",
+		Portrait_Mel_Pleased_01_Exit = "Portrait_MelAndChronos_Pleased_01_Exit",
+		Portrait_Mel_PleasedFlushed_01 = "Portrait_MelAndChronos_PleasedFlushed_01",
+		Portrait_Mel_PleasedFlushed_01_Exit = "Portrait_MelAndChronos_PleasedFlushed_01_Exit",
+
+		--Zagreus Journey portraits
+		ModsNikkelMHadesBiomes_Portrait_Zag_Default_01 = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Default_01",
+		ModsNikkelMHadesBiomes_Portrait_Zag_Default_01_Exit = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Default_01_Exit",
+		ModsNikkelMHadesBiomes_Portrait_Zag_Serious_01 = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Serious_01",
+		ModsNikkelMHadesBiomes_Portrait_Zag_Serious_01_Exit = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Serious_01_Exit",
+		ModsNikkelMHadesBiomes_Portrait_Zag_Defiant_01 = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Defiant_01",
+		ModsNikkelMHadesBiomes_Portrait_Zag_Defiant_01_Exit = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Defiant_01_Exit",
+		ModsNikkelMHadesBiomes_Portrait_Zag_Empathetic_01 = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Empathetic_01",
+		ModsNikkelMHadesBiomes_Portrait_Zag_Empathetic_01_Exit = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Empathetic_01_Exit",
+		ModsNikkelMHadesBiomes_Portrait_Zag_Unwell_01 = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Unwell_01",
+		ModsNikkelMHadesBiomes_Portrait_Zag_Unwell_01_Exit = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Unwell_01_Exit"
+
+
 
 		--"Enemy_Chronos_Knockdown_Frustrated",
 		--"Enemy_Chronos_SittingGreeting",
@@ -1067,6 +1120,40 @@ function mod.UnequipChronosAnimations()
 
 		MelinoePickAxeMineStart = "Enemy_Chronos_SwingLeftPreFire",
 		MelinoePickAxeMineSwing = "Enemy_Chronos_SwingLeftFire",
+
+		--Portraits
+		Portrait_Mel_Default_01 = "Portrait_MelAndChronos_Default_01",
+		Portrait_Mel_Default_01_Exit = "Portrait_MelAndChronos_Default_01_Exit",
+		Portrait_Mel_Proud_01 = "Portrait_MelAndChronos_Proud_01",
+		Portrait_Mel_Proud_01_Exit = "Portrait_MelAndChronos_Proud_01_Exit",
+		Portrait_Mel_Intense_01 = "Portrait_MelAndChronos_Intense_01",
+		Portrait_Mel_Intense_01_Exit = "Portrait_MelAndChronos_Intense_01_Exit",
+		Portrait_Mel_Vulnerable_01 = "Portrait_MelAndChronos_Vulnerable_01",
+		Portrait_Mel_Vulnerable_01_Exit = "Portrait_MelAndChronos_Vulnerable_01_Exit",
+		Portrait_Mel_Empathetic_01 = "Portrait_MelAndChronos_Empathetic_01",
+		Portrait_Mel_Empathetic_01_Exit = "Portrait_MelAndChronos_Empathetic_01_Exit",
+		Portrait_Mel_EmpatheticFlushed_01 = "Portrait_MelAndChronos_EmpatheticFlushed_01",
+		Portrait_Mel_EmpatheticFlushed_01_Exit = "Portrait_MelAndChronos_EmpatheticFlushed_01_Exit",
+		Portrait_Mel_Hesitant_01 = "Portrait_MelAndChronos_Hesitant_01",
+		Portrait_Mel_Hesitant_01_Exit = "Portrait_MelAndChronos_Hesitant_01_Exit",
+		Portrait_Mel_Casual_01 = "Portrait_MelAndChronos_Casual_01",
+		Portrait_Mel_Casual_01_Exit = "Portrait_MelAndChronos_Casual_01_Exit",
+		Portrait_Mel_Pleased_01 = "Portrait_MelAndChronos_Pleased_01",
+		Portrait_Mel_Pleased_01_Exit = "Portrait_MelAndChronos_Pleased_01_Exit",
+		Portrait_Mel_PleasedFlushed_01 = "Portrait_MelAndChronos_PleasedFlushed_01",
+		Portrait_Mel_PleasedFlushed_01_Exit = "Portrait_MelAndChronos_PleasedFlushed_01_Exit",
+
+		--Zagreus Journey portraits
+		ModsNikkelMHadesBiomes_Portrait_Zag_Default_01 = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Default_01",
+		ModsNikkelMHadesBiomes_Portrait_Zag_Default_01_Exit = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Default_01_Exit",
+		ModsNikkelMHadesBiomes_Portrait_Zag_Serious_01 = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Serious_01",
+		ModsNikkelMHadesBiomes_Portrait_Zag_Serious_01_Exit = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Serious_01_Exit",
+		ModsNikkelMHadesBiomes_Portrait_Zag_Defiant_01 = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Defiant_01",
+		ModsNikkelMHadesBiomes_Portrait_Zag_Defiant_01_Exit = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Defiant_01_Exit",
+		ModsNikkelMHadesBiomes_Portrait_Zag_Empathetic_01 = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Empathetic_01",
+		ModsNikkelMHadesBiomes_Portrait_Zag_Empathetic_01_Exit = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Empathetic_01_Exit",
+		ModsNikkelMHadesBiomes_Portrait_Zag_Unwell_01 = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Unwell_01",
+		ModsNikkelMHadesBiomes_Portrait_Zag_Unwell_01_Exit = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Unwell_01_Exit"
 
 
 		--"Enemy_Chronos_Knockdown_Frustrated",

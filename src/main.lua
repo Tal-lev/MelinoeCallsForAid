@@ -40,6 +40,8 @@ public.config = config -- so other mods can access our config
 
 ---@module 'zerp-MelSkin'
 melskin = rom.mods["zerp-MelSkin"]
+---@module 'NikkelM-Zagreus_Journey'
+ZagJourney = rom.mods["NikkelM-Zagreus_Journey"]
 
 local function on_ready()
 	-- what to do when we are ready, but not re-do on reload.
@@ -48,6 +50,7 @@ local function on_ready()
 
 	import "text.lua"
 	import "Animations.lua"
+	import "PortraitAnimations.lua"
 	import "Projectiles.lua"
 	import "DashBoons.lua"
 	import "VoiceLines.lua"
