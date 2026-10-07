@@ -6,7 +6,7 @@ A Hades II mod that allows you to play as other Characters.
 
 - Adds Chronos as a playable Character, requires reaching the True Ending.
 
-## Art [Artists Wanted]
+## Missing Art [Artists Wanted]
 
   - New Hammer Icons
   - New Hex Godsent Icons
