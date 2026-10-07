@@ -1,6 +1,83 @@
 local file = rom.path.combine(rom.paths.Content, 'Game/Projectiles/PlayerProjectiles.sjson')
 sjson.hook(file, function(data)
 
+	--Adding Stun to Chronos Attacks
+	table.insert(data.Projectiles,
+	{
+		Name = "PlayerChronosSwingLeft",
+		InheritFrom = "ChronosSwingLeft",
+		Effects =
+		{
+			{
+				Name = "OnHitStun",
+				Duration = 0.5,
+				DisableMove = true,
+				DisableRotate = true,
+				DisableAttack = true,
+				Active = true,
+				CanAffectInvulnerable = false,
+				FrontFx = "null",
+			}
+		}
+	})
+
+	table.insert(data.Projectiles,
+	{
+		Name = "PlayerChronosSwingRight",
+		InheritFrom = "ChronosSwingRight",
+		Effects =
+		{
+			{
+				Name = "OnHitStun",
+				Duration = 0.5,
+				DisableMove = true,
+				DisableRotate = true,
+				DisableAttack = true,
+				Active = true,
+				CanAffectInvulnerable = false,
+				FrontFx = "null",
+			}
+		}
+	})
+
+	table.insert(data.Projectiles,
+	{
+		Name = "PlayerChronosScytheThrow",
+		InheritFrom = "ChronosScytheThrow",
+		Effects =
+		{
+			{
+				Name = "OnHitStunHeavy",
+				Duration = 1.1,
+				DisableMove = true,
+				DisableRotate = true,
+				DisableAttack = true,
+				Active = true,
+				CanAffectInvulnerable = false,
+				FrontFx = "null",
+			}
+		}
+	})
+
+	table.insert(data.Projectiles,
+	{
+		Name = "PlayerChronosGrindWallForward",
+		InheritFrom = "ChronosGrindWallForward",
+		Effects =
+		{
+			{
+				Name = "OnHitStunHeavy",
+				Duration = 1.1,
+				DisableMove = true,
+				DisableRotate = true,
+				DisableAttack = true,
+				Active = true,
+				CanAffectInvulnerable = false,
+				FrontFx = "null",
+			}
+		}
+	})
+
 	table.insert(data.Projectiles,
 	{
 		Name = "ChronosRushPoseidonBlast",

@@ -1361,7 +1361,7 @@ ChronosAspect = {
 		{
 			WeaponName = "WeaponAxe",
 			WeaponProperty = "Projectile",
-			ChangeValue = "ChronosSwingRight",
+			ChangeValue = "PlayerChronosSwingRight",
 		},
 		{
 			WeaponName = "WeaponAxe",
@@ -1379,7 +1379,7 @@ ChronosAspect = {
 		{
 			WeaponName = "WeaponAxe2",
 			WeaponProperty = "Projectile",
-			ChangeValue = "ChronosSwingLeft",
+			ChangeValue = "PlayerChronosSwingLeft",
 		},
 		{
 			WeaponName = "WeaponAxe2",
@@ -1398,7 +1398,7 @@ ChronosAspect = {
 		{
 			WeaponName = "WeaponAxeSpin",
 			WeaponProperty = "Projectile",
-			ChangeValue = "ChronosScytheThrow",
+			ChangeValue = "PlayerChronosScytheThrow",
 		},
 		{
 			WeaponName = "WeaponAxeSpin",
@@ -1416,7 +1416,7 @@ ChronosAspect = {
 		{
 			WeaponName = "WeaponAxeDash",
 			WeaponProperty = "Projectile",
-			ChangeValue = "ChronosSwingLeft",
+			ChangeValue = "PlayerChronosSwingLeft",
 		},
 		{
 			WeaponName = "WeaponAxeDash",
@@ -1458,7 +1458,7 @@ ChronosAspect = {
 		{
 			WeaponName = "WeaponAxeSpecialSwing",
 			WeaponProperty = "Projectile",
-			ChangeValue = "ChronosGrindWallForward",
+			ChangeValue = "PlayerChronosGrindWallForward",
 		},
 		{
 			WeaponName = "WeaponAxeSpecialSwing",
@@ -1480,7 +1480,7 @@ ChronosAspect = {
 		{ 
 			WeaponNames = { "WeaponAxeSpecialSwing" },
 			ExcludeLinked = true,
-			ProjectileName = "ChronosGrindWallForward",
+			ProjectileName = "PlayerChronosGrindWallForward",
 			ProjectileProperties = {
 				Damage = 100,
 			},
