@@ -294,6 +294,8 @@ table.insert(GlobalVoiceLines.HecateBossGreetingLines[7],{ Cue = "/VO/Chronos_12
 table.insert(HeroVoiceLines.HecateDefeatedVoiceLines[6],{ Cue = "/VO/Chronos_0336", Text = "Too slow, my girl...", GameStateRequirements = YesChronosReq })
 table.insert(HeroVoiceLines.HecateDefeatedVoiceLines[6],{ Cue = "/VO/Chronos_0337", Text = "Alas, my girl...", GameStateRequirements = YesChronosReq })
 table.insert(HeroVoiceLines.HecateDefeatedVoiceLines[6],{ Cue = "/VO/Chronos_0298", Text = "My girl, would you please die?", GameStateRequirements = YesChronosReq })
+table.insert(HeroVoiceLines.HecateDefeatedVoiceLines[6],{ Cue = "/VO/Intercom_0087", Text = "I have naught to fear from witches such as you.", GameStateRequirements = YesChronosReq })
+
 
 -- Infested Cerberus fight start 
 table.insert(EncounterData.BossInfestedCerberus01.EnterVoiceLines[5],{ Cue = "/VO/Chronos_1072", Text = "To have come all this way...",GameStateRequirements = YesChronosReq })
@@ -314,6 +316,7 @@ table.insert(GlobalVoiceLines.PolyphemusGreetingLines[6],{ Cue = "/VO/Chronos_00
 --Polyphemus Kill
 table.insert(EnemyData.Polyphemus.BossKillVoiceLines[5],{ Cue = "/VO/Chronos_0656", Text = "You are the sheep here.",GameStateRequirements = YesChronosReq })
 table.insert(EnemyData.Polyphemus.BossKillVoiceLines[5],{ Cue = "/VO/Chronos_0658", Text = "Livestock...",GameStateRequirements = YesChronosReq })
+table.insert(EnemyData.Polyphemus.BossKillVoiceLines[5],{ Cue = "/VO/Intercom_0722", Text = "Merely another sheep that decided to step out of line.",GameStateRequirements = YesChronosReq })
 
 -- Entering Prometheus Fight
 table.insert(RoomData.P_Boss01.EnterVoiceLines[7],{ Cue = "/VO/Chronos_0927", Text = "Decided to give poor Typhon a break?",GameStateRequirements = YesChronosReq })
@@ -326,12 +329,18 @@ table.insert(EnemyData.Prometheus.BossKillVoiceLines[4],{ Cue = "/VO/Chronos_019
 table.insert(EnemyData.Prometheus.BossKillVoiceLines[4],{ Cue = "/VO/Chronos_0198", Text = "We must do this again some other time.", GameStateRequirements = YesChronosReq})
 table.insert(EnemyData.Prometheus.BossKillVoiceLines[4],{ Cue = "/VO/Chronos_0257", Text = "The same predictable result, yet you persist.", GameStateRequirements = YesChronosReq})
 table.insert(EnemyData.Prometheus.BossKillVoiceLines[4],{ Cue = "/VO/Chronos_0472", Text = "You ought not have anticipated any other outcome.", GameStateRequirements = YesChronosReq})
+table.insert(EnemyData.Prometheus.BossKillVoiceLines[4],{ Cue = "/VO/Intercom_0093", Text = "I foresee every one of your useless attempts.", GameStateRequirements = YesChronosReq})
+
 
 --Scylla Greetings
 table.insert(GlobalVoiceLines.ScyllaGreetingLines[2],{ Cue = "/VO/Chronos_0929", Text = "Night after night you carry on like this?", GameStateRequirements = YesChronosReq})
 table.insert(GlobalVoiceLines.ScyllaGreetingLines[2],{ Cue = "/VO/Chronos_0783", Text = "Right on Time.", GameStateRequirements = YesChronosReq})
 table.insert(GlobalVoiceLines.ScyllaGreetingLines[2],{ Cue = "/VO/Chronos_0029", Text = "Greetings.", GameStateRequirements = YesChronosReq})
 table.insert(GlobalVoiceLines.ScyllaGreetingLines[2],{ Cue = "/VO/Chronos_1119", Text = "Without further ado...", GameStateRequirements = YesChronosReq})
+
+--Scylla Death
+table.insert(EnemyData.Scylla.BossKillVoiceLines[6],{ Cue = "/VO/Intercom_0089", Text = "Like so many sailors sent to a watery grave...", GameStateRequirements = YesChronosReq})
+
 
 --Fishing Caught
 table.insert(GlobalVoiceLines.FishCaughtVoiceLines[1],{ Cue = "/VO/Chronos_0456", Text = "Behold!", GameStateRequirements = YesChronosReq})
@@ -399,6 +408,53 @@ table.insert(GlobalVoiceLines.CombatResolvedVoiceLines[3],{ Cue = "/VO/Chronos_0
 table.insert(GlobalVoiceLines.CombatResolvedVoiceLines[3],{ Cue = "/VO/Chronos_0095", Text = "That shall not work.", GameStateRequirements = YesChronosReq })
 table.insert(GlobalVoiceLines.CombatResolvedVoiceLines[3],{ Cue = "/VO/Chronos_0328", Text = "You had it coming.", GameStateRequirements = YesChronosReq })
 
+--Time Elemental
+table.insert(EnemyData.TimeElemental.EnemySightedVoiceLines,{ Cue = "/VO/Chronos_1224", Text = "What is that Tempus {#Emph}doing?!", GameStateRequirements = YesChronosReq })
+
+--Rift of thessaly
+table.insert(RoomData.O_Intro.EnterVoiceLines[3],{ Cue = "/VO/Chronos_1120", Text = "Foul weather, is it not?", GameStateRequirements = YesChronosReq })
+
+--Enter Olympus
+table.insert(RoomData.P_Intro.EnterVoiceLines[3],{ Cue = "/VO/Chronos_1226", Text = "Olympus...", GameStateRequirements = YesChronosReq })
+
+--Enter Summit
+table.insert(RoomData.Q_Intro.EnterVoiceLines[3],{ Cue = "/VO/Chronos_1112", Text = "{#Emph}Giant of Storms!", GameStateRequirements = YesChronosReq })
+
+--Pick pom
+table.insert(LootData.StackUpgrade.OnSpawnVoiceLines[1],{ Cue = "/VO/Chronos_1394", Text = "{#Emph}Pom? Gold.", GameStateRequirements = YesChronosReq })
+--Pick Hammer
+table.insert(LootData.WeaponUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1349", Text = "{#Emph}Hammer? Gold.", GameStateRequirements = YesChronosReq })
+--Pick Centaur Heart
+table.insert(ConsumableData.MaxHealthDrop.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1352", Text = "{#Emph}Centaur Heart? Centaur Gold!", GameStateRequirements = YesChronosReq })
+--Pick Tonic
+table.insert(ConsumableData.MaxManaDrop.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1351", Text = "{#Emph}Tonic? Gold!", GameStateRequirements = YesChronosReq })
+--Pick Moon Talent
+table.insert(ConsumableData.TalentDrop.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1350", Text = "{#Emph}Moon? Gold!", GameStateRequirements = YesChronosReq })
+--Pick Nectar
+table.insert(ConsumableData.GiftDrop.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1348", Text = "{#Emph}Nectar? Gold.", GameStateRequirements = YesChronosReq })
+
+--Pick Bones
+table.insert(ConsumableData.MetaCurrencyDrop.ConsumedVoiceLines[2],{ Cue = "/VO/Chronos_1347", Text = "{#Emph}Bones? Gold.", GameStateRequirements = YesChronosReq })
+--Pick Gold room reward
+table.insert(ConsumableData.RoomMoneyDrop.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1340", Text = "{#Emph}Solid Gold!", GameStateRequirements = YesChronosReq })
+table.insert(ConsumableData.RoomMoneyDrop.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1342", Text = "{#Emph}Gold.", GameStateRequirements = YesChronosReq })
+table.insert(ConsumableData.RoomMoneyDrop.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1343", Text = "{#Emph}Gold!", GameStateRequirements = YesChronosReq })
+
+--Misc Boss Barely survived
+table.insert(GlobalVoiceLines.BarelySurvivedBossFightVoiceLines[1],{ Cue = "/VO/Intercom_0021", Text = "{#Emph}<Laughter>", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.BarelySurvivedBossFightVoiceLines[1],{ Cue = "/VO/Intercom_0022", Text = "{#Emph}<Laughter>", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.BarelySurvivedBossFightVoiceLines[1],{ Cue = "/VO/Intercom_0023", Text = "{#Emph}<Laughter>", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.BarelySurvivedBossFightVoiceLines[1],{ Cue = "/VO/Intercom_0036", Text = "You cannot stop Time.", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.BarelySurvivedBossFightVoiceLines[1],{ Cue = "/VO/Intercom_0039", Text = "Another unsuccessful try.", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.BarelySurvivedBossFightVoiceLines[1],{ Cue = "/VO/Intercom_0040", Text = "Are you becoming used to this result?", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.BarelySurvivedBossFightVoiceLines[1],{ Cue = "/VO/Intercom_0043", Text = "All of your efforts, once again in vain.", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.BarelySurvivedBossFightVoiceLines[1],{ Cue = "/VO/Intercom_0051", Text = "Was that the limit of your power, hm?", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.BarelySurvivedBossFightVoiceLines[1],{ Cue = "/VO/Intercom_0052", Text = "You could have done better than that.", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.BarelySurvivedBossFightVoiceLines[1],{ Cue = "/VO/Intercom_0051", Text = "Was that the limit of your power, hm?", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.BarelySurvivedBossFightVoiceLines[1],{ Cue = "/VO/Chronos_0261", Text = "That is what you get for all the inconvenience you caused!", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.BarelySurvivedBossFightVoiceLines[1],{ Cue = "/VO/Chronos_0308", Text = "This is the end for you.", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.BarelySurvivedBossFightVoiceLines[1],{ Cue = "/VO/Chronos_0333", Text = "Embarrassing.", GameStateRequirements = YesChronosReq })
+
 modutil.mod.Path.Wrap("DoPatches", function(baseFunc)
     if rom.mods['NikkelM-Zagreus_Journey'] then
     
@@ -438,16 +494,11 @@ end)
 --{ Cue = "/VO/Chronos_0322", Text = "Impetuous of you..." },
 --{ Cue = "/VO/Chronos_0323", Text = "There..." },
 --{ Cue = "/VO/Chronos_0324", Text = "Prepared for more?" },
-
 --{ Cue = "/VO/Chronos_0326", Text = "How daft you are..." },
-
 --{ Cue = "/VO/Chronos_0329", Text = "We are not done." },
-
 --{ Cue = "/VO/Chronos_0332", Text = "Relent, blast you!" },
---{ Cue = "/VO/Chronos_0333", Text = "Embarrassing." },
 --{ Cue = "/VO/Chronos_0294", Text = "Your strength shall fail you..." },
 --{ Cue = "/VO/Chronos_0295", Text = "But one more cut or two..." },
-
 --{ Cue = "/VO/Chronos_0296", Text = "You only make things worse!" },
 
 --Return from polymorph
@@ -469,7 +520,7 @@ end)
 --{ Cue = "/VO/Chronos_0467", Text = "Thus history repeats as it is wont to do.",
 --{ Cue = "/VO/Chronos_0261", Text = "That is what you get for all the inconvenience you caused!",
 --{ Cue = "/VO/Chronos_0939", Text = "This night shall go no different from the last.",
---{ Cue = "/VO/Chronos_0308", Text = "This is the end for you." },
+
 --{ Cue = "/VO/Chronos_0309", Text = "You have already lost." },
 --Cue = "/VO/Chronos_1122", Text = "{#Emph}Now{#Prev}, monster, exactly as before!"
 --{ Cue = "/VO/Chronos_1069", Text = "Come forth, Typhon!", PlayFirst = true },
@@ -502,9 +553,6 @@ end)
 
 --Theseus EM
 --{ Cue = "/VO/Chronos_0935", Text = "You look absurd with those newfangled armaments.",
-
---Hades
-
 
 --Hades Attack
 --{ Cue = "/VO/Chronos_0293", Text = "Our family's favorite trick..." },
@@ -556,14 +604,9 @@ end)
 --Blocked
 --{ Cue = "/VO/Chronos_0873", Text = "I... think... {#Emph}not." }
 
-
 --Furies: Megera
 --{ Cue = "/VO/Chronos_1491", Text = "Who exactly do you think I am? Do you take me for?!", PreLineWait = 1.3 }
 --{ Cue = "/VO/Chronos_1493", Text = "But by all means, {#Emph}please{#Prev}, go ahead and try! Or {#Emph}do {#Prev}it, better yet!" }
-
-
---Reached Olympus
---{ Cue = "/VO/Chronos_1226", Text = "Olympus..." }
 
 --Lernie
 --{ Cue = "/VO/Chronos_1071", Text = "Oh good, you have arrived." },
@@ -572,16 +615,8 @@ end)
 --Lernie Start Fight
 --{ Cue = "/VO/Chronos_0348", Text = "Are you quite done?" }
 
---Mount Olympus
---{ Cue = "/VO/Chronos_1120", Text = "Foul weather, is it not?" },
-
---Summit
---{ Cue = "/VO/Chronos_1112", Text = "{#Emph}Giant of Storms!" },
-
 --Dress
 --{ Cue = "/VO/Chronos_0659", Text = "This is my chosen form."
-
-
 
 --General Farewell / Goodbye
 --{ Cue = "/VO/Chronos_1033", Text = "Farewell!", PlayFirst = true },
@@ -593,27 +628,32 @@ end)
 
 --Charon / Destroying gold?
 --{ Cue = "/VO/Chronos_1340", Text = "{#Emph}Solid Gold!", PlayFirst = true },
+--{ Cue = "/VO/Chronos_1342", Text = "{#Emph}Gold." },
+--{ Cue = "/VO/Chronos_1343", Text = "{#Emph}Gold!" },
 --{ Cue = "/VO/Chronos_1338", Text = "{#Emph}To Gold!" },
 --{ Cue = "/VO/Chronos_1339", Text = "{#Emph}To Gold!" },
 --{ Cue = "/VO/Chronos_1341", Text = "{#Emph}A golden opportunity!" },
---{ Cue = "/VO/Chronos_1342", Text = "{#Emph}Gold." },
---{ Cue = "/VO/Chronos_1343", Text = "{#Emph}Gold!" },
---{ Cue = "/VO/Chronos_1344", Text = "{#Emph}Boon? Gold!",
+
+
 
 --Loot?
 --Cue = "/VO/Chronos_1345", Text = "{#Emph}Onion? Gold!"
 --{ Cue = "/VO/Chronos_1346", Text = "{#Emph}Ashes? Gold!",
---{ Cue = "/VO/Chronos_1347", Text = "{#Emph}Bones? Gold.",
---{ Cue = "/VO/Chronos_1348", Text = "{#Emph}Nectar? Gold.",
---{ Cue = "/VO/Chronos_1349", Text = "{#Emph}Hammer? Gold.",
---{ Cue = "/VO/Chronos_1350", Text = "{#Emph}Moon? Gold!",
---{ Cue = "/VO/Chronos_1351", Text = "{#Emph}Tonic? Gold!",
---{ Cue = "/VO/Chronos_1352", Text = "{#Emph}Centaur Heart? Centaur Gold!",
---{ Cue = "/VO/Chronos_1394", Text = "{#Emph}Pom? Gold.",
 --{ Cue = "/VO/Chronos_1395", Text = "{#Emph}Armor? Gold!",
-
---Time Elemental
---{ Cue = "/VO/Chronos_1224", Text = "What is that Tempus {#Emph}doing?!",
+--{ Cue = "/VO/Chronos_1344", Text = "{#Emph}Boon? Gold!",
 
 
 --Check /VO/Intercom_
+
+--Cue = "/VO/Intercom_0023", Text = "{#Emph}<Laughter>" },
+--{ Cue = "/VO/Intercom_0884", Text = "That Fear in the air... it is none other than your own." },
+--{ Cue = "/VO/Intercom_0885", Text = "You, who invoke the Night: Suffer the consequence." },
+--{ Cue = "/VO/Intercom_0886", Text = "The Fear is growing in you, is it not?" },
+--{ Cue = "/VO/Intercom_0887", Text = "You pledge yourself to a forgotten cause." },
+--{ Cue = "/VO/Intercom_0083", Text = "Weakling! You shall never be her equal.", PlayFirst = true },
+--		{ Cue = "/VO/Intercom_0084", Text = "Your master cannot best me; how could you?" },
+--		{ Cue = "/VO/Intercom_0890", Text = "You cannot even find your way out of those woods?" },
+--		{ Cue = "/VO/Intercom_0891", Text = "So many lost souls in Erebus! You are but one." },
+
+
+
