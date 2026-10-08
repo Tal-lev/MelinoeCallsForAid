@@ -19,7 +19,7 @@ Other fixes and improvements:
 - Added Chronos Mana UI - Mana Symbol and animations by @Yegitu on discord.
 - Added Chronos Harvesting Animations.
 - Added more Chronos Room transition Animations.
-- Added many Chronos contextual quips, (200+ in game)
+- Added many Chronos contextual quips, (250+ in game)
 - Balancing: Attack, Omega Attack and Omega Special now stun enemies.
 - Balancing: Increased Omega Attack Mana Cost 20->30 
 - Balancing: Reduced Omega Special Mana Cost 30->20
