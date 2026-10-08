@@ -35,12 +35,12 @@ local chronosDressData = {
         Color = {216, 171, 0, 255},
         IsArachne = true,
     },
-    Moonlight =
-    {
-        GrannyTexture = "GR2/ChronosReformed_Color",
-        Color = {204, 215, 243, 255},
-        IsArachne = true,
-    },
+    --Moonlight =
+    --{
+    --    GrannyTexture = "GR2/ChronosReformed_Color",
+    --    Color = {204, 215, 243, 255},
+    --    IsArachne = true,
+    --},
     Crimson =
     {
         GrannyTexture = "GR2/ChronosReformed_Crimson",
@@ -93,7 +93,7 @@ local dressOrder = {
     "Onyx",
     "Fuchsia",
     "Gilded",
-    "Moonlight",
+    --"Moonlight",
     "Crimson",
     "Dark Side",
     "Alternate Time",

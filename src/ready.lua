@@ -942,47 +942,108 @@ function mod.SetupChronosAnimations()
 
 		MelinoePickAxeMineStart = "Enemy_Chronos_SwingLeftPreFire",
 		MelinoePickAxeMineSwing = "Enemy_Chronos_SwingLeftFire",
-
-		--Portraits
-		Portrait_Mel_Default_01 = "Portrait_MelAndChronos_Default_01",
-		Portrait_Mel_Default_01_Exit = "Portrait_MelAndChronos_Default_01_Exit",
-		Portrait_Mel_Proud_01 = "Portrait_MelAndChronos_Proud_01",
-		Portrait_Mel_Proud_01_Exit = "Portrait_MelAndChronos_Proud_01_Exit",
-		Portrait_Mel_Intense_01 = "Portrait_MelAndChronos_Intense_01",
-		Portrait_Mel_Intense_01_Exit = "Portrait_MelAndChronos_Intense_01_Exit",
-		Portrait_Mel_Vulnerable_01 = "Portrait_MelAndChronos_Vulnerable_01",
-		Portrait_Mel_Vulnerable_01_Exit = "Portrait_MelAndChronos_Vulnerable_01_Exit",
-		Portrait_Mel_Empathetic_01 = "Portrait_MelAndChronos_Empathetic_01",
-		Portrait_Mel_Empathetic_01_Exit = "Portrait_MelAndChronos_Empathetic_01_Exit",
-		Portrait_Mel_EmpatheticFlushed_01 = "Portrait_MelAndChronos_EmpatheticFlushed_01",
-		Portrait_Mel_EmpatheticFlushed_01_Exit = "Portrait_MelAndChronos_EmpatheticFlushed_01_Exit",
-		Portrait_Mel_Hesitant_01 = "Portrait_MelAndChronos_Hesitant_01",
-		Portrait_Mel_Hesitant_01_Exit = "Portrait_MelAndChronos_Hesitant_01_Exit",
-		Portrait_Mel_Casual_01 = "Portrait_MelAndChronos_Casual_01",
-		Portrait_Mel_Casual_01_Exit = "Portrait_MelAndChronos_Casual_01_Exit",
-		Portrait_Mel_Pleased_01 = "Portrait_MelAndChronos_Pleased_01",
-		Portrait_Mel_Pleased_01_Exit = "Portrait_MelAndChronos_Pleased_01_Exit",
-		Portrait_Mel_PleasedFlushed_01 = "Portrait_MelAndChronos_PleasedFlushed_01",
-		Portrait_Mel_PleasedFlushed_01_Exit = "Portrait_MelAndChronos_PleasedFlushed_01_Exit",
-
-		--Zagreus Journey portraits
-		ModsNikkelMHadesBiomes_Portrait_Zag_Default_01 = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Default_01",
-		ModsNikkelMHadesBiomes_Portrait_Zag_Default_01_Exit = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Default_01_Exit",
-		ModsNikkelMHadesBiomes_Portrait_Zag_Serious_01 = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Serious_01",
-		ModsNikkelMHadesBiomes_Portrait_Zag_Serious_01_Exit = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Serious_01_Exit",
-		ModsNikkelMHadesBiomes_Portrait_Zag_Defiant_01 = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Defiant_01",
-		ModsNikkelMHadesBiomes_Portrait_Zag_Defiant_01_Exit = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Defiant_01_Exit",
-		ModsNikkelMHadesBiomes_Portrait_Zag_Empathetic_01 = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Empathetic_01",
-		ModsNikkelMHadesBiomes_Portrait_Zag_Empathetic_01_Exit = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Empathetic_01_Exit",
-		ModsNikkelMHadesBiomes_Portrait_Zag_Unwell_01 = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Unwell_01",
-		ModsNikkelMHadesBiomes_Portrait_Zag_Unwell_01_Exit = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Unwell_01_Exit"
-
-
-
 		--"Enemy_Chronos_Knockdown_Frustrated",
 		--"Enemy_Chronos_SittingGreeting",
 		--"Enemy_Chronos_Shadowed_Greeting",
 	}
+
+	--Portraits
+
+	local replacement = "Portrait_MelChronos_"
+	if HeroHasTrait("ChronosManaCostume") or (melskin and melskin.GetCurrentDress() == "Azure") then
+		replacement = "Portrait_MelChronosAzure_"
+	elseif HeroHasTrait("ChronosEscalatingCostume") or (melskin and melskin.GetCurrentDress() == "Crimson") then
+		replacement = "Portrait_MelChronosCrimson_"
+	elseif HeroHasTrait("ChronosVitalityCostume") or (melskin and melskin.GetCurrentDress() == "Emerald") then
+		replacement = "Portrait_MelChronosEmerald_"
+	elseif HeroHasTrait("ChronosCastDamageCostume") or (melskin and melskin.GetCurrentDress() == "Fuchsia") then
+		replacement = "Portrait_MelChronosFuchsia_"
+	elseif HeroHasTrait("ChronosIncomeCostume") or (melskin and melskin.GetCurrentDress() == "Gilded") then
+		replacement = "Portrait_MelChronosGilded_"
+	elseif HeroHasTrait("ChronosAgilityCostume") or (melskin and melskin.GetCurrentDress() == "Lavender") then
+		replacement = "Portrait_MelChronosLavender_"
+	elseif HeroHasTrait("ChronosHighArmorCostume") or (melskin and melskin.GetCurrentDress() == "Onyx") then
+		replacement = "Portrait_MelChronosOnyx_"
+	elseif (melskin and melskin.GetCurrentDress() == "Alternate Time") then
+		replacement = "Portrait_MelChronosAnotherTime_"
+	elseif (melskin and melskin.GetCurrentDress() == "Dark Side") then
+		replacement = "Portrait_MelChronosDarkSide_"
+	elseif (melskin and melskin.GetCurrentDress() == "Visage") then
+		replacement = "Portrait_MelChronosVisage_"
+	else
+		replacement = "Portrait_MelChronos_"
+	end
+ 
+	local melPortraits = {
+			Portrait_Mel_Default_01 = "Portrait_Mel_Default_01",
+			Portrait_Mel_Default_01_Exit = "Portrait_Mel_Default_01_Exit",
+			Portrait_Mel_Proud_01 = "Portrait_Mel_Proud_01",
+			Portrait_Mel_Proud_01_Exit = "Portrait_Mel_Proud_01_Exit",
+			Portrait_Mel_Intense_01 = "Portrait_Mel_Intense_01",
+			Portrait_Mel_Intense_01_Exit = "Portrait_Mel_Intense_01_Exit",
+			Portrait_Mel_Vulnerable_01 = "Portrait_Mel_Vulnerable_01",
+			Portrait_Mel_Vulnerable_01_Exit = "Portrait_Mel_Vulnerable_01_Exit",
+			Portrait_Mel_Empathetic_01 = "Portrait_Mel_Empathetic_01",
+			Portrait_Mel_Empathetic_01_Exit = "Portrait_Mel_Empathetic_01_Exit",
+			Portrait_Mel_EmpatheticFlushed_01 = "Portrait_Mel_EmpatheticFlushed_01",
+			Portrait_Mel_EmpatheticFlushed_01_Exit = "Portrait_Mel_EmpatheticFlushed_01_Exit",
+			Portrait_Mel_Hesitant_01 = "Portrait_Mel_Hesitant_01",
+			Portrait_Mel_Hesitant_01_Exit = "Portrait_Mel_Hesitant_01_Exit",
+			Portrait_Mel_Casual_01 = "Portrait_Mel_Casual_01",
+			Portrait_Mel_Casual_01_Exit = "Portrait_Mel_Casual_01_Exit",
+			Portrait_Mel_Pleased_01 = "Portrait_Mel_Pleased_01",
+			Portrait_Mel_Pleased_01_Exit = "Portrait_Mel_Pleased_01_Exit",
+			Portrait_Mel_PleasedFlushed_01 = "Portrait_Mel_PleasedFlushed_01",
+			Portrait_Mel_PleasedFlushed_01_Exit = "Portrait_Mel_PleasedFlushed_01_Exit"
+		}
+
+	for key,value in pairs(melPortraits) do
+		local newvalue = string.gsub(value, "Portrait_Mel_", replacement)
+		AnimationList[key] = newvalue
+	end
+
+	replacement = "Portrait_ZagChronos_"
+	if HeroHasTrait("ChronosManaCostume") or (melskin and melskin.GetCurrentDress() == "Azure") then
+		replacement = "Portrait_ZagChronosAzure_"
+	elseif HeroHasTrait("ChronosEscalatingCostume") or (melskin and melskin.GetCurrentDress() == "Crimson") then
+		replacement = "Portrait_ZagChronosCrimson_"
+	elseif HeroHasTrait("ChronosVitalityCostume") or (melskin and melskin.GetCurrentDress() == "Emerald") then
+		replacement = "Portrait_ZagChronosEmerald_"
+	elseif HeroHasTrait("ChronosCastDamageCostume") or (melskin and melskin.GetCurrentDress() == "Fuchsia") then
+		replacement = "Portrait_ZagChronosFuchsia_"
+	elseif HeroHasTrait("ChronosIncomeCostume") or (melskin and melskin.GetCurrentDress() == "Gilded") then
+		replacement = "Portrait_ZagChronosGilded_"
+	elseif HeroHasTrait("ChronosAgilityCostume") or (melskin and melskin.GetCurrentDress() == "Lavender") then
+		replacement = "Portrait_ZagChronosLavender_"
+	elseif HeroHasTrait("ChronosHighArmorCostume") or (melskin and melskin.GetCurrentDress() == "Onyx") then
+		replacement = "Portrait_ZagChronosOnyx_"
+	elseif (melskin and melskin.GetCurrentDress() == "Alternate Time") then
+		replacement = "Portrait_ZagChronosAnotherTime_"
+	elseif (melskin and melskin.GetCurrentDress() == "Dark Side") then
+		replacement = "Portrait_ZagChronosDarkSide_"
+	elseif (melskin and melskin.GetCurrentDress() == "Visage") then
+		replacement = "Portrait_ZagChronosVisage_"
+	else
+		replacement = "Portrait_ZagChronos_"
+	end
+
+	local zagPortraits = {
+			ModsNikkelMHadesBiomes_Portrait_Zag_Default_01 = "ModsNikkelMHadesBiomes_Portrait_Zag_Default_01",
+			ModsNikkelMHadesBiomes_Portrait_Zag_Default_01_Exit = "ModsNikkelMHadesBiomes_Portrait_Zag_Default_01_Exit",
+			ModsNikkelMHadesBiomes_Portrait_Zag_Serious_01 = "ModsNikkelMHadesBiomes_Portrait_Zag_Serious_01",
+			ModsNikkelMHadesBiomes_Portrait_Zag_Serious_01_Exit = "ModsNikkelMHadesBiomes_Portrait_Zag_Serious_01_Exit",
+			ModsNikkelMHadesBiomes_Portrait_Zag_Defiant_01 = "ModsNikkelMHadesBiomes_Portrait_Zag_Defiant_01",
+			ModsNikkelMHadesBiomes_Portrait_Zag_Defiant_01_Exit = "ModsNikkelMHadesBiomes_Portrait_Zag_Defiant_01_Exit",
+			ModsNikkelMHadesBiomes_Portrait_Zag_Empathetic_01 = "ModsNikkelMHadesBiomes_Portrait_Zag_Empathetic_01",
+			ModsNikkelMHadesBiomes_Portrait_Zag_Empathetic_01_Exit = "ModsNikkelMHadesBiomes_Portrait_Zag_Empathetic_01_Exit",
+			ModsNikkelMHadesBiomes_Portrait_Zag_Unwell_01 = "ModsNikkelMHadesBiomes_Portrait_Zag_Unwell_01",
+			ModsNikkelMHadesBiomes_Portrait_Zag_Unwell_01_Exit = "ModsNikkelMHadesBiomes_Portrait_Zag_Unwell_01_Exit"
+		}
+
+	for key,value in pairs(zagPortraits) do
+		local newvalue = string.gsub(value, "ModsNikkelMHadesBiomes_Portrait_Zag_", replacement)
+		AnimationList[key] = newvalue
+	end
 
 	wait(0.2)
 	for fromAnim,toAnim in pairs(AnimationList) do
