@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Other fixes and improvements:
 
-- Added Chronos Mana UI - Mana Symbol and animations by @Yegitu on discord.
+- Added Chronos Mana UI - Mana Symbol and Charge animation by @Yegitu on discord.
 - Added Chronos Harvesting Animations.
 - Added more Chronos Room transition Animations.
 - Added many Chronos contextual quips, (250+ in game)
