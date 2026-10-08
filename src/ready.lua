@@ -67,12 +67,12 @@ function SetUpPlayerChronos()
 		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = 1.3 })
 	end
 	if rom.mods['NikkelM-Zagreus_Journey'] then
-		ModdedPlayerScaleMultiplier = 1.17
+		ZagJourney.ModdedPlayerScaleMultiplier = 1.17
 	end
 	if not HeroHasTrait("ModsNikkelMHadesBiomesPlayerScaleTrait") then
 		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = 1.3 })
 	else
-		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = ModdedPlayerScaleMultiplier })
+		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = ZagJourney.ModdedPlayerScaleMultiplier })
 	end
 	SetThingProperty({ Property = "GrannyModel", Value = "ChronosReformed_Mesh", DestinationId = CurrentRun.Hero.ObjectId })
 	SetThingProperty({ Property = "Graphic", Value = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
@@ -112,30 +112,16 @@ function SetUpPlayerChronos()
 	Icons.ManaDown = "JarlUlsfark-MelinoeCallsForAid\\GUI\\Icons\\ChronosManaUp_2"
 	Icons.ManaLock = "JarlUlsfark-MelinoeCallsForAid\\GUI\\Icons\\ChronosManaLock_2"
 
-	--CurrentRun.Hero.ChokingSound = "/VO/Chronos_0385"
-
-	--FrozenSound = "/VO/MelinoeEmotes/EmoteHurt",
-	--UnFrozenSound = "/VO/MelinoeEmotes/EmoteGasping",
-
-	--ManaBar
-	--ScreenData.HUD.ComponentData.ManaMeterFill.Animation = "ChronosManaBarFill"
-	--ScreenData.HUD.ComponentData.ManaMeterReserve.Animation = "ChronosManaBarReserveFill"
-	--ScreenData.HUD.ComponentData.ManaMeterReserve.TextArgs.Color = { 204, 204, 51, 255 }
-	
-
-	--DestroyGroup({ Name = "HUD_Main" })
-	--CreateGroup( { Name = "HUD_Main" } )
-	--InsertGroupInFront({ Name = "HUD_Main", DestinationName = "HUD_Backing" })
 end
 
 function SetUpReturnPlayerMelinoe()
 	if rom.mods['NikkelM-Zagreus_Journey'] then
-		ModdedPlayerScaleMultiplier = 0.9
+		ZagJourney.ModdedPlayerScaleMultiplier = 0.9
 	end
 	if not HeroHasTrait("ModsNikkelMHadesBiomesPlayerScaleTrait") then
 		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = 1 })
 	else
-		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = ModdedPlayerScaleMultiplier })
+		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = ZagJourney.ModdedPlayerScaleMultiplier })
 	end
 	SetThingProperty({ Property = "GrannyModel", Value = "Melinoe_Mesh", DestinationId = CurrentRun.Hero.ObjectId })
 	SetThingProperty({ Property = "Graphic", Value = "LaurelCindersSpawner", DestinationId = CurrentRun.Hero.ObjectId })
