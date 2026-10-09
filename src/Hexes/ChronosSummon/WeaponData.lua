@@ -5,7 +5,7 @@ OverwriteTableKeys( WeaponData, {
 		CompleteObjectivesOnFire = { "SpellSummonPrompt" },
 		SpawnName = "TimeElemental2",
 		Duration = 12,
-		MaxSummons = 1,
+		MaxSummons = 3,
 		OnFiredFunctionNames = { "SpellReloadStarted", "SpellFire" },
 		ManaSpendCost = 40,
 		SummonMultipliers = 

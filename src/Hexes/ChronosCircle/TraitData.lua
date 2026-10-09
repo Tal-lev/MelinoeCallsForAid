@@ -21,20 +21,6 @@ OverwriteTableKeys( TraitData, {
 		},
 		PropertyChanges = 
 		{
-			{
-				WeaponName = "WeaponSpellPolymorph",
-				EffectName = "PolymorphTag",
-				EffectProperty = "Duration",
-				ChangeValue = 4.0,
-				ReportValues = { ReportedDuration = "ChangeValue" },
-				DeriveSource = "DeriveSource",
-			},
-			{
-				WeaponName = "WeaponSpellPolymorph",
-				EffectName = "PolymorphDamageTaken",
-				EffectProperty = "Duration",
-				DeriveValueFrom = "DeriveSource"
-			},
             {
 				WeaponName = "WeaponSpellChronosCircle",
 				ProjectileName = "ChronosRadialOut",

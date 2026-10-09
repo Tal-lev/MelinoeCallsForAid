@@ -282,5 +282,55 @@ sjson.hook(file, function(data)
 		},
 	})
 
+	table.insert(data.Projectiles,
+	{
+		Name = "ChronosRadialOutArtemis",
+		InheritFrom = "ChronosRadialOut",
+		Damage = 200,
+		Thing =
+		{
+			Graphic = "ChronosRadialInRing_DarkArtemis",
+			Grip = 999999
+		},
+		Effects =
+		{
+			{
+				Name = "OnHitStunHeavy",
+				Duration = 1.1,
+				DisableMove = true,
+				DisableRotate = true,
+				DisableAttack = true,
+				Active = true,
+				CanAffectInvulnerable = false,
+				FrontFx = "null",
+			}
+		}
+	})
+
+	table.insert(data.Projectiles,
+	{
+		Name = "ChronosRadialInArtemis",
+		InheritFrom = "ChronosRadialIn",
+		Damage = 200,
+		Thing =
+		{
+			Graphic = "ChronosRadialInRing_DarkArtemis",
+			Grip = 999999
+		},
+		Effects =
+		{
+			{
+				Name = "OnHitStunHeavy",
+				Duration = 1.1,
+				DisableMove = true,
+				DisableRotate = true,
+				DisableAttack = true,
+				Active = true,
+				CanAffectInvulnerable = false,
+				FrontFx = "null",
+			}
+		}
+	})
+
 	return data
 end)

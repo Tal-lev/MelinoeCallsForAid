@@ -155,4 +155,41 @@ OverwriteTableKeys( TraitData, {
 		RolloverSpellUses = true,
 	},
 
+	ChronosSummonChaosTalent = 
+	{
+		InheritFrom = {"LegendaryTalent", "SpellTalentTrait", "ForceDuoAppearanceTrait"},
+		Icon = "JarlUlsfark-MelinoeCallsForAid\\Selene_Chaos_Talent",
+		IsDuoBoon = true,
+		LinkedGod = "TrialUpgrade",
+		SpeakerNames = { "Chaos", },
+
+		GameStateRequirements = 
+		{
+			NamedRequirements = { "SeleneDuosUnlocked" },
+			OrRequirements =
+			{
+				{
+					{
+						Path = { "CurrentRun", "Hero", "TraitDictionary" },
+						HasAny = LootData.TrialUpgrade.TraitSortOrder, 
+					},
+				},
+				{
+					{
+						PathTrue = { "CurrentRun", "Hero", "TraitDictionary", "RandomBlessingKeepsake" },
+					},
+				},
+			},
+		},
+        OnWeaponFiredFunctions = 
+		{
+			ValidWeapons = {"WeaponChronosSummon"},
+			FunctionName = _PLUGIN.guid .. "." .. "ChronosSpellSummon",
+			FunctionArgs = 
+			{
+				Godsent = true
+			}
+		},
+	},
+
 })

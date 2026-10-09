@@ -316,6 +316,26 @@ sjson.hook(file, function(data)
     TextOrder)
 	)
 
+  table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosCircleArtemisTalent",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Aim of Artemis",
+      Description = "Your {$Keywords.Spell} can be {$Keywords.FirstTimeSpell}: Your {$Keywords.Spell} may deal {$Keywords.Crit}  and {$TraitData.AresStatusDoubleDamageBoon.DamagePercent:F} damage.",
+    },
+    TextOrder)
+	)
+
+  table.insert(data.Texts, sjson.to_object(
+  {
+      Id = "DoubleDamageChanceStatDisplay2",
+      InheritFrom = "BaseStatLine",
+      DisplayName = "{!Icons.Bullet}{#PropertyFormat}Double Damage Chance:",
+      Description = "{$TooltipData.StatDisplay2}",
+    },
+    TextOrder)
+	)
+
     table.insert(data.Texts, sjson.to_object(
     {
       Id = "SpellChronosSummonTrait",
@@ -372,6 +392,16 @@ sjson.hook(file, function(data)
       InheritFrom = "BaseBoonMultiline",
       DisplayName = "Conservation",
       Description = "Using {$Keywords.FountainPlural} grants {#UpgradeFormat}+{$TraitData.SpellChronosSummonTrait.MaxUses} {#Prev}uses of your {$Keywords.Spell}, even if you still have uses left.",
+    },
+    TextOrder)
+	)
+
+  table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosSummonChaosTalent",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Curiosity of Chaos",
+      Description = "Your {$Keywords.Spell} can be {$Keywords.FirstTimeSpell}: Your {$Keywords.Spell} Summons a random {$Keywords.MiniBoss}.",
     },
     TextOrder)
 	)

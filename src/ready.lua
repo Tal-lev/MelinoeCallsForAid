@@ -112,6 +112,8 @@ function SetUpPlayerChronos()
 	Icons.ManaDown = "JarlUlsfark-MelinoeCallsForAid\\GUI\\Icons\\ChronosManaUp_2"
 	Icons.ManaLock = "JarlUlsfark-MelinoeCallsForAid\\GUI\\Icons\\ChronosManaLock_2"
 
+	print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+	printTable(CurrentRun.Hero.TraitDictionary)
 end
 
 function SetUpReturnPlayerMelinoe()
@@ -824,6 +826,7 @@ function mod.SetupChronosAnimations()
 		Melinoe_Cast_End = "Enemy_Chronos_CastSlowPostFire",
 		Melinoe_Cast_Fire_Quick = "Enemy_Chronos_CastFastFire",
 		Melinoe_CrossCast_Start = "Enemy_Chronos_CastSlowFire",
+		MelinoeCrossCast = "Enemy_Chronos_CastSlowFire",
 		Melinoe_ForwardCast_Unequip  = "Enemy_Chronos_CastSlowFire",
 		MelinoeEquip = "Player_Chronos_Shadowed_Greeting",
 		MelinoeActionIdle = "NPC_Chronos_Enlightened_Hover",
@@ -1063,6 +1066,7 @@ function mod.UnequipChronosAnimations()
 		Melinoe_Cast_End = "Enemy_Chronos_CastSlowPostFire",
 		Melinoe_Cast_Fire_Quick = "Enemy_Chronos_CastFastFire",
 		Melinoe_CrossCast_Start = "Enemy_Chronos_CastSlowFire",
+		MelinoeCrossCast = "Enemy_Chronos_CastSlowFire",
 		Melinoe_ForwardCast_Unequip  = "Enemy_Chronos_CastSlowFire",
 		MelinoeEquip = "Player_Chronos_Shadowed_Greeting",
 		MelinoeActionIdle = "NPC_Chronos_Enlightened_Hover",

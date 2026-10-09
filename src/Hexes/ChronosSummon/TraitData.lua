@@ -18,11 +18,15 @@ end
 
 function mod.ChronosSpellSummon( weaponData, traitArgs, triggerArgs )
 	local wasFirst = true
-	if not ShouldFireFirstTimeOlympian() then
+	if not mod.ShouldFireFirstTimeOlympian() then
 		wasFirst = false
+		if traitArgs.Godsent then
+			return
+		end
 	else
-		if HeroHasTrait("SummonHeraTalent") then	
-			thread( DoFullSuperPresentation, "Hera" )
+		LoadPackages({ Name = "Chaos", IgnoreAssert = true })
+		if traitArgs.Godsent then	
+			thread( DoFullSuperPresentation, "Trial" )
 		end
 	end
 	IncrementTableValue( SessionMapState, "SpellFired" )
@@ -30,6 +34,28 @@ function mod.ChronosSpellSummon( weaponData, traitArgs, triggerArgs )
 	if HeroHasTrait("ChronosDoubleHealTalent") then
 		enemyName = "TimeElemental2Double"
 	end
+	if traitArgs.Godsent then
+		local Miniboss_list = {
+			"Treant", "FogEmitter","ZombieAssassin_Miniboss",
+			"CrawlerMiniboss", "Octofish", "Lamia_Miniboss",
+            "Vampire", "GoldElemental_MiniBoss", "SatyrRatCatcher_Miniboss",
+			"Boar", "SatyrCrossbow", "Captain", 
+			"Talos", "Dragon_MiniBoss", "Brute_Miniboss",
+            "Stalker_Miniboss"
+		}
+		if ZagJourney then
+			local ZJ_Miniboss_list = {
+				"WretchAssassinMiniboss", "HeavyRangedSplitterMiniboss", "SpreadShotUnitMiniboss",
+                "HitAndRunUnit", "SatyrRangedMiniboss", "RatThugMiniboss", 
+				"ThiefImpulseMineLayerMiniboss", "HeavyRangedForkedMiniboss", "HadesCrawlerMiniBoss"
+			}
+			for _, tempEnemy in ipairs(ZJ_Miniboss_list) do
+        		table.insert(Miniboss_list, tempEnemy)
+			end
+		end
+		enemyName = GetRandomValue(Miniboss_list)
+		wait(0.3)
+    end
 	local enemyData = EnemyData[enemyName]
 
 	local hasEnemy = false
@@ -63,6 +89,9 @@ function mod.ChronosSpellSummon( weaponData, traitArgs, triggerArgs )
 	
 	end
 	local offset = CalcOffset(math.rad(GetAngle({Id = CurrentRun.Hero.ObjectId})), 100 )
+	if traitArgs.Godsent then
+		offset = CalcOffset(math.rad(GetAngle({Id = CurrentRun.Hero.ObjectId})), -100 )
+	end
 	local invaderSpawnPoint = SpawnObstacle({ Name = "InvisibleTarget", DestinationId = CurrentRun.Hero.ObjectId, OffsetX = offset.X, OffsetY = offset.Y, ForceToValidLocation = true})
 	
 
@@ -141,7 +170,7 @@ function mod.ChronosSpellSummon( weaponData, traitArgs, triggerArgs )
 	end
 	AddOutline( outlineData )
 
-	if not HeroHasTrait("SummonPermanenceTalent") then
+	if not HeroHasTrait("SummonPermanenceTalent") and not traitArgs.Godsent then
 		thread(mod.ChronosEndSpellSummon, newEnemy, weaponData)
 	end
 end

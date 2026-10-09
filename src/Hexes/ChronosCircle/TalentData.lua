@@ -1,5 +1,22 @@
 function mod.ChronosCircleIn(weaponData, functionArgs, triggerArgs ) 
-  CreateProjectileFromUnit({ Name = functionArgs.ProjectileName, WeaponName = functionArgs.WeaponName,  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
+    if ShouldFireFirstTimeOlympian() then
+        CreateProjectileFromUnit({ Name = functionArgs.ProjectileName .. "Artemis", WeaponName = functionArgs.WeaponName,  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
+    else
+        CreateProjectileFromUnit({ Name = functionArgs.ProjectileName, WeaponName = functionArgs.WeaponName,  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
+    end
+end
+
+function mod.ChronosCircleArtemis( triggerArgs, traitArgs )
+    if ShouldFireFirstTimeOlympian() then
+        thread( DoFullSuperPresentation, traitArgs.Character )
+        Destroy({ Id = triggerArgs.ProjectileId })
+        wait(0.1)
+        CreateProjectileFromUnit({ Name = traitArgs.ProjectileName, WeaponName = "WeaponSpellChronosCircle",  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
+        wait(1)
+        IncrementTableValue( SessionMapState, "SpellFired" )
+    else 
+        return
+    end
 end
 
 OverwriteTableKeys( TraitData, {
@@ -54,7 +71,7 @@ OverwriteTableKeys( TraitData, {
         Icon = "Boon_Selene_40",
         OnEnemyDamagedAction = 
         {
-            ValidProjectiles = { "ChronosRadialOut" ,"ChronosRadialIn"},
+            ValidProjectiles = { "ChronosRadialOut" ,"ChronosRadialIn", "ChronosRadialOutArtemis", "ChronosRadialInArtemis"},
             EffectName = "BlindEffect",
             Chance = 1,
             ReportValues = { ReportedChance = "Chance"}
@@ -115,7 +132,7 @@ OverwriteTableKeys( TraitData, {
 		},
         OnEnemyDamagedAction = 
 		{
-			ValidProjectiles = { "ChronosRadialOut" ,"ChronosRadialIn"},
+			ValidProjectiles = { "ChronosRadialOut" ,"ChronosRadialIn", "ChronosRadialOutArtemis", "ChronosRadialInArtemis"},
 			EffectName = "DelayedKnockbackEffect",
 			Args = 
 			{
@@ -164,7 +181,7 @@ OverwriteTableKeys( TraitData, {
         Icon = "Boon_Selene_48",
         OnEnemyDamagedAction = 
 		{
-			ValidProjectiles = { "ChronosRadialOut" ,"ChronosRadialIn" },
+			ValidProjectiles = { "ChronosRadialOut" ,"ChronosRadialIn", "ChronosRadialOutArtemis", "ChronosRadialInArtemis" },
 			FunctionName = "ApplyAphroditeVulnerability",
 			Args = 
 			{
@@ -199,7 +216,7 @@ OverwriteTableKeys( TraitData, {
         AddOutgoingDamageModifiers =
         {
             ValidWeaponMultiplier = { BaseValue = 1.1, SourceIsMultiplier = true },
-            ValidProjectiles = { "ChronosRadialOut" ,"ChronosRadialIn"},
+            ValidProjectiles = { "ChronosRadialOut" ,"ChronosRadialIn" , "ChronosRadialOutArtemis", "ChronosRadialInArtemis"},
             ReportValues = { ReportedWeaponMultiplier = "ValidWeaponMultiplier"},
         },
         StatLines =
@@ -215,6 +232,78 @@ OverwriteTableKeys( TraitData, {
 			},
 		},
     },
+
+    ChronosCircleArtemisTalent = 
+	{
+		InheritFrom = {"LegendaryTalent", "SpellTalentTrait", "ForceDuoAppearanceTrait"},
+		Icon = "JarlUlsfark-MelinoeCallsForAid\\Selene_Artemis_Talent",
+		IsDuoBoon = true,
+		LinkedGod = "ArtemisUpgrade",
+		SpeakerNames = { "Artemis", },
+
+		GameStateRequirements = 
+		{
+			NamedRequirements = { "SeleneDuosUnlocked" },
+			OrRequirements =
+			{
+				{
+					{
+						PathTrue = { "CurrentRun", "Hero", "MetGods", "NPC_Artemis_Field_01" },
+					},
+				},
+                {
+					{
+						PathTrue = { "CurrentRun", "Hero", "MetGods", "ArtemisBossRush" },
+					},
+				},
+				{
+					{
+						PathTrue = { "CurrentRun", "Hero", "TraitDictionary", "LowHealthCritKeepsake" },
+					},
+				},
+			},
+		},
+        OnProjectileCreationFunction = 
+        {
+            ValidProjectiles = { "ChronosRadialOut" },
+			Name = _PLUGIN.guid .. "." .. "ChronosCircleArtemis",
+			Args = 
+			{
+				Character = "Artemis",
+                ProjectileName = "ChronosRadialOutArtemis",
+			},
+        },
+		AddOutgoingCritModifiers =
+		{
+            ValidProjectiles = { "ChronosRadialOutArtemis", "ChronosRadialInArtemis" },
+			Chance = { BaseValue = 0.60 },
+			ReportValues = { ReportedCritBonus = "Chance"},
+		},
+        AddOutgoingDoubleDamageModifiers = 
+		{
+            ValidProjectiles = { "ChronosRadialOutArtemis", "ChronosRadialInArtemis" },
+			Chance = { BaseValue = 0.30 },
+			ReportValues = { ReportedChance = "Chance"},
+		},
+		StatLines =
+		{
+			"CriticalChanceDisplay1",
+            "DoubleDamageChanceStatDisplay2",
+		},
+		ExtractValues =
+		{
+			{
+				Key = "ReportedCritBonus",
+				ExtractAs = "CritBonus",
+				Format = "LuckModifiedPercent"
+			},
+            {
+				Key = "ReportedChance",
+				ExtractAs = "DoubleDamageBonus",
+				Format = "LuckModifiedPercent"
+			},
+		},
+	},
 })
 
 
