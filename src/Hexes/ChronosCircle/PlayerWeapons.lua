@@ -7,7 +7,8 @@ sjson.hook(file, function(data)
 		InheritFrom = "1_BaseDamagingWeapon",
 		Control = "Shout",
 		Type = "GUN",
-		Projectile = "ChronosRadialOut",
+		Projectile = "null",
+		--Projectile = "ChronosRadialOut",
 		ChargeSound = "/SFX/Player Sounds/TimeSlowCharge",
 		ChargeSoundFadeTime = 0.25,
 		RootOwnerWhileFiring = true,
@@ -70,6 +71,13 @@ sjson.hook(file, function(data)
 				CanAffectInvulnerable = true,
 			},
 		},
+	})
+
+	table.insert(data.Weapons,
+	{
+		Name = "WeaponSpellChronosCircleGodSent",
+		InheritFrom = "WeaponSpellChronosCircle",
+		Projectile = "ChronosRadialOutArtemis",
 	})
 
 return data

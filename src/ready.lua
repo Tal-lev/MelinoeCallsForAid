@@ -112,8 +112,6 @@ function SetUpPlayerChronos()
 	Icons.ManaDown = "JarlUlsfark-MelinoeCallsForAid\\GUI\\Icons\\ChronosManaUp_2"
 	Icons.ManaLock = "JarlUlsfark-MelinoeCallsForAid\\GUI\\Icons\\ChronosManaLock_2"
 
-	print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-	printTable(CurrentRun.Hero.TraitDictionary)
 end
 
 function SetUpReturnPlayerMelinoe()

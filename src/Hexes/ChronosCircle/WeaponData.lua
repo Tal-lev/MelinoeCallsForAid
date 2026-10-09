@@ -14,8 +14,6 @@ OverwriteTableKeys( WeaponData, {
 			Force = true,
 		},
 
-		PolymorphExtractModifier = 0.5,
-
 		FireScreenshake = { Distance = 4, Speed = 400, FalloffSpeed = 1400, Duration = 0.16, Angle = 225, ScreenPreWait = 0.19 },
 
 		ChargeScreenshake = { Distance = 2, Speed = 100, FalloffSpeed = 2000, Duration = 1.5 },
@@ -49,4 +47,6 @@ OverwriteTableKeys( WeaponData, {
 			},
 		},		
 	},
+
+	WeaponSpellChronosCircleGodSent = {}
 })

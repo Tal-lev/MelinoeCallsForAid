@@ -4,6 +4,31 @@ function mod.ChronosCheckCircleCharge( triggerArgs, functionArgs )
 	end
 end
 
+function mod.ChronosCircle( weaponData, functionArgs, triggerArgs )
+	if weaponData.Name ~= "WeaponSpellChronosCircle" then
+		return
+	end
+    if HeroHasTrait("ChronosCircleArtemisTalent") and ShouldFireFirstTimeOlympian() then
+        thread( DoFullSuperPresentation, functionArgs.Character )
+        wait(0.1)
+		CreateProjectileFromUnit({ Name = functionArgs.ProjectileName .. "Out" .. "Artemis", WeaponName = weaponData.Name .. "GodSent",  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
+		if HeroHasTrait("ChronosCircleInTalent") then
+			wait(0.1)
+			CreateProjectileFromUnit({ Name = functionArgs.ProjectileName .. "In" .. "Artemis", WeaponName = weaponData.Name .. "GodSent",  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
+		end
+    else 
+		print("Second Use")
+		wait(0.1)
+		CreateProjectileFromUnit({ Name = functionArgs.ProjectileName .. "Out", WeaponName = weaponData.Name,  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
+		if HeroHasTrait("ChronosCircleInTalent") then
+			wait(0.1)
+			CreateProjectileFromUnit({ Name = functionArgs.ProjectileName .. "In", WeaponName = weaponData.Name,  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
+		end
+    end
+	wait(1)
+	IncrementTableValue( SessionMapState, "SpellFired" )
+end
+
 OverwriteTableKeys( TraitData, {
 
     SpellChronosCircleTrait = 
@@ -37,7 +62,16 @@ OverwriteTableKeys( TraitData, {
 				ExtractAs = "ManaCost",
 			},
 		},
-
+		OnWeaponFiredFunctions = 
+        {
+            WeaponNames = WeaponSets.HeroSpellWeapons,
+			FunctionName = _PLUGIN.guid .. "." .. "ChronosCircle",
+			FunctionArgs = 
+			{
+				Character = "Artemis",
+                ProjectileName = "ChronosRadial",
+			},
+        },
 		UpgradePickedVoiceLines =
 		{
 			{

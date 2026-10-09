@@ -1,24 +1,3 @@
-function mod.ChronosCircleIn(weaponData, functionArgs, triggerArgs ) 
-    if ShouldFireFirstTimeOlympian() then
-        CreateProjectileFromUnit({ Name = functionArgs.ProjectileName .. "Artemis", WeaponName = functionArgs.WeaponName,  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
-    else
-        CreateProjectileFromUnit({ Name = functionArgs.ProjectileName, WeaponName = functionArgs.WeaponName,  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
-    end
-end
-
-function mod.ChronosCircleArtemis( triggerArgs, traitArgs )
-    if ShouldFireFirstTimeOlympian() then
-        thread( DoFullSuperPresentation, traitArgs.Character )
-        Destroy({ Id = triggerArgs.ProjectileId })
-        wait(0.1)
-        CreateProjectileFromUnit({ Name = traitArgs.ProjectileName, WeaponName = "WeaponSpellChronosCircle",  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
-        wait(1)
-        IncrementTableValue( SessionMapState, "SpellFired" )
-    else 
-        return
-    end
-end
-
 OverwriteTableKeys( TraitData, {
     ChronosCircleInTalent = 
     {
@@ -32,17 +11,6 @@ OverwriteTableKeys( TraitData, {
         StatLines =
         {
             "TalentManaCostAdditionStatline",
-        },
-        OnWeaponFiredFunctions =
-        {
-            ValidWeapons =  { "WeaponSpellChronosCircle" },
-		    ExcludeLinked = true,
-		    FunctionName = _PLUGIN.guid .. "." .. "ChronosCircleIn",
-		    FunctionArgs =
-		    {
-                WeaponName = "WeaponSpellChronosCircle",
-                ProjectileName = "ChronosRadialIn",
-		    },
         },
         PropertyChanges =
         {
@@ -240,7 +208,6 @@ OverwriteTableKeys( TraitData, {
 		IsDuoBoon = true,
 		LinkedGod = "ArtemisUpgrade",
 		SpeakerNames = { "Artemis", },
-
 		GameStateRequirements = 
 		{
 			NamedRequirements = { "SeleneDuosUnlocked" },
@@ -263,16 +230,6 @@ OverwriteTableKeys( TraitData, {
 				},
 			},
 		},
-        OnProjectileCreationFunction = 
-        {
-            ValidProjectiles = { "ChronosRadialOut" },
-			Name = _PLUGIN.guid .. "." .. "ChronosCircleArtemis",
-			Args = 
-			{
-				Character = "Artemis",
-                ProjectileName = "ChronosRadialOutArtemis",
-			},
-        },
 		AddOutgoingCritModifiers =
 		{
             ValidProjectiles = { "ChronosRadialOutArtemis", "ChronosRadialInArtemis" },
@@ -281,7 +238,7 @@ OverwriteTableKeys( TraitData, {
 		},
         AddOutgoingDoubleDamageModifiers = 
 		{
-            ValidProjectiles = { "ChronosRadialOutArtemis", "ChronosRadialInArtemis" },
+            ValidWeapons = { "WeaponSpellChronosCircleGodsent" },
 			Chance = { BaseValue = 0.30 },
 			ReportValues = { ReportedChance = "Chance"},
 		},
