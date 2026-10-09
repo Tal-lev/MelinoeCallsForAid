@@ -9,7 +9,6 @@ A Hades II mod that allows you to play as other Characters.
 ## Missing Art [Artists Wanted]
 
   - New Hammer Icons
-  - New Hex Godsent Icons
   - Portrait expressions
 
 ## Installation
