@@ -368,7 +368,7 @@ end)
 --Killing Chronos presentation after True ending
 modutil.mod.Path.Wrap("ChronosSpecialKillPresentation",  function(baseFunc, chronos, args) 
 	if HeroHasTrait("ChronosAspect") then
-		return
+		return mod.ChronosSpecialKillPresentation( chronos, args )
 	else
 		return baseFunc(chronos, args)
 	end

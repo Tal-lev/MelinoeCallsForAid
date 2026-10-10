@@ -1832,6 +1832,34 @@ function mod.LeaveRoomIPreBoss02Presentation( currentRun, exitDoor )
 	ToggleCombatControl( { "AdvancedTooltip" } , true, "LeaveRoom" )
 end
 
+--Kill Chronos with Player Chronos
+function mod.ChronosSpecialKillPresentation( chronos, args )
+	
+	CreateAnimation({ Name = "ChronosTeleportFxFront", DestinationId = CurrentRun.Hero.ObjectId })
+	SetAlpha({ Id = CurrentRun.Hero.ObjectId, Fraction = 0, Duration = 0 })
+	wait(0.5)
+	Teleport({ Id = CurrentRun.Hero.ObjectId, DestinationId = chronos.ObjectId, OffsetX = -180, OffsetY = -120 })
+	AngleTowardTarget({ Id = neoChronosId, DestinationId = chronos.ObjectId })
+	SetAlpha({ Id = CurrentRun.Hero.ObjectId, Fraction = 1, Duration = 0.3 })
+	CreateAnimation({ Name = "ChronosTeleportFxFront", DestinationId = CurrentRun.Hero.ObjectId })
+
+	thread( PlayVoiceLines, EnemyData.NPC_Chronos_02.BossFinisherVoiceLines ) 
+
+	PanCamera({ Ids = { CurrentRun.Hero.ObjectId, chronos.ObjectId }, Duration = 1.2, Retarget = true })
+
+	wait( 0.8 )
+
+	SetAnimation({ Name = "NPC_Chronos_Execute_Start", DestinationId = CurrentRun.Hero.ObjectId })
+
+	wait(1.96)
+
+	CreateAnimation({ Name = "ChronosSwingLeft", DestinationId = CurrentRun.Hero.ObjectId })
+
+	wait(1.2)
+
+	SetAnimation({ Name = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
+end
+
 function mod.ChronosSetupMelWalk( source, args )
 	SetUnitProperty({ Property = "StartGraphic", Value = "NPC_Chronos_Enlightened_Move_Start", DestinationId = CurrentRun.Hero.ObjectId })
 	SetUnitProperty({ Property = "MoveGraphic", Value = "NPC_Chronos_Enlightened_Move", DestinationId = CurrentRun.Hero.ObjectId })
