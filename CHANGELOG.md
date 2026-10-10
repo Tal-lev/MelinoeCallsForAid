@@ -27,6 +27,7 @@ Other fixes and improvements:
 - Fixed: the game crash when gaining a pom with some of the Chronos dash boons.
 - Fixed: Interaction animation lead to Chronos animation glitching.
 - Fixed: Hero unexpected size Change during Zagreus Journey biomes
+- Fixed: Omega Attack fires even when there is not sufficient mana.
 
 ## [0.2.1] - 2026-09-28
 
