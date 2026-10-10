@@ -51,7 +51,7 @@ local function on_ready()
 	import "text.lua"
 	import "Animations.lua"
 	import "PortraitAnimations.lua"
-	import "ProjectileVFX.lua"
+	--import "ProjectileVFX.lua"
 	import "Projectiles.lua"
 	import "DashBoons.lua"
 	import "VoiceLines.lua"

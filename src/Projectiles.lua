@@ -289,7 +289,7 @@ sjson.hook(file, function(data)
 		Damage = 200,
 		Thing =
 		{
-			Graphic = "ChronosRadialInRing_DarkArtemis",
+			Graphic = "ChronosRadialInRing_Dark",
 			Grip = 999999
 		},
 		Effects =
@@ -314,7 +314,7 @@ sjson.hook(file, function(data)
 		Damage = 200,
 		Thing =
 		{
-			Graphic = "ChronosRadialInRing_DarkArtemis",
+			Graphic = "ChronosRadialInRing_Dark",
 			Grip = 999999
 		},
 		Effects =
@@ -331,6 +331,16 @@ sjson.hook(file, function(data)
 			}
 		}
 	})
+
+	table.insert(data.Projectiles,
+	{
+		Name = "ChronosRiftSpell",
+		InheritFrom = "ChronosRift",
+		StartDelay = 1.5,
+		Damage = 300,
+	})
+
+
 
 	return data
 end)

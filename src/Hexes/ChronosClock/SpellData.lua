@@ -1,86 +1,40 @@
-table.insert(SpellDisplayData.TraitSortOrder, 10, "SpellChronosCircleTrait")
-table.insert(WeaponSets.HeroSpellWeapons,"WeaponSpellChronosCircle")
+table.insert(SpellDisplayData.TraitSortOrder, 10, "SpellChronosClockTrait")
+table.insert(WeaponSets.HeroSpellWeapons,"WeaponSpellChronosClock")
 
-if not LootData.ArtemisUpgrade then
-	OverwriteTableKeys(LootData, {
-		ArtemisUpgrade = {
-			Gender = "Female",
-			LootColor = Color.ArtemisVoice,
-			WrathPortrait = "Portrait_Artemis_Serious_01_Wrath",
-			FullSuperActivatedVoiceLines =
+OverwriteTableKeys(LootData.HermesUpgrade, {
+		WrathPortrait = "Portrait_Hermes_Serious_01_Wrath",
+		FullSuperActivatedVoiceLines =
+		{
+			Queue = "Interrupt",
 			{
-				Queue = "Interrupt",
+				RandomRemaining = true,
+				Source = { LineHistoryName = "NPC_Hermes_01", SubtitleColor = Color.HermesVoice },
+				GameStateRequirements =
 				{
-					RandomRemaining = true,
-					Source = { LineHistoryName = "NPC_Artemis_01", SubtitleColor = Color.ArtemisVoice },
-					GameStateRequirements =
+					OrRequirements =
 					{
-						OrRequirements =
 						{
 							{
-								{
-									Path = { "CurrentRun", "CurrentRoom", "Encounter", "SpurnedGodName" },
-									IsNone = { "ArtemisUpgrade" },
-								},
-							},
-							{
-								{
-									PathTrue = { "CurrentRun", "CurrentRoom", "Encounter", "Completed" },
-								},
+								Path = { "CurrentRun", "CurrentRoom", "Encounter", "SpurnedGodName" },
+								IsNone = { "HermesUpgrade" },
 							},
 						},
-						NamedRequirements = { "FullSuperVoiceLinesEligible" },
+						{
+							{
+								PathTrue = { "CurrentRun", "CurrentRoom", "Encounter", "Completed" },
+							},
+						},
 					},
-
-					{ Cue = "/VO/Artemis_0460", Text = "Hunting livestock, sure."},
-					{ Cue = "/VO/Artemis_0461", Text = "Easy targets."},
-					{ Cue = "/VO/Artemis_0123", Text = "My mark is yours." },
-					{ Cue = "/VO/Artemis_0327", Text = "The hunt is on...", PlayFirst = true },
-					{ Cue = "/VO/Artemis_0247", Text = "And our aim be true." },
+					NamedRequirements = { "FullSuperVoiceLinesEligible" },
 				},
-			}
-		}
+
+				{ Cue = "/VO/Hermes_0347", Text = "Express shipping!"},
+				{ Cue = "/VO/Hermes_0377", Text = "Not quick enough!"},
+				{ Cue = "/VO/Hermes_0329", Text = "All right I better go!" },
+				{ Cue = "/VO/Hermes_0126", Text = "Hermes, at your service!" },
+			},
+		},
 	})
-elseif not LootData.ArtemisUpgrade.Gender then
-	OverwriteTableKeys(LootData.ArtemisUpgrade, {
-			Gender = "Female",
-			LootColor = Color.ArtemisVoice,
-			WrathPortrait = "Portrait_Artemis_Serious_01_Wrath",
-			FullSuperActivatedVoiceLines =
-			{
-				Queue = "Interrupt",
-				{
-					RandomRemaining = true,
-					Source = { LineHistoryName = "NPC_Artemis_01", SubtitleColor = Color.ArtemisVoice },
-					GameStateRequirements =
-					{
-						OrRequirements =
-						{
-							{
-								{
-									Path = { "CurrentRun", "CurrentRoom", "Encounter", "SpurnedGodName" },
-									IsNone = { "ArtemisUpgrade" },
-								},
-							},
-							{
-								{
-									PathTrue = { "CurrentRun", "CurrentRoom", "Encounter", "Completed" },
-								},
-							},
-						},
-						NamedRequirements = { "FullSuperVoiceLinesEligible" },
-					},
-
-					{ Cue = "/VO/Artemis_0460", Text = "Hunting livestock, sure."},
-					{ Cue = "/VO/Artemis_0461", Text = "Easy targets."},
-					{ Cue = "/VO/Artemis_0123", Text = "My mark is yours." },
-					{ Cue = "/VO/Artemis_0327", Text = "The hunt is on...", PlayFirst = true },
-					{ Cue = "/VO/Artemis_0247", Text = "And our aim be true." },
-				},
-			}
-		}
-	)
-end
 
 local file = rom.path.combine(rom.paths.Content, 'Game/Animations/GUI_Portraits_VFX.sjson')
 sjson.hook(file, function(data)
@@ -97,9 +51,9 @@ sjson.hook(file, function(data)
 
 	table.insert(data.Animations, sjson.to_object(
 	{
-		Name = "Portrait_Artemis_Serious_01_Wrath",
+		Name = "Portrait_Hermes_Serious_01_Wrath",
 		InheritFrom = "Portrait_God_01_Wrath",
-		FilePath = "Portraits\\Artemis\\Portraits_Artemis_Serious_01",
+		FilePath = "Portraits\\Hermes\\Portraits_Hermes_Serious_01",
 		EndFrame = 1,
 		StartFrame = 1,
 		OffsetY = -119,
@@ -109,14 +63,14 @@ sjson.hook(file, function(data)
 	return data
 end)
 
-table.insert(GameData.AllHexDuos,"ChronosCircleArtemisTalent")
+table.insert(GameData.AllHexDuos,"ChronosClockHermesTalent")
 
 OverwriteTableKeys( SpellData, {
-    ChronosCircle = 
+    ChronosClock = 
     {
 
-		Objective = "SpellChronosCirclePrompt",
-		TraitName = "SpellChronosCircleTrait",
+		Objective = "SpellChronosClockPrompt",
+		TraitName = "SpellChronosClockTrait",
         GameStateRequirements = 
         {
             {
@@ -130,19 +84,17 @@ OverwriteTableKeys( SpellData, {
 			{
 				"CooldownDamageTalent",
 				"ChargeRegenTalent",   
-                "ChronosCircleDamageTalent",       
+                "ChronosClockSize",     
 			},
 			Unique = 
 			{
-                "ChronosCircleInTalent",
-                "ChronosCircleBlindTalent",
-                "ChronosCircleWeakTalent",
-                "ChronosCircleGlowTalent",
+                "ChronosClockDiagonalOneTalent",
+				"ChronosClockDiagonalTwoTalent",
 			},
 			Legendary = 
 			{
 				--"CooldownDamageTalent",
-				"ChronosCircleArtemisTalent",
+				"ChronosClockHermesTalent",
 			},
 		},
     },

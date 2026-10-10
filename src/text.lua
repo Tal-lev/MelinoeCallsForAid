@@ -406,5 +406,55 @@ sjson.hook(file, function(data)
     TextOrder)
 	)
 
+  table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "SpellChronosClockTrait",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Broken Clock",
+      Description = "Your {$Keywords.Spell} fires two linear explosions, one vertical, one horizontal.",
+    },
+    TextOrder)
+	)
+
+  table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosClockSize",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "New Casing",
+      Description = "Your {$Keywords.Spell} is larger.",
+    },
+    TextOrder)
+	)
+
+  table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosClockDiagonalOneTalent",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Noon to Night",
+      Description = "Your {$Keywords.Spell} fires at 1 and 2 O'clock.",
+    },
+    TextOrder)
+	)
+
+  table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosClockDiagonalTwoTalent",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "AfterNoon to Dawn",
+      Description = "Your {$Keywords.Spell} fires at 4 and 5 O'clock.",
+    },
+    TextOrder)
+	)
+
+  table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "ChronosClockHermesTalent",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Urgency of Hermes",
+      Description = "Your {$Keywords.Spell} can be {$Keywords.FirstTimeSpell}: Your {$Keywords.Spell} fires consecutively with the rotation of the clock.",
+    },
+    TextOrder)
+	)
+
 return data
 end)
