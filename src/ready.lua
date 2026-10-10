@@ -365,6 +365,24 @@ modutil.mod.Path.Wrap("PlayInteractAnimation",  function(baseFunc, interactableO
 	end
 end)
 
+--Killing Chronos presentation after True ending
+modutil.mod.Path.Wrap("ChronosSpecialKillPresentation",  function(baseFunc, chronos, args) 
+	if HeroHasTrait("ChronosAspect") then
+		return
+	else
+		return baseFunc(chronos, args)
+	end
+end)
+
+--Entering Prebossroom into Chronos fight after true ending
+modutil.mod.Path.Wrap("LeaveRoomIPreBoss02Presentation",  function(baseFunc, currentRun, exitDoor) 
+	if HeroHasTrait("ChronosAspect") then
+		return mod.LeaveRoomIPreBoss02Presentation(currentRun, exitDoor)
+	else
+		return baseFunc(chronos, currentRun, exitDoor)
+	end
+end)
+
 --Interact
 --modutil.mod.Path.Wrap("SetAnimation",  function(baseFunc, args) 
 --	if args and args.DestinationId == 40000 then

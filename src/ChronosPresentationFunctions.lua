@@ -1771,6 +1771,67 @@ end
 --Hug Hecate
 --Hug Persephone
 
+--Leaving PreBoss into the chronos fight after True ending
+function mod.LeaveRoomIPreBoss02Presentation( currentRun, exitDoor )
+	HideCombatUI( "LeaveRoomIPreBoss02Presentation" )
+	AddInputBlock({ Name = "LeaveRoomIPreBoss02Presentation" })
+	CreateAnimation({ Name = "ChronosTeleportFxFront", DestinationId = CurrentRun.Hero.ObjectId })
+	SetAlpha({ Id = CurrentRun.Hero.ObjectId, Fraction = 0.0, Duration = 0.1 })
+	
+	ToggleCombatControl( { "AdvancedTooltip" } , false, "LeaveRoom" )
+
+	LeaveRoomAudio( currentRun, exitDoor )
+
+	Stop({ Id = CurrentRun.Hero.ObjectId })
+	wait( 0.01 )
+
+	
+
+	thread( PlayVoiceLines, GlobalVoiceLines.ChronosLaunchVoiceLines, true )
+
+	CreateAnimation({ Name = "SandPortalOpen", DestinationId = exitDoor.ObjectId })
+
+	--AngleTowardTarget({ Id = CurrentRun.Hero.ObjectId, DestinationId = exitDoor.ObjectId })
+	--local unequipAnimation = GetEquippedWeaponValue("UnequipAnimation") or "MelinoeIdleWeaponless"
+	--SetAnimation({ Name = unequipAnimation, DestinationId = CurrentRun.Hero.ObjectId })
+	PanCamera({ Id = exitDoor.ObjectId, Duration = 1.1, OffsetY = -50, EaseOut = 0 })
+	
+	wait( 0.53 )
+
+	thread( DoRumble, { { ScreenPreWait = 0.02, Fraction = 0.15, Duration = 0.25 }, } )
+	--PlaySound({ Name = "/VO/MelinoeEmotes/EmoteEvading" })
+	--PlaySound({ Name = "/Leftovers/SFX/PlayerJumpMedium" })
+	local args = {}
+	args.SuccessDistance = 20
+	args.DisableCollision = true
+	local exitPath = {}
+	table.insert( exitPath, exitDoor.ObjectId )
+	--thread( MoveHeroAlongPath, exitPath, args )
+
+	wait( 0.1 )
+
+	PanCamera({ Id = exitDoor.ObjectId, Duration = 1.2, OffsetY = 85, Retarget = true})
+
+	wait( 0.2 )
+	
+	CreateAnimation({ Name = "CWSandBurst_PreBoss", DestinationId = 712195, Group = "Standing" })
+	StopAnimation({ Name = "SandPortalTerrainLoop", DestinationId = exitDoor.ObjectId })
+	CreateAnimation({ Name = "SandPortalTerrainClose", DestinationId = exitDoor.ObjectId })
+	PlaySound({ Name = "/SFX/SandDive", Id = 712195 })
+	thread( DoRumble, { { ScreenPreWait = 0.02, Fraction = 0.3, Duration = 0.2 }, } )
+
+	--AudioState.WaterSoundId = PlaySound({ Name = "/Ambience/SandAmbienceLoop" })
+	FullScreenFadeOutAnimation( "RoomTransitionIn_TimeWarp", "ChronosSand" )
+	wait( 1.0 )
+	FadeOut({ Duration = 0.5, Color = Color.Black })
+	wait( 0.5 )
+
+	WaitForSpeechFinished()
+
+	RemoveInputBlock({ Name = "LeaveRoomIPreBoss02Presentation" })
+	ToggleCombatControl( { "AdvancedTooltip" } , true, "LeaveRoom" )
+end
+
 function mod.ChronosSetupMelWalk( source, args )
 	SetUnitProperty({ Property = "StartGraphic", Value = "NPC_Chronos_Enlightened_Move_Start", DestinationId = CurrentRun.Hero.ObjectId })
 	SetUnitProperty({ Property = "MoveGraphic", Value = "NPC_Chronos_Enlightened_Move", DestinationId = CurrentRun.Hero.ObjectId })
