@@ -384,16 +384,16 @@ modutil.mod.Path.Wrap("LeaveRoomIPreBoss02Presentation",  function(baseFunc, cur
 end)
 
 --Interact
---modutil.mod.Path.Wrap("SetAnimation",  function(baseFunc, args) 
---	if args and args.DestinationId == 40000 then
---		print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
---		print("printing args")
---		print(args.Name)
---		print(args.DestinationId)
---		print(debug.traceback())
---	end
---	return baseFunc( args)
---end)
+modutil.mod.Path.Wrap("SetAnimation",  function(baseFunc, args) 
+	if args and args.DestinationId == 40000 then
+		print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+		print("printing args")
+		print(args.Name)
+		print(args.DestinationId)
+		print(debug.traceback())
+	end
+	return baseFunc( args)
+end)
 
 --Enter Room 
 --modutil.mod.Path.Context.Env("RoomEntranceMaterialize", function ( currentRun, currentRoom, args )
@@ -866,6 +866,16 @@ function mod.SetupChronosAnimations()
 		Melinoe_Gesture_ToWeaponless = "NPC_Chronos_Enlightened_Hover",
 		MelinoeInteractWeaponless = "NPC_Chronos_Enlightened_Hover",
 		Melinoe_InteractToEquip = "NPC_Chronos_Enlightened_Hover",
+		MelinoeBountyTurnInStart = "NPC_Chronos_Enlightened_Hover",
+		MelinoeSpellFireCancellable = "NPC_Chronos_Enlightened_Hover",
+		MelinoeSpellFireReturn = "NPC_Chronos_Enlightened_Hover",
+		MelinoeCrossCastAntic = "NPC_Chronos_Enlightened_Hover",
+		MelinoeCrossCastAnticReverse = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_CrossCast_Start_Fast = "NPC_Chronos_Enlightened_Hover",
+		MelinoeCrossCastHold = "NPC_Chronos_Enlightened_Hover",
+		MelinoeCrossCastToIdle = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Leap_Landing = "NPC_Chronos_Enlightened_Hover",
+		MelinoeIdlePostInteract = "NPC_Chronos_Enlightened_Hover",
 		
 		MelTalkPensive01 = "NPC_Chronos_Enlightened_Hover",
 		MelTalkPensive01Loop = "NPC_Chronos_Enlightened_Hover",
@@ -1106,6 +1116,16 @@ function mod.UnequipChronosAnimations()
 		Melinoe_Gesture_ToWeaponless = "NPC_Chronos_Enlightened_Hover",
 		MelinoeInteractWeaponless = "NPC_Chronos_Enlightened_Hover",
 		Melinoe_InteractToEquip = "NPC_Chronos_Enlightened_Hover",
+		MelinoeBountyTurnInStart = "NPC_Chronos_Enlightened_Hover",
+		MelinoeSpellFireCancellable = "NPC_Chronos_Enlightened_Hover",
+		MelinoeSpellFireReturn = "NPC_Chronos_Enlightened_Hover",
+		MelinoeCrossCastAntic = "NPC_Chronos_Enlightened_Hover",
+		MelinoeCrossCastAnticReverse = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_CrossCast_Start_Fast = "NPC_Chronos_Enlightened_Hover",
+		MelinoeCrossCastHold = "NPC_Chronos_Enlightened_Hover",
+		MelinoeCrossCastToIdle = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Leap_Landing = "NPC_Chronos_Enlightened_Hover",
+		MelinoeIdlePostInteract = "NPC_Chronos_Enlightened_Hover",
 		
 		MelTalkPensive01 = "NPC_Chronos_Enlightened_Hover",
 		MelTalkPensive01Loop = "NPC_Chronos_Enlightened_Hover",
@@ -1332,7 +1352,7 @@ ChronosAspect = {
 		{
 			ChargeWeaponStages = 
 			{
-				{ ManaCost = 30, WeaponProperties = { NumProjectiles = 1, FireEndGraphic = "null" }, Wait = 0.2, ChannelSlowEventOnEnter = true, HideStageReachedFx = true },
+				{ ManaCost = 30, WeaponProperties = { NumProjectiles = 1, FireEndGraphic = "null" }, Wait = 1, ChannelSlowEventOnEnter = true, HideStageReachedFx = false },
 			},
 			FireSounds =
 			{
@@ -1473,7 +1493,8 @@ ChronosAspect = {
 				ChargeStartAnimation = "Enemy_Chronos_ScytheThrowPreFire",
 				ChargeCancelGraphic = "Enemy_Chronos_ScytheThrowFire",
 				FireGraphic = "Enemy_Chronos_ScytheThrowFire",
-				NumProjectiles = 1,
+				FireEndGraphic = "Enemy_Chronos_ScytheThrowFire",
+				NumProjectiles = 0,
 			},
 			ProjectileProperties = {
 				Damage = 120,
