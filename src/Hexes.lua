@@ -35,6 +35,7 @@ end
 
 function mod.DoFullSuperPresentation(triggerArgs, traitArgs)
 	if mod.ShouldFireFirstTimeOlympian() then
+		LoadPackages({ Name = traitArgs.Character, IgnoreAssert = true })
         thread( DoFullSuperPresentation, traitArgs.Character )
     end
 end

@@ -112,6 +112,10 @@ function SetUpPlayerChronos()
 	Icons.ManaDown = "JarlUlsfark-MelinoeCallsForAid\\GUI\\Icons\\ChronosManaUp_2"
 	Icons.ManaLock = "JarlUlsfark-MelinoeCallsForAid\\GUI\\Icons\\ChronosManaLock_2"
 
+	--For Heracles/Nem objectives
+	ObjectiveData.PlayerKills.Description = "Objective_ChronosPlayerKills"
+	ObjectiveData.PlayerMoney.Description = "Objective_ChronosPlayerMoney"
+
 end
 
 function SetUpReturnPlayerMelinoe()
@@ -160,6 +164,9 @@ function SetUpReturnPlayerMelinoe()
 	Icons.ManaDown = "GUI\\Icons\\ManaUp"
 	Icons.ManaLock = "GUI\\Icons\\ManaLock"
 
+	ObjectiveData.PlayerKills.Description = "Objective_PlayerKills"
+	ObjectiveData.PlayerMoney.Description = "Objective_PlayerMoney"
+
 	--Ensuring corrent Weapon Model
 	for _, traitData in ipairs( CurrentRun.Hero.Traits ) do
 		if traitData.ReplacementGrannyModels ~= nil then
@@ -181,8 +188,13 @@ modutil.mod.Path.Wrap("SetupMap", function(base, source, args)
 				ScreenData.HUD.ComponentData.ManaMeterReserve.TextArgs.Color = { 204, 204, 51, 255 }
 				ManaIndicatorPresentation.AutoComplete.TransitionIn = "ChronosManaChargeIndicatorIn"
 				ManaIndicatorPresentation.AutoComplete.Fill = "ChronosManaChargeIndicatorFill"
+				ManaIndicatorPresentation.AutoComplete.Cancel = "ChronosManaChargeIndicatorCancel"
+				ManaIndicatorPresentation.AutoComplete.Dissipate = "ChronosManaChargeIndicatorDissipate"
 				ManaIndicatorPresentation.Hold.TransitionIn = "ChronosManaChargeIndicatorIn"
 				ManaIndicatorPresentation.Hold.Fill = "ChronosManaChargeIndicatorFill"
+				ManaIndicatorPresentation.Hold.Loop = "ChronosManaChargeIndicatorHoldLoop"
+				ManaIndicatorPresentation.Hold.Cancel = "ChronosManaChargeIndicatorCancel"
+				ManaIndicatorPresentation.Hold.Dissipate = "ChronosManaChargeIndicatorDissipate"
 				TextFormats.ManaFormat.Color = Color.ChronosVoice
 				TextFormats.UseTextManaFormat.Color = Color.ChronosVoice
 				ScreenData.HUD.ComponentData.HealthBack.Animation = "ChronosHPManaBacking"
@@ -192,8 +204,13 @@ modutil.mod.Path.Wrap("SetupMap", function(base, source, args)
 				ScreenData.HUD.ComponentData.ManaMeterReserve.TextArgs.Color = { 180, 168, 255, 255 }
 				ManaIndicatorPresentation.AutoComplete.TransitionIn = "ManaChargeIndicatorIn"
 				ManaIndicatorPresentation.AutoComplete.Fill = "ManaChargeIndicatorFill"
+				ManaIndicatorPresentation.AutoComplete.Cancel = "ManaChargeIndicatorCancel"
+				ManaIndicatorPresentation.AutoComplete.Dissipate = "ManaChargeIndicatorDissipate"
 				ManaIndicatorPresentation.Hold.TransitionIn = "ManaChargeIndicatorIn"
 				ManaIndicatorPresentation.Hold.Fill = "ManaChargeIndicatorFill"
+				ManaIndicatorPresentation.Hold.Loop = "ManaChargeIndicatorHoldLoop"
+				ManaIndicatorPresentation.Hold.Cancel = "ManaChargeIndicatorCancel"
+				ManaIndicatorPresentation.Hold.Dissipate = "ManaChargeIndicatorDissipate"
 				TextFormats.ManaFormat.Color = Color.RoyalBlue
 				TextFormats.UseTextManaFormat.Color = Color.RoyalBlue
 				ScreenData.HUD.ComponentData.HealthBack.Animation = "HPManaBacking"
@@ -383,17 +400,27 @@ modutil.mod.Path.Wrap("LeaveRoomIPreBoss02Presentation",  function(baseFunc, cur
 	end
 end)
 
---Interact
-modutil.mod.Path.Wrap("SetAnimation",  function(baseFunc, args) 
-	if args and args.DestinationId == 40000 then
-		print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-		print("printing args")
-		print(args.Name)
-		print(args.DestinationId)
-		print(debug.traceback())
+--Biome Map
+modutil.mod.Path.Wrap("BiomeMapPresentation",  function(baseFunc, source, args, contextArgs) 
+	if HeroHasTrait("ChronosAspect") then
+		return mod.ChronosBiomeMapPresentation(source, args, contextArgs)
+	else
+		return baseFunc(source, args, contextArgs)
 	end
-	return baseFunc( args)
 end)
+
+
+--Interact
+--modutil.mod.Path.Wrap("SetAnimation",  function(baseFunc, args) 
+--	if args and args.DestinationId == 40000 then
+		--print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+		--print("printing args")
+		--print(args.Name)
+		--print(args.DestinationId)
+		--print(debug.traceback())
+--	end
+--	return baseFunc( args)
+--end)
 
 --Enter Room 
 --modutil.mod.Path.Context.Env("RoomEntranceMaterialize", function ( currentRun, currentRoom, args )
@@ -876,6 +903,7 @@ function mod.SetupChronosAnimations()
 		MelinoeCrossCastToIdle = "NPC_Chronos_Enlightened_Hover",
 		Melinoe_Leap_Landing = "NPC_Chronos_Enlightened_Hover",
 		MelinoeIdlePostInteract = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Witchcraft_Start = "Enemy_Chronos_CastSlowFire",
 		
 		MelTalkPensive01 = "NPC_Chronos_Enlightened_Hover",
 		MelTalkPensive01Loop = "NPC_Chronos_Enlightened_Hover",
@@ -1126,7 +1154,8 @@ function mod.UnequipChronosAnimations()
 		MelinoeCrossCastToIdle = "NPC_Chronos_Enlightened_Hover",
 		Melinoe_Leap_Landing = "NPC_Chronos_Enlightened_Hover",
 		MelinoeIdlePostInteract = "NPC_Chronos_Enlightened_Hover",
-		
+		Melinoe_Witchcraft_Start = "Enemy_Chronos_CastSlowFire",
+
 		MelTalkPensive01 = "NPC_Chronos_Enlightened_Hover",
 		MelTalkPensive01Loop = "NPC_Chronos_Enlightened_Hover",
 		MelTalkPensive01ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
@@ -1350,6 +1379,7 @@ ChronosAspect = {
 		},
 		WeaponAxeSpin =
 		{
+			CustomManaIndicatorOffsetY = -320,
 			ChargeWeaponStages = 
 			{
 				{ ManaCost = 30, WeaponProperties = { NumProjectiles = 1, FireEndGraphic = "null" }, Wait = 1, ChannelSlowEventOnEnter = true, HideStageReachedFx = false },

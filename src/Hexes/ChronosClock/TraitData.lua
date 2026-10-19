@@ -24,6 +24,7 @@ function mod.ChronosClock( weaponData, functionArgs, triggerArgs )
 	wait(0.1)
 	local currentLocation = SpawnObstacle({ Name = "InvisibleTarget", DestinationId = CurrentRun.Hero.ObjectId,})
 	if HeroHasTrait("ChronosClockHermesTalent") and ShouldFireFirstTimeOlympian() then
+		LoadVoiceBank({ Names = "Hermes", IgnoreAssert = true })
         LoadPackages({ Name = "Hermes", IgnoreAssert = true })
 		thread( DoFullSuperPresentation, functionArgs.Character )
 		times = {0,1,2,3}

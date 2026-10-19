@@ -458,3 +458,27 @@ sjson.hook(file, function(data)
 
 return data
 end)
+
+
+local file = rom.path.combine(rom.paths.Content, 'Game/Text/en/HelpText.en.sjson')
+sjson.hook(file, function(data)
+
+
+  table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "Objective_ChronosPlayerKills",
+      DisplayName = "{#TeamFormat}Foes Slain by {#Prev}{#TeamMelFormat}Chronos{#Prev}: {$PlayerKills}"
+    },
+    TextOrder)
+	)
+
+  table.insert(data.Texts, sjson.to_object(
+    {
+      IId = "Objective_ChronosPlayerMoney",
+      DisplayName = "{#TeamFormat}Chronos's Share{#Prev}: {#UseMoneyFormat}{$PlayerMoney}{!Icons.Currency}"
+    },
+    TextOrder)
+	)
+
+return data
+end)

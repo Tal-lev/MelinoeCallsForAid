@@ -37,6 +37,34 @@ sjson.hook(file, function(data)
 
 	table.insert(data.Animations,
 	{
+		Name = "ChronosManaChargeIndicatorHoldLoop",
+		FilePath = "JarlUlsfark-MelinoeCallsForAid\\GUI\\HUD\\ChronosManaChargeIndicatorHoldLoop\\ChronosManaChargeIndicatorHoldLoop",
+		PlaySpeed = 30,
+		NumFrames = 30,
+		Material = "Unlit",
+		Loop = true,
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "ChronosManaChargeIndicatorDissipate",	
+		FilePath = "JarlUlsfark-MelinoeCallsForAid\\GUI\\HUD\\ChronosManaChargeIndicatorDissipate\\ChronosManaChargeIndicatorDissipate",
+		NumFrames = 20,
+		Material = "Unlit",
+		Sound = "/Leftovers/SFX/AuraOff",
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "ChronosManaChargeIndicatorCancel",
+		FilePath = "JarlUlsfark-MelinoeCallsForAid\\GUI\\HUD\\ChronosManaChargeIndicatorCancel\\ChronosManaChargeIndicatorCancel",
+		NumFrames = 10,
+		Material = "Unlit",
+		Sound = "/Leftovers/SFX/AuraOff",
+	})
+
+	table.insert(data.Animations,
+	{
 		Name = "ChronosHPManaBacking",
 		FilePath = "JarlUlsfark-MelinoeCallsForAid\\GUI\\HUD\\ChronosHPManaBacking",		
 		Material = "Unlit",
