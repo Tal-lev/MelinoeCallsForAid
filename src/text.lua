@@ -474,10 +474,20 @@ sjson.hook(file, function(data)
 
   table.insert(data.Texts, sjson.to_object(
     {
-      IId = "Objective_ChronosPlayerMoney",
+      Id = "Objective_ChronosPlayerMoney",
       DisplayName = "{#TeamFormat}Chronos's Share{#Prev}: {#UseMoneyFormat}{$PlayerMoney}{!Icons.Currency}"
     },
     TextOrder)
+	)
+
+  --Quests
+  table.insert(data.Texts, sjson.to_object(
+	{
+      Id = "Quest_Chronos_HammerUpgrades",
+      DisplayName = "Hammer Time",
+      Description = "The father of the god of the dead shall apply various {#Emph}Daedalus {#Prev}enchantments in his journey.",
+	},
+	TextOrder)
 	)
 
 return data

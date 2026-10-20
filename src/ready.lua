@@ -409,6 +409,15 @@ modutil.mod.Path.Wrap("BiomeMapPresentation",  function(baseFunc, source, args, 
 	end
 end)
 
+--Update Heracles encounters naming
+modutil.mod.Path.Wrap("HeraclesRequiredKillPresentation",  function(baseFunc, encounter, victim, killer) 
+	if HeroHasTrait("ChronosAspect") then
+		return mod.ChronosHeraclesRequiredKillPresentation(encounter, victim, killer)
+	else
+		return baseFunc(encounter, victim, killer)
+	end
+end)
+
 
 --Interact
 --modutil.mod.Path.Wrap("SetAnimation",  function(baseFunc, args) 
@@ -451,6 +460,7 @@ modutil.mod.Path.Context.Env("PlayTextLine", function ( screen, textLines, prevL
 		return baseFunc(Aargs)
     end)
 end)
+
 
 --Exiting Asphodel function
 --modutil.mod.Path.Context.Env("AnomalyExitPresentation", function ( currentRun, exitDoor )
@@ -843,6 +853,15 @@ if rom.mods['NikkelM-Zagreus_Journey'] then
 			baseFunc(currentRun, exitDoor, args)
 		end
 	end)
+
+	--ZJ Map Presentation
+	modutil.mod.Path.Wrap("NikkelM-Zagreus_Journey.ModsNikkelMHadesBiomesBiomeMapPresentation",  function(baseFunc, source, args) 
+		if HeroHasTrait("ChronosAspect") then
+			mod.ChronosModsNikkelMHadesBiomesBiomeMapPresentation(source, args)
+		else
+			baseFunc(source, args)
+		end
+	end)
 	
 
 end
@@ -850,12 +869,12 @@ end
 function mod.SetupChronosAnimations()
 	local AnimationList = 
 	{ 
-		MelinoeIdle = "NPC_Chronos_Enlightened_Hover",
-		MelinoeDashStart = "Enemy_Chronos_DashPreFire",
+		MelinoeIdle = "Enemy_Chronos_SittingIdle",
+		MelinoeDashStart = "Enemy_Chronos_SittingIdle",
 		MelinoeDash = "Player_Chronos_DashFire",
-		MelinoeStart = "NPC_Chronos_Enlightened_Move_Start",
-		MelinoeRun = "NPC_Chronos_Enlightened_Move",
-		MelinoeStop = "NPC_Chronos_Enlightened_Move_Stop",
+		MelinoeStart = "Enemy_Chronos_SittingIdle",
+		MelinoeRun = "Enemy_Chronos_SittingIdle",
+		MelinoeStop = "Enemy_Chronos_SittingIdle",
 		MelinoeGetHit = "NPC_Chronos_Enlightened_Hover",
 		Melinoe_GetHit_LastStand = "Enemy_Chronos_BattleOutro_Start",
 		Melinoe_LastStand_Fire = "Enemy_Chronos_BattleOutro_Start",

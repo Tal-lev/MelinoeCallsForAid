@@ -51,7 +51,6 @@ local function on_ready()
 	import "text.lua"
 	import "Animations.lua"
 	import "PortraitAnimations.lua"
-	--import "ProjectileVFX.lua"
 	import "Projectiles.lua"
 	import "DashBoons.lua"
 	import "VoiceLines.lua"
@@ -62,6 +61,7 @@ local function on_ready()
 	modutil.once_loaded.game(function()
 		import "Costumes.lua"
 		import "Hammers.lua"
+		import "Quests.lua"
 		import "WeaponShop.lua"
 		SetupRunData()
 		--end
