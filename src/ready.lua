@@ -53,6 +53,56 @@ function mod.SummonNeoChronos( source, args )
 
 end
 
+--Summon Nem in the training room
+function mod.SummonNemesis(source, args)
+	args = args or {}
+	local AxeId = 560604
+	if TableLength(GetIdsByType({ Name = "NPC_Nemesis_01"})) >= 1 then 
+		return
+	end
+	wait(2)
+	local nemesis = DeepCopyTable( EnemyData.NPC_Nemesis_01 )
+	nemesis.ObjectId = SpawnUnit({ Name = "NPC_Nemesis_01", Group = "Standing", DestinationId = AxeId, OffsetX = -625, OffsetY = 170, })
+	SetupUnit( nemesis, CurrentRun, { IgnoreAI = true, IgnoreAssert = true, } )
+	SetAlpha({ Id = nemesis.ObjectId, Fraction = 0, Duration = 0 })
+	AdjustZLocation({ Id = nemesis.ObjectId, Distance = 1500 })
+	IgnoreGravity({ Id = nemesis.ObjectId })
+
+	Rumble({ Duration = 0.3, RightFraction = 0.17 })
+	
+	ObeyGravity({ Id = nemesis.ObjectId })
+	ApplyUpwardForce({ Id = nemesis.ObjectId, Speed = -2000 })
+	SetAlpha({ Id = nemesis.ObjectId, Fraction = 1.0, Duration = 0.2 })
+	SetAnimation({ DestinationId = nemesis.ObjectId, Name = "Nemesis_Combat_Entrance" })
+	--CreateAnimation({ Name = "DustPuffBNoDecal", DestinationId = nemesis.ObjectId })
+	PlaySound({ Name = "/SFX/Player Sounds/MelWhooshDropIn", Id = nemesis.ObjectId })
+
+	wait(3)
+	SetAnimation({ Name = "Nemesis_Hub_Idle", DestinationId = nemesis.ObjectId })
+	AngleTowardTarget({ Id = nemesis.ObjectId, DestinationId = 561032 })
+	
+end
+
+function mod.Nemesisleaves()
+	local nemesis = GetClosestUnitOfType({ Id = CurrentRun.Hero.ObjectId, DestinationName = "NPC_Nemesis_01" })
+	
+	SetAnimation({ Name = "Nemesis_Hub_Exit", DestinationId = nemesis.ObjectId })
+
+	wait( 0.92 )
+
+	AdjustZLocation({ Id = nemesis.ObjectId, Duration = 0.20, Distance = 1000 })
+	IgnoreGravity({ Id = nemesis.ObjectId })
+
+	wait( 0.06 )
+	SetUnitProperty({ DestinationId = nemesis.ObjectId, Property = "CollideWithObstacles", Value = false })
+	SetUnitProperty({ DestinationId = nemesis.ObjectId, Property = "CollideWithUnits", Value = false })
+	SetThingProperty({ DestinationId = nemesis.ObjectId, Property = "StopsProjectiles", Value = false })
+	wait( 0.08 )
+	SetAlpha({ Id = nemesis.ObjectId, Fraction = 0.0, Duration = 0.06 })
+	wait(0.1)
+	Destroy({Id = nemesis.ObjectId})
+end
+
 function SetUpPlayerChronos()
 	LoadPackages({Name = "BiomeIHouse", IgnoreAssert = true })
 	LoadPackages({Name = "ChronosReformed_Azure", IgnoreAssert = true })
@@ -227,15 +277,26 @@ ModUtil.Path.Wrap("EquipWeaponUpgrade", function(baseFunc, hero, args)
 		if TableLength(GetIdsByType({Name = "NPC_Chronos_02"})) >= 1 then
 			UnSummonNeoChronos(CurrentRun.Hero)
 		end
+	elseif HeroHasTrait("NemesisAspect") then
+		SetUpPlayerNemesis()
+		if TableLength(GetIdsByType({Name = "NPC_Nemesis_01"})) >= 1 then
+			local nemesis = GetClosestUnitOfType({ Id = CurrentRun.Hero.ObjectId, DestinationName = "NPC_Nemesis_01" })
+			Destroy({Id = nemesis.ObjectId})
+		end
 	else
 		SetUpReturnPlayerMelinoe()
-		if GameState and GameState.WeaponsUnlocked and GameState.WeaponsUnlocked.ChronosAspect then
+		if GameState and GameState.WeaponsUnlocked then
 			--trick to ensure chronos is not summoned when just entering the room, added by SetupHeroObject
 			if CurrentRun.Hero.RoomStartTime then
 				CurrentRun.Hero.RoomStartTime = nil
 				return
 			end
-			mod.SummonNeoChronos(CurrentRun.Hero)
+			if GameState.WeaponsUnlocked.ChronosAspect then
+				mod.SummonNeoChronos(CurrentRun.Hero)
+			end
+			if GameState.WeaponsUnlocked.NemesisAspect then
+				thread(mod.SummonNemesis, CurrentRun.Hero)
+			end
 		end
 	end
 end)
@@ -1757,6 +1818,46 @@ ChronosAspect = {
 	FlavorText = "ChronosAspect_FlavorText",
 }
 
+NemesisAspect = {
+	InheritFrom = { "WeaponEnchantmentTrait" },
+	RarityLevels =
+	{
+		Common =
+		{
+			Multiplier = 1,
+		},
+		Rare =
+		{
+			Multiplier = 0.9,
+		},
+		Epic =
+		{
+			Multiplier = 0.8,
+		},
+		Heroic =
+		{
+			Multiplier = 0.7,
+		},
+		Legendary =
+		{
+			Multiplier = 0.5,
+		},
+		Perfect =
+		{
+			Multiplier = 0.3,
+		},
+	},
+	RequiredWeapon = "WeaponAxe",
+	Icon = "JarlUlsfark-MelinoeCallsForAid\\NemesisAspectIcon",
+	--IsCustomHero = true,
+	WeaponKitGrannyModel = "Melinoe_Axe_Mesh1",
+	ReplacementGrannyModels = 
+	{
+		Melinoe_Axe_Mesh1 = "Melinoe_Axe_Mesh1",
+	},
+}
+
 --OverwriteTableKeys( TraitSetData.Aspects.AxeRecoveryAspect, ChronosAspect)
 TraitData.ChronosAspect = ChronosAspect
+--TraitData.NemesisAspect = NemesisAspect
 
