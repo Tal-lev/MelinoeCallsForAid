@@ -490,5 +490,14 @@ sjson.hook(file, function(data)
 	TextOrder)
 	)
 
+  table.insert(data.Texts, sjson.to_object(
+	{
+      Id = "Quest_Chronos_SeleneDuos",
+      DisplayName = "Godsent Forgiveness",
+      Description = "The father of the god of the dead shall earn a variety of {#Emph}Godsent {#Prev}powers from Olympus and beyond within the {#Emph}Path of Stars{#Prev}.",
+	},
+	TextOrder)
+	)
+
 return data
 end)

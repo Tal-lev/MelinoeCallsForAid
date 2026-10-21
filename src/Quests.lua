@@ -1,4 +1,5 @@
 table.insert( QuestOrderData, "Quest_Chronos_HammerUpgrades")
+table.insert( QuestOrderData, "Quest_Chronos_SeleneDuos")
 
 OverwriteTableKeys( QuestData, {
 
@@ -58,6 +59,43 @@ OverwriteTableKeys( QuestData, {
 				ObjectType = "NPC_Moros_01",
 
 				{ Cue = "/VO/Moros_0216", Text = "A necessary step along your path." },
+			},
+		},
+	},
+
+    Quest_Chronos_SeleneDuos =
+	{
+		InheritFrom = { "DefaultQuestItem", "DefaultOlympianQuest" },
+		RewardResourceName = "CardUpgradePoints",
+		RewardResourceAmount = 9,
+		UnlockGameStateRequirements =
+		{
+			NamedRequirements = { "SeleneDuosUnlocked" },
+			{
+				PathTrue = { "GameState", "TextLinesRecord", "SeleneGrantsOlympianDuos01" },
+			},
+            {
+				Path = { "GameState", "TraitsTaken" },
+				CountOf =
+				{
+                    "SpellChronosCircleTrait",
+                    "SpellChronosClockTrait",
+                    "SpellChronosSummonTrait",
+				},
+				Comparison = ">=",
+				Value = 1,
+			},
+		},
+		CompleteGameStateRequirements =
+		{
+			{
+				Path = { "GameState", "TraitsTaken" },
+				HasAll =
+				{
+					"ChronosCircleArtemisTalent",
+                    "ChronosClockHermesTalent",
+                    "ChronosSummonChaosTalent",
+				},
 			},
 		},
 	},
