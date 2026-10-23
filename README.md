@@ -7,7 +7,7 @@ A Hades II mod that allows you to play as other Characters.
 ### Chronos 
 
 <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-  <img src="https://media.githubusercontent.com/media/Tal-lev/MelinoeCallsForAid/refs/heads/main/images/Chronos.png" alt="PonyDressList" width="70%">
+  <img src="https://media.githubusercontent.com/media/Tal-lev/MelinoeCallsForAid/refs/heads/main/images/Chronos.PNG" alt="PonyDressList" width="70%">
 </div>
 
 - requires reaching the True Ending.
@@ -28,7 +28,7 @@ A Hades II mod that allows you to play as other Characters.
 **Nemesis is still experimental.**
 
 <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-  <img src="https://media.githubusercontent.com/media/Tal-lev/MelinoeCallsForAid/refs/heads/main/images/Nemesis.png" alt="PonyDressList" width="70%">
+  <img src="https://media.githubusercontent.com/media/Tal-lev/MelinoeCallsForAid/refs/heads/main/images/Nemesis.PNG" alt="PonyDressList" width="70%">
 </div>
 
 - Requires deepening the bond with her.
