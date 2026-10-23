@@ -6,6 +6,7 @@ A Hades II mod that allows you to play as other Characters.
 
 - Adds Chronos as a playable Character, requires reaching the True Ending.
 - Adds Nemesis as a playable Character, requires deepening the bond with her.
+  - Nemesis is still experimental.
 
 ## Missing Art [Artists Wanted]
 
