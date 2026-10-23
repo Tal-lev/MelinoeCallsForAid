@@ -340,7 +340,5 @@ sjson.hook(file, function(data)
 		Damage = 300,
 	})
 
-
-
 	return data
 end)

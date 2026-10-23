@@ -1,8 +1,14 @@
 -- Adding Chronos Voice Lines
  local YesChronosReq = 
 {
-    Path = {"CurrentRun", "Hero", "TraitDictionary"},
-    HasAny = {"ChronosAspect", },
+    {
+        Path = {"CurrentRun", "Hero", "TraitDictionary"},
+        HasAny = {"ChronosAspect", },
+    },
+    {
+        Path = {"CurrentRun", "Hero", "TraitDictionary"},
+        HasNone = {"NemesisAspect", },
+    },
 }
 
 ---- Adding VoiceLines ----

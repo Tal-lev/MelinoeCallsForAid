@@ -48,27 +48,39 @@ local function on_ready()
 	if config.enabled == false then return end
 	mod = modutil.mod.Mod.Register(_PLUGIN.guid)
 
-	import "text.lua"
-	import "Animations.lua"
-	import "PortraitAnimations.lua"
-	import "Projectiles.lua"
-	import "DashBoons.lua"
-	import "VoiceLines.lua"
-	import "ManaIndicator.lua"
+	import "Chronos/text.lua"
+	import "Nemesis/text.lua"
+
+	import "Chronos/Animations.lua"
+	import "Nemesis/Animations.lua"
+
+	import "Chronos/PortraitAnimations.lua"
+
+	import "Chronos/Projectiles.lua"
+	import "Nemesis/Projectiles.lua"
+	import "Nemesis/WeaponEffects.lua"
+
+	import "Chronos/DashBoons.lua"
+	import "Nemesis/CastBoons.lua"
+
+	import "Chronos/VoiceLines.lua"
+
+	import "Chronos/ManaIndicator.lua"
+
 	import "Modify_god_VFX.lua"
 	import "Hexes.lua"
 	import 'ready.lua'
 	modutil.once_loaded.game(function()
 		import "Cosmetics.lua"
-		import "Costumes.lua"
-		import "Hammers.lua"
+		import "Chronos/Costumes.lua"
+		import "Chronos/Hammers.lua"
 		import "Quests.lua"
 		import "WeaponShop.lua"
 		SetupRunData()
 		--end
 	end)
 	if melskin and melskin.RegisterCustomCharacter then
-		import 'MelSkin.lua'
+		import 'Chronos/MelSkin.lua'
 	end
 end
 
@@ -86,7 +98,7 @@ local function on_ready_late()
 	if config.enabled == false then return end
 	--import 'Costumes_late.lua'
 	import 'ready_late.lua'
-	import "ManaIndicatorLate.lua"
+	import "Chronos/ManaIndicatorLate.lua"
 	import "ChronosPresentationFunctionsLate.lua"
 end
 

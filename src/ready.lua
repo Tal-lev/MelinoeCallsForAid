@@ -60,13 +60,14 @@ function mod.SummonNemesis(source, args)
 	if TableLength(GetIdsByType({ Name = "NPC_Nemesis_01"})) >= 1 then 
 		return
 	end
-	wait(2)
+	
 	local nemesis = DeepCopyTable( EnemyData.NPC_Nemesis_01 )
 	nemesis.ObjectId = SpawnUnit({ Name = "NPC_Nemesis_01", Group = "Standing", DestinationId = AxeId, OffsetX = -625, OffsetY = 170, })
 	SetupUnit( nemesis, CurrentRun, { IgnoreAI = true, IgnoreAssert = true, } )
 	SetAlpha({ Id = nemesis.ObjectId, Fraction = 0, Duration = 0 })
 	AdjustZLocation({ Id = nemesis.ObjectId, Distance = 1500 })
 	IgnoreGravity({ Id = nemesis.ObjectId })
+	wait(2)
 
 	Rumble({ Duration = 0.3, RightFraction = 0.17 })
 	
@@ -81,26 +82,6 @@ function mod.SummonNemesis(source, args)
 	SetAnimation({ Name = "Nemesis_Hub_Idle", DestinationId = nemesis.ObjectId })
 	AngleTowardTarget({ Id = nemesis.ObjectId, DestinationId = 561032 })
 	
-end
-
-function mod.Nemesisleaves()
-	local nemesis = GetClosestUnitOfType({ Id = CurrentRun.Hero.ObjectId, DestinationName = "NPC_Nemesis_01" })
-	
-	SetAnimation({ Name = "Nemesis_Hub_Exit", DestinationId = nemesis.ObjectId })
-
-	wait( 0.92 )
-
-	AdjustZLocation({ Id = nemesis.ObjectId, Duration = 0.20, Distance = 1000 })
-	IgnoreGravity({ Id = nemesis.ObjectId })
-
-	wait( 0.06 )
-	SetUnitProperty({ DestinationId = nemesis.ObjectId, Property = "CollideWithObstacles", Value = false })
-	SetUnitProperty({ DestinationId = nemesis.ObjectId, Property = "CollideWithUnits", Value = false })
-	SetThingProperty({ DestinationId = nemesis.ObjectId, Property = "StopsProjectiles", Value = false })
-	wait( 0.08 )
-	SetAlpha({ Id = nemesis.ObjectId, Fraction = 0.0, Duration = 0.06 })
-	wait(0.1)
-	Destroy({Id = nemesis.ObjectId})
 end
 
 function SetUpPlayerChronos()
@@ -166,6 +147,43 @@ function SetUpPlayerChronos()
 	ObjectiveData.PlayerKills.Description = "Objective_ChronosPlayerKills"
 	ObjectiveData.PlayerMoney.Description = "Objective_ChronosPlayerMoney"
 
+	if CurrentRun and CurrentRun.Hero and CurrentRun.Hero.Weapons and not CurrentRun.Hero.Weapons['WeaponBlink'] then
+		EquipWeapon({ DestinationId = CurrentRun.Hero.ObjectId, Name = "WeaponBlink" })
+	end
+	
+end
+
+function SetUpPlayerNemesis()
+	LoadPackages({Name = "Nemesis", IgnoreAssert = true })
+	if rom.mods['NikkelM-Zagreus_Journey'] then
+		--ZagJourney.ModdedPlayerScaleMultiplier = 0.972
+		ZagJourney.ModdedPlayerScaleMultiplier = 1.26
+	end
+	if not HeroHasTrait("ModsNikkelMHadesBiomesPlayerScaleTrait") then
+		--SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = 1.08 })
+		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = 1.4 })
+	else
+		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = ZagJourney.ModdedPlayerScaleMultiplier })
+	end
+	SetThingProperty({ Property = "GrannyModel", Value = "Nemesis_Mesh", DestinationId = CurrentRun.Hero.ObjectId })
+	SetThingProperty({ Property = "Graphic", Value = "Nemesis_Combat_Idle", DestinationId = CurrentRun.Hero.ObjectId })
+	SetThingProperty({ Property = "Tallness", Value = 175, DestinationId = CurrentRun.Hero.ObjectId })
+	SetUnitProperty({ Property = "StartGraphic", Value = "Nemesis_Combat_Run_Start", DestinationId = CurrentRun.Hero.ObjectId })
+	SetUnitProperty({ Property = "MoveGraphic", Value = "Nemesis_Combat_Run_FireLoop", DestinationId = CurrentRun.Hero.ObjectId })
+	SetUnitProperty({ Property = "StopGraphic", Value = "Nemesis_Combat_Run_End", DestinationId = CurrentRun.Hero.ObjectId })
+
+	CurrentRun.Hero.SilenceMelinoe = true
+
+	SetAnimation({ Name = "Nemesis_Combat_Idle", DestinationId = CurrentRun.Hero.ObjectId })
+	CurrentRun.Hero.AnimOffsetZ = 0
+	CurrentRun.Hero.SubtitleColor = Color.NemesisVoice
+	SetupCostume()
+	LoadVoiceBanks({ Name = "Nemesis" })
+	LoadVoiceBanks({ Name = "NemesisField" })
+
+	--if CurrentRun and CurrentRun.Hero and CurrentRun.Hero.Weapons and CurrentRun.Hero.Weapons['WeaponBlink'] then
+	--	UnequipWeapon({ DestinationId = CurrentRun.Hero.ObjectId, Name = "WeaponBlink" })
+	--end
 end
 
 function SetUpReturnPlayerMelinoe()
@@ -226,6 +244,10 @@ function SetUpReturnPlayerMelinoe()
 		end	
 	end
 	HandleWeaponAnimSwaps()
+
+	if CurrentRun and CurrentRun.Hero and CurrentRun.Hero.Weapons and not CurrentRun.Hero.Weapons['WeaponBlink'] then
+		EquipWeapon({ DestinationId = CurrentRun.Hero.ObjectId, Name = "WeaponBlink" })
+	end
 end
 
 modutil.mod.Path.Wrap("SetupMap", function(base, source, args)
@@ -281,7 +303,7 @@ ModUtil.Path.Wrap("EquipWeaponUpgrade", function(baseFunc, hero, args)
 		SetUpPlayerNemesis()
 		if TableLength(GetIdsByType({Name = "NPC_Nemesis_01"})) >= 1 then
 			local nemesis = GetClosestUnitOfType({ Id = CurrentRun.Hero.ObjectId, DestinationName = "NPC_Nemesis_01" })
-			Destroy({Id = nemesis.ObjectId})
+			Destroy({Id = nemesis})
 		end
 	else
 		SetUpReturnPlayerMelinoe()
@@ -307,33 +329,51 @@ modutil.mod.Path.Wrap("SetupHeroObject", function(baseFunc, CurrentRoom)
 	CurrentRun.Hero.RoomStartTime = true
 	if HeroHasTrait("ChronosAspect") then
 		SetUpPlayerChronos()
+	elseif HeroHasTrait("NemesisAspect") then
+		SetUpPlayerNemesis()
 	end
 end)
 
 -- Switch WeaponAspect by interacting with a Character
 ModUtil.Path.Wrap("SpecialInteractSalute", function(baseFunc, usee, args)
 	baseFunc(usee, args)
+	--For actual Saluting as Chronos
 	if HeroHasTrait("ChronosAspect") then
 		wait(0.8)
 		SetAnimation({Name= "NPC_Chronos_Enlightened_Hover", DestinationId= CurrentRun.Hero.ObjectId})
 	end
 	-- Switching to Chronos
-	if CurrentHubRoom and CurrentHubRoom.Name and CurrentHubRoom.Name == "Hub_PreRun" and not HeroHasTrait("ChronosAspect") and usee.Name == "NPC_Chronos_02" then
-		if CurrentRun and CurrentRun.Hero and CurrentRun.Hero.Weapons and CurrentRun.Hero.Weapons.WeaponAxe then 
-			GameState.LastWeaponUpgradeName['WeaponStaffSwing'] = "BaseStaffAspect"
+	if CurrentHubRoom and CurrentHubRoom.Name and CurrentHubRoom.Name == "Hub_PreRun" then
+		if usee.Name == "NPC_Chronos_02" and not HeroHasTrait("ChronosAspect") then
+			if CurrentRun and CurrentRun.Hero and CurrentRun.Hero.Weapons and CurrentRun.Hero.Weapons.WeaponAxe then 
+				GameState.LastWeaponUpgradeName['WeaponStaffSwing'] = "BaseStaffAspect"
+				UseWeaponKit(WeaponData['WeaponStaffSwing'])
+				wait(0.1)
+			end
+			GameState.LastWeaponUpgradeName['WeaponAxe'] = "ChronosAspect"
+			UseWeaponKit(WeaponData['WeaponAxe'])
+			GameState.LastWeaponUpgradeName['WeaponAxe'] = "AxeRecoveryAspect"
+		elseif usee.Name == "NPC_Nemesis_01" and not HeroHasTrait("NemesisAspect") then
+			if CurrentRun and CurrentRun.Hero and CurrentRun.Hero.Weapons and CurrentRun.Hero.Weapons.WeaponStaffSwing then 
+				GameState.LastWeaponUpgradeName['WeaponAxe'] = "AxeRecoveryAspect"
+				UseWeaponKit(WeaponData['WeaponAxe'])
+				wait(0.1)
+			end
+			GameState.LastWeaponUpgradeName['WeaponStaffSwing'] = "NemesisAspect"
 			UseWeaponKit(WeaponData['WeaponStaffSwing'])
-			wait(0.1)
+			GameState.LastWeaponUpgradeName['WeaponStaffSwing'] = "BaseStaffAspect"
 		end
-		GameState.LastWeaponUpgradeName['WeaponAxe'] = "ChronosAspect"
-		UseWeaponKit(WeaponData['WeaponAxe'])
-		GameState.LastWeaponUpgradeName['WeaponAxe'] = "AxeRecoveryAspect"
 	end
 end)
 
 --Ensuring you start a run as the character
 ModUtil.Path.Wrap("StartOver", function(baseFunc, args)
-	if CurrentHubRoom and CurrentHubRoom.Name and CurrentHubRoom.Name == "Hub_PreRun" and HeroHasTrait("ChronosAspect") then
-		GameState.LastWeaponUpgradeName['WeaponAxe'] = "ChronosAspect"
+	if CurrentHubRoom and CurrentHubRoom.Name and CurrentHubRoom.Name == "Hub_PreRun" then
+		if HeroHasTrait("ChronosAspect") then
+			GameState.LastWeaponUpgradeName['WeaponAxe'] = "ChronosAspect"
+		elseif HeroHasTrait("NemesisAspect") then
+			GameState.LastWeaponUpgradeName['WeaponStaffSwing'] = "NemesisAspect"
+		end
 	end
 	return baseFunc(args)
 end)
@@ -342,6 +382,8 @@ end)
 ModUtil.Path.Wrap("SelectWeaponUpgrade", function(baseFunc, screen, weaponName, traitData)
 	if HeroHasTrait("ChronosAspect") then
 		PickupWeaponKit(WeaponData['WeaponAxe'])
+	elseif HeroHasTrait("NemesisAspect") then
+		PickupWeaponKit(WeaponData['WeaponStaffSwing'])
 	end
 	baseFunc(screen, weaponName, traitData)
 end)
@@ -930,12 +972,12 @@ end
 function mod.SetupChronosAnimations()
 	local AnimationList = 
 	{ 
-		MelinoeIdle = "Enemy_Chronos_SittingIdle",
-		MelinoeDashStart = "Enemy_Chronos_SittingIdle",
+		MelinoeIdle = "NPC_Chronos_Enlightened_Hover",
+		MelinoeDashStart = "Enemy_Chronos_DashPreFire",
 		MelinoeDash = "Player_Chronos_DashFire",
-		MelinoeStart = "Enemy_Chronos_SittingIdle",
-		MelinoeRun = "Enemy_Chronos_SittingIdle",
-		MelinoeStop = "Enemy_Chronos_SittingIdle",
+		MelinoeStart = "NPC_Chronos_Enlightened_Move_Start",
+		MelinoeRun = "NPC_Chronos_Enlightened_Move",
+		MelinoeStop = "NPC_Chronos_Enlightened_Move_Stop",
 		MelinoeGetHit = "NPC_Chronos_Enlightened_Hover",
 		Melinoe_GetHit_LastStand = "Enemy_Chronos_BattleOutro_Start",
 		Melinoe_LastStand_Fire = "Enemy_Chronos_BattleOutro_Start",
@@ -983,6 +1025,253 @@ function mod.SetupChronosAnimations()
 		MelinoeCrossCastToIdle = "NPC_Chronos_Enlightened_Hover",
 		Melinoe_Leap_Landing = "NPC_Chronos_Enlightened_Hover",
 		MelinoeIdlePostInteract = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Witchcraft_Start = "Enemy_Chronos_CastSlowFire",
+		
+		MelTalkPensive01 = "NPC_Chronos_Enlightened_Hover",
+		MelTalkPensive01Loop = "NPC_Chronos_Enlightened_Hover",
+		MelTalkPensive01ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
+		
+		MelTalkBrooding01 = "NPC_Chronos_Enlightened_Hover",
+		MelTalkBrooding01ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
+		MelTalkBroodingFull01 = "NPC_Chronos_Enlightened_Hover",
+		MelTalkBrooding01Loop = "NPC_Chronos_Enlightened_Hover",
+		MelTalkBrooding01LoopFull = "NPC_Chronos_Enlightened_Hover",
+		MelinoeSaluteToBrooding = "NPC_Chronos_Enlightened_Hover",
+
+		MelTalkGifting01 = "Enemy_Chronos_Shadowed_Greeting",
+		MelTalkGifting01ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
+		
+		MelTalkExplaining01 = "Player_Chronos_Enlightened_Explaining",
+		MelTalkExplaining01Loop = "Player_Chronos_Enlightened_Explaining",
+		MelTalkExplaining01LoopAlt = "Player_Chronos_Enlightened_Explaining",
+		MelTalkExplaining01ReturnToIdle = "Player_Chronos_Enlightened_Explaining",
+		MelTalkExplaining01Full = "Player_Chronos_Enlightened_Explaining",
+
+		MelTalkFlustered01 = "Player_Chronos_Enlightened_Explaining",
+		
+		Melinoe_Defiant = "NPC_Chronos_Enlightened_Hover",
+
+		MelTalkLookingDown01 = "NPC_Chronos_Enlightened_Hover",
+		
+		Melinoe_Gesture = "Enemy_Chronos_SittingGreeting",
+
+		Melinoe_Drop_Exit_FireLoop = "NPC_Chronos_Enlightened_Hover",
+
+		MelinoeBoonInteractPowerUpCancellable = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Exit_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Exit_FireLoop = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Exit_End = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Entrance_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Entrance_Fire = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Entrance_Fire_NoEquip = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Entrance_End = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Drop_Entrance_End_NoEquip = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_HeroLanding = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DiveExit_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DiveExit_Portal_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DiveExit_End = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DiveExit_Portal_End = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DiveEntrance_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DiveEntrance_End = "NPC_Chronos_Enlightened_Hover",
+
+		MelinoePetFrinos = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_PetPolecat = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_PetHound = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_PetCat = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Kneel_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Kneel_End = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_PetRaven = "NPC_Chronos_Enlightened_Hover",
+
+		Melinoe_Hug_Start = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Hug_FireLoop = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Hug_End = "NPC_Chronos_Enlightened_Hover",
+
+		Melinoe_Tablet_Intro = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Tablet_Idle = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Tablet_Right_Start = "Enemy_Chronos_SwingRightPreFire",
+		Melinoe_Tablet_Right_Loop = "Enemy_Chronos_SwingRightPreFire",
+		Melinoe_Tablet_Right_End = "Enemy_Chronos_SwingRightFire",
+		Melinoe_Tablet_Left_Start = "Enemy_Chronos_SwingLeftPreFire",
+		Melinoe_Tablet_Left_Loop = "Enemy_Chronos_SwingLeftPreFire",
+		Melinoe_Tablet_Left_End = "Enemy_Chronos_SwingLeftFire",
+		Melinoe_Tablet_Both_Start = "Enemy_Chronos_CastSlowPreFire",
+		Melinoe_Tablet_Both_Loop = "Enemy_Chronos_CastSlowPreFire",
+		Melinoe_Tablet_Both_End = "Enemy_Chronos_CastSlowFire",
+		Melinoe_Tablet_ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
+		MelinoeExorcismFirstTimeEquip = "NPC_Chronos_Enlightened_Hover",
+
+		Melinoe_Fishing_Start = "Enemy_Chronos_SwingLeftPreFire",
+		Melinoe_Fishing_Fidget = "Enemy_Chronos_SwingLeftPreFire",
+		Melinoe_Fishing_Success = "Enemy_Chronos_SwingLeftFire",
+		Melinoe_Fishing_Failure = "Enemy_Chronos_BattleOutro_Start",
+
+		MelinoePickAxeMineStart = "Enemy_Chronos_SwingLeftPreFire",
+		MelinoePickAxeMineSwing = "Enemy_Chronos_SwingLeftFire",
+		--"Enemy_Chronos_Knockdown_Frustrated",
+		--"Enemy_Chronos_SittingGreeting",
+		--"Enemy_Chronos_Shadowed_Greeting",
+	}
+
+	--Portraits
+
+	local replacement = "Portrait_MelChronos_"
+	if HeroHasTrait("ChronosManaCostume") or (melskin and melskin.GetCurrentDress() == "Azure") then
+		replacement = "Portrait_MelChronosAzure_"
+	elseif HeroHasTrait("ChronosEscalatingCostume") or (melskin and melskin.GetCurrentDress() == "Crimson") then
+		replacement = "Portrait_MelChronosCrimson_"
+	elseif HeroHasTrait("ChronosVitalityCostume") or (melskin and melskin.GetCurrentDress() == "Emerald") then
+		replacement = "Portrait_MelChronosEmerald_"
+	elseif HeroHasTrait("ChronosCastDamageCostume") or (melskin and melskin.GetCurrentDress() == "Fuchsia") then
+		replacement = "Portrait_MelChronosFuchsia_"
+	elseif HeroHasTrait("ChronosIncomeCostume") or (melskin and melskin.GetCurrentDress() == "Gilded") then
+		replacement = "Portrait_MelChronosGilded_"
+	elseif HeroHasTrait("ChronosAgilityCostume") or (melskin and melskin.GetCurrentDress() == "Lavender") then
+		replacement = "Portrait_MelChronosLavender_"
+	elseif HeroHasTrait("ChronosHighArmorCostume") or (melskin and melskin.GetCurrentDress() == "Onyx") then
+		replacement = "Portrait_MelChronosOnyx_"
+	elseif (melskin and melskin.GetCurrentDress() == "Alternate Time") then
+		replacement = "Portrait_MelChronosAnotherTime_"
+	elseif (melskin and melskin.GetCurrentDress() == "Dark Side") then
+		replacement = "Portrait_MelChronosDarkSide_"
+	elseif (melskin and melskin.GetCurrentDress() == "Visage") then
+		replacement = "Portrait_MelChronosVisage_"
+	else
+		replacement = "Portrait_MelChronos_"
+	end
+ 
+	local melPortraits = {
+			Portrait_Mel_Default_01 = "Portrait_Mel_Default_01",
+			Portrait_Mel_Default_01_Exit = "Portrait_Mel_Default_01_Exit",
+			Portrait_Mel_Proud_01 = "Portrait_Mel_Proud_01",
+			Portrait_Mel_Proud_01_Exit = "Portrait_Mel_Proud_01_Exit",
+			Portrait_Mel_Intense_01 = "Portrait_Mel_Intense_01",
+			Portrait_Mel_Intense_01_Exit = "Portrait_Mel_Intense_01_Exit",
+			Portrait_Mel_Vulnerable_01 = "Portrait_Mel_Vulnerable_01",
+			Portrait_Mel_Vulnerable_01_Exit = "Portrait_Mel_Vulnerable_01_Exit",
+			Portrait_Mel_Empathetic_01 = "Portrait_Mel_Empathetic_01",
+			Portrait_Mel_Empathetic_01_Exit = "Portrait_Mel_Empathetic_01_Exit",
+			Portrait_Mel_EmpatheticFlushed_01 = "Portrait_Mel_EmpatheticFlushed_01",
+			Portrait_Mel_EmpatheticFlushed_01_Exit = "Portrait_Mel_EmpatheticFlushed_01_Exit",
+			Portrait_Mel_Hesitant_01 = "Portrait_Mel_Hesitant_01",
+			Portrait_Mel_Hesitant_01_Exit = "Portrait_Mel_Hesitant_01_Exit",
+			Portrait_Mel_Casual_01 = "Portrait_Mel_Casual_01",
+			Portrait_Mel_Casual_01_Exit = "Portrait_Mel_Casual_01_Exit",
+			Portrait_Mel_Pleased_01 = "Portrait_Mel_Pleased_01",
+			Portrait_Mel_Pleased_01_Exit = "Portrait_Mel_Pleased_01_Exit",
+			Portrait_Mel_PleasedFlushed_01 = "Portrait_Mel_PleasedFlushed_01",
+			Portrait_Mel_PleasedFlushed_01_Exit = "Portrait_Mel_PleasedFlushed_01_Exit"
+		}
+
+	for key,value in pairs(melPortraits) do
+		local newvalue = string.gsub(value, "Portrait_Mel_", replacement)
+		AnimationList[key] = newvalue
+	end
+
+	replacement = "Portrait_ZagChronos_"
+	if HeroHasTrait("ChronosManaCostume") or (melskin and melskin.GetCurrentDress() == "Azure") then
+		replacement = "Portrait_ZagChronosAzure_"
+	elseif HeroHasTrait("ChronosEscalatingCostume") or (melskin and melskin.GetCurrentDress() == "Crimson") then
+		replacement = "Portrait_ZagChronosCrimson_"
+	elseif HeroHasTrait("ChronosVitalityCostume") or (melskin and melskin.GetCurrentDress() == "Emerald") then
+		replacement = "Portrait_ZagChronosEmerald_"
+	elseif HeroHasTrait("ChronosCastDamageCostume") or (melskin and melskin.GetCurrentDress() == "Fuchsia") then
+		replacement = "Portrait_ZagChronosFuchsia_"
+	elseif HeroHasTrait("ChronosIncomeCostume") or (melskin and melskin.GetCurrentDress() == "Gilded") then
+		replacement = "Portrait_ZagChronosGilded_"
+	elseif HeroHasTrait("ChronosAgilityCostume") or (melskin and melskin.GetCurrentDress() == "Lavender") then
+		replacement = "Portrait_ZagChronosLavender_"
+	elseif HeroHasTrait("ChronosHighArmorCostume") or (melskin and melskin.GetCurrentDress() == "Onyx") then
+		replacement = "Portrait_ZagChronosOnyx_"
+	elseif (melskin and melskin.GetCurrentDress() == "Alternate Time") then
+		replacement = "Portrait_ZagChronosAnotherTime_"
+	elseif (melskin and melskin.GetCurrentDress() == "Dark Side") then
+		replacement = "Portrait_ZagChronosDarkSide_"
+	elseif (melskin and melskin.GetCurrentDress() == "Visage") then
+		replacement = "Portrait_ZagChronosVisage_"
+	else
+		replacement = "Portrait_ZagChronos_"
+	end
+
+	local zagPortraits = {
+			ModsNikkelMHadesBiomes_Portrait_Zag_Default_01 = "ModsNikkelMHadesBiomes_Portrait_Zag_Default_01",
+			ModsNikkelMHadesBiomes_Portrait_Zag_Default_01_Exit = "ModsNikkelMHadesBiomes_Portrait_Zag_Default_01_Exit",
+			ModsNikkelMHadesBiomes_Portrait_Zag_Serious_01 = "ModsNikkelMHadesBiomes_Portrait_Zag_Serious_01",
+			ModsNikkelMHadesBiomes_Portrait_Zag_Serious_01_Exit = "ModsNikkelMHadesBiomes_Portrait_Zag_Serious_01_Exit",
+			ModsNikkelMHadesBiomes_Portrait_Zag_Defiant_01 = "ModsNikkelMHadesBiomes_Portrait_Zag_Defiant_01",
+			ModsNikkelMHadesBiomes_Portrait_Zag_Defiant_01_Exit = "ModsNikkelMHadesBiomes_Portrait_Zag_Defiant_01_Exit",
+			ModsNikkelMHadesBiomes_Portrait_Zag_Empathetic_01 = "ModsNikkelMHadesBiomes_Portrait_Zag_Empathetic_01",
+			ModsNikkelMHadesBiomes_Portrait_Zag_Empathetic_01_Exit = "ModsNikkelMHadesBiomes_Portrait_Zag_Empathetic_01_Exit",
+			ModsNikkelMHadesBiomes_Portrait_Zag_Unwell_01 = "ModsNikkelMHadesBiomes_Portrait_Zag_Unwell_01",
+			ModsNikkelMHadesBiomes_Portrait_Zag_Unwell_01_Exit = "ModsNikkelMHadesBiomes_Portrait_Zag_Unwell_01_Exit"
+		}
+
+	for key,value in pairs(zagPortraits) do
+		local newvalue = string.gsub(value, "ModsNikkelMHadesBiomes_Portrait_Zag_", replacement)
+		AnimationList[key] = newvalue
+	end
+
+	wait(0.2)
+	for fromAnim,toAnim in pairs(AnimationList) do
+		SwapAnimation({Name = fromAnim, DestinationName = toAnim})
+	end
+end
+
+function mod.SetupNemesisAnimations()
+	local AnimationList = 
+	{ 
+		MelinoeIdle = "Nemesis_Combat_Idle",
+		MelinoeDashStart = "Nemesis_Combat_Dash_Start",
+		MelinoeDash = "Nemesis_Combat_Dash_Fire",
+		MelinoeStart = "Nemesis_Combat_Run_Start",
+		MelinoeRun = "Nemesis_Combat_Run_FireLoop",
+		MelinoeStop = "Nemesis_Combat_Run_End",
+		MelinoeGetHit = "Nemesis_Combat_OnHit",
+		Melinoe_GetHit_LastStand = "Nemesis_Combat_OnHit",
+		Melinoe_LastStand_Fire = "Enemy_Chronos_BattleOutro_Start",
+		MelinoeDeathGetHit = "NPC_Chronos_Enlightened_Hover",
+		MelinoeDeathGetHitX = "Enemy_Chronos_BattleOutro_Start",
+		MelinoeGetHitSurfacePenalty = "NPC_Chronos_Enlightened_Hover",
+		MelinoeGetHitActionPose = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Cast_Start = "Nemesis_Cast_EntranceFast",
+		Melinoe_Cast_StartLoop = "Nemesis_Cast_EntranceFast",
+		Melinoe_Cast_Fire = "Nemesis_Cast_EntranceFast",
+		Melinoe_Cast_End = "Nemesis_Cast_EntranceFast",
+		Melinoe_Cast_Fire_Quick = "Nemesis_Cast_EntranceFast",
+		Melinoe_CrossCast_Start = "Nemesis_Cast_EntranceFast",
+		MelinoeCrossCast = "Nemesis_Cast_EntranceFast",
+		Melinoe_ForwardCast_Unequip  = "Nemesis_Combat_Entrance",
+		MelinoeEquip = "Nemesis_Hub_Equip",
+		MelinoeActionIdle = "NPC_Chronos_Enlightened_Hover",
+		MelinoeInteract = "Nemesis_Combat_Interact",
+		MelinoeBoonPreInteract = "Player_Chronos_Shadowed_Greeting",
+		MelinoeSalute = "Nemesis_Hub_Salute",
+		MelinoeIdleWeaponless = "NPC_Chronos_Enlightened_Hover",
+		MelinoeSaluteToEquip = "NPC_Chronos_Enlightened_Hover",
+		MelinoeDeathReEnter = "NPC_Chronos_Enlightened_Hover",
+		MelinoeDeath = "Enemy_Chronos_BattleOutro_Start",
+		MelinoeDeathEscape = "Enemy_Chronos_BattleOutro_End",
+		MelinoeDeathEscape2 = "Enemy_Chronos_BattleOutro_End",
+		MelinoeDeathSuccess = "NPC_Chronos_Enlightened_Greet",
+		MelinoeDeathReEnterHeadUp = "NPC_Chronos_Enlightened_Hover",
+		MelinoeDeathReEnterToIdle = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_DeathHover_Start = "NPC_Chronos_Enlightened_Hover",
+		MelinoeDeathReEnterToIdleCancelable = "NPC_Chronos_Enlightened_Hover",
+		MelinoeBoonInteractPowerUp = "Nemesis_Combat_Interact",
+		MelinoeBoonInteract = "Nemesis_Combat_Interact",
+		MelinoeBoonInteractLoop = "Nemesis_Combat_Interact",
+		Melinoe_Gesture_ToWeaponless = "Nemesis_Hub_Greet",
+		MelinoeInteractWeaponless = "Nemesis_Combat_Interact",
+		Melinoe_InteractToEquip = "Nemesis_Combat_Interact",
+		MelinoeBountyTurnInStart = "NPC_Chronos_Enlightened_Hover",
+		MelinoeSpellFireCancellable = "NPC_Chronos_Enlightened_Hover",
+		MelinoeSpellFireReturn = "NPC_Chronos_Enlightened_Hover",
+		MelinoeCrossCastAntic = "NPC_Chronos_Enlightened_Hover",
+		MelinoeCrossCastAnticReverse = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_CrossCast_Start_Fast = "NPC_Chronos_Enlightened_Hover",
+		MelinoeCrossCastHold = "NPC_Chronos_Enlightened_Hover",
+		MelinoeCrossCastToIdle = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Leap_Landing = "Nemesis_Combat_Entrance",
+		MelinoeIdlePostInteract = "Nemesis_Combat_Idle",
 		Melinoe_Witchcraft_Start = "Enemy_Chronos_CastSlowFire",
 		
 		MelTalkPensive01 = "NPC_Chronos_Enlightened_Hover",
@@ -1847,17 +2136,404 @@ NemesisAspect = {
 			Multiplier = 0.3,
 		},
 	},
-	RequiredWeapon = "WeaponAxe",
+	RequiredWeapon = "WeaponStaffSwing",
 	Icon = "JarlUlsfark-MelinoeCallsForAid\\NemesisAspectIcon",
 	--IsCustomHero = true,
-	WeaponKitGrannyModel = "Melinoe_Axe_Mesh1",
+	WeaponKitGrannyModel = "WeaponStaff_Mesh",
 	ReplacementGrannyModels = 
 	{
-		Melinoe_Axe_Mesh1 = "Melinoe_Axe_Mesh1",
+		WeaponStaff_Mesh = "WeaponStaff_Mesh",
 	},
+	SetupFunction = 
+	{
+		Name = _PLUGIN.guid .. "." .. "SetupNemesisAnimations",
+		Threaded = true,
+	},
+	OnUnequipFunctionName = _PLUGIN.guid .. "." .. "SetupMelonieAnimations",
+	WeaponDataOverride =
+	{
+		--Attack
+		WeaponStaffSwing =
+		{
+			Sounds =
+			{
+				ChargeSounds = {
+					{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteCharging" } ,
+				},
+				FireSounds =
+				{
+					FireSounds =
+					{
+						{ Name = "/SFX/Player Sounds/ZagreusSwordOverhead" },
+						{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteAttacking" },		
+					},
+				},
+			},
+		},
+		WeaponStaffSwing2 =
+		{
+			Sounds =
+			{
+				ChargeSounds = {
+					{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteCharging" } ,
+				},
+				FireSounds =
+				{
+					FireSounds =
+					{
+						{ Name = "/SFX/Player Sounds/ZagreusSwordOverhead" },
+						{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteAttacking" },		
+					},
+				},
+			},
+		},
+		WeaponStaffSwing3 =
+		{
+			Sounds =
+			{
+				ChargeSounds = {
+					{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteCharging" } ,
+				},
+				FireSounds =
+				{
+					FireSounds =
+					{
+						{ Name = "/SFX/Player Sounds/ZagreusSwordOverhead" },
+						{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteAttacking" },		
+					},
+				},
+			},
+		},
+		--Dash Attack
+		WeaponStaffSwing3 =
+		{
+			Sounds =
+			{
+				ChargeSounds = {
+					{ } ,
+				},
+				FireSounds =
+				{
+					FireSounds =
+					{
+						{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteEvading" },
+						{ Name = "/SFX/Enemy Sounds/Exalted/ExaltedDash" },
+					},
+				},
+			},
+		},
+		--Special
+		WeaponStaffBall =
+		{
+			Sounds =
+			{
+				ChargeSounds = {
+					{ Name = "/SFX/Enemy Sounds/Nemesis/EmotePowerCharging" } ,
+				},
+				FireSounds =
+				{
+					FireSounds =
+					{
+						{ Name = "/SFX/Player Sounds/ZagreusSwordParry" },
+						{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteSpecialAttack" },
+					},
+				},
+			},
+		},
+	},
+	PropertyChanges =
+	{
+		--Attack
+		{
+			WeaponName = "WeaponStaffSwing",
+			WeaponProperty = "Projectile",
+			ChangeValue = "NemesisAttack1",
+		},
+		{
+			WeaponName = "WeaponStaffSwing",
+			WeaponProperties = {
+				ChargeStartAnimation = "Nemesis_Combat_Attack1_Start",
+				FireGraphic = "Nemesis_Combat_Attack1_Fire",
+				ChargeCancelGraphic = "Nemesis_Combat_Attack1_End",
+				FireFx = "null",
+				BarrelLength = -200,
+				SelfVelocity = 300,
+			},
+			ProjectileName = "NemesisAttack1",
+			ProjectileProperties = {
+				Damage = 25,
+			},
+			ExcludeLinked = true,
+		},
+		{
+			WeaponName = "WeaponStaffSwing2",
+			WeaponProperty = "Projectile",
+			ChangeValue = "NemesisAttack2",
+		},
+		{
+			WeaponName = "WeaponStaffSwing2",
+			WeaponProperties = {
+				ChargeStartAnimation = "Nemesis_Combat_Attack2_Start",
+				FireGraphic = "Nemesis_Combat_Attack2_Fire",
+				ChargeCancelGraphic = "Nemesis_Combat_Attack2_End",
+				FireFx = "null",
+				BarrelLength = 30,
+				SelfVelocity = 300,
+				SelfVelocityCap = 300,
+			},
+			ProjectileName = "NemesisAttack2",
+			ProjectileProperties = {
+				Damage = 30,
+			},
+			ExcludeLinked = true,
+		},
+		{
+			WeaponName = "WeaponStaffSwing3",
+			WeaponProperty = "Projectile",
+			ChangeValue = "NemesisAttack3",
+		},
+		{
+			WeaponName = "WeaponStaffSwing3",
+			WeaponProperties = {
+				ChargeStartAnimation = "Nemesis_Combat_Attack3_Start",
+				FireGraphic = "Nemesis_Combat_Attack3_Fire",
+				ChargeCancelGraphic = "Nemesis_Combat_Attack3_End",
+				FireFx = "null",
+				BarrelLength = -50,
+				SelfVelocity = 300,
+				SelfVelocityCap = 300,
+			},
+			ProjectileName = "NemesisAttack3",
+			ProjectileProperties = {
+				Damage = 40,
+			},
+			ExcludeLinked = true,
+		},
+		-- Dash Attack
+		{
+			WeaponName = "WeaponStaffDash",
+			WeaponProperty = "Projectile",
+			ChangeValue = "NemesisAttack1",
+		},
+		{
+			WeaponName = "WeaponStaffDash",
+			WeaponProperties = {
+				ChargeStartAnimation = "Nemesis_Combat_Attack1_Start",
+				FireGraphic = "Nemesis_Combat_Attack1_Fire",
+				ChargeCancelGraphic = "Nemesis_Combat_Attack1_End",
+				FireFx = "null",
+			},
+			ProjectileName = "NemesisAttack1",
+			ProjectileProperties = {
+				Damage = 40,
+			},
+			ExcludeLinked = true,
+		},
+		--Special
+		{
+			WeaponName = "WeaponStaffBall",
+			WeaponProperty = "Projectile",
+			ChangeValue = "NemesisSpecial",
+		},
+		{
+			WeaponName = "WeaponStaffBall",
+			WeaponProperties = {
+				ChargeStartAnimation = "Nemesis_Combat_Special_Start",
+				FireGraphic = "Nemesis_Combat_Special_Fire",
+				ChargeCancelGraphic = "Nemesis_Combat_Special_End",
+				FireFx = "null",
+			},
+			ProjectileName = "NemesisSpecial",
+			ProjectileProperties = {
+				Damage = 30,
+			},
+			ExcludeLinked = true,
+		},
+		--Dash
+		{
+			WeaponName = "WeaponBlink",
+			WeaponProperty = "Projectile",
+			ChangeValue = "null",
+		},
+		{
+			WeaponName = "WeaponBlink",
+			WeaponProperties = {
+				WeaponRange = 100,
+				BlinkMaxRange = 100,
+		--		ClipRegenInterval = 0.1,
+				BlinkDuration = 0.1,
+		--		DefaultControl = false,
+		--		CheckMovementReactionDistance = 0,
+				FireFx="null",
+		--		ChargeTimeFrames = 0,
+		--		MinChargeToFire = 0,
+			},
+			ExcludeLinked = true,
+		},
+		--{
+		--	WeaponName = "WeaponBlink",
+		--	EffectName = "RushWeaponInvulnerable",
+		--	EffectProperty = "Active",
+		--	ChangeValue = false,
+		--	ExcludeLinked = true,
+		--},
+		--{
+		--	WeaponName = "WeaponBlink",
+		--	EffectName = "RushWeaponImmuneToForce",
+		--	EffectProperty = "Active",
+		--	ChangeValue = false,
+		--	ExcludeLinked = true,
+		--},
+		--{
+		--	WeaponName = "WeaponBlink",
+		--	EffectName = "DashAttackQueue",
+		--	EffectProperty = "Active",
+		--	ChangeValue = false,
+		--	ExcludeLinked = true,
+		--},
+		--{
+		--	WeaponName = "WeaponBlink",
+		--	EffectName = "RushWeaponInvulnerableCharge",
+		--	EffectProperty = "Active",
+		--	ChangeValue = false,
+		--	ExcludeLinked = true,
+		--},
+		--{
+		--	WeaponName = "WeaponBlink",
+		--	EffectName = "RushWeaponInvulnerableCharge",
+		--	EffectProperty = "Active",
+		--	ChangeValue = false,
+		--	ExcludeLinked = true,
+		--},
+		--{
+		--	WeaponName = "WeaponBlink",
+		--	EffectName = "RushWeaponImmuneToForceCharge",
+		--	EffectProperty = "Active",
+		--	ChangeValue = false,
+		--	ExcludeLinked = true,
+		--},
+		--{
+		--	WeaponName = "WeaponBlink",
+		--	EffectName = "RushChargeSlow",
+		--	EffectProperty = "Active",
+		--	ChangeValue = false,
+		--	ExcludeLinked = true,
+		--},
+		--{
+		--	WeaponName = "WeaponBlink",
+		--	EffectName = "RushWeaponDisableRotation",
+		--	EffectProperty = "Active",
+		--	ChangeValue = false,
+		--	ExcludeLinked = true,
+		--},
+		--{
+		--	WeaponName = "WeaponBlink",
+		--	EffectName = "RushWeaponDisableMove",
+		--	EffectProperty = "Active",
+		--	ChangeValue = false,
+		--	ExcludeLinked = true,
+		--},
+		--Sprint
+		{
+			WeaponName = "WeaponSprint",
+			WeaponProperties = {
+				FireGraphic = "Nemesis_Combat_Sprint_FireLoop",
+				FireEndGraphic = "Nemesis_Combat_Run_FireLoop",
+				DefaultControl = true,
+			},
+			ExcludeLinked = true,
+		},
+		--Cast
+		{
+			WeaponName = "WeaponCast",
+			WeaponProperties = {
+				Cooldown = 0.3,
+				--Cooldown = 60,
+				ChargeStartAnimation = "Nemesis_Cast_EntranceFast",
+				FireGraphic = "null",
+				FireFx = "null",
+				AddOnFire = "null",
+				ExpireProjectilesOnFire = "ProjectileCast",
+				DoProjectileBlockPresentation = true,
+				DefaultKnockbackForce = 480,
+				DefaultKnockbackScale = 0.6,
+				ActiveProjectileCap = 1,
+				FizzleOldSpawns = true,
+				BlockedByAllOtherFireRequest = false,
+				RootOwnerWhileFiring = true,
+				ImmunityDuration = 0.3,
+			},
+			ProjectileName ="ProjectileCast",
+			ProjectileProperties = {
+				Fuse = 0.3,
+				FuseStart = 0.3,
+				DamageRadius = 150,
+				CheckObstacleImpact = true,
+				UseDetonationForProjectileDefense = true,
+				DetonateFx = "null",
+			},
+			ExcludeLinked = true,
+		},
+		{
+			WeaponName = "Weaponcast",
+			EffectName = "ShieldSelfInvulnerableRush2",
+			EffectProperty = "Active",
+			ChangeValue = true,
+			ExcludeLinked = true,
+		},
+	},
+	OnWeaponFiredFunctions =
+	{
+		ValidWeapons =  WeaponSets.HeroNonPhysicalWeapons,
+		FunctionName = "HestiaCastDefense",
+		FunctionArgs = 
+		{
+			ProjectileName = "NemesisCastDefense",
+			StartDelay = 0.02,
+			BuffVfx = "null",
+			ReportValues = { ReportedDamage = "StackCount"}
+		},
+	},
+	OnProjectileCreationFunction = 
+	{
+		ValidProjectiles = { "ProjectileCast" },
+		Name = _PLUGIN.guid .. "." .. "AddNemesisCastDefense",
+	},
+	OnProjectileDeathFunction = 
+	{
+		ValidProjectiles = { "ProjectileCast" },
+		Name = _PLUGIN.guid .. "." .. "RemoveNemesisCastDefense",
+		
+	},
+	--OnBlockDamageFunction = 
+	--{
+	--	Name = "HestiaBlockSpend",
+	--	Args = 
+	--	{
+	--		ProjectileName = "HestiaSprintDefense",
+	--		EffectArgs = 
+	--		{
+	--			EffectName = "BurnEffect",
+	--			NumStacks = 400,
+	--			ReportValues = {ReportedDamage = "NumStacks"},
+	--		},		
+	--		Vfx = "HestiaFlameParticleDefense",
+	--		FireSound = "/SFX/BurnDamageSizzle",	
+	--		Cooldown = 3,
+	--		ReportValues = {ReportedCooldown = "Cooldown"},
+	--	}
+	--},
+	StatLines =
+	{
+		"ChronosAspectStatDisplay",
+	},
+	ExtractValues =
+	{
+	},
+	FlavorText = "NemesisAspect_FlavorText",
 }
 
 --OverwriteTableKeys( TraitSetData.Aspects.AxeRecoveryAspect, ChronosAspect)
 TraitData.ChronosAspect = ChronosAspect
---TraitData.NemesisAspect = NemesisAspect
+TraitData.NemesisAspect = NemesisAspect
 

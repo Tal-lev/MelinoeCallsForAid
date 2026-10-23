@@ -620,9 +620,3 @@ table.insert( LootData.ApolloUpgrade.PriorityUpgrades, 4, "ChronosApolloSprintBo
 --Hestia
 table.insert( LootData.HestiaUpgrade.WeaponUpgrades, "ChronosHestiaSprintBoon" )
 table.insert( LootData.HestiaUpgrade.PriorityUpgrades, 4, "ChronosHestiaSprintBoon" )
-
-
---Still Missing 
---Demeter
---Apollo
---Hestia
