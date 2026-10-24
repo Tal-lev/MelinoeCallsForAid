@@ -12,7 +12,7 @@ A Hades II mod that allows you to play as other Characters.
 
 - requires reaching the True Ending.
 - Move-set
-  - Attack is swinging the Scythe in a 2-move combo.
+  - Attack is a 2-move Scythe combo.
   - Omega Attack is throwing the Scythe.
   - Special is a non-damaging Vacuum which pulls enemies in.
   - Omega Special is a wide straight projectile which flies the long distance.
@@ -36,6 +36,7 @@ A Hades II mod that allows you to play as other Characters.
 - Move-set
   - Attack is 3-move sword combo
   - Special is Circular blast which knock enemies back.
+  - Omega Special is a larger and stronger Circular blast which knock enemies back.
   - Cast is a parry. 
   - Dash is Very short and fast
   - Sprint is faster than Melinoe.
