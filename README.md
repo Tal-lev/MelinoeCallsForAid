@@ -38,7 +38,7 @@ A Hades II mod that allows you to play as other Characters.
   - Special is Circular blast which knock enemies back.
   - Cast is a parry. 
   - Dash is Very short and fast
-  - Sprint is slightly faster than Melinoe.
+  - Sprint is faster than Melinoe.
 - Exclusive Cast boons
 
 ## Missing Art [Artists Wanted]
