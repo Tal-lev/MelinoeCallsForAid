@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!--Releasenotes start-->
 ### Patch Highlights:
 
-- Added Nemesis as a Playable character, complete his her own animations, attacks, cast boons.
+- Added Nemesis as a Playable character, complete her own animations, attacks, cast boons, hammers.
 
 Other fixes and improvements:
 
