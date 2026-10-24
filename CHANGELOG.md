@@ -10,12 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!--Releasenotes start-->
 ### Patch Highlights:
 
-- Added Chronos specific Hexes with their accompanying talents. Chronos can no longer use Melinoe's Hexes.
-- Added two more Chronos specific Hammers. Chronos can no longer use Melinoe's Hammers.
-- Added Chronos Portraits in conversations, Compatible with Zagreus Journey and MelSkin.
+- Added Nemesis as a Playable character, complete his her own animations, attacks, cast boons.
 
 Other fixes and improvements:
 
+- Added Chronos specific Hexes with their accompanying talents. Chronos can no longer use Melinoe's Hexes.
+- Added two more Chronos specific Hammers. Chronos can no longer use Melinoe's Hammers.
+- Added Chronos Portraits in conversations, Compatible with Zagreus Journey and MelSkin.
 - Added Chronos Mana UI - Mana Symbol and Charge animations by @Yegitu on discord.
 - Added Chronos Minor Prophecies
 - Added Chronos Cosmetics
