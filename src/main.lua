@@ -71,7 +71,7 @@ local function on_ready()
 	import "Hexes.lua"
 	import 'ready.lua'
 	modutil.once_loaded.game(function()
-		import "Cosmetics.lua"
+		--import "Cosmetics.lua"
 		import "Chronos/Costumes.lua"
 
 		import "Chronos/Hammers.lua"

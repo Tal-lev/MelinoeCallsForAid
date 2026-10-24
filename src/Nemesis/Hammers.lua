@@ -1,4 +1,16 @@
 
+function mod.HandleNemesisDummyCrit( weaponData, functionArgs, triggerArgs )
+    print("#### Starting the Function!")
+    if HeroHasTrait("NemesisDummyCritTrait") then
+        print("Hero Has the Trait!")
+        return
+    end
+    AddTraitToHero({ TraitName = "NemesisDummyCritTrait"})
+    print("Added the Trait!")
+    wait(functionArgs.Duration)
+    RemoveTrait( CurrentRun.Hero, "NemesisDummyCritTrait" )
+end
+
 OverwriteTableKeys( TraitData, {
     NemesisLongerCastTrait = 
 	{
@@ -42,12 +54,72 @@ OverwriteTableKeys( TraitData, {
         },
     },
 
+    NemesisDummyCritTrait = {
+        Icon = "Hammer_Staff_37",
+        Hidden = true,
+    },
+
+    NemesisCritAfterSpecialTrait = 
+	{
+		InheritFrom = { "WeaponTrait", "StaffHammerTrait" },
+		Icon = "Hammer_Staff_37",
+		GameStateRequirements =
+		{
+			{
+				Path = { "CurrentRun", "Hero", "Weapons", },
+				HasAll = { "WeaponStaffSwing", },
+			},
+            {
+            Path = { "GameState", "LastWeaponUpgradeName", "WeaponStaffSwing", },
+            IsAny = {"NemesisAspect", }
+            },
+		},
+		RarityLevels =
+		{
+			Common =
+			{
+				Multiplier = 1.0,
+			},
+			Legendary = 
+			{
+				Multiplier = 1.33,
+			},
+		},
+        OnWeaponFiredFunctions = 
+		{
+            ValidWeapons = { "WeaponStaffBall" },
+			FunctionName = _PLUGIN.guid .. "." .. "HandleNemesisDummyCrit",
+			FunctionArgs = 
+			{
+				Duration = 3,
+			},
+        },
+        AddOutgoingCritModifiers = {
+			ValidWeapons = WeaponSets.HeroPrimaryWeapons,
+            RequiredTrait = "NemesisDummyCritTrait",
+			Chance = { BaseValue = 0.30 },
+			ReportValues = { ReportedCritBonus = "Chance"},
+		},
+        StatLines =
+		{
+			"CriticalChanceDisplay1",
+		},
+		ExtractValues =
+		{
+			{
+				Key = "ReportedCritBonus",
+				ExtractAs = "CritBonus",
+				Format = "LuckModifiedPercent"
+			},
+		},
+    },
+
 
 })
 
 --Adding Hammers to pool
 table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "NemesisLongerCastTrait")
---table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosRadialCast")
+table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "NemesisCritAfterSpecialTrait")
 --table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosTeleportRift")
 --table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosDualGrind")
 --table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosSpecialDamage")

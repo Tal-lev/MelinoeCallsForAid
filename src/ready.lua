@@ -2486,6 +2486,7 @@ NemesisAspect = {
 				CheckObstacleImpact = true,
 				UseDetonationForProjectileDefense = true,
 				DetonateFx = "null",
+				Graphic = "NemesisCastCircleIn",
 			},
 			ExcludeLinked = true,
 		},

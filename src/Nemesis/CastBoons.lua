@@ -27,14 +27,46 @@ function mod.NemesisRetaliate( blocker, args, triggerArgs )
 			thread(CreateAnimation,{ Name = args.Animation, DestinationId = attacker.ObjectId})
 			wait(0.1)
 		end
-		CreateProjectileFromUnit({
+		local angle = 0
+		local times = 1 
+		if args.Times then
+			times = args.Times
+		end
+		if args.Angle then
+			if args.Angle == "push" then
+				angle = GetAngleBetween({ DestinationId = attacker.ObjectId, Id = CurrentRun.Hero.ObjectId })
+			elseif args.Angle == "pull" then
+				angle = GetAngleBetween({ DestinationId = CurrentRun.Hero.ObjectId, Id = attacker.ObjectId })
+			end
+		end
+		for i = 1, times do
+			CreateProjectileFromUnit({
 			Id = CurrentRun.Hero.ObjectId,
 			Name = args.ProjectileName, 
 			WeaponName = args.WeaponName,
 			DestinationId = attacker.ObjectId, 
 			DamageMultiplier = args.DamageMultiplier,
 			FireFromTarget = true,
-    	})
+			Angle = angle or nil,
+    		})
+			wait(0.1)
+			if args.Angle and args.Force then
+				ApplyForce({ Id = attacker.ObjectId, Angle = angle, Speed = args.Force })
+			end
+			wait(0.5)
+		end
+		
+	end
+end
+
+function mod.NemesisBurnRetaliate( blocker, args, triggerArgs )
+	local attacker = triggerArgs.Attacker 
+	if attacker and not attacker.SkipModifiers and not attacker.IsDead and not IsUntargetable({Id = attacker.ObjectId}) and not IsInvulnerable({ Id = attacker.ObjectId }) then
+		if args.Animation then
+			thread(CreateAnimation,{ Name = args.Animation, DestinationId = attacker.ObjectId})
+			wait(0.1)
+		end
+		ApplyBurn(attacker, args)
 	end
 end
 
@@ -111,8 +143,7 @@ table.insert(TraitData.AresCastBoon.GameStateRequirements, {
 
 OverwriteTableKeys(TraitData, {
   --Zeus
-	NemesisZeusCastBoon = 
-	{
+	NemesisZeusCastBoon = {
 		Icon = "Boon_Zeus_29",
 		InheritFrom = { "BaseTrait", "AirBoon" },
 		Slot = "Ranged",
@@ -147,7 +178,7 @@ OverwriteTableKeys(TraitData, {
 					WeaponName = "WeaponCast",
 					ProjectileProperties = 
 					{
-						Graphic = "CastCircleInZeus",
+						Graphic = "NemesisCastCircleInZeus",
 					}
 				},
 			},
@@ -228,8 +259,7 @@ OverwriteTableKeys(TraitData, {
 	},
 
   --Hera
-  NemesisHeraCastBoon = 
-  {
+  NemesisHeraCastBoon = {
     Icon = "Boon_Hera_29",
 	InheritFrom = { "BaseTrait", "AirBoon" },
 	Slot = "Ranged",
@@ -266,7 +296,7 @@ OverwriteTableKeys(TraitData, {
 			WeaponName = "WeaponCast",
 			ProjectileProperties = 
 			{
-				Graphic = "CastCircleInHera",
+				Graphic = "NemesisCastCircleInHera",
 			}
 		},
 	},
@@ -338,9 +368,87 @@ OverwriteTableKeys(TraitData, {
 	},
   },
 
+  --Poseidon
+  NemesisPoseidonCastBoon = {
+    Icon = "Boon_Poseidon_29",
+	InheritFrom = { "BaseTrait", "WaterBoon" },
+	Slot = "Ranged",
+	RarityLevels =
+	{
+		Common =
+		{
+			Multiplier = 1.00,
+		},
+		Rare =
+		{
+			Multiplier = 1.5,
+		},
+		Epic =
+		{
+			Multiplier = 2.0,
+		},
+		Heroic =
+		{
+			Multiplier = 2.5,
+		},
+	},
+    PropertyChanges =
+	{
+		{
+			WeaponName = "WeaponCast",
+			ProjectileProperties = 
+			{
+				Graphic = "NemesisCastCircleInPoseidon",
+			}
+		},
+	},
+	OnBlockDamageFunction = 
+	{
+		Name = _PLUGIN.guid .. "." .. "NemesisRetaliate",
+		Args = 
+		{
+			ProjectileName = "PoseidonSplashSplinter",
+				DamageMultiplier = 
+				{ 
+					BaseValue = 2,
+					AbsoluteStackValues = 
+					{
+						[1] = 0.50,
+					}, 
+				},
+			ReportValues = 
+			{
+				ReportedMultiplier = "DamageMultiplier",
+			},
+			Angle = "push",
+			Force = 900,
+			WeaponName = "WeaponCast",
+		},
+	},
+	StatLines = 
+	{
+		"SplashDamageStatDisplay1",
+	},
+	ExtractValues = 
+	{
+		{
+			Key = "ReportedMultiplier",
+			ExtractAs = "Damage",
+			Format = "MultiplyByBase",
+			BaseType = "Projectile",
+			BaseName = "PoseidonSplashSplinter",
+			BaseProperty = "Damage",
+		},
+		{
+			Key = "ReportedCost",
+			ExtractAs = "TooltipCost",
+			SkipAutoExtract = true,
+		},
+	},
+  },
+
   --Demeter
-  NemesisDemeterCastBoon = 
-  {
+  NemesisDemeterCastBoon = {
     Icon = "Boon_Demeter_29",
 	InheritFrom = { "BaseTrait", "WaterBoon" },
 	Slot = "Ranged",
@@ -369,7 +477,7 @@ OverwriteTableKeys(TraitData, {
 			WeaponName = "WeaponCast",
 			ProjectileProperties = 
 			{
-				Graphic = "CastCircleInDemeter",
+				Graphic = "NemesisCastCircleInDemeter",
 			}
 		},
 	},
@@ -424,6 +532,370 @@ OverwriteTableKeys(TraitData, {
 	},
   },
 
+  --Apollo
+  NemesisApolloCastBoon = {
+    Icon = "Boon_Apollo_29",
+	InheritFrom = { "BaseTrait", "FireBoon" },
+	Slot = "Ranged",
+	RarityLevels =
+	{
+		Common =
+		{
+			Multiplier = 1.0,
+		},
+		Rare =
+		{
+			Multiplier = 1.5,
+		},
+		Epic =
+		{
+			Multiplier = 2.0,
+		},
+		Heroic =
+		{
+			Multiplier = 2.5,
+		},
+	},
+    PropertyChanges =
+	{
+		{
+			WeaponName = "WeaponCast",
+			ProjectileProperties = 
+			{
+				Graphic = "NemesisCastCircleInApollo",
+			}
+		},
+	},
+	OnBlockDamageFunction = 
+	{
+		Name = _PLUGIN.guid .. "." .. "NemesisRetaliate",
+		Args = 
+		{
+			ProjectileName = "ApolloRetaliateStrike",
+			DamageMultiplier =
+			{
+				BaseValue = 1,
+				MinMultiplier = 0.1,
+				IdenticalMultiplier =
+				{
+					Value = -0.5,
+				},
+			},
+			ReportValues = { ReportedMultiplier = "DamageMultiplier"},
+			WeaponName = "WeaponCast",
+		},
+	},
+    OnEnemyDamagedAction = 
+	{
+		ValidWeapons = WeaponSets.HeroNonPhysicalWeapons,		
+		EffectName = "BlindEffect",
+		Chance = 
+		{ 
+			BaseValue = 0.50,
+			AbsoluteStackValues =
+			{
+				[1] = 0.10,
+				[2] = 0.05,
+			},
+		},
+		ReportValues = { ReportedChance = "Chance"},
+	},
+	StatLines = 
+	{
+		"RevengeDamageStatDisplay1",
+		"NemesisBlindChanceStatDisplay2",
+	},
+	ExtractValues =
+	{
+		{
+			Key = "ReportedMultiplier",
+			ExtractAs = "Damage",
+			Format = "MultiplyByBase",
+			BaseType = "Projectile",
+			BaseName = "ApolloRetaliateStrike",
+			BaseProperty = "Damage",
+		},
+		{
+			Key = "ReportedChance",
+			ExtractAs = "Chance",
+			Format = "LuckModifiedPercent",
+		},
+		{
+			ExtractAs = "BlindDuration",
+			SkipAutoExtract = true,
+			External = true,
+			BaseType = "EffectData",
+			BaseName = "BlindEffect",
+			BaseProperty = "Duration",
+		},
+		{
+			ExtractAs = "BlindChance",
+			SkipAutoExtract = true,
+			External = true,
+			BaseType = "EffectData",
+			BaseName = "BlindEffect",
+			BaseProperty = "MissChance",
+			Format = "Percent"
+		},
+	},
+  },
+
+  --Aphrodite
+  NemesisAphroditeCastBoon = {
+    Icon = "Boon_Aphrodite_29",
+	InheritFrom = { "BaseTrait", "AirBoon" },
+	Slot = "Ranged",
+	RarityLevels =
+	{
+		Common =
+		{
+			Multiplier = 1.0,
+		},
+		Rare =
+		{
+			Multiplier = 1.5,
+		},
+		Epic =
+		{
+			Multiplier = 2.0,
+		},
+		Heroic =
+		{
+			Multiplier = 2.5,
+		}
+	},
+    PropertyChanges =
+	{
+		{
+			WeaponName = "WeaponCast",
+			ProjectileProperties = 
+			{
+				Graphic = "NemesisCastCircleInAphrodite",
+			}
+		},
+	},
+	OnBlockDamageFunction = 
+	{
+		Name = _PLUGIN.guid .. "." .. "NemesisRetaliate",
+		Args = 
+		{
+			ProjectileName = "AphroditeCastProjectile",
+			DamageMultiplier = 
+			{ 
+				BaseValue = 1.5,
+				AbsoluteStackValues = 
+				{
+					[1] = 0.50,
+					[2] = 0.25,
+					[3] = 0.20,
+					--[4] = 0.10,
+				},
+			},
+			Force = 1100,
+			Angle = "pull",
+			Times = 3,
+			ReportValues = 
+			{
+				ReportedMultiplier = "DamageMultiplier",
+			},
+			WeaponName = "WeaponCast",
+		},
+	},
+    OnEnemyDamagedAction = 
+	{
+		ValidWeapons = WeaponSets.HeroNonPhysicalWeapons,
+		EffectName = "WeakEffect",
+		Args = 
+		{
+			Duration = 10,
+		},
+	},
+	StatLines = 
+	{
+		"NemesisPullDamageStatDisplay1",
+	},
+	ExtractValues = 
+	{
+		{
+			Key = "ReportedMultiplier",
+			Format = "MultiplyByBase",
+			BaseType = "Projectile",
+			BaseName = "AphroditeCastProjectile",
+			BaseProperty = "Damage",
+			ExtractAs = "Damage",
+		},
+		{
+			ExtractAs = "DamageShareDuration",
+			SkipAutoExtract = true,
+			External = true,
+			BaseType = "EffectData",
+			BaseName = "DamageShareEffect",
+			BaseProperty = "Duration",
+		},
+		{
+			ExtractAs = "DamageShareAmount",
+			SkipAutoExtract = true,
+			External = true,
+			BaseType = "EffectData",
+			BaseName = "DamageShareEffect",
+			BaseProperty = "Amount",
+			Format = "Percent",
+			HideSigns = true,
+		},
+	},
+  },
+
+  --Hestia
+  NemesisHestiaCastBoon = {
+    Icon = "Boon_Hestia_29",
+	InheritFrom = { "BaseTrait", "FireBoon" },
+	Slot = "Ranged",
+	RarityLevels =
+	{
+		Common =
+		{
+			Multiplier = 1.0,
+		},
+		Rare =
+		{
+			Multiplier = 1.5,
+		},
+		Epic =
+		{
+			Multiplier = 2.0,
+		},
+		Heroic =
+		{
+			Multiplier = 2.5,
+		}
+	},
+    PropertyChanges =
+	{
+		{
+			WeaponName = "WeaponCast",
+			ProjectileProperties = 
+			{
+				Graphic = "NemesisCastCircleInHestia",
+			}
+		},
+	},
+	OnBlockDamageFunction = 
+	{
+		Name = _PLUGIN.guid .. "." .. "NemesisBurnRetaliate",
+		Args = 
+		{
+			EffectName = "BurnEffect",
+			NumStacks = 
+			{
+				BaseValue = 60,
+				MinValue = 1,
+				AbsoluteStackValues =
+				{
+					[1] = 20,
+					[2] = 15,
+					[3] = 15,
+					[4] = 10,
+					[5] = 5,
+				},
+				AsInt = true,
+			},
+			ReportValues = {ReportedDamage = "NumStacks"}
+		},
+	},
+	StatLines =
+	{
+		"BurnDamageStatDisplay1",
+	},
+	ExtractValues =
+	{
+		{
+				Key = "ReportedDamage",
+				ExtractAs = "TooltipDamage",
+		},
+		{
+			ExtractAs = "BurnRate",
+			SkipAutoExtract = true,
+			External = true,
+			BaseType = "EffectLuaData",
+			BaseName = "BurnEffect",
+			BaseProperty = "DamagePerSecond",
+			DecimalPlaces = 1,
+		},
+	},
+  },
+
+  --Ares
+  NemesisAresCastBoon = {
+    Icon = "Boon_Ares_29",
+	InheritFrom = { "BaseTrait", "EarthBoon" },
+	Slot = "Ranged",
+	RarityLevels =
+	{
+		Common =
+		{
+			Multiplier = 1.0,
+		},
+		Rare =
+		{
+			Multiplier = 160/120,
+		},
+		Epic =
+		{
+			Multiplier = 200/120,
+		},
+		Heroic =
+		{
+			Multiplier = 240/120,
+		},
+	},
+    PropertyChanges =
+	{
+		{
+			WeaponName = "WeaponCast",
+			ProjectileProperties = 
+			{
+				Graphic = "NemesisCastCircleInAres",
+			}
+		},
+	},
+	OnBlockDamageFunction = 
+	{
+		Name = _PLUGIN.guid .. "." .. "NemesisRetaliate",
+		Args = 
+		{
+			ProjectileName = "ProjectileAresSwordCast",
+			DamageMultiplier =
+			{
+				BaseValue = 1,
+				DecimalPlaces = 3,
+				AbsoluteStackValues =
+				{
+					[1] = 40/120,
+					[2] = 30/120,
+					[3] = 20/120,
+				},
+			},
+			ReportValues = { ReportedDamage = "DamageMultiplier" },
+			WeaponName = "WeaponCast",
+		},
+	},
+	StatLines =
+	{
+		"CurseDamageStatDisplay1",
+	},
+	ExtractValues =
+	{
+		{
+			Key = "ReportedDamage",
+			ExtractAs = "Damage",
+			Format = "MultiplyByBase",
+			BaseType = "Projectile",
+			BaseName = "ProjectileAresSwordCast",
+			BaseProperty = "Damage",
+		},
+	},
+  },
+
 })
 
 
@@ -434,6 +906,21 @@ table.insert( LootData.ZeusUpgrade.PriorityUpgrades, 3, "NemesisZeusCastBoon" )
 --Hera
 table.insert( LootData.HeraUpgrade.WeaponUpgrades, "NemesisHeraCastBoon" )
 table.insert( LootData.HeraUpgrade.PriorityUpgrades, 3, "NemesisHeraCastBoon" )
+--Poseidon
+table.insert( LootData.PoseidonUpgrade.WeaponUpgrades, "NemesisPoseidonCastBoon" )
+table.insert( LootData.PoseidonUpgrade.PriorityUpgrades, 3, "NemesisPoseidonCastBoon" )
 --Demeter
 table.insert( LootData.DemeterUpgrade.WeaponUpgrades, "NemesisDemeterCastBoon" )
 table.insert( LootData.DemeterUpgrade.PriorityUpgrades, 3, "NemesisDemeterCastBoon" )
+--Apollo
+table.insert( LootData.ApolloUpgrade.WeaponUpgrades, "NemesisApolloCastBoon" )
+table.insert( LootData.ApolloUpgrade.PriorityUpgrades, 3, "NemesisApolloCastBoon" )
+--Aphrodite
+table.insert( LootData.AphroditeUpgrade.WeaponUpgrades, "NemesisAphroditeCastBoon" )
+table.insert( LootData.AphroditeUpgrade.PriorityUpgrades, 3, "NemesisAphroditeCastBoon" )
+--Hestia
+table.insert( LootData.HestiaUpgrade.WeaponUpgrades, "NemesisHestiaCastBoon" )
+table.insert( LootData.HestiaUpgrade.PriorityUpgrades, 3, "NemesisHestiaCastBoon" )
+--Ares
+table.insert( LootData.AresUpgrade.WeaponUpgrades, "NemesisAresCastBoon" )
+table.insert( LootData.AresUpgrade.PriorityUpgrades, 3, "NemesisAresCastBoon" )

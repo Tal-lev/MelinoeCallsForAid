@@ -54,3 +54,103 @@ sjson.hook(file, function(data)
 return data
 end)
 
+local file = rom.path.combine(rom.paths.Content, 'Game/Animations/Melinoe_Cast_VFX.sjson')
+sjson.hook(file, function(data)
+
+	table.insert(data.Animations,
+	{
+		Name = "NemesisCastCircleIn",
+		InheritFrom = "CastCircleIn",
+		--VisualFx = 'null',
+		ClearCreateAnimations = true,
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "NemesisCastCircleInZeus",
+		InheritFrom = "CastCircleInZeus",
+		--VisualFx = 'null',
+		ClearCreateAnimations = true,
+		--CreateAnimations =
+		--{
+		--	{ Name = "CastCircleZeusA" },
+		--}
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "NemesisCastCircleInHera",
+		InheritFrom = "CastCircleInHera",
+		--VisualFx = 'null',
+		ClearCreateAnimations = true,
+		--CreateAnimations = {
+		--	{ Name = "CastCircleHeraA" },
+		--	{ Name = "CastCircleHeraB1" },
+		--	{ Name = "CastCircleHeraB2" },
+
+		--	{ Name = "CastCircleInHeraFlare" },
+		--},
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "NemesisCastCircleInPoseidon",
+		InheritFrom = "CastCircleInPoseidon",
+		--VisualFx = 'null',
+		ClearCreateAnimations = true,
+		--CreateAnimations = {
+		--	{ Name = "CastCirclePoseidonA" },
+		--	{ Name = "CastCirclePoseidonFx" },
+		--},
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "NemesisCastCircleInDemeter",
+		InheritFrom = "CastCircleInDemeter",
+		--VisualFx = 'null',
+		ClearCreateAnimations = true,
+		--CreateAnimations = {
+		--	{ Name = "CastCircleDemeterA" },
+		--	{ Name = "CastCircleDemeterA2" },
+		--},
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "NemesisCastCircleInApollo",
+		InheritFrom = "CastCircleInApollo",
+		--VisualFx = 'null',
+		ClearCreateAnimations = true,
+		--CreateAnimations =
+		--{
+		--	{ Name = "CastCircleApolloRingB" },
+		--	{ Name = "CastCircleApolloRingC" },
+		--	{ Name = "CastCircleApolloRingC" },
+		--},
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "NemesisCastCircleInAphrodite",
+		InheritFrom = "CastCircleInAphrodite",
+		ClearCreateAnimations = true,
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "NemesisCastCircleInAres",
+		InheritFrom = "CastCircleInAres",
+		--VisualFx = 'null',
+		ClearCreateAnimations = true,
+		--CreateAnimations =
+		--{
+		--	{ Name = "CastCircleAresA" },
+		--	{ Name = "CastCircleAresB" },
+		--	{ Name = "CastCircleInAresFlare" },
+		--}
+	})
+    
+
+return data
+end)
