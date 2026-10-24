@@ -41,6 +41,7 @@ A Hades II mod that allows you to play as other Characters.
   - Dash is Very short and fast
   - Sprint is faster than Melinoe.
 - Exclusive Cast boons
+- Exclusive Hammers
 
 ## Missing Art [Artists Wanted]
 
