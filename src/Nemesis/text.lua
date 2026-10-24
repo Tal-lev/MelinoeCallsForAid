@@ -47,20 +47,8 @@ sjson.hook(file, function(data)
 		},
 		TextOrder)
 	)
-    
 
-    table.insert(data.Texts, sjson.to_object(
-		{
-			Id = "ChronosAspectStatDisplay",
-			InheritFrom = "BaseBoonMultiline",
-			DisplayName = "",
-			Description = ""
-
-		},
-		TextOrder)
-	)
-
-    --Dash Boons
+    --Cast Boons
     table.insert(data.Texts, sjson.to_object(
     {
       Id = "NemesisZeusCastBoon",
@@ -69,6 +57,48 @@ sjson.hook(file, function(data)
       Description = "Your {$Keywords.CastSet} cause lightning bolts to strike the attacker and inflict {$Keywords.Echo}.",
     },
     TextOrder)
+	)
+
+	table.insert(data.Texts, sjson.to_object(
+	{
+      Id = "NemesisHeraCastBoon",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Engagement Parry",
+      Description = "Your {$Keywords.CastSet} immediately deal damage to the attacker and inflict {$Keywords.Link}.",
+    },
+    TextOrder)
+	)
+
+	table.insert(data.Texts, sjson.to_object(
+	{
+      Id = "NemesisDemeterCastBoon",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Arctic Parry",
+      Description = "Your {$Keywords.CastSet} drops an icy shard on the attacker and inflict {$Keywords.Root}.",
+    },
+    TextOrder)
+	)
+
+	table.insert(data.Texts, sjson.to_object(
+	{
+      Id = "NemesisShardDamageHitDisplay1",
+      InheritFrom = "BaseStatLine",
+      DisplayName = "{!Icons.Bullet}{#PropertyFormat}Shard Damage:",
+      Description = "{#UpgradeFormat}{$TooltipData.StatDisplay1}",
+    },
+    TextOrder)
+	)
+
+	-- Nemesis Hammers
+
+    table.insert(data.Texts, sjson.to_object(
+	{
+		Id = "NemesisLongerCastTrait",
+		InheritFrom = "BaseBoonMultiline",
+		DisplayName = "Heightened Reflexes",
+		Description = "Your {$Keywords.Cast} Parry has double duration."
+	},
+	TextOrder)
 	)
 
 return data

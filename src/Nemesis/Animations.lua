@@ -23,3 +23,34 @@ sjson.hook(file, function(data)
 return data
 end)
 
+--Melinoe effects
+local file = rom.path.combine(rom.paths.Content, 'Game/Animations/Enemy_Erebus_VFX.sjson')
+sjson.hook(file, function(data)
+
+	table.insert(data.Animations,
+	{
+		Name = "FogEmitterSlamNovaNemesisOmega",
+		InheritFrom = "FogEmitterSlamNova",
+		Scale = 3,
+	})
+    
+
+return data
+end)
+
+local file = rom.path.combine(rom.paths.Content, 'Game/Animations/Melinoe_Demeter_VFX.sjson')
+sjson.hook(file, function(data)
+
+	table.insert(data.Animations,
+	{
+		Name = "NemesisDemeterIceRain",
+		InheritFrom = "DemeterIceRain",
+		RandomOffsetX = 0.0,
+		RandomOffsetY = 0.0,
+		RandomOffsetScaleRadius = 420,
+	})
+    
+
+return data
+end)
+

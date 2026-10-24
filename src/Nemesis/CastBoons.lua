@@ -16,8 +16,26 @@ function mod.NemesisZeusRetaliate( blocker, args, triggerArgs )
       Delay = 0.1, 
       FollowUpDelay = 0.5, 
       Count = strikeCount
-      })
+    })
   end
+end
+
+function mod.NemesisRetaliate( blocker, args, triggerArgs )
+	local attacker = triggerArgs.Attacker 
+	if attacker and not attacker.SkipModifiers and not attacker.IsDead and not IsUntargetable({Id = attacker.ObjectId}) and not IsInvulnerable({ Id = attacker.ObjectId }) then
+		if args.Animation then
+			thread(CreateAnimation,{ Name = args.Animation, DestinationId = attacker.ObjectId})
+			wait(0.1)
+		end
+		CreateProjectileFromUnit({
+			Id = CurrentRun.Hero.ObjectId,
+			Name = args.ProjectileName, 
+			WeaponName = args.WeaponName,
+			DestinationId = attacker.ObjectId, 
+			DamageMultiplier = args.DamageMultiplier,
+			FireFromTarget = true,
+    	})
+	end
 end
 
 ------ Adding GameStateRequirements for all
@@ -93,34 +111,53 @@ table.insert(TraitData.AresCastBoon.GameStateRequirements, {
 
 OverwriteTableKeys(TraitData, {
   --Zeus
-  NemesisZeusCastBoon = 
-  {
-    Icon = "Boon_Zeus_29",
-    InheritFrom = { "BaseTrait", "AirBoon" },
-    Slot = "Ranged",
-    PropertyChanges =
+	NemesisZeusCastBoon = 
+	{
+		Icon = "Boon_Zeus_29",
+		InheritFrom = { "BaseTrait", "AirBoon" },
+		Slot = "Ranged",
+		RarityLevels =
 		{
+			Common =
 			{
-				WeaponName = "WeaponCast",
-				WeaponProperty = "FireFx",
-				ChangeValue = "QuickFlashYellow",
-				ChangeType = "Absolute",
+				Multiplier = 1.0,
 			},
+			Rare =
 			{
-				WeaponName = "WeaponCast",
-				ProjectileProperties = 
-				{
-					Graphic = "CastCircleInZeus",
-				}
+				Multiplier = 1.3,
+			},
+			Epic =
+			{
+				Multiplier = 1.6,
+			},
+			Heroic =
+			{
+				Multiplier = 1.9,
 			},
 		},
+		PropertyChanges =
+			{
+				{
+					WeaponName = "WeaponCast",
+					WeaponProperty = "FireFx",
+					ChangeValue = "QuickFlashYellow",
+					ChangeType = "Absolute",
+				},
+				{
+					WeaponName = "WeaponCast",
+					ProjectileProperties = 
+					{
+						Graphic = "CastCircleInZeus",
+					}
+				},
+			},
 		OnBlockDamageFunction = 
 		{
 			Name = _PLUGIN.guid .. "." .. "NemesisZeusRetaliate",
 			Args = 
 			{
 				ProjectileName = "ZeusRetaliateStrike",
-        WeaponName = "WeaponCast",
+				WeaponName = "WeaponCast",
 				Cooldown = 0.15,
 				ConsecutiveStrikeChance = 0,
 				MaxStrikes = { 
@@ -138,7 +175,7 @@ OverwriteTableKeys(TraitData, {
 				},
 			}
 		},
-    OnEnemyDamagedAction = 
+    	OnEnemyDamagedAction = 
 		{
 			ValidWeapons = WeaponSets.HeroNonPhysicalWeapons,
 			EffectName = "DamageEchoEffect",
@@ -188,7 +225,205 @@ OverwriteTableKeys(TraitData, {
 				BaseProperty = "DamageThreshold",
 			},
 		},
-  }
+	},
+
+  --Hera
+  NemesisHeraCastBoon = 
+  {
+    Icon = "Boon_Hera_29",
+	InheritFrom = { "BaseTrait", "AirBoon" },
+	Slot = "Ranged",
+	RarityLevels =
+	{
+		Common =
+		{
+			Multiplier = 1.00,
+		},
+		Rare =
+		{
+			Multiplier = 1.5,
+		},
+		Epic =
+		{
+			Multiplier = 2.0,
+		},
+		Heroic =
+		{
+			Multiplier = 2.5,
+		},
+	},
+	OnEffectApplyFunction = 
+	{
+		FunctionName = "CheckApplyDamageShare",
+		FunctionArgs = 
+		{
+			EffectName = "DamageShareEffect",
+		},
+	},
+    PropertyChanges =
+	{
+		{
+			WeaponName = "WeaponCast",
+			ProjectileProperties = 
+			{
+				Graphic = "CastCircleInHera",
+			}
+		},
+	},
+	OnBlockDamageFunction = 
+	{
+		Name = _PLUGIN.guid .. "." .. "NemesisRetaliate",
+		Args = 
+		{
+			ProjectileName = "HeraCastSummonProjectile",
+			DamageMultiplier = 
+			{ 
+				BaseValue = 1,
+				AbsoluteStackValues = 
+				{
+					[1] = 0.50,
+					[2] = 0.25,
+					[3] = 0.20,
+					--[4] = 0.10,
+				},
+			},
+			ReportValues = 
+			{
+				ReportedMultiplier = "DamageMultiplier",
+			},
+			WeaponName = "WeaponCast",
+		},
+	},
+    OnEnemyDamagedAction = 
+	{
+		ValidWeapons = WeaponSets.HeroNonPhysicalWeapons,		
+		FunctionName = "ApplyDamageShare",
+		Args = 
+		{
+			EffectName = "DamageShareEffect",
+		},	
+	},
+	StatLines = 
+	{
+		"DamageShareFirstHitDisplay1",
+	},
+	ExtractValues = 
+	{
+		{
+			Key = "ReportedMultiplier",
+			Format = "MultiplyByBase",
+			BaseType = "Projectile",
+			BaseName = "HeraCastSummonProjectile",
+			BaseProperty = "Damage",
+			ExtractAs = "Damage",
+		},
+		{
+			ExtractAs = "DamageShareDuration",
+			SkipAutoExtract = true,
+			External = true,
+			BaseType = "EffectData",
+			BaseName = "DamageShareEffect",
+			BaseProperty = "Duration",
+		},
+		{
+			ExtractAs = "DamageShareAmount",
+			SkipAutoExtract = true,
+			External = true,
+			BaseType = "EffectData",
+			BaseName = "DamageShareEffect",
+			BaseProperty = "Amount",
+			Format = "Percent",
+			HideSigns = true,
+		},
+	},
+  },
+
+  --Demeter
+  NemesisDemeterCastBoon = 
+  {
+    Icon = "Boon_Demeter_29",
+	InheritFrom = { "BaseTrait", "WaterBoon" },
+	Slot = "Ranged",
+	RarityLevels =
+	{
+		Common =
+		{
+			Multiplier = 1.00,
+		},
+		Rare =
+		{
+			Multiplier = 1.5,
+		},
+		Epic =
+		{
+			Multiplier = 2.0,
+		},
+		Heroic =
+		{
+			Multiplier = 2.5,
+		},
+	},
+    PropertyChanges =
+	{
+		{
+			WeaponName = "WeaponCast",
+			ProjectileProperties = 
+			{
+				Graphic = "CastCircleInDemeter",
+			}
+		},
+	},
+	OnBlockDamageFunction = 
+	{
+		Name = _PLUGIN.guid .. "." .. "NemesisRetaliate",
+		Args = 
+		{
+			ProjectileName = "DemeterCastBlast",
+			Animation = "NemesisDemeterIceRain",
+			DamageMultiplier = 
+			{ 
+				BaseValue = 3,
+				AbsoluteStackValues = 
+				{
+					[1] = 1.50,
+					[2] = 0.75,
+					[3] = 0.60,
+					--[4] = 0.10,
+				},
+			},
+			ReportValues = 
+			{
+				ReportedMultiplier = "DamageMultiplier",
+			},
+			WeaponName = "WeaponCast",
+		},
+	},
+    OnEnemyDamagedAction = 
+	{
+		ValidWeapons = WeaponSets.HeroNonPhysicalWeapons,		
+		FunctionName = "ApplyRoot",
+		Args = 
+		{
+			EffectName = "ChillEffect",
+		},	
+	},
+	StatLines = 
+	{
+		"NemesisShardDamageHitDisplay1",
+	},
+	ExtractValues = 
+	{
+		{
+			Key = "ReportedMultiplier",
+			Format = "MultiplyByBase",
+			BaseType = "Projectile",
+			BaseName = "DemeterCastBlast",
+			BaseProperty = "Damage",
+			ExtractAs = "Damage",
+		},
+	},
+  },
+
 })
 
 
@@ -196,3 +431,9 @@ OverwriteTableKeys(TraitData, {
 --Zeus
 table.insert( LootData.ZeusUpgrade.WeaponUpgrades, "NemesisZeusCastBoon" )
 table.insert( LootData.ZeusUpgrade.PriorityUpgrades, 3, "NemesisZeusCastBoon" )
+--Hera
+table.insert( LootData.HeraUpgrade.WeaponUpgrades, "NemesisHeraCastBoon" )
+table.insert( LootData.HeraUpgrade.PriorityUpgrades, 3, "NemesisHeraCastBoon" )
+--Demeter
+table.insert( LootData.DemeterUpgrade.WeaponUpgrades, "NemesisDemeterCastBoon" )
+table.insert( LootData.DemeterUpgrade.PriorityUpgrades, 3, "NemesisDemeterCastBoon" )

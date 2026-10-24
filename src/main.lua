@@ -73,7 +73,10 @@ local function on_ready()
 	modutil.once_loaded.game(function()
 		import "Cosmetics.lua"
 		import "Chronos/Costumes.lua"
+
 		import "Chronos/Hammers.lua"
+		import "Nemesis/Hammers.lua"
+
 		import "Quests.lua"
 		import "WeaponShop.lua"
 		SetupRunData()

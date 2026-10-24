@@ -2225,6 +2225,35 @@ NemesisAspect = {
 		--Special
 		WeaponStaffBall =
 		{
+			ChargeWeaponStages = 
+			{
+				{ 
+					ManaCost = 10, 
+					Wait = 0.65, 
+					
+					WeaponProperties =
+					{
+						Projectile = "PlayerNemesisSpecialOmega",
+						AdditionalProjectileWaveChance = 0,
+						Cooldown = 0.31,
+						ClipRegenInterval = 0,
+						FireGraphic = "Nemesis_Combat_Special_Fire",
+						SelfVelocity = 0,
+					},
+					ApplyEffects = { "Special1DisableMoveHold", },
+					--AnimOnStart = "Melinoe_Staff_Special1_Start", 
+					FxOnStart = "null", 
+					ChargeRumbleParameters =
+					{
+						-- { ScreenPreWait = 0.02, RightFraction = 0.14, Duration = 0.13 },
+					},
+					FireRumbleParameters =
+					{
+						-- { ScreenPreWait = 0.06, RightFraction = 0.2, Duration = 0.23 },
+					},
+					ChannelSlowEventOnStart = true 
+				},
+			},
 			Sounds =
 			{
 				ChargeSounds = {
@@ -2247,7 +2276,7 @@ NemesisAspect = {
 		{
 			WeaponName = "WeaponStaffSwing",
 			WeaponProperty = "Projectile",
-			ChangeValue = "NemesisAttack1",
+			ChangeValue = "PlayerNemesisAttack1",
 		},
 		{
 			WeaponName = "WeaponStaffSwing",
@@ -2259,16 +2288,12 @@ NemesisAspect = {
 				BarrelLength = -200,
 				SelfVelocity = 300,
 			},
-			ProjectileName = "NemesisAttack1",
-			ProjectileProperties = {
-				Damage = 25,
-			},
 			ExcludeLinked = true,
 		},
 		{
 			WeaponName = "WeaponStaffSwing2",
 			WeaponProperty = "Projectile",
-			ChangeValue = "NemesisAttack2",
+			ChangeValue = "PlayerNemesisAttack2",
 		},
 		{
 			WeaponName = "WeaponStaffSwing2",
@@ -2281,16 +2306,12 @@ NemesisAspect = {
 				SelfVelocity = 300,
 				SelfVelocityCap = 300,
 			},
-			ProjectileName = "NemesisAttack2",
-			ProjectileProperties = {
-				Damage = 30,
-			},
 			ExcludeLinked = true,
 		},
 		{
 			WeaponName = "WeaponStaffSwing3",
 			WeaponProperty = "Projectile",
-			ChangeValue = "NemesisAttack3",
+			ChangeValue = "PlayerNemesisAttack3",
 		},
 		{
 			WeaponName = "WeaponStaffSwing3",
@@ -2303,17 +2324,13 @@ NemesisAspect = {
 				SelfVelocity = 300,
 				SelfVelocityCap = 300,
 			},
-			ProjectileName = "NemesisAttack3",
-			ProjectileProperties = {
-				Damage = 40,
-			},
 			ExcludeLinked = true,
 		},
 		-- Dash Attack
 		{
 			WeaponName = "WeaponStaffDash",
 			WeaponProperty = "Projectile",
-			ChangeValue = "NemesisAttack1",
+			ChangeValue = "PlayerNemesisAttack2",
 		},
 		{
 			WeaponName = "WeaponStaffDash",
@@ -2323,7 +2340,7 @@ NemesisAspect = {
 				ChargeCancelGraphic = "Nemesis_Combat_Attack1_End",
 				FireFx = "null",
 			},
-			ProjectileName = "NemesisAttack1",
+			ProjectileName = "PlayerNemesisAttack2",
 			ProjectileProperties = {
 				Damage = 40,
 			},
@@ -2333,7 +2350,7 @@ NemesisAspect = {
 		{
 			WeaponName = "WeaponStaffBall",
 			WeaponProperty = "Projectile",
-			ChangeValue = "NemesisSpecial",
+			ChangeValue = "PlayerNemesisSpecial",
 		},
 		{
 			WeaponName = "WeaponStaffBall",
@@ -2342,10 +2359,6 @@ NemesisAspect = {
 				FireGraphic = "Nemesis_Combat_Special_Fire",
 				ChargeCancelGraphic = "Nemesis_Combat_Special_End",
 				FireFx = "null",
-			},
-			ProjectileName = "NemesisSpecial",
-			ProjectileProperties = {
-				Damage = 30,
 			},
 			ExcludeLinked = true,
 		},
@@ -2440,6 +2453,8 @@ NemesisAspect = {
 				FireGraphic = "Nemesis_Combat_Sprint_FireLoop",
 				FireEndGraphic = "Nemesis_Combat_Run_FireLoop",
 				DefaultControl = true,
+				SelfVelocity = 2475,
+				SelfVelocityCap = 1113,
 			},
 			ExcludeLinked = true,
 		},
