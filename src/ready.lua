@@ -149,9 +149,9 @@ function SetUpPlayerChronos()
 	ObjectiveData.PlayerKills.Description = "Objective_ChronosPlayerKills"
 	ObjectiveData.PlayerMoney.Description = "Objective_ChronosPlayerMoney"
 
-	if CurrentRun and CurrentRun.Hero and CurrentRun.Hero.Weapons and not CurrentRun.Hero.Weapons['WeaponBlink'] then
-		EquipWeapon({ DestinationId = CurrentRun.Hero.ObjectId, Name = "WeaponBlink" })
-	end
+	--if CurrentRun and CurrentRun.Hero and CurrentRun.Hero.Weapons and not CurrentRun.Hero.Weapons['WeaponBlink'] then
+	--	EquipWeapon({ DestinationId = CurrentRun.Hero.ObjectId, Name = "WeaponBlink" })
+	--end
 	
 end
 
@@ -184,14 +184,38 @@ function SetUpPlayerNemesis()
 	SetUnitProperty({ Property = "MoveGraphic", Value = "Nemesis_Combat_Run_FireLoop", DestinationId = CurrentRun.Hero.ObjectId })
 	SetUnitProperty({ Property = "StopGraphic", Value = "Nemesis_Combat_Run_End", DestinationId = CurrentRun.Hero.ObjectId })
 
+	CurrentRun.Hero.UnfreezeAnimation = "Nemesis_Combat_OnHit"
+	CurrentRun.Hero.DamagedAnimation = "Nemesis_Combat_OnHit"
+	CurrentRun.Hero.LastStandAnimationOverride = "Nemesis_Combat_Idle"
+	CurrentRun.Hero.LastStandFireAnimationOverride = "Nemesis_Combat_Idle"
+	CurrentRun.Hero.BoonInteractAnimation = "Nemesis_Combat_Interact"
+	CurrentRun.Hero.InteractAnimation = "Nemesis_Combat_Interact"
+
+	CurrentRun.Hero.SkipDamageAnimation = nil
 	CurrentRun.Hero.SilenceMelinoe = true
 
 	SetAnimation({ Name = "Nemesis_Combat_Idle", DestinationId = CurrentRun.Hero.ObjectId })
 	CurrentRun.Hero.AnimOffsetZ = 0
 	CurrentRun.Hero.SubtitleColor = Color.NemesisVoice
+	CurrentRun.Hero.CanBeFrozen = true
 	SetupCostume()
+
+	CurrentRun.Hero.DamagedSound = "/VO/MelinoeEmotes/EmoteHurt" --Change
+	CurrentRun.Hero.ChokingSound = "/VO/MelinoeEmotes/EmoteStunned" --Change
+
+	Icons.Mana = "GUI\\Icons\\Mana"
+	Icons.Mana_NoTooltip = "GUI\\Icons\\Mana"
+	Icons.ManaUp = "GUI\\Icons\\ManaUp"
+	Icons.ManaUp_NoTooltip = "GUI\\Icons\\ManaUp"
+	Icons.ManaDown = "GUI\\Icons\\ManaUp"
+	Icons.ManaLock = "GUI\\Icons\\ManaLock"
+
 	LoadVoiceBanks({ Name = "Nemesis" })
 	LoadVoiceBanks({ Name = "NemesisField" })
+
+	--For Heracles/Nem objectives
+	ObjectiveData.PlayerKills.Description = "Objective_NemesisPlayerKills"
+	ObjectiveData.PlayerMoney.Description = "Objective_NemesisPlayerMoney"
 
 	--if CurrentRun and CurrentRun.Hero and CurrentRun.Hero.Weapons and CurrentRun.Hero.Weapons['WeaponBlink'] then
 	--	UnequipWeapon({ DestinationId = CurrentRun.Hero.ObjectId, Name = "WeaponBlink" })
@@ -216,7 +240,7 @@ function SetUpReturnPlayerMelinoe()
 	
 	--SetUnitProperty({ Property = "UnfreezeAnimation", Value = "MelinoeIdle", DestinationId = CurrentRun.Hero.ObjectId })
 	CurrentRun.Hero.UnfreezeAnimation = "MelinoeIdle"
-	CurrentRun.Hero.DamagedAnimation = "MelinoeGetHit"
+	CurrentRun.Hero.DamagedAnimation = "Nemesis_Combat_OnHit"
 	CurrentRun.Hero.LastStandAnimationOverride = "Melinoe_GetHit_LastStand"
 	CurrentRun.Hero.LastStandFireAnimationOverride = "Melinoe_LastStand_Fire"
 	CurrentRun.Hero.BoonInteractAnimation = "MelinoeBoonInteract"
@@ -257,9 +281,9 @@ function SetUpReturnPlayerMelinoe()
 	end
 	HandleWeaponAnimSwaps()
 
-	if CurrentRun and CurrentRun.Hero and CurrentRun.Hero.Weapons and not CurrentRun.Hero.Weapons['WeaponBlink'] then
-		EquipWeapon({ DestinationId = CurrentRun.Hero.ObjectId, Name = "WeaponBlink" })
-	end
+	--if CurrentRun and CurrentRun.Hero and CurrentRun.Hero.Weapons and not CurrentRun.Hero.Weapons['WeaponBlink'] then
+	--	EquipWeapon({ DestinationId = CurrentRun.Hero.ObjectId, Name = "WeaponBlink" })
+	--end
 end
 
 modutil.mod.Path.Wrap("SetupMap", function(base, source, args)
@@ -1239,11 +1263,11 @@ function mod.SetupNemesisAnimations()
 		MelinoeStop = "Nemesis_Combat_Run_End",
 		MelinoeGetHit = "Nemesis_Combat_OnHit",
 		Melinoe_GetHit_LastStand = "Nemesis_Combat_OnHit",
-		Melinoe_LastStand_Fire = "Enemy_Chronos_BattleOutro_Start",
-		MelinoeDeathGetHit = "NPC_Chronos_Enlightened_Hover",
-		MelinoeDeathGetHitX = "Enemy_Chronos_BattleOutro_Start",
-		MelinoeGetHitSurfacePenalty = "NPC_Chronos_Enlightened_Hover",
-		MelinoeGetHitActionPose = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_LastStand_Fire = "Nemesis_Combat_OnHit",
+		MelinoeDeathGetHit = "Nemesis_Combat_Knockdown_Start",
+		MelinoeDeathGetHitX = "Nemesis_Combat_Knockdown_Start",
+		MelinoeGetHitSurfacePenalty = "Nemesis_Combat_OnHit",
+		MelinoeGetHitActionPose = "Nemesis_Combat_OnHit",
 		Melinoe_Cast_Start = "Nemesis_Cast_EntranceFast",
 		Melinoe_Cast_StartLoop = "Nemesis_Cast_EntranceFast",
 		Melinoe_Cast_Fire = "Nemesis_Cast_EntranceFast",
@@ -1253,119 +1277,118 @@ function mod.SetupNemesisAnimations()
 		MelinoeCrossCast = "Nemesis_Cast_EntranceFast",
 		Melinoe_ForwardCast_Unequip  = "Nemesis_Combat_Entrance",
 		MelinoeEquip = "Nemesis_Hub_Equip",
-		MelinoeActionIdle = "NPC_Chronos_Enlightened_Hover",
+		MelinoeActionIdle = "Nemesis_Combat_Idle",
 		MelinoeInteract = "Nemesis_Combat_Interact",
-		MelinoeBoonPreInteract = "Player_Chronos_Shadowed_Greeting",
+		MelinoeBoonPreInteract = "Nemesis_Combat_Interact",
 		MelinoeSalute = "Nemesis_Hub_Salute",
-		MelinoeIdleWeaponless = "NPC_Chronos_Enlightened_Hover",
-		MelinoeSaluteToEquip = "NPC_Chronos_Enlightened_Hover",
-		MelinoeDeathReEnter = "NPC_Chronos_Enlightened_Hover",
-		MelinoeDeath = "Enemy_Chronos_BattleOutro_Start",
-		MelinoeDeathEscape = "Enemy_Chronos_BattleOutro_End",
-		MelinoeDeathEscape2 = "Enemy_Chronos_BattleOutro_End",
-		MelinoeDeathSuccess = "NPC_Chronos_Enlightened_Greet",
-		MelinoeDeathReEnterHeadUp = "NPC_Chronos_Enlightened_Hover",
-		MelinoeDeathReEnterToIdle = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_DeathHover_Start = "NPC_Chronos_Enlightened_Hover",
-		MelinoeDeathReEnterToIdleCancelable = "NPC_Chronos_Enlightened_Hover",
+		MelinoeIdleWeaponless = "Nemesis_Combat_Idle",
+		MelinoeSaluteToEquip = "Nemesis_Hub_Equip",
+		MelinoeDeathReEnter = "Nemesis_Combat_Idle",
+		MelinoeDeath = "Nemesis_Combat_Knockdown_Start",
+		MelinoeDeathEscape = "Nemesis_Combat_Knockdown_Start",
+		MelinoeDeathEscape2 = "Nemesis_Combat_Knockdown_Start",
+		MelinoeDeathSuccess = "Nemesis_Hub_Greet",
+		MelinoeDeathReEnterHeadUp = "Nemesis_Combat_Idle",
+		MelinoeDeathReEnterToIdle = "Nemesis_Combat_Idle",
+		Melinoe_DeathHover_Start = "Nemesis_Combat_Idle",
+		MelinoeDeathReEnterToIdleCancelable = "Nemesis_Combat_Idle",
 		MelinoeBoonInteractPowerUp = "Nemesis_Combat_Interact",
 		MelinoeBoonInteract = "Nemesis_Combat_Interact",
 		MelinoeBoonInteractLoop = "Nemesis_Combat_Interact",
 		Melinoe_Gesture_ToWeaponless = "Nemesis_Hub_Greet",
 		MelinoeInteractWeaponless = "Nemesis_Combat_Interact",
 		Melinoe_InteractToEquip = "Nemesis_Combat_Interact",
-		MelinoeBountyTurnInStart = "NPC_Chronos_Enlightened_Hover",
-		MelinoeSpellFireCancellable = "NPC_Chronos_Enlightened_Hover",
-		MelinoeSpellFireReturn = "NPC_Chronos_Enlightened_Hover",
-		MelinoeCrossCastAntic = "NPC_Chronos_Enlightened_Hover",
-		MelinoeCrossCastAnticReverse = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_CrossCast_Start_Fast = "NPC_Chronos_Enlightened_Hover",
-		MelinoeCrossCastHold = "NPC_Chronos_Enlightened_Hover",
-		MelinoeCrossCastToIdle = "NPC_Chronos_Enlightened_Hover",
+		MelinoeBountyTurnInStart = "Nemesis_Combat_Idle",
+		MelinoeSpellFireCancellable = "Nemesis_Combat_Idle",
+		MelinoeSpellFireReturn = "Nemesis_Combat_Idle",
+		MelinoeCrossCastAntic = "Nemesis_Combat_Idle",
+		MelinoeCrossCastAnticReverse = "Nemesis_Combat_Idle",
+		Melinoe_CrossCast_Start_Fast = "Nemesis_Combat_Idle",
+		MelinoeCrossCastHold = "Nemesis_Combat_Idle",
+		MelinoeCrossCastToIdle = "Nemesis_Combat_Idle",
 		Melinoe_Leap_Landing = "Nemesis_Combat_Entrance",
 		MelinoeIdlePostInteract = "Nemesis_Combat_Idle",
-		Melinoe_Witchcraft_Start = "Enemy_Chronos_CastSlowFire",
+		Melinoe_Witchcraft_Start = "Nemesis_Cast_EntranceFast",
 		
-		MelTalkPensive01 = "NPC_Chronos_Enlightened_Hover",
-		MelTalkPensive01Loop = "NPC_Chronos_Enlightened_Hover",
-		MelTalkPensive01ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
+		MelTalkPensive01 = "Nemesis_Combat_Idle",
+		MelTalkPensive01Loop = "Nemesis_Combat_Idle",
+		MelTalkPensive01ReturnToIdle = "Nemesis_Combat_Idle",
 		
-		MelTalkBrooding01 = "NPC_Chronos_Enlightened_Hover",
-		MelTalkBrooding01ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
-		MelTalkBroodingFull01 = "NPC_Chronos_Enlightened_Hover",
-		MelTalkBrooding01Loop = "NPC_Chronos_Enlightened_Hover",
-		MelTalkBrooding01LoopFull = "NPC_Chronos_Enlightened_Hover",
-		MelinoeSaluteToBrooding = "NPC_Chronos_Enlightened_Hover",
+		MelTalkBrooding01 = "Nemesis_Combat_Idle",
+		MelTalkBrooding01ReturnToIdle = "Nemesis_Combat_Idle",
+		MelTalkBroodingFull01 = "Nemesis_Combat_Idle",
+		MelTalkBrooding01Loop = "Nemesis_Combat_Idle",
+		MelTalkBrooding01LoopFull = "Nemesis_Combat_Idle",
+		MelinoeSaluteToBrooding = "Nemesis_Combat_Idle",
 
-		MelTalkGifting01 = "Enemy_Chronos_Shadowed_Greeting",
-		MelTalkGifting01ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
+		MelTalkGifting01 = "Nemesis_Hub_Interact",
+		MelTalkGifting01ReturnToIdle = "Nemesis_Hub_Interact",
 		
-		MelTalkExplaining01 = "Player_Chronos_Enlightened_Explaining",
-		MelTalkExplaining01Loop = "Player_Chronos_Enlightened_Explaining",
-		MelTalkExplaining01LoopAlt = "Player_Chronos_Enlightened_Explaining",
-		MelTalkExplaining01ReturnToIdle = "Player_Chronos_Enlightened_Explaining",
-		MelTalkExplaining01Full = "Player_Chronos_Enlightened_Explaining",
+		MelTalkExplaining01 = "Nemesis_Hub_Idle",
+		MelTalkExplaining01Loop = "Nemesis_Hub_Idle",
+		MelTalkExplaining01LoopAlt = "Nemesis_Hub_Idle",
+		MelTalkExplaining01ReturnToIdle = "Nemesis_Hub_Idle",
+		MelTalkExplaining01Full = "Nemesis_Hub_Idle",
 
-		MelTalkFlustered01 = "Player_Chronos_Enlightened_Explaining",
+		MelTalkFlustered01 = "Nemesis_Hub_Glare_Start",
 		
-		Melinoe_Defiant = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Defiant = "Nemesis_Hub_Glare_Start",
 
-		MelTalkLookingDown01 = "NPC_Chronos_Enlightened_Hover",
+		MelTalkLookingDown01 = "Nemesis_Hub_Glare_Start",
 		
-		Melinoe_Gesture = "Enemy_Chronos_SittingGreeting",
+		Melinoe_Gesture = "Nemesis_Hub_Salute",
 
-		Melinoe_Drop_Exit_FireLoop = "NPC_Chronos_Enlightened_Hover",
 
-		MelinoeBoonInteractPowerUpCancellable = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_Drop_Exit_Start = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_Drop_Exit_FireLoop = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_Drop_Exit_End = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_Drop_Entrance_Start = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_Drop_Entrance_Fire = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_Drop_Entrance_Fire_NoEquip = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_Drop_Entrance_End = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_Drop_Entrance_End_NoEquip = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_HeroLanding = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_DiveExit_Start = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_DiveExit_Portal_Start = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_DiveExit_End = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_DiveExit_Portal_End = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_DiveEntrance_Start = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_DiveEntrance_End = "NPC_Chronos_Enlightened_Hover",
+		MelinoeBoonInteractPowerUpCancellable = "Nemesis_Combat_Idle",
+		Melinoe_Drop_Exit_Start = "Nemesis_Combat_Idle",
+		Melinoe_Drop_Exit_FireLoop = "Nemesis_Combat_Idle",
+		Melinoe_Drop_Exit_End = "Nemesis_Combat_Entrance",
+		Melinoe_Drop_Entrance_Start = "Nemesis_Combat_Entrance",
+		Melinoe_Drop_Entrance_Fire = "Nemesis_Combat_Idle",
+		Melinoe_Drop_Entrance_Fire_NoEquip = "Nemesis_Combat_Idle",
+		Melinoe_Drop_Entrance_End = "Nemesis_Combat_Idle",
+		Melinoe_Drop_Entrance_End_NoEquip = "Nemesis_Combat_Idle",
+		Melinoe_HeroLanding = "Nemesis_Combat_Idle",
+		Melinoe_DiveExit_Start = "Nemesis_Combat_Idle",
+		Melinoe_DiveExit_Portal_Start = "Nemesis_Combat_Idle",
+		Melinoe_DiveExit_End = "Nemesis_Combat_Idle",
+		Melinoe_DiveExit_Portal_End = "Nemesis_Combat_Idle",
+		Melinoe_DiveEntrance_Start = "Nemesis_Combat_Idle",
+		Melinoe_DiveEntrance_End = "Nemesis_Combat_Idle",
 
-		MelinoePetFrinos = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_PetPolecat = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_PetHound = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_PetCat = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_Kneel_Start = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_Kneel_End = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_PetRaven = "NPC_Chronos_Enlightened_Hover",
+		MelinoePetFrinos = "Nemesis_Combat_Idle",
+		Melinoe_PetPolecat = "Nemesis_Combat_Idle",
+		Melinoe_PetHound = "Nemesis_Combat_Idle",
+		Melinoe_PetCat = "Nemesis_Combat_Idle",
+		Melinoe_Kneel_Start = "Nemesis_Combat_Idle",
+		Melinoe_Kneel_End = "Nemesis_Combat_Idle",
+		Melinoe_PetRaven = "Nemesis_Combat_Idle",
 
-		Melinoe_Hug_Start = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_Hug_FireLoop = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_Hug_End = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Hug_Start = "Nemesis_Combat_Idle",
+		Melinoe_Hug_FireLoop = "Nemesis_Combat_Idle",
+		Melinoe_Hug_End = "Nemesis_Combat_Idle",
 
-		Melinoe_Tablet_Intro = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_Tablet_Idle = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_Tablet_Right_Start = "Enemy_Chronos_SwingRightPreFire",
-		Melinoe_Tablet_Right_Loop = "Enemy_Chronos_SwingRightPreFire",
-		Melinoe_Tablet_Right_End = "Enemy_Chronos_SwingRightFire",
-		Melinoe_Tablet_Left_Start = "Enemy_Chronos_SwingLeftPreFire",
-		Melinoe_Tablet_Left_Loop = "Enemy_Chronos_SwingLeftPreFire",
-		Melinoe_Tablet_Left_End = "Enemy_Chronos_SwingLeftFire",
-		Melinoe_Tablet_Both_Start = "Enemy_Chronos_CastSlowPreFire",
-		Melinoe_Tablet_Both_Loop = "Enemy_Chronos_CastSlowPreFire",
-		Melinoe_Tablet_Both_End = "Enemy_Chronos_CastSlowFire",
-		Melinoe_Tablet_ReturnToIdle = "NPC_Chronos_Enlightened_Hover",
-		MelinoeExorcismFirstTimeEquip = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Tablet_Intro = "Nemesis_Combat_Idle",
+		Melinoe_Tablet_Idle = "Nemesis_Combat_Idle",
+		Melinoe_Tablet_Right_Start = "Nemesis_Combat_Idle",
+		Melinoe_Tablet_Right_Loop = "Nemesis_Combat_Idle",
+		Melinoe_Tablet_Right_End = "Nemesis_Combat_Idle",
+		Melinoe_Tablet_Left_Start = "Nemesis_Combat_Idle",
+		Melinoe_Tablet_Left_Loop = "Nemesis_Combat_Idle",
+		Melinoe_Tablet_Left_End = "Nemesis_Combat_Idle",
+		Melinoe_Tablet_Both_Start = "Nemesis_Combat_Idle",
+		Melinoe_Tablet_Both_Loop = "Nemesis_Combat_Idle",
+		Melinoe_Tablet_Both_End = "Nemesis_Combat_Idle",
+		Melinoe_Tablet_ReturnToIdle = "Nemesis_Combat_Idle",
+		MelinoeExorcismFirstTimeEquip = "Nemesis_Combat_Idle",
 
-		Melinoe_Fishing_Start = "Enemy_Chronos_SwingLeftPreFire",
-		Melinoe_Fishing_Fidget = "Enemy_Chronos_SwingLeftPreFire",
-		Melinoe_Fishing_Success = "Enemy_Chronos_SwingLeftFire",
-		Melinoe_Fishing_Failure = "Enemy_Chronos_BattleOutro_Start",
+		Melinoe_Fishing_Start = "Nemesis_Combat_Special_Start",
+		Melinoe_Fishing_Fidget = "Nemesis_Combat_Special_Start",
+		Melinoe_Fishing_Success = "Nemesis_Combat_Special_Fire",
+		Melinoe_Fishing_Failure = "Nemesis_Combat_Knockdown_Start",
 
-		MelinoePickAxeMineStart = "Enemy_Chronos_SwingLeftPreFire",
-		MelinoePickAxeMineSwing = "Enemy_Chronos_SwingLeftFire",
+		MelinoePickAxeMineStart = "Nemesis_Combat_Attack2_Start",
+		MelinoePickAxeMineSwing = "Nemesis_Combat_Attack2_Fire",
 		--"Enemy_Chronos_Knockdown_Frustrated",
 		--"Enemy_Chronos_SittingGreeting",
 		--"Enemy_Chronos_Shadowed_Greeting",
