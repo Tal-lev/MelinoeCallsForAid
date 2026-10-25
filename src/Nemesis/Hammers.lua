@@ -177,9 +177,9 @@ table.insert(TraitData.StaffTripleShotTrait.GameStateRequirements, {
 })
 
 --Incompatible Cast boons
-TraitData.SprintShieldBoon.GameStateRequirements = TraitData.SprintShieldBoon.GameStateRequirements or {}
-table.insert(TraitData.SprintShieldBoon.GameStateRequirements, {
-			Path = {"CurrentRun", "Hero", "TraitDictionary"},
-			HasNone = {"NemesisAspect", },
-})
+--TraitData.SprintShieldBoon.GameStateRequirements = TraitData.SprintShieldBoon.GameStateRequirements or {}
+--table.insert(TraitData.SprintShieldBoon.GameStateRequirements, {
+--			Path = {"CurrentRun", "Hero", "TraitDictionary"},
+--			HasNone = {"NemesisAspect", },
+--})
 

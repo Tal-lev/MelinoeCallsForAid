@@ -139,6 +139,20 @@ sjson.hook(file, function(data)
 
 	table.insert(data.Animations,
 	{
+		Name = "NemesisCastCircleInHephaestus",
+		InheritFrom = "CastCircleInHephaestus",
+		ClearCreateAnimations = true,
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "NemesisCastCircleInHestia",
+		InheritFrom = "CastCircleInHestia",
+		ClearCreateAnimations = true,
+	})
+
+	table.insert(data.Animations,
+	{
 		Name = "NemesisCastCircleInAres",
 		InheritFrom = "CastCircleInAres",
 		--VisualFx = 'null',

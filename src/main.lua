@@ -55,6 +55,7 @@ local function on_ready()
 	import "Nemesis/Animations.lua"
 
 	import "Chronos/PortraitAnimations.lua"
+	import "Nemesis/PortraitAnimations.lua"
 
 	import "Chronos/Projectiles.lua"
 	import "Nemesis/Projectiles.lua"
@@ -73,6 +74,7 @@ local function on_ready()
 	modutil.once_loaded.game(function()
 		--import "Cosmetics.lua"
 		import "Chronos/Costumes.lua"
+		import "Nemesis/Costumes.lua"
 
 		import "Chronos/Hammers.lua"
 		import "Nemesis/Hammers.lua"
@@ -84,6 +86,7 @@ local function on_ready()
 	end)
 	if melskin and melskin.RegisterCustomCharacter then
 		import 'Chronos/MelSkin.lua'
+		import "Nemesis/MelSkin.lua"
 	end
 end
 

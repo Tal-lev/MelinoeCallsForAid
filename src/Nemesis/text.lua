@@ -159,6 +159,86 @@ sjson.hook(file, function(data)
     TextOrder)
 	)
 	
+	--Nemesis Dresses
+    table.insert(data.Texts, sjson.to_object(
+    {
+        Id = "NemesisVitalityCostume",
+        InheritFrom = "BaseBoonMultiline",
+        DisplayName = "Emerald Ornaments",
+        Description = "Don a {#UpgradeFormat}+{$TooltipData.ExtractData.TooltipAmount}{#Prev}{!Icons.ArmorTotal_NoTooltip} {$Keywords.Costume} that makes you restore {#UpgradeFormat}{$TooltipData.ExtractData.TooltipHeal}{#Prev}{!Icons.Health} whenever you exit a {$Keywords.RoomAlt}.",
+    },
+    TextOrder)
+    )
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+        Id = "NemesisManaCostume",
+        InheritFrom = "BaseBoonMultiline",
+        DisplayName = "Azure Ornaments",
+        Description = "Don a {#UpgradeFormat}+{$TooltipData.ExtractData.TooltipAmount}{#Prev}{!Icons.ArmorTotal_NoTooltip} {$Keywords.Costume} that makes you restore {#ManaFormat}{$TooltipData.ExtractData.TooltipManaRecovery}{#Prev}{!Icons.Mana} every {#BoldFormat}1 Sec.",
+    },
+    TextOrder)
+    )
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+        Id = "NemesisAgilityCostume",
+        InheritFrom = "BaseBoonMultiline",
+        DisplayName = "Lavender Ornaments",
+        Description = "Don a {#UpgradeFormat}+{$TooltipData.ExtractData.TooltipAmount}{#Prev}{!Icons.ArmorTotal_NoTooltip} {$Keywords.Costume} that makes you {$Keywords.HoldAlt} {#UpgradeFormat}{$TooltipData.ExtractData.TooltipSpeed}% {#Prev}faster.",
+    },
+    TextOrder)
+    )
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+        Id = "NemesisCastDamageCostume",
+        InheritFrom = "BaseBoonMultiline",
+        DisplayName = "Fuchsia Ornaments",
+        Description = "Don a {#UpgradeFormat}+{$TooltipData.ExtractData.TooltipAmount}{#Prev}{!Icons.ArmorTotal_NoTooltip} {$Keywords.Costume} that makes your {$Keywords.CastSet} deal {#UpgradeFormat}{$TooltipData.ExtractData.TooltipDamage:P} {#Prev} damage.",
+    },
+    TextOrder)
+    )
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+        Id = "NemesisIncomeCostume",
+        InheritFrom = "BaseBoonMultiline",
+        DisplayName = "Gilded Ornaments",
+        Description = "Don a {#UpgradeFormat}+{$TooltipData.ExtractData.TooltipAmount}{#Prev}{!Icons.ArmorTotal_NoTooltip} {$Keywords.Costume} that grants {#MoneyFormatBold}+{$TooltipData.ExtractData.TooltipCash}{!Icons.Currency} {#Prev}whenever you exit a {$Keywords.RoomAlt}.",
+    },
+    TextOrder)
+    )
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+        Id = "NemesisHighArmorCostume",
+        InheritFrom = "BaseBoonMultiline",
+        DisplayName = "Onyx Ornaments",
+        Description = "Don a {#UpgradeFormat}+{$TooltipData.ExtractData.TooltipAmount}{#Prev}{!Icons.ArmorTotal_NoTooltip} {$Keywords.Costume} that creates {#BoldFormatGraft}+{$TooltipData.ExtractData.ResourceCount}{#Prev}{!Icons.MetaFabricIcon} now.",
+    },
+    TextOrder)
+    )
+
+	table.insert(data.Texts, sjson.to_object(
+    {
+        Id = "NemesisSpellCostume",
+        InheritFrom = "BaseBoonMultiline",
+        DisplayName = "Moonlight Ornaments",
+        Description = "Don a {#UpgradeFormat}+{$TooltipData.ExtractData.TooltipAmount}{#Prev}{!Icons.ArmorTotal_NoTooltip} {$Keywords.Costume} that makes you use {#ManaFormat}{$TooltipData.ExtractData.Multiplier:F}{#Prev}{!Icons.Mana} less than before to recharge your {$Keywords.Spell}.",
+    },
+    TextOrder)
+    )
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+        Id = "NemesisEscalatingCostume",
+        InheritFrom = "BaseBoonMultiline",
+        DisplayName = "Crimson Ornaments",
+        Description = "Don a {#UpgradeFormat}+{$TooltipData.ExtractData.TooltipAmount}{#Prev}{!Icons.ArmorTotal_NoTooltip} {$Keywords.Costume} that makes you deal more damage and {#UpgradeFormat}{$TooltipData.ExtractData.IncreasePerRoom:P} {#Prev}after each {$Keywords.EncounterAlt}.",
+    },
+    TextOrder)
+    )
 
 	-- Nemesis Hammers
 

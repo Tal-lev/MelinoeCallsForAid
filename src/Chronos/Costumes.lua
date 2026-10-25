@@ -8,6 +8,10 @@ OverwriteTableKeys( TraitData, {
             Path = { "GameState", "LastWeaponUpgradeName", "WeaponAxe", },
             IsAny = {"ChronosAspect", }
             },
+            {
+            Path = { "CurrentRun", "Hero", "TraitDictionary", },
+            HasNone = {"NemesisAspect", }
+            },
         },
     },
     ChronosCastDamageCostume = {

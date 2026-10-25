@@ -63,11 +63,12 @@ function mod.SummonNemesis(source, args)
 	
 	local nemesis = DeepCopyTable( EnemyData.NPC_Nemesis_01 )
 	nemesis.ObjectId = SpawnUnit({ Name = "NPC_Nemesis_01", Group = "Standing", DestinationId = AxeId, OffsetX = -625, OffsetY = 170, })
-	SetupUnit( nemesis, CurrentRun, { IgnoreAI = true, IgnoreAssert = true, } )
 	SetAlpha({ Id = nemesis.ObjectId, Fraction = 0, Duration = 0 })
+	wait(2)
+	SetupUnit( nemesis, CurrentRun, { IgnoreAI = true, IgnoreAssert = true, } )
 	AdjustZLocation({ Id = nemesis.ObjectId, Distance = 1500 })
 	IgnoreGravity({ Id = nemesis.ObjectId })
-	wait(2)
+	
 
 	Rumble({ Duration = 0.3, RightFraction = 0.17 })
 	
@@ -93,11 +94,12 @@ function SetUpPlayerChronos()
 	LoadPackages({Name = "ChronosReformed_Lavender", IgnoreAssert = true })
 	LoadPackages({Name = "ChronosReformed_Gilded", IgnoreAssert = true })
 	LoadPackages({Name = "ChronosReformed_Crimson", IgnoreAssert = true })
-	LoadPackages({ Name = "JarlUlsfark-MelinoeCallsForAidPortrait", IgnoreAssert = true })
+	LoadPackages({ Name = "JarlUlsfark-MelinoeCallsForAidPortraitChronos", IgnoreAssert = true })
 	if not HeroHasTrait("ModsNikkelMHadesBiomesPlayerScaleTrait") then
 		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = 1.3 })
 	end
 	if rom.mods['NikkelM-Zagreus_Journey'] then
+		LoadPackages({ Name = "JarlUlsfark-MelinoeCallsForAidPortraitZag", IgnoreAssert = true })
 		ZagJourney.ModdedPlayerScaleMultiplier = 1.17
 	end
 	if not HeroHasTrait("ModsNikkelMHadesBiomesPlayerScaleTrait") then
@@ -155,7 +157,17 @@ end
 
 function SetUpPlayerNemesis()
 	LoadPackages({Name = "Nemesis", IgnoreAssert = true })
+	LoadPackages({Name = "Nemesis_Color_Azure", IgnoreAssert = true })
+	LoadPackages({Name = "Nemesis_Color_Emerald", IgnoreAssert = true })
+	LoadPackages({Name = "Nemesis_Color_Onyx", IgnoreAssert = true })
+	LoadPackages({Name = "Nemesis_Color_Fuchsia", IgnoreAssert = true })
+	LoadPackages({Name = "Nemesis_Color_Lavender", IgnoreAssert = true })
+	LoadPackages({Name = "Nemesis_Color_Gilded", IgnoreAssert = true })
+	LoadPackages({Name = "Nemesis_Color_Moonlight", IgnoreAssert = true })
+	--LoadPackages({Name = "ChronosReformed_Crimson", IgnoreAssert = true })
+	LoadPackages({ Name = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis", IgnoreAssert = true })
 	if rom.mods['NikkelM-Zagreus_Journey'] then
+		LoadPackages({ Name = "JarlUlsfark-MelinoeCallsForAidPortraitZag", IgnoreAssert = true })
 		--ZagJourney.ModdedPlayerScaleMultiplier = 0.972
 		ZagJourney.ModdedPlayerScaleMultiplier = 1.26
 	end
@@ -1361,29 +1373,29 @@ function mod.SetupNemesisAnimations()
 
 	--Portraits
 
-	local replacement = "Portrait_MelChronos_"
+	local replacement = "Portrait_MelNemesis_"
 	if HeroHasTrait("ChronosManaCostume") or (melskin and melskin.GetCurrentDress() == "Azure") then
-		replacement = "Portrait_MelChronosAzure_"
-	elseif HeroHasTrait("ChronosEscalatingCostume") or (melskin and melskin.GetCurrentDress() == "Crimson") then
-		replacement = "Portrait_MelChronosCrimson_"
+		replacement = "Portrait_MelNemesisAzure_"
+	elseif HeroHasTrait("ChronosSpellCostume") or (melskin and melskin.GetCurrentDress() == "Moonlight") then
+		replacement = "Portrait_MelNemesisMoonlight_"
 	elseif HeroHasTrait("ChronosVitalityCostume") or (melskin and melskin.GetCurrentDress() == "Emerald") then
-		replacement = "Portrait_MelChronosEmerald_"
+		replacement = "Portrait_MelNemesisEmerald_"
 	elseif HeroHasTrait("ChronosCastDamageCostume") or (melskin and melskin.GetCurrentDress() == "Fuchsia") then
-		replacement = "Portrait_MelChronosFuchsia_"
+		replacement = "Portrait_MelNemesisFuchsia_"
 	elseif HeroHasTrait("ChronosIncomeCostume") or (melskin and melskin.GetCurrentDress() == "Gilded") then
-		replacement = "Portrait_MelChronosGilded_"
+		replacement = "Portrait_MelNemesisGilded_"
 	elseif HeroHasTrait("ChronosAgilityCostume") or (melskin and melskin.GetCurrentDress() == "Lavender") then
-		replacement = "Portrait_MelChronosLavender_"
+		replacement = "Portrait_MelNemesisLavender_"
 	elseif HeroHasTrait("ChronosHighArmorCostume") or (melskin and melskin.GetCurrentDress() == "Onyx") then
-		replacement = "Portrait_MelChronosOnyx_"
-	elseif (melskin and melskin.GetCurrentDress() == "Alternate Time") then
-		replacement = "Portrait_MelChronosAnotherTime_"
-	elseif (melskin and melskin.GetCurrentDress() == "Dark Side") then
-		replacement = "Portrait_MelChronosDarkSide_"
+		replacement = "Portrait_MelNemesisOnyx_"
+	--elseif (melskin and melskin.GetCurrentDress() == "Alternate Time") then
+	--	replacement = "Portrait_MelNemesisAnotherTime_"
+	--elseif (melskin and melskin.GetCurrentDress() == "Dark Side") then
+	--	replacement = "Portrait_MelNemesisDarkSide_"
 	elseif (melskin and melskin.GetCurrentDress() == "Visage") then
-		replacement = "Portrait_MelChronosVisage_"
+		replacement = "Portrait_MelNemesisVisage_"
 	else
-		replacement = "Portrait_MelChronos_"
+		replacement = "Portrait_MelNemesis_"
 	end
  
 	local melPortraits = {
@@ -1414,29 +1426,29 @@ function mod.SetupNemesisAnimations()
 		AnimationList[key] = newvalue
 	end
 
-	replacement = "Portrait_ZagChronos_"
-	if HeroHasTrait("ChronosManaCostume") or (melskin and melskin.GetCurrentDress() == "Azure") then
-		replacement = "Portrait_ZagChronosAzure_"
-	elseif HeroHasTrait("ChronosEscalatingCostume") or (melskin and melskin.GetCurrentDress() == "Crimson") then
-		replacement = "Portrait_ZagChronosCrimson_"
-	elseif HeroHasTrait("ChronosVitalityCostume") or (melskin and melskin.GetCurrentDress() == "Emerald") then
-		replacement = "Portrait_ZagChronosEmerald_"
-	elseif HeroHasTrait("ChronosCastDamageCostume") or (melskin and melskin.GetCurrentDress() == "Fuchsia") then
-		replacement = "Portrait_ZagChronosFuchsia_"
-	elseif HeroHasTrait("ChronosIncomeCostume") or (melskin and melskin.GetCurrentDress() == "Gilded") then
-		replacement = "Portrait_ZagChronosGilded_"
-	elseif HeroHasTrait("ChronosAgilityCostume") or (melskin and melskin.GetCurrentDress() == "Lavender") then
-		replacement = "Portrait_ZagChronosLavender_"
-	elseif HeroHasTrait("ChronosHighArmorCostume") or (melskin and melskin.GetCurrentDress() == "Onyx") then
-		replacement = "Portrait_ZagChronosOnyx_"
-	elseif (melskin and melskin.GetCurrentDress() == "Alternate Time") then
-		replacement = "Portrait_ZagChronosAnotherTime_"
-	elseif (melskin and melskin.GetCurrentDress() == "Dark Side") then
-		replacement = "Portrait_ZagChronosDarkSide_"
+	replacement = "Portrait_ZagNemesis_"
+	if HeroHasTrait("NemesisManaCostume") or (melskin and melskin.GetCurrentDress() == "Azure") then
+		replacement = "Portrait_ZagNemesisAzure_"
+	elseif HeroHasTrait("NemesisSpellCostume") or (melskin and melskin.GetCurrentDress() == "Moonlight") then
+		replacement = "Portrait_ZagNemesisMoonlight_"
+	elseif HeroHasTrait("NemesisVitalityCostume") or (melskin and melskin.GetCurrentDress() == "Emerald") then
+		replacement = "Portrait_ZagNemesisEmerald_"
+	elseif HeroHasTrait("NemesisCastDamageCostume") or (melskin and melskin.GetCurrentDress() == "Fuchsia") then
+		replacement = "Portrait_ZagNemesisFuchsia_"
+	elseif HeroHasTrait("NemesisIncomeCostume") or (melskin and melskin.GetCurrentDress() == "Gilded") then
+		replacement = "Portrait_ZagNemesisGilded_"
+	elseif HeroHasTrait("NemesisAgilityCostume") or (melskin and melskin.GetCurrentDress() == "Lavender") then
+		replacement = "Portrait_ZagNemesisLavender_"
+	elseif HeroHasTrait("NemesisHighArmorCostume") or (melskin and melskin.GetCurrentDress() == "Onyx") then
+		replacement = "Portrait_ZagNemesisOnyx_"
+	--elseif (melskin and melskin.GetCurrentDress() == "Alternate Time") then
+	--	replacement = "Portrait_ZagNemesisAnotherTime_"
+	--elseif (melskin and melskin.GetCurrentDress() == "Dark Side") then
+	--	replacement = "Portrait_ZagNemesisDarkSide_"
 	elseif (melskin and melskin.GetCurrentDress() == "Visage") then
-		replacement = "Portrait_ZagChronosVisage_"
+		replacement = "Portrait_ZagNemesisVisage_"
 	else
-		replacement = "Portrait_ZagChronos_"
+		replacement = "Portrait_ZagNemesis_"
 	end
 
 	local zagPortraits = {
