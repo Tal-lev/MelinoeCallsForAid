@@ -10,7 +10,7 @@ A Hades II mod that allows you to play as other Characters.
   <img src="https://media.githubusercontent.com/media/Tal-lev/MelinoeCallsForAid/refs/heads/main/images/Chronos.PNG" alt="PonyDressList" width="70%">
 </div>
 
-- requires reaching the True Ending.
+- Requires reaching the True Ending.
 - Move-set
   - Attack is a 2-move Scythe combo.
   - Omega Attack is throwing the Scythe.
@@ -23,6 +23,8 @@ A Hades II mod that allows you to play as other Characters.
 - Exclusive Dash boons
 - Exclusive Hammers
 - Exclusive Hexes
+- New Cosmetics
+- New Minor Prophecies
 
 ### Nemesis
 
@@ -33,7 +35,6 @@ A Hades II mod that allows you to play as other Characters.
 </div>
 
 - Requires deepening the bond with her.
-
 - Move-set
   - Attack is 3-move sword combo
   - Special is Circular blast which knock enemies back.
