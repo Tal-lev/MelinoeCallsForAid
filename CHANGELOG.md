@@ -10,10 +10,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!--Releasenotes start-->
 ### Patch Highlights:
 
-- Added Nemesis as a Playable character, complete her own animations, attacks, cast boons, hammers and costumes.
+- Added Nemesis as a Playable character, complete her own attacks and animations.
+- Added eight Nemesis Cast boons.
+- Added two Nemesis specific Hammers.
+- Added Nemesis Portraits in conversations, Compatible with Zagreus Journey and MelSkin.
 
 Other fixes and improvements:
 
+- Added Nemesis Arachne Costumes.
+- Modified Nemesis and Heracles encounter text to track Nemesis instead of Melinoe.
 - Added Chronos specific Hexes with their accompanying talents. Chronos can no longer use Melinoe's Hexes.
 - Added two more Chronos specific Hammers. Chronos can no longer use Melinoe's Hammers.
 - Added Chronos Portraits in conversations, Compatible with Zagreus Journey and MelSkin.
@@ -34,6 +39,8 @@ Other fixes and improvements:
 - Fixed: Interaction animation lead to Chronos animation glitching.
 - Fixed: Hero unexpected size Change during Zagreus Journey biomes
 - Fixed: Omega Attack fires even when there is not sufficient mana.
+- Reworked the Readme.md
+- DEV: reorganized the scripts per character
 
 ## [0.2.1] - 2026-09-28
 
