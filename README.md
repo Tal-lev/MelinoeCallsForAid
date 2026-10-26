@@ -41,7 +41,7 @@ A Hades II mod that allows you to play as other Characters.
   - Omega Special is a larger and stronger Circular blast which knock enemies back.
   - Cast is a short parry that blocks from damage from the front and destroys projectiles.
   - No Omega Cast.
-  - Dash is Very short and fast
+  - Dash is very short, and knocks enemies back.
   - Sprint is faster than Melinoe's.
 - Exclusive Cast boons
 - Exclusive Hammers
