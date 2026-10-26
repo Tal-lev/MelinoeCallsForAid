@@ -1,12 +1,9 @@
 
 function mod.HandleNemesisDummyCrit( weaponData, functionArgs, triggerArgs )
-    print("#### Starting the Function!")
     if HeroHasTrait("NemesisDummyCritTrait") then
-        print("Hero Has the Trait!")
         return
     end
     AddTraitToHero({ TraitName = "NemesisDummyCritTrait"})
-    print("Added the Trait!")
     wait(functionArgs.Duration)
     RemoveTrait( CurrentRun.Hero, "NemesisDummyCritTrait" )
 end

@@ -180,10 +180,10 @@ OverwriteTableKeys(TraitData, {
 				},
 			},
 			GameStateRequirements = {
-			{
-				Path = {"CurrentRun", "Hero", "TraitDictionary"},
-				HasAll = {"ChronosAspect"}
-			}
+				{
+					Path = {"CurrentRun", "Hero", "TraitDictionary"},
+					HasAll = {"ChronosAspect"}
+				}
 			},
 			ExtractValues =
 			{

@@ -256,6 +256,12 @@ OverwriteTableKeys(TraitData, {
 				BaseProperty = "DamageThreshold",
 			},
 		},
+		GameStateRequirements = {
+				{
+					Path = {"CurrentRun", "Hero", "TraitDictionary"},
+					HasAll = {"NemesisAspect"}
+				}
+		},
 	},
 
   --Hera
@@ -366,6 +372,12 @@ OverwriteTableKeys(TraitData, {
 			HideSigns = true,
 		},
 	},
+	GameStateRequirements = {
+		{
+			Path = {"CurrentRun", "Hero", "TraitDictionary"},
+			HasAll = {"NemesisAspect"}
+		}
+	},
   },
 
   --Poseidon
@@ -444,6 +456,12 @@ OverwriteTableKeys(TraitData, {
 			ExtractAs = "TooltipCost",
 			SkipAutoExtract = true,
 		},
+	},
+	GameStateRequirements = {
+		{
+			Path = {"CurrentRun", "Hero", "TraitDictionary"},
+			HasAll = {"NemesisAspect"}
+		}
 	},
   },
 
@@ -529,6 +547,12 @@ OverwriteTableKeys(TraitData, {
 			BaseProperty = "Damage",
 			ExtractAs = "Damage",
 		},
+	},
+	GameStateRequirements = {
+		{
+			Path = {"CurrentRun", "Hero", "TraitDictionary"},
+			HasAll = {"NemesisAspect"}
+		}
 	},
   },
 
@@ -638,6 +662,12 @@ OverwriteTableKeys(TraitData, {
 			Format = "Percent"
 		},
 	},
+	GameStateRequirements = {
+		{
+			Path = {"CurrentRun", "Hero", "TraitDictionary"},
+			HasAll = {"NemesisAspect"}
+		}
+	},
   },
 
   --Aphrodite
@@ -743,6 +773,12 @@ OverwriteTableKeys(TraitData, {
 			HideSigns = true,
 		},
 	},
+	GameStateRequirements = {
+		{
+			Path = {"CurrentRun", "Hero", "TraitDictionary"},
+			HasAll = {"NemesisAspect"}
+		}
+	},
   },
 
   --Hestia
@@ -822,6 +858,12 @@ OverwriteTableKeys(TraitData, {
 			DecimalPlaces = 1,
 		},
 	},
+	GameStateRequirements = {
+		{
+			Path = {"CurrentRun", "Hero", "TraitDictionary"},
+			HasAll = {"NemesisAspect"}
+		}
+	},
   },
 
   --Ares
@@ -893,6 +935,12 @@ OverwriteTableKeys(TraitData, {
 			BaseName = "ProjectileAresSwordCast",
 			BaseProperty = "Damage",
 		},
+	},
+	GameStateRequirements = {
+		{
+			Path = {"CurrentRun", "Hero", "TraitDictionary"},
+			HasAll = {"NemesisAspect"}
+		}
 	},
   },
 

@@ -2398,11 +2398,11 @@ NemesisAspect = {
 			ExcludeLinked = true,
 		},
 		--Dash
-		{
-			WeaponName = "WeaponBlink",
-			WeaponProperty = "Projectile",
-			ChangeValue = "null",
-		},
+		--{
+		--	WeaponName = "WeaponBlink",
+		--	WeaponProperty = "Projectile",
+		--	ChangeValue = "null",
+		--},
 		{
 			WeaponName = "WeaponBlink",
 			WeaponProperties = {
@@ -2415,6 +2415,10 @@ NemesisAspect = {
 				FireFx="null",
 		--		ChargeTimeFrames = 0,
 		--		MinChargeToFire = 0,
+			},
+			ProjectileName = "ProjectileBlink",
+			ProjectileProperties = {
+				ImpactVelocity = 1200,
 			},
 			ExcludeLinked = true,
 		},
