@@ -18,7 +18,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Other fixes and improvements:
 
 - Added Nemesis Arachne Costumes.
-- Modified Nemesis and Heracles encounter text to track Nemesis instead of Melinoe.
 - Added Chronos specific Hexes with their accompanying talents. Chronos can no longer use Melinoe's Hexes.
 - Added two more Chronos specific Hammers. Chronos can no longer use Melinoe's Hammers.
 - Added Chronos Portraits in conversations, Compatible with Zagreus Journey and MelSkin.
@@ -29,7 +28,7 @@ Other fixes and improvements:
 - Added more Chronos Room transition Animations.
 - Added Chronos Biome Map transition.
 - Added many Chronos contextual quips, (250+ in game)
-- Modified Nemesis and Heracles encounter text to track Chronos instead of Melinoe.
+- Modified Nemesis and Heracles encounter text to track new characters instead of Melinoe.
 - Balancing: Attack, Omega Attack and Omega Special now stun enemies.
 - Balancing: Increased Omega Attack Mana Cost 20->30 
 - Balancing: Reduced Omega Special Mana Cost 30->20
