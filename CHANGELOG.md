@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Other fixes and improvements:
 
+- Added many Nemesis contextual quips, (50+ in game)
 - Added Nemesis Arachne Costumes.
 - Added Chronos specific Hexes with their accompanying talents. Chronos can no longer use Melinoe's Hexes.
 - Added two more Chronos specific Hammers. Chronos can no longer use Melinoe's Hammers.
