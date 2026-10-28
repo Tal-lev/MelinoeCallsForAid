@@ -135,8 +135,8 @@ function SetUpPlayerChronos()
 	SetupCostume()
 
 	LoadVoiceBanks({ Name = "Chronos" })
-	CurrentRun.Hero.DamagedSound = "/VO/Chronos_0387"
-	CurrentRun.Hero.ChokingSound = "/VO/Chronos_0387"
+	CurrentRun.Hero.DamagedSound = "/SFX/Enemy Sounds/Chronos/EmoteHurt"
+	CurrentRun.Hero.ChokingSound = "/SFX/Enemy Sounds/Chronos/EmoteStaggered"
 
 	Icons.Mana = "JarlUlsfark-MelinoeCallsForAid\\GUI\\Icons\\ChronosMana_2"
 	Icons.Mana_NoTooltip = "JarlUlsfark-MelinoeCallsForAid\\GUI\\Icons\\ChronosMana_2"
@@ -200,8 +200,9 @@ function SetUpPlayerNemesis()
 	CurrentRun.Hero.CanBeFrozen = true
 	SetupCostume()
 
-	CurrentRun.Hero.DamagedSound = "/VO/MelinoeEmotes/EmoteHurt" --Change
-	CurrentRun.Hero.ChokingSound = "/VO/MelinoeEmotes/EmoteStunned" --Change
+	CurrentRun.Hero.FrozenSound = "/SFX/Enemy Sounds/Nemesis/EmoteHurt"
+	CurrentRun.Hero.DamagedSound = "/SFX/Enemy Sounds/Nemesis/EmoteHurt"
+	CurrentRun.Hero.ChokingSound = "/SFX/Enemy Sounds/Nemesis/EmoteStaggered"
 
 	Icons.Mana = "GUI\\Icons\\Mana"
 	Icons.Mana_NoTooltip = "GUI\\Icons\\Mana"
@@ -258,6 +259,8 @@ function SetUpReturnPlayerMelinoe()
 	CurrentRun.Hero.CanBeFrozen = true
 	SetupCostume()
 
+	CurrentRun.Hero.UnFrozenSound = "/VO/MelinoeEmotes/EmoteGasping"
+	CurrentRun.Hero.FrozenSound = "/VO/MelinoeEmotes/EmoteHurt"
 	CurrentRun.Hero.DamagedSound = "/VO/MelinoeEmotes/EmoteHurt"
 	CurrentRun.Hero.ChokingSound = "/VO/MelinoeEmotes/EmoteStunned"
 

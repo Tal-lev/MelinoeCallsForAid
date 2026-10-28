@@ -165,6 +165,83 @@ sjson.hook(file, function(data)
 		--}
 	})
     
+	table.insert(data.Animations,
+	{
+      Name = "ArtemisCritSparkles",
+      FilePath = "JarlUlsfark-MelinoeCallsForAid\\ArtemisDashTwinkle\\ArtemisDashTwinkle",
+      GroupName = "FX_Standing_Add",
+      Type = "Book",
+      AngleFromOwner = "Ignore",
+      AngleMax = 360.00,
+      UseOwnAngle = false,
+      ColorFromOwner = "Ignore",
+      StartBlue = 1.0,
+      Duration = 1.0,
+      EndFrame = 19,
+      Loop = true,
+      NumFrames = 19,
+      StartFrame = 1,
+    })
+
+	table.insert(data.Animations,
+    {
+      Name = "ArtemisCritSparkles-SwordPostParryCritical",
+      FilePath = "Dev\\blank_invisible",
+      Type = "Constant",
+      VisualFx = "ArtemisCritSparkles-SwordPostParryCriticalFx",
+      EndFrame = 1,
+      NumFrames = 1,
+      StartFrame = 1,
+      VisualFxIntervalMax = 0.45,
+      VisualFxIntervalMin = 0.3,
+    })
+
+	table.insert(data.Animations,
+    {
+      Name = "ArtemisCritSparkles-SwordPostParryCriticalFx",
+      InheritFrom = "ArtemisCritSparkles",
+      UseOwnAngle = true,
+      AngleMin = 0,
+      AngleMax = 90,
+      Hue = 0.3,
+      StartRed = 1,
+      StartGreen = 1,
+      StartBlue = 1,
+      EndRed = 0,
+      EndGreen = 0.9,
+      EndBlue = 0.9,
+      Duration = 0.5,
+      ScaleMin = 0.5,
+      ScaleMax = 1.2,
+      Loop = false,
+      DieWithOwner = true,
+      AlphaMin = 0.5,
+      AlphaMax = 1.0,
+	  --LocationFromOwner = "Take",
+	  --OffsetZ = 100,
+      --CreateAnimation = { Name = "ArtemisCritSparkles-SwordPostParryCriticalFx2", OffsetZ = 160 },
+	  CreateAnimation = { Name = "ArtemisCritSparkles-SwordPostParryCriticalFx2" },
+    })
+
+	table.insert(data.Animations,
+    {
+      Name = "ArtemisCritSparkles-SwordPostParryCriticalFx2",
+      InheritFrom = "ArtemisCritSparkles-SwordPostParryCriticalFx",
+      AngleMin = 90,
+      AngleMax = 180,
+      Hue = 0.7,
+      StartRed = 1,
+      StartGreen = 1,
+      StartBlue = 1,
+      EndRed = 0.9,
+      EndGreen = 0.9,
+      EndBlue = 0.9,
+      AlphaMin = 0.5,
+      AlphaMax = 1.0,
+	  --LocationFromOwner = "Take",
+	  --OffsetZ = 160,
+      ClearCreateAnimations = true,
+    })
 
 return data
 end)

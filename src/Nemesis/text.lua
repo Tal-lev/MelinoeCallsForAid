@@ -262,6 +262,16 @@ sjson.hook(file, function(data)
 	TextOrder)
 	)
 
+    table.insert(data.Texts, sjson.to_object(
+	{
+		Id = "NemesisCritAfterSpecialTrait",
+		InheritFrom = "BaseBoonMultiline",
+		DisplayName = "Shoulder Charge",
+		Description = "Your {$Keywords.Dash} deals damage and has increased knockback."
+	},
+	TextOrder)
+	)
+
 return data
 end)
 

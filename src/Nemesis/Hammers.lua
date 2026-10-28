@@ -4,8 +4,11 @@ function mod.HandleNemesisDummyCrit( weaponData, functionArgs, triggerArgs )
         return
     end
     AddTraitToHero({ TraitName = "NemesisDummyCritTrait"})
+	local animation = CreateAnimation({ Name = "ArtemisCritSparkles-SwordPostParryCritical", DestinationId = CurrentRun.Hero.ObjectId, })
+	--local animation = CreateAnimation({ Name = "ArtemisCritSparkles-SwordPostParryCritical", DestinationId = CurrentRun.Hero.ObjectId, OffsetZ = 160 })
     wait(functionArgs.Duration)
     RemoveTrait( CurrentRun.Hero, "NemesisDummyCritTrait" )
+	StopAnimation({ Name = "ArtemisCritSparkles-SwordPostParryCritical", DestinationId = CurrentRun.Hero.ObjectId })
 end
 
 OverwriteTableKeys( TraitData, {
@@ -20,8 +23,8 @@ OverwriteTableKeys( TraitData, {
 				HasAll = { "WeaponStaffSwing", },
 			},
             {
-            Path = { "GameState", "LastWeaponUpgradeName", "WeaponStaffSwing", },
-            IsAny = {"NemesisAspect", }
+				Path = { "GameState", "LastWeaponUpgradeName", "WeaponStaffSwing", },
+				IsAny = {"NemesisAspect", }
             },
 		},
 		RarityLevels =
@@ -67,8 +70,8 @@ OverwriteTableKeys( TraitData, {
 				HasAll = { "WeaponStaffSwing", },
 			},
             {
-            Path = { "GameState", "LastWeaponUpgradeName", "WeaponStaffSwing", },
-            IsAny = {"NemesisAspect", }
+				Path = { "GameState", "LastWeaponUpgradeName", "WeaponStaffSwing", },
+				IsAny = {"NemesisAspect", }
             },
 		},
 		RarityLevels =
@@ -111,13 +114,52 @@ OverwriteTableKeys( TraitData, {
 		},
     },
 
+	NemesisDashPushTrait = 
+	{
+		InheritFrom = { "WeaponTrait", "StaffHammerTrait" },
+		Icon = "Hammer_Staff_37",
+		GameStateRequirements =
+		{
+			{
+				Path = { "CurrentRun", "Hero", "Weapons", },
+				HasAll = { "WeaponStaffSwing", },
+			},
+            {
+				Path = { "GameState", "LastWeaponUpgradeName", "WeaponStaffSwing", },
+				IsAny = {"NemesisAspect", }
+            },
+		},
+		RarityLevels =
+		{
+			Common =
+			{
+				Multiplier = 1.0,
+			},
+			Legendary = 
+			{
+				Multiplier = 1.33,
+			},
+		},
+		PropertyChanges = {
+            {
+                WeaponName = "WeaponBlink",
+                ProjectileName ="ProjectileBlink",
+                ProjectileProperties = {
+                    ImpactVelocity = 1500,
+					Damage = 40,
+                },
+                ExcludeLinked = true,
+	        },
+        },
+    },
+
 
 })
 
 --Adding Hammers to pool
 table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "NemesisLongerCastTrait")
 table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "NemesisCritAfterSpecialTrait")
---table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosTeleportRift")
+table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "NemesisDashPushTrait")
 --table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosDualGrind")
 --table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosSpecialDamage")
 --table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosTriplePurge")
