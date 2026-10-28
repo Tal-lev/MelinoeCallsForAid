@@ -46,10 +46,6 @@ A Hades II mod that allows you to play as other Characters.
 - Exclusive Cast boons
 - Exclusive Hammers
 
-## Missing Art [Artists Wanted]
-
-  - New Hammer Icons
-
 ## Installation
 
 Use r2modman by ebkr from Thunderstore or GitHub.
@@ -59,7 +55,10 @@ While the mod has been tested decently well it is recommended to backup your sav
 ## Credits
 
 - @zerp on the modding discord for MelSkin compatibility and ManaBar reactivity
-- @Yegitu on the modding discord for Chronos Mana symbol and Mana Charge Animation
+- @Yegitu on the modding discord
+  - Chronos Mana symbol 
+  - Mana Charge Animation
+  - Hammer Icons
 
 ## Issues
 
