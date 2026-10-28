@@ -68,7 +68,7 @@ OverwriteTableKeys( TraitData, {
     ChronosTelescopicSwing = 
     {
         InheritFrom = { "WeaponTrait", "AxeHammerTrait" },
-        Icon = "Hammer_Axe_40",
+        Icon = "JarlUlsfark-MelinoeCallsForAid\\HammerChronos_01_1",
         GameStateRequirements =
         {
             {
@@ -110,7 +110,7 @@ OverwriteTableKeys( TraitData, {
     ChronosSpecialDamage = 
     {
         InheritFrom = { "WeaponTrait", "AxeHammerTrait" },
-        Icon = "Hammer_Axe_40",
+        Icon = "JarlUlsfark-MelinoeCallsForAid\\HammerChronos_05_1",
         GameStateRequirements =
         {
             {
@@ -137,7 +137,7 @@ OverwriteTableKeys( TraitData, {
     ChronosRadialCast = 
     {
         InheritFrom = { "WeaponTrait", "AxeHammerTrait" },
-        Icon = "Hammer_Axe_40",
+        Icon = "JarlUlsfark-MelinoeCallsForAid\\HammerChronos_02_1",
         GameStateRequirements =
         {
             {
@@ -181,7 +181,7 @@ OverwriteTableKeys( TraitData, {
     ChronosTeleportRift = 
     {
         InheritFrom = { "WeaponTrait", "AxeHammerTrait" },
-        Icon = "Hammer_Axe_40",
+        Icon = "JarlUlsfark-MelinoeCallsForAid\\HammerChronos_03_1",
         GameStateRequirements =
         {
             {
@@ -226,7 +226,7 @@ OverwriteTableKeys( TraitData, {
     ChronosDualGrind = 
     {
         InheritFrom = { "WeaponTrait", "AxeHammerTrait" },
-        Icon = "Hammer_Axe_40",
+        Icon = "JarlUlsfark-MelinoeCallsForAid\\HammerChronos_04_1",
         GameStateRequirements =
         {
             {
@@ -263,7 +263,7 @@ OverwriteTableKeys( TraitData, {
     ChronosTriplePurge = 
     {
         InheritFrom = { "WeaponTrait", "AxeHammerTrait" },
-        Icon = "Hammer_Axe_40",
+        Icon = "JarlUlsfark-MelinoeCallsForAid\\HammerChronos_06_1",
         GameStateRequirements =
         {
             {

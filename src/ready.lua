@@ -94,6 +94,7 @@ function SetUpPlayerChronos()
 	LoadPackages({Name = "ChronosReformed_Lavender", IgnoreAssert = true })
 	LoadPackages({Name = "ChronosReformed_Gilded", IgnoreAssert = true })
 	LoadPackages({Name = "ChronosReformed_Crimson", IgnoreAssert = true })
+	--LoadPackages({Name = "ChronosReformed_Beard", IgnoreAssert = true })
 	LoadPackages({ Name = "JarlUlsfark-MelinoeCallsForAidPortraitChronos", IgnoreAssert = true })
 	if not HeroHasTrait("ModsNikkelMHadesBiomesPlayerScaleTrait") then
 		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = 1.3 })
