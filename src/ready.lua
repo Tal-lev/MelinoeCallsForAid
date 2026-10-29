@@ -94,7 +94,7 @@ function SetUpPlayerChronos()
 	LoadPackages({Name = "ChronosReformed_Lavender", IgnoreAssert = true })
 	LoadPackages({Name = "ChronosReformed_Gilded", IgnoreAssert = true })
 	LoadPackages({Name = "ChronosReformed_Crimson", IgnoreAssert = true })
-	--LoadPackages({Name = "ChronosReformed_Beard", IgnoreAssert = true })
+	LoadPackages({Name = "ChronosReformed_Beard", IgnoreAssert = true })
 	LoadPackages({ Name = "JarlUlsfark-MelinoeCallsForAidPortraitChronos", IgnoreAssert = true })
 	if not HeroHasTrait("ModsNikkelMHadesBiomesPlayerScaleTrait") then
 		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = 1.3 })
@@ -165,7 +165,7 @@ function SetUpPlayerNemesis()
 	LoadPackages({Name = "Nemesis_Color_Lavender", IgnoreAssert = true })
 	LoadPackages({Name = "Nemesis_Color_Gilded", IgnoreAssert = true })
 	LoadPackages({Name = "Nemesis_Color_Moonlight", IgnoreAssert = true })
-	--LoadPackages({Name = "ChronosReformed_Crimson", IgnoreAssert = true })
+	LoadPackages({Name = "Nemesis_Color_Slanesh", IgnoreAssert = true })
 	LoadPackages({ Name = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis", IgnoreAssert = true })
 	if rom.mods['NikkelM-Zagreus_Journey'] then
 		LoadPackages({ Name = "JarlUlsfark-MelinoeCallsForAidPortraitZag", IgnoreAssert = true })
@@ -1175,6 +1175,8 @@ function mod.SetupChronosAnimations()
 		replacement = "Portrait_MelChronosDarkSide_"
 	elseif (melskin and melskin.GetCurrentDress() == "Visage") then
 		replacement = "Portrait_MelChronosVisage_"
+	elseif (melskin and melskin.GetCurrentDress() == "Beard") then
+		replacement = "Portrait_MelChronosBeard_"
 	else
 		replacement = "Portrait_MelChronos_"
 	end
@@ -1228,6 +1230,8 @@ function mod.SetupChronosAnimations()
 		replacement = "Portrait_ZagChronosDarkSide_"
 	elseif (melskin and melskin.GetCurrentDress() == "Visage") then
 		replacement = "Portrait_ZagChronosVisage_"
+	elseif (melskin and melskin.GetCurrentDress() == "Beard") then
+		replacement = "Portrait_ZagChronosBeard_"
 	else
 		replacement = "Portrait_ZagChronos_"
 	end
@@ -1421,6 +1425,8 @@ function mod.SetupNemesisAnimations()
 	--	replacement = "Portrait_MelNemesisDarkSide_"
 	elseif (melskin and melskin.GetCurrentDress() == "Visage") then
 		replacement = "Portrait_MelNemesisVisage_"
+	elseif (melskin and melskin.GetCurrentDress() == "Slanesh") then
+		replacement = "Portrait_MelNemesisSlanesh_"
 	else
 		replacement = "Portrait_MelNemesis_"
 	end
@@ -1474,6 +1480,8 @@ function mod.SetupNemesisAnimations()
 	--	replacement = "Portrait_ZagNemesisDarkSide_"
 	elseif (melskin and melskin.GetCurrentDress() == "Visage") then
 		replacement = "Portrait_ZagNemesisVisage_"
+	elseif (melskin and melskin.GetCurrentDress() == "Slanesh") then
+		replacement = "Portrait_ZagNemesisSlanesh_"
 	else
 		replacement = "Portrait_ZagNemesis_"
 	end

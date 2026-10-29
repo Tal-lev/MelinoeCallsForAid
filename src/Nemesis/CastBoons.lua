@@ -781,6 +781,103 @@ OverwriteTableKeys(TraitData, {
 	},
   },
 
+  --Hephaestus
+  NemesisHephaestusCastBoon = {
+    Icon = "Boon_Hephaestus_29",
+	InheritFrom = { "BaseTrait", "EarthBoon" },
+	Slot = "Ranged",
+	RarityLevels =
+	{
+		Common =
+			{
+				Multiplier = 1.0,
+			},
+			Rare =
+			{
+				Multiplier = 70/60,
+			},
+			Epic =
+			{
+				Multiplier = 80/60,
+			},
+			Heroic =
+			{
+				Multiplier = 90/60,
+			},
+	},
+    PropertyChanges =
+	{
+		{
+			WeaponName = "WeaponCast",
+			ProjectileProperties = 
+			{
+				Graphic = "NemesisCastCircleInHephaestus",
+			}
+		},
+	},
+	OnBlockDamageFunction = 
+	{
+		Name = _PLUGIN.guid .. "." .. "NemesisRetaliate",
+		Args = 
+		{
+			ProjectileName = "HephCastBlast",
+			DamageMultiplier = 
+			{ 
+				BaseValue = 1.5,
+					DecimalPlaces = 3,
+					AbsoluteStackValues = 
+					{
+						[1] = 30/60,
+						[2] = 20/60,
+						[3] = 15/60,
+						[4] = 10/60,
+					},
+			},
+			Times = 1,
+			Animation = "HephMassiveHitFixed",
+			ReportValues = 
+			{ 
+				ReportedMultiplier = "DamageMultiplier",
+				ReportedFuse = "Delay",
+				ReportedDetonations = "Count",
+			},
+			WeaponName = "WeaponCast",
+		},
+	},
+	StatLines = 
+	{
+		"CastDamageOverTimeStatDisplay1",
+	},
+	ExtractValues = 
+	{
+		{
+				Key = "ReportedMultiplier",
+				ExtractAs = "Damage",
+				Format = "MultiplyByBase",
+				BaseType = "Projectile",
+				BaseName = "HephCastBlast",
+				BaseProperty = "Damage",
+			},
+			{
+				Key = "ReportedFuse",
+				ExtractAs = "Fuse",
+				DecimalPlaces = 1,
+				SkipAutoExtract = true,
+			},
+			{
+				Key = "ReportedDetonations",
+				ExtractAs = "Detonations",
+				SkipAutoExtract = true,
+			},
+	},
+	GameStateRequirements = {
+		{
+			Path = {"CurrentRun", "Hero", "TraitDictionary"},
+			HasAll = {"NemesisAspect"}
+		}
+	},
+  },
+
   --Hestia
   NemesisHestiaCastBoon = {
     Icon = "Boon_Hestia_29",
@@ -966,6 +1063,9 @@ table.insert( LootData.ApolloUpgrade.PriorityUpgrades, 3, "NemesisApolloCastBoon
 --Aphrodite
 table.insert( LootData.AphroditeUpgrade.WeaponUpgrades, "NemesisAphroditeCastBoon" )
 table.insert( LootData.AphroditeUpgrade.PriorityUpgrades, 3, "NemesisAphroditeCastBoon" )
+--Hephaestus
+table.insert( LootData.HephaestusUpgrade.WeaponUpgrades, "NemesisHephaestusCastBoon" )
+table.insert( LootData.HephaestusUpgrade.PriorityUpgrades, 3, "NemesisHephaestusCastBoon" )
 --Hestia
 table.insert( LootData.HestiaUpgrade.WeaponUpgrades, "NemesisHestiaCastBoon" )
 table.insert( LootData.HestiaUpgrade.PriorityUpgrades, 3, "NemesisHestiaCastBoon" )

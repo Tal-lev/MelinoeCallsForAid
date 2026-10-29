@@ -139,6 +139,16 @@ sjson.hook(file, function(data)
     TextOrder)
 	)
 
+    table.insert(data.Texts, sjson.to_object(
+	{
+      Id = "NemesisHephaestusCastBoon",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Anvil Parry",
+      Description = "Your {$Keywords.CastSet} deals damage to the attacker.",
+    },
+    TextOrder)
+	)
+
 	table.insert(data.Texts, sjson.to_object(
 	{
       Id = "NemesisHestiaCastBoon",

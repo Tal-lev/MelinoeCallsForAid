@@ -65,6 +65,7 @@ local function on_ready()
 	import "Nemesis/CastBoons.lua"
 
 	import "Chronos/VoiceLines.lua"
+	import "Nemesis/VoiceLines.lua"
 
 	import "Chronos/ManaIndicator.lua"
 

@@ -4,42 +4,98 @@ local nemesisDressData = {
         GrannyTexture = "GR2/Nemesis_Color_Lavender",
         Color = {206, 168, 238, 255},
         IsArachne = true,
+        GameStateRequirements = {
+            {
+                Path = { "GameState", "TraitsTaken" },
+                CountOf = {"NemesisAgilityCostume",},
+                Comparison = ">=",
+                Value = 1,
+            },
+        },
     },
     Azure =
     {
         GrannyTexture = "GR2/Nemesis_Color_Azure",
         Color = {0, 89, 220, 255},
         IsArachne = true,
+        GameStateRequirements = {
+            {
+                Path = { "GameState", "TraitsTaken" },
+                CountOf = {"NemesisManaCostume",},
+                Comparison = ">=",
+                Value = 1,
+            },
+        },
     },
     Emerald =
     {
         GrannyTexture = "GR2/Nemesis_Color_Emerald",
         Color = {20, 200, 40, 255},
         IsArachne = true,
+        GameStateRequirements = {
+            {
+                Path = { "GameState", "TraitsTaken" },
+                CountOf = {"NemesisVitalityCostume",},
+                Comparison = ">=",
+                Value = 1,
+            },
+        },
     },
     Onyx =
     {
         GrannyTexture = "GR2/Nemesis_Color_Onyx",
         Color = {49, 41, 41, 255},
         IsArachne = true,
+        GameStateRequirements = {
+            {
+                Path = { "GameState", "TraitsTaken" },
+                CountOf = {"NemesisHighArmorCostume",},
+                Comparison = ">=",
+                Value = 1,
+            },
+        },
     },
     Fuchsia =
     {
         GrannyTexture = "GR2/Nemesis_Color_Fuchsia",
         Color = {200, 69, 134, 255},
         IsArachne = true,
+        GameStateRequirements = {
+            {
+                Path = { "GameState", "TraitsTaken" },
+                CountOf = {"NemesisCastDamageCostume",},
+                Comparison = ">=",
+                Value = 1,
+            },
+        },
     },
     Gilded =
     {
         GrannyTexture = "GR2/Nemesis_Color_Gilded",
         Color = {216, 171, 0, 255},
         IsArachne = true,
+        GameStateRequirements = {
+            {
+                Path = { "GameState", "TraitsTaken" },
+                CountOf = {"NemesisIncomeCostume",},
+                Comparison = ">=",
+                Value = 1,
+            },
+        },
     },
     Moonlight =
     {
         GrannyTexture = "GR2/Nemesis_Color_Moonlight",
         Color = {204, 215, 243, 255},
         IsArachne = true,
+        GameStateRequirements = {
+            {
+                Path = { "GameState", "TraitsTaken" },
+                CountOf = {"NemesisSpellCostume",},
+                Comparison = ">=",
+                Value = 1,
+            },
+        },
     },
     --Crimson =
     --{
@@ -66,6 +122,11 @@ local nemesisDressData = {
     --{
     --    GrannyTexture = "GR2/Chronos_Color",
     --},
+    Slanesh = 
+    {
+        GrannyTexture = "GR2/Nemesis_Color_Slanesh",
+        Color = {206, 168, 238, 255},
+    },
     Visage =
     {
         GrannyTexture = "GR2/NemesisDream_Color",

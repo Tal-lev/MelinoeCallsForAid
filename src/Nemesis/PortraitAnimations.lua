@@ -2154,6 +2154,188 @@ sjson.hook(file, function(data)
 	TextOrder)
 	)
 
+	--Slanesh
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_Default_01",
+		InheritFrom = "Portrait_MelNemesis_Default_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_Default_01_Exit",
+		InheritFrom = "Portrait_MelNemesis_Default_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_Proud_01",
+		InheritFrom = "Portrait_MelNemesis_Proud_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_Proud_01_Exit",
+		InheritFrom = "Portrait_MelNemesis_Proud_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_Intense_01",
+		InheritFrom = "Portrait_MelNemesis_Intense_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_Intense_01_Exit",
+		InheritFrom = "Portrait_MelNemesis_Intense_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_Vulnerable_01",
+		InheritFrom = "Portrait_MelNemesis_Vulnerable_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_Vulnerable_01_Exit",
+		InheritFrom = "Portrait_MelNemesis_Vulnerable_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_Empathetic_01",
+		InheritFrom = "Portrait_MelNemesis_Empathetic_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_Empathetic_01_Exit",
+		InheritFrom = "Portrait_MelNemesis_Empathetic_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_EmpatheticFlushed_01",
+		InheritFrom = "Portrait_MelNemesis_EmpatheticFlushed_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_EmpatheticFlushed_01_Exit",
+		InheritFrom = "Portrait_MelNemesis_EmpatheticFlushed_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_Hesitant_01",
+		InheritFrom = "Portrait_MelNemesis_Hesitant_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_Hesitant_01_Exit",
+		InheritFrom = "Portrait_MelNemesis_Hesitant_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_Casual_01",
+		InheritFrom = "Portrait_MelNemesis_Casual_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_Casual_01_Exit",
+		InheritFrom = "Portrait_MelNemesis_Casual_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_Pleased_01",
+		InheritFrom = "Portrait_MelNemesis_Pleased_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_Pleased_01_Exit",
+		InheritFrom = "Portrait_MelNemesis_Pleased_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_PleasedFlushed_01",
+		InheritFrom = "Portrait_MelNemesis_PleasedFlushed_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelNemesisSlanesh_PleasedFlushed_01_Exit",
+		InheritFrom = "Portrait_MelNemesis_PleasedFlushed_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+	},
+	TextOrder)
+	)
+
 	--Starting Zag Chronos
 
 	table.insert(data.Animations, sjson.to_object(
@@ -4035,6 +4217,178 @@ sjson.hook(file, function(data)
 		Name = "Portrait_ZagNemesisVisage_Unwell_01_Exit",
 		InheritFrom = "Portrait_Base_01_Exit",
 		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Visage_Portraits_Nemesis_01",
+		OffsetX = -250,
+		OffsetY = 40,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Unwell_01_Exit" },
+		}
+	},
+	TextOrder)
+	)
+
+	--Slanesh
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagNemesisSlanesh_Default_01",
+		InheritFrom = "Portrait_Base_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+		OffsetX = -250,
+		OffsetY = 40,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Default_01" },
+		}
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagNemesisSlanesh_Default_01_Exit",
+		InheritFrom = "Portrait_Base_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+		OffsetX = -250,
+		OffsetY = 40,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Default_01_Exit" },
+		}
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagNemesisSlanesh_Serious_01",
+		InheritFrom = "Portrait_Base_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+		OffsetX = -250,
+		OffsetY = 40,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Serious_01" },
+		}
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagNemesisSlanesh_Serious_01_Exit",
+		InheritFrom = "Portrait_Base_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+		OffsetX = -250,
+		OffsetY = 40,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Serious_01_Exit" },
+		}
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagNemesisSlanesh_Defiant_01",
+		InheritFrom = "Portrait_Base_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+		OffsetX = -250,
+		OffsetY = 40,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Defiant_01" },
+		}
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagNemesisSlanesh_Defiant_01_Exit",
+		InheritFrom = "Portrait_Base_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+		OffsetX = -250,
+		OffsetY = 40,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Defiant_01_Exit" },
+		}
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagNemesisSlanesh_Empathetic_01",
+		InheritFrom = "Portrait_Base_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+		OffsetX = -250,
+		OffsetY = 40,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Empathetic_01" },
+		}
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagNemesisSlanesh_Empathetic_01_Exit",
+		InheritFrom = "Portrait_Base_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+		OffsetX = -250,
+		OffsetY = 40,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Empathetic_01_Exit" },
+		}
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagNemesisSlanesh_Unwell_01",
+		InheritFrom = "Portrait_Base_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
+		OffsetX = -250,
+		OffsetY = 40,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Unwell_01" },
+		}
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagNemesisSlanesh_Unwell_01_Exit",
+		InheritFrom = "Portrait_Base_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Slanesh_Portraits_Nemesis_01",
 		OffsetX = -250,
 		OffsetY = 40,
 		Alpha = 0.7,

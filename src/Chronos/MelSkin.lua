@@ -4,36 +4,84 @@ local chronosDressData = {
         GrannyTexture = "GR2/ChronosReformed_Lavender",
         Color = {206, 168, 238, 255},
         IsArachne = true,
+        GameStateRequirements = {
+            {
+                Path = { "GameState", "TraitsTaken" },
+                CountOf = {"NemesisAgilityCostume",},
+                Comparison = ">=",
+                Value = 1,
+            },
+        },
     },
     Azure =
     {
         GrannyTexture = "GR2/ChronosReformed_Azure",
         Color = {0, 89, 220, 255},
         IsArachne = true,
+        GameStateRequirements = {
+            {
+                Path = { "GameState", "TraitsTaken" },
+                CountOf = {"NemesisManaCostume",},
+                Comparison = ">=",
+                Value = 1,
+            },
+        },
     },
     Emerald =
     {
         GrannyTexture = "GR2/ChronosReformed_Emerald",
         Color = {20, 200, 40, 255},
         IsArachne = true,
+        GameStateRequirements = {
+            {
+                Path = { "GameState", "TraitsTaken" },
+                CountOf = {"NemesisVitalityCostume",},
+                Comparison = ">=",
+                Value = 1,
+            },
+        },
     },
     Onyx =
     {
         GrannyTexture = "GR2/ChronosReformed_Onyx",
         Color = {49, 41, 41, 255},
         IsArachne = true,
+        GameStateRequirements = {
+            {
+                Path = { "GameState", "TraitsTaken" },
+                CountOf = {"NemesisHighArmorCostume",},
+                Comparison = ">=",
+                Value = 1,
+            },
+        },
     },
     Fuchsia =
     {
         GrannyTexture = "GR2/ChronosReformed_Fuchsia",
         Color = {200, 69, 134, 255},
         IsArachne = true,
+        GameStateRequirements = {
+            {
+                Path = { "GameState", "TraitsTaken" },
+                CountOf = {"NemesisCastDamageCostume",},
+                Comparison = ">=",
+                Value = 1,
+            },
+        },
     },
     Gilded =
     {
         GrannyTexture = "GR2/ChronosReformed_Gilded",
         Color = {216, 171, 0, 255},
         IsArachne = true,
+        GameStateRequirements = {
+            {
+                Path = { "GameState", "TraitsTaken" },
+                CountOf = {"NemesisIncomeCostume",},
+                Comparison = ">=",
+                Value = 1,
+            },
+        },
     },
     --Moonlight =
     --{
@@ -46,6 +94,14 @@ local chronosDressData = {
         GrannyTexture = "GR2/ChronosReformed_Crimson",
         Color = {220, 0, 0, 255},
         IsArachne = true,
+        GameStateRequirements = {
+            {
+                Path = { "GameState", "TraitsTaken" },
+                CountOf = {"NemesisEscalatingCostume",},
+                Comparison = ">=",
+                Value = 1,
+            },
+        },
     },
     ["Dark Side"] =
     {
@@ -65,6 +121,15 @@ local chronosDressData = {
     ["Alternate Time"] =
     {
         GrannyTexture = "GR2/Chronos_Color",
+    },
+    Beard = {
+        GrannyTexture = "GR2/ChronosReformed_Beard",
+        GameStateRequirements = {
+            {
+                PathTrue = { "GameState", "TextLinesRecord", "NeoChronosAboutBeard01" }
+
+            },
+        },
     },
     Visage =
     {
@@ -97,6 +162,7 @@ local dressOrder = {
     "Crimson",
     "Dark Side",
     "Alternate Time",
+    "Beard",
     "Visage",
     "None",
 }
