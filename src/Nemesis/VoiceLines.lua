@@ -17,11 +17,19 @@
 --table.insert(HeroVoiceLines.BlockDeathVoiceLines[1], { Cue = "/VO/Chronos_0319", Text = "Not so fast...", GameStateRequirements = YesChronosReq })
 
 -- Drank a Fountain in DreamRun
---table.insert(GlobalVoiceLines.UsedFountainVoiceLines[1], { Cue = "/VO/Chronos_1102", Text = "Refreshing, is it not?", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[1], { Cue = "/VO/Nemesis_0207", Text = "Really shouldn't get {#Emph}too {#Prev}comfortable in here...", GameStateRequirements = YesNemesisReq})
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[1], { Cue = "/VO/Nemesis_0210", Text = "{#Emph}<Sigh>", GameStateRequirements = YesNemesisReq})
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[1], { Cue = "/VO/NemesisField_0614", Text = "Been too long...", GameStateRequirements = YesNemesisReq})
 -- Drank a Fountain after boss
---table.insert(GlobalVoiceLines.UsedFountainVoiceLines[2], { Cue = "/VO/Chronos_1102", Text = "Refreshing, is it not?", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[2], { Cue = "/VO/Nemesis_0207", Text = "Really shouldn't get {#Emph}too {#Prev}comfortable in here...", GameStateRequirements = YesNemesisReq})
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[2], { Cue = "/VO/Nemesis_0210", Text = "{#Emph}<Sigh>", GameStateRequirements = YesNemesisReq})
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[2], { Cue = "/VO/NemesisField_0614", Text = "Been too long...", GameStateRequirements = YesNemesisReq})
 -- Drank a Fountain mid room
---table.insert(GlobalVoiceLines.UsedFountainVoiceLines[4], { Cue = "/VO/Chronos_1102", Text = "Refreshing, is it not?", GameStateRequirements = YesChronosReq})
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[4], { Cue = "/VO/Nemesis_0207", Text = "Really shouldn't get {#Emph}too {#Prev}comfortable in here...", GameStateRequirements = YesNemesisReq})
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[4], { Cue = "/VO/Nemesis_0210", Text = "{#Emph}<Sigh>", GameStateRequirements = YesNemesisReq})
+table.insert(GlobalVoiceLines.UsedFountainVoiceLines[4], { Cue = "/VO/NemesisField_0614", Text = "Been too long...", GameStateRequirements = YesNemesisReq})
+
+
 
 --Equip Raven
 local RavenCond = 
@@ -106,15 +114,27 @@ table.insert(GlobalVoiceLines.StartNewRunVoiceLines[4],{ Cue = "/VO/Nemesis_0207
 --table.insert(GlobalVoiceLines.GodRejectedVoiceLines[11],{ Cue = "/VO/Chronos_0267", Text = "{#Emph}Urgh... gah...",GameStateRequirements = YesChronosReq })
 
 --Reach low Health
---table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/Chronos_0400", Text = "Ridiculous...",GameStateRequirements = YesChronosReq })
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/NemesisField_0284", Text = "{#Emph}Hrm.",GameStateRequirements = YesNemesisReq })
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/NemesisField_0285", Text = "{#Emph}Grr.",GameStateRequirements = YesNemesisReq })
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/NemesisField_0286", Text = "{#Emph}Augh.",GameStateRequirements = YesNemesisReq })
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/NemesisField_0287", Text = "{#Emph}Rngh.",GameStateRequirements = YesNemesisReq })
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/NemesisField_0288", Text = "You...",GameStateRequirements = YesNemesisReq })
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/NemesisField_0289", Text = "{#Emph}Khh...",GameStateRequirements = YesNemesisReq })
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/NemesisField_0565", Text = "Quit it.",GameStateRequirements = YesNemesisReq })
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/NemesisField_0566", Text = "Not bad.",GameStateRequirements = YesNemesisReq })
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/NemesisField_0567", Text = "So?",GameStateRequirements = YesNemesisReq })
+table.insert(HeroData.LowHealthVoiceLines,{ Cue = "/VO/NemesisField_0568", Text = "{#Emph}Eh.",GameStateRequirements = YesNemesisReq })
 
 --Beat Encounter with low health
---table.insert(GlobalVoiceLines.CombatResolvedLowHealthVoiceLines[2],{ Cue = "/VO/Chronos_0303", Text = "Oh-{#Emph}ho...!",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.CombatResolvedLowHealthVoiceLines[2],{ Cue = "/VO/Nemesis_0184", Text = "Had it coming.",GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.CombatResolvedLowHealthVoiceLines[2],{ Cue = "/VO/Nemesis_0132", Text = "Yeah. I got careless, too...",GameStateRequirements = YesNemesisReq })
 
 --Timer low
 --table.insert(HeroVoiceLines.BiomeTimerAboutToExpireVoiceLines[2],{ Cue = "/VO/Chronos_0301", Text = "Time is running out...",GameStateRequirements = YesChronosReq })
 --Kill Last Enemy in room
---table.insert(GlobalVoiceLines.KillingEnemyVoiceLines[1],{ Cue = "/VO/Chronos_0313", Text = "Wither...",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.KillingEnemyVoiceLines[1],{ Cue = "/VO/Nemesis_0261", Text = "Somebody's got to do it.",GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.KillingEnemyVoiceLines[1],{ Cue = "/VO/NemesisField_0310", Text = "You had it coming.",GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.KillingEnemyVoiceLines[1],{ Cue = "/VO/NemesisField_0311", Text = "Too slow.",GameStateRequirements = YesNemesisReq })
 
 --Gifting Icarus
 --table.insert(GlobalVoiceLines.GiftGivenVoiceLines,{ Cue = "/VO/Chronos_0412", Text = "Here, I insist!",GameStateRequirements = YesChronosReq })
@@ -172,15 +192,15 @@ table.insert(LootData.PoseidonUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/NemesisFiel
 --Boon of Demeter
 table.insert(LootData.DemeterUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Nemesis_0205", Text = "Not too hot, not too cold...",GameStateRequirements = YesNemesisReq })
 
-
-
 --Boon of Apollo
 table.insert(LootData.ApolloUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/NemesisField_0141",Text = "Olympus isn't gonna care if you give up one little blessing, will they?",GameStateRequirements = YesNemesisReq })
+
+--Boon of Aphrodite
+table.insert(LootData.AphroditeUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Nemesis_0206", Text = "What are {#Emph}you {#Prev}looking at?",GameStateRequirements = YesNemesisReq })
 
 --Boon of Hephaestus
 table.insert(LootData.HephaestusUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/NemesisField_0141",Text = "Olympus isn't gonna care if you give up one little blessing, will they?",GameStateRequirements = YesNemesisReq })
 table.insert(LootData.HephaestusUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/NemesisField_0136",Text = "Give me some of your borrowed strength, and you'll get some of mine.",GameStateRequirements = YesNemesisReq })
-
 
 --Boon of Hestia
 table.insert(LootData.HestiaUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Nemesis_0205", Text = "Not too hot, not too cold...",GameStateRequirements = YesNemesisReq })
@@ -188,26 +208,38 @@ table.insert(LootData.HestiaUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Nemesis_0205"
 table.insert(LootData.AresUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/NemesisField_0142",Text = "What would it take for you to give up some of your Olympian muscle?",GameStateRequirements = YesNemesisReq })
 table.insert(LootData.AresUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/NemesisField_0135",Text = "Got something here you need, but it'll cost you some of your false power from Olympus.",GameStateRequirements = YesNemesisReq })
 
-
 --Boon of Selene
 table.insert(LootData.SpellDrop.OnSpawnVoiceLines[1], { Cue = "/VO/NemesisField_0573", Text = "Selene...",GameStateRequirements = YesNemesissReq })
 table.insert(LootData.SpellDrop.OnSpawnVoiceLines[1], { Cue = "/VO/NemesisField_0492", Text = "You're a suck-up, Selene!",GameStateRequirements = YesNemesissReq })
 
 -- Encounter Generic MiniBoss Start
---table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/Chronos_0339", Text = "How frightening.",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/Nemesis_0177", Text = "Make it a fair fight.",GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/Nemesis_0192", Text = "You're mine.",GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/NemesisField_0234", Text = "Gonna handle this.",GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/NemesisField_0245", Text = "Get set to fight, or get out of the way.",GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/NemesisField_0232", Text = "Beware the evil eye.",GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/NemesisField_0537", Text = "Surprise.",GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/NemesisField_0545", Text = "On your guard.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.MiniBossEncounterMiscStartLines[2],{ Cue = "/VO/Nemesis_0449", Text = "Let's.", GameStateRequirements = YesNemesisReq })
 
 --Encounter MiniBoss Assassin
 table.insert(GlobalVoiceLines.MiniBossEncounterStartVoiceLines[3],{ Cue = "/VO/NemesisField_0501", Text = "Hey, no fair. How come you get two blades when I only get one?",GameStateRequirements = YesNemesisReq })
-					
+	
+--PickAxe Use
+table.insert(HeroVoiceLines.PickaxeUseInProgressVoiceLines[2],{ Cue = "/VO/Nemesis_0473", Text = "Might as well.",GameStateRequirements = YesNemesisReq })
+
 --Health
 --table.insert(GlobalVoiceLines.UsedHealDropVoiceLines[1],{ Cue = "/VO/Chronos_1214", Text = "Time heals all wounds...",GameStateRequirements = YesChronosReq })
 
 --Hecate Greetings
---table.insert(GlobalVoiceLines.HecateBossGreetingLines[7],{ Cue = "/VO/Chronos_0930", Text = "That staff of yours is no match for my scythe.", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.HecateBossGreetingLines[7],{ Cue = "/VO/NemesisField_0517",Text = "You and that Oath making things a lot harder than they need to be.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.HecateBossGreetingLines[7],{ Cue = "/VO/NemesisField_0516",Text = "Practically taste the Fear in the air. Let's make them fear {#Emph}us.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.HecateBossGreetingLines[7],{ Cue = "/VO/NemesisField_0512",Text = "Stand around and watch me work, or fight. Same difference either way.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.HecateBossGreetingLines[7],{ Cue = "/VO/Nemesis_0064", Text = "I know I could take her...", GameStateRequirements = YesNemesisReq })
+
 
 --Hecate Defeated
---table.insert(HeroVoiceLines.HecateDefeatedVoiceLines[6],{ Cue = "/VO/Chronos_0336", Text = "Too slow, my girl...", GameStateRequirements = YesChronosReq })
-
+table.insert(HeroVoiceLines.HecateDefeatedVoiceLines[6],{ Cue = "/VO/Nemesis_0420", Text = "...Consider it done, Headmistress.", GameStateRequirements = YesChronosReq })
 
 -- Infested Cerberus fight start 
 table.insert(EncounterData.BossInfestedCerberus01.EnterVoiceLines[5],{ Cue = "/VO/NemesisField_0498", Text = "Not everybody in the Fields deserves to be here, but right now it can't be helped.",GameStateRequirements = YesNemesisReq })
@@ -221,19 +253,32 @@ table.insert(EncounterData.BossTyphonHead01.FightStartVoiceLines[6],{ Cue = "/VO
 
 
 --Polyphemus Greeting
---table.insert(GlobalVoiceLines.PolyphemusGreetingLines[6],{ Cue = "/VO/Chronos_0925", Text = "Are you enjoying this nightly routine?",GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.PolyphemusGreetingLines[6],{ Cue = "/VO/Nemesis_0136", Text = "Not Cave of the Cyclops...",GameStateRequirements = YesNemesisReq })
 
 --Polyphemus Kill
---table.insert(EnemyData.Polyphemus.BossKillVoiceLines[5],{ Cue = "/VO/Chronos_0656", Text = "You are the sheep here.",GameStateRequirements = YesChronosReq })
+table.insert(EnemyData.Polyphemus.BossKillVoiceLines[5],{ Cue = "/VO/Nemesis_0198", Text = "Keep practicing.",GameStateRequirements = YesNemesisReq })
+table.insert(EnemyData.Polyphemus.BossKillVoiceLines[5],{ Cue = "/VO/Nemesis_0199", Text = "Nice try.",GameStateRequirements = YesNemesisReq })
+table.insert(EnemyData.Polyphemus.BossKillVoiceLines[5],{ Cue = "/VO/Nemesis_0164", Text = "Get lost.",GameStateRequirements = YesNemesisReq })
+
 
 -- Entering Prometheus Fight
---table.insert(RoomData.P_Boss01.EnterVoiceLines[7],{ Cue = "/VO/Chronos_0927", Text = "Decided to give poor Typhon a break?",GameStateRequirements = YesChronosReq })
+table.insert(RoomData.P_Boss01.EnterVoiceLines[7],{ Cue = "/VO/NemesisField_0536",Text = "You've been getting stronger, but can't always tell by how much. So show me.",GameStateRequirements = YesNemesisReq })
+table.insert(RoomData.P_Boss01.EnterVoiceLines[7],{ Cue = "/VO/NemesisField_0155",Text = "Getting stronger, but you'll never be at my level. Go on, try me.",GameStateRequirements = YesNemesisReq })
+table.insert(RoomData.P_Boss01.EnterVoiceLines[7],{ Cue = "/VO/NemesisField_0154",Text = "Don't think you have what it takes, though go on and try to prove me wrong.",GameStateRequirements = YesNemesisReq })
+table.insert(RoomData.P_Boss01.EnterVoiceLines[7],{ Cue = "/VO/NemesisField_0153",Text = "None of these wretches could touch me. But you're stronger than them, right?",GameStateRequirements = YesNemesisReq })
 
 --Prometheus Memory Game
---table.insert(EnemyData.Prometheus.MemoryAttackIntroVoiceLines[4],{ Cue = "/VO/Chronos_0928", Text = "How shall Olympus withstand Typhon with you here?",GameStateRequirements = YesChronosReq })
+table.insert(EnemyData.Prometheus.MemoryAttackIntroVoiceLines[4],{ Cue = "/VO/NemesisField_0577", Text = "Stop that.",GameStateRequirements = YesNemesisReq })
+table.insert(EnemyData.Prometheus.MemoryAttackIntroVoiceLines[4],{ Cue = "/VO/NemesisField_0299", Text = "Seriously?",GameStateRequirements = YesNemesisReq })
+
 
 --Prometheus Kill Lines
---table.insert(EnemyData.Prometheus.BossKillVoiceLines[4],{ Cue = "/VO/Chronos_0197", Text = "An inevitable outcome, nothing more.", GameStateRequirements = YesChronosReq})
+table.insert(EnemyData.Prometheus.BossKillVoiceLines[4],{ Cue = "/VO/Nemesis_0198", Text = "Keep practicing.",GameStateRequirements = YesNemesisReq })
+table.insert(EnemyData.Prometheus.BossKillVoiceLines[4],{ Cue = "/VO/Nemesis_0199", Text = "Nice try.",GameStateRequirements = YesNemesisReq })
+table.insert(EnemyData.Prometheus.BossKillVoiceLines[4],{ Cue = "/VO/Nemesis_0164", Text = "Get lost.",GameStateRequirements = YesNemesisReq })
+table.insert(EnemyData.Prometheus.BossKillVoiceLines[4],{ Cue = "/VO/Nemesis_0471", Text = "He's gone.",GameStateRequirements = YesNemesisReq })
+
+
 
 --Scylla Greetings
 table.insert(GlobalVoiceLines.ScyllaGreetingLines[2],{ Cue = "/VO/NemesisField_0030",Text = "Can hardly stand all this water and the singing, but this has to be done." , GameStateRequirements = YesNemesisReq})
@@ -250,6 +295,10 @@ table.insert(GlobalVoiceLines.FishCaughtVoiceLines[1],{ Cue = "/VO/Nemesis_0185"
 table.insert(GlobalVoiceLines.FishCaughtVoiceLines[1],{ Cue = "/VO/Nemesis_0187", Text = "Caught bigger ones than that.", GameStateRequirements = YesNemesisReq})
 table.insert(GlobalVoiceLines.FishCaughtVoiceLines[1],{ Cue = "/VO/Nemesis_0193", Text = "Caught one...", GameStateRequirements = YesNemesisReq})
 
+--Exorcism Success
+table.insert(HeroVoiceLines.ExorcismSucceededVoiceLines[1], { Cue = "/VO/NemesisField_0206", Text = "Move along.", GameStateRequirements = YesNemesisReq})
+table.insert(HeroVoiceLines.ExorcismSucceededVoiceLines[1], { Cue = "/VO/NemesisField_0413", Text = "Dead weight.", GameStateRequirements = YesNemesisReq})
+table.insert(HeroVoiceLines.ExorcismSucceededVoiceLines[1], { Cue = "/VO/NemesisField_0409", Text = "Another Shade to watch.", GameStateRequirements = YesNemesisReq})
 
 --Familiar Switching Costume
 --table.insert(GlobalVoiceLines.FamiliarMiscSwitchCostumeVoiceLines[1], { Cue = "/VO/Chronos_0662", Text = "Oh...!", GameStateRequirements = YesChronosReq})
@@ -265,6 +314,8 @@ table.insert(EnemyData.NPC_Artemis_01.EncounterStartVoiceLines[3],{ Cue = "/VO/N
 table.insert(EnemyData.NPC_Artemis_01.EncounterStartVoiceLines[3],{ Cue = "/VO/NemesisField_0579", Text = "Oh hey.", GameStateRequirements = YesNemesisReq})
 table.insert(EnemyData.NPC_Artemis_01.EncounterStartVoiceLines[3],{ Cue = "/VO/NemesisField_0583", Text = "Got here first.", GameStateRequirements = YesNemesisReq})
 
+--Artemis Interact
+table.insert(EnemyData.NPC_Artemis_01.InteractVoiceLines[1],{ Cue = "/VO/Nemesis_0469", Text = "Together we shine...", GameStateRequirements = YesNemesisReq})
 
 --Costume
 table.insert(GlobalVoiceLines.CostumeChangedVoiceLines[4],{ Cue = "/VO/NemesisField_0471",Text = "...Feels much more comfortable for now, so thanks.", GameStateRequirements = YesNemesisReq})
@@ -286,8 +337,18 @@ table.insert(EnemyData.NPC_Athena_01.EncounterEndVoiceLines[3],{ Cue = "/VO/Neme
 --Chronos Legions sighted
 table.insert(GlobalVoiceLines.ChronosLegionsSightedVoiceLines,{ Cue = "/VO/NemesisField_0480", Text = "So this is where the {#Emph}real {#Prev}magick happens, huh. Let's see what the best of the Titan's armies have to offer.", GameStateRequirements = YesNemesisReq })
 	
+--Eris Start Fight
+
+				--{ Cue = "/VO/NemesisField_0247", Text = "Had a feeling you'd show up." },
+				--{ Cue = "/VO/NemesisField_0238", Text = "Stand back or else." },
+				--{ Cue = "/VO/NemesisField_0240", Text = "Just stay out of my way." },
+				--{ Cue = "/VO/NemesisField_0241", Text = "Still think you can beat me?" },
+				--{ Cue = "/VO/NemesisField_0242", Text = "Think you're better, prove it." },
+                --Cue = "/VO/Nemesis_0241", Text = "You'll get what's coming to you either way."
+
 --Killing Eris
---table.insert(EnemyData.Eris.BossKillVoiceLines[4],{ Cue = "/VO/Chronos_0201", Text = "What did you hope you would accomplish here?", GameStateRequirements = YesChronosReq })
+table.insert(EnemyData.Eris.BossKillVoiceLines[4],{ Cue = "/VO/Nemesis_0062", Text = "You're such a pushover sometimes.", GameStateRequirements = YesNemesisReq })
+
 
 --2nd wave
 table.insert(GlobalVoiceLines.ExtraDoorEncounterStartVoiceLines[3],{ Cue = "/VO/NemesisField_0378", Text = "One more round?", GameStateRequirements = YesNemesisReq})
@@ -298,7 +359,26 @@ table.insert(GlobalVoiceLines.ExtraDoorEncounterStartVoiceLines[3],{ Cue = "/VO/
 table.insert(GlobalVoiceLines.ExtraDoorEncounterStartVoiceLines[3],{ Cue = "/VO/NemesisField_0383", Text = "What now.", GameStateRequirements = YesNemesisReq})
 
 --Starting Combat
---table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/Chronos_0621", Text = "You rabble-rousing miscreant, {#Emph}again?", GameStateRequirements = YesChronosReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/NemesisField_0248", Text = "Heads up.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/NemesisField_0249", Text = "There they are.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/NemesisField_0250", Text = "Come on out...", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/NemesisField_0251", Text = "Here we go.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/NemesisField_0252", Text = "About damn time.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/NemesisField_0253", Text = "Watch this.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/NemesisField_0254", Text = "They're in for it.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/NemesisField_0255", Text = "Finally...", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/NemesisField_0256", Text = "Been waiting for this.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/NemesisField_0257", Text = "Let's get started.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/NemesisField_0258", Text = "Let's see how quick you are.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/NemesisField_0259", Text = "They had this coming.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/NemesisField_0260", Text = "Come on in.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/NemesisField_0261", Text = "Here comes the reckoning.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/NemesisField_0262", Text = "I'll make them come around.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/NemesisField_0547", Text = "Let's go.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/NemesisField_0549", Text = "Come on.", GameStateRequirements = YesNemesisReq })
+table.insert(GlobalVoiceLines.CombatBeginsVoiceLines[2],{ Cue = "/VO/NemesisField_0263", Text = "Make yourself useful.", GameStateRequirements = YesNemesisReq })
+
+
 
 --Won Combat
 --table.insert(GlobalVoiceLines.CombatResolvedVoiceLines[3],{ Cue = "/VO/Chronos_0014", Text = "I think not.", GameStateRequirements = YesChronosReq })
@@ -321,6 +401,7 @@ table.insert(GlobalVoiceLines.ExtraDoorEncounterStartVoiceLines[3],{ Cue = "/VO/
 --table.insert(LootData.WeaponUpgrade.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1349", Text = "{#Emph}Hammer? Gold.", GameStateRequirements = YesChronosReq })
 --Pick Centaur Heart
 table.insert(ConsumableData.MaxHealthDrop.OnSpawnVoiceLines,{ Cue = "/VO/NemesisField_0617", Text = "Good.", GameStateRequirements = YesNemesisReq })
+table.insert(ConsumableData.MaxHealthDrop.OnSpawnVoiceLines,{ Cue = "/VO/Nemesis_0307", Text = "Thank the Fates.", GameStateRequirements = YesNemesisReq })
 --Pick Tonic
 --table.insert(ConsumableData.MaxManaDrop.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1351", Text = "{#Emph}Tonic? Gold!", GameStateRequirements = YesChronosReq })
 --Pick Moon Talent
@@ -331,7 +412,7 @@ table.insert(ConsumableData.MaxHealthDrop.OnSpawnVoiceLines,{ Cue = "/VO/Nemesis
 --Pick Bones
 --table.insert(ConsumableData.MetaCurrencyDrop.ConsumedVoiceLines[2],{ Cue = "/VO/Chronos_1347", Text = "{#Emph}Bones? Gold.", GameStateRequirements = YesChronosReq })
 --Pick Gold room reward
---table.insert(ConsumableData.RoomMoneyDrop.OnSpawnVoiceLines,{ Cue = "/VO/Chronos_1340", Text = "{#Emph}Solid Gold!", GameStateRequirements = YesChronosReq })
+table.insert(ConsumableData.RoomMoneyDrop.OnSpawnVoiceLines,{ Cue = "/VO/Nemesis_0076", Text = "A lot of it, I'm sure.", GameStateRequirements = YesNemesisReq })
 
 --Misc Boss Barely survived
 table.insert(GlobalVoiceLines.BarelySurvivedBossFightVoiceLines[1],{ Cue = "/VO/NemesisField_0535",Text = "Want to know just how hard I got hit cleaning this place?", GameStateRequirements = YesNemesisReq })
@@ -425,9 +506,6 @@ end)
 --{ Cue = "/VO/Nemesis_0176", Text = "This what you had in mind?" },
 --{ Cue = "/VO/Nemesis_0177", Text = "Make it a fair fight.", PlayFirst = true },
 		
---Aphrodite?
---{ Cue = "/VO/Nemesis_0206", Text = "What are {#Emph}you {#Prev}looking at?" },
-		
 --Random gods?
 --{ Cue = "/VO/Nemesis_0210", Text = "{#Emph}<Sigh>" },
 --{ Cue = "/VO/Nemesis_0211", Text = "Well, what is it." },
@@ -450,13 +528,9 @@ end)
 
 --Generic Boss kill
 --{ Cue = "/VO/Nemesis_0406", Text = "It's done...?" }
-
 --GlobalVoiceLines.NemesisExorcismReactionVoiceLines
 --rescuing shades
 --Cue = "/VO/NemesisField_0209", Text = "May I help you?"
---Cue = "/VO/NemesisField_0206", Text = "Move along."
---{ Cue = "/VO/NemesisField_0413", Text = "Dead weight." }
---Cue = "/VO/NemesisField_0409", Text = "Another Shade to watch."
 
 
 --Cue = "/VO/NemesisField_0580", Text = "Hey."
@@ -503,13 +577,9 @@ end)
 --Cue = "/VO/Nemesis_0276", Text = "Did it again."
 
 --Prometheus
---Cue = "/VO/NemesisField_0536",Text = "You've been getting stronger, but can't always tell by how much. So show me."
---Cue = "/VO/NemesisField_0155",Text = "Getting stronger, but you'll never be at my level. Go on, try me."
---Cue = "/VO/NemesisField_0154",Text = "Don't think you have what it takes, though go on and try to prove me wrong."
---Cue = "/VO/NemesisField_0153",Text = "None of these wretches could touch me. But you're stronger than them, right?"
 
---Cyclops
---Cue = "/VO/Nemesis_0136", Text = "Not Cave of the Cyclops..."
+
+
 
 --{ Cue = "/VO/Nemesis_0102", Text = "What." },
 --{ Cue = "/VO/Nemesis_0103", Text = "Yeah?" },
@@ -580,11 +650,6 @@ end)
 
 --Kill Hecate?
 --{ Cue = "/VO/NemesisField_0453", Text = "Oh, didn't need this but maybe you do." },
-
---Hecate start fight?
---{ Cue = "/VO/NemesisField_0517",Text = "You and that Oath making things a lot harder than they need to be." }
---{ Cue = "/VO/NemesisField_0516",Text = "Practically taste the Fear in the air. Let's make them fear {#Emph}us." },
---{ Cue = "/VO/NemesisField_0512",Text = "Stand around and watch me work, or fight. Same difference either way." },
 
 --Hermes?
 --{ Cue = "/VO/NemesisField_0515",Text = "Not seen you down here in a bit. Been too busy up top?" }
