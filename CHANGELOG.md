@@ -23,9 +23,11 @@ Other fixes and improvements:
 - Added two more Chronos specific Hammers. Chronos can no longer use Melinoe's Hammers.
 - Added Chronos Portraits in conversations, Compatible with Zagreus Journey and MelSkin.
 - Added Chronos Mana UI - Mana Symbol and Charge animations by @Yegitu on discord.
-- Added Chronos Hammer Icons by @Yegitu on discord
-- Added Chronos Minor Prophecies
-- Added Chronos Cosmetics
+- Added Chronos Hammer Icons by @Yegitu on discord.
+- Added Chronos Minor Prophecies.
+- Added Requirements for MelSkin dresses.
+- Added Chronos Beard dress.  
+- Added Chronos Cosmetics.
 - Added Chronos Harvesting Animations.
 - Added more Chronos Room transition Animations.
 - Added Chronos Biome Map transition.
