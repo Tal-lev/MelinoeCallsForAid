@@ -59,6 +59,7 @@ While the mod has been tested decently well it is recommended to backup your sav
   - Chronos Mana symbol 
   - Mana Charge Animations
   - Hammer Icons
+- @ErgotthAE on HadesTheGame Reddit for Bearded portrait
 
 ## Issues
 
