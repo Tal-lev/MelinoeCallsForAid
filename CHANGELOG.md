@@ -26,6 +26,8 @@ Other fixes and improvements:
 - Added Chronos Hammer Icons by @Yegitu on discord.
 - Added Chronos Minor Prophecies.
 - Added Requirements for MelSkin dresses.
+- Remove Chronos incompatible Dash boons.
+- Remove Nemesis incompatible Cast boons.
 - Added Chronos Beard dress.  
 - Added Chronos Cosmetics.
 - Added Chronos Harvesting Animations.
