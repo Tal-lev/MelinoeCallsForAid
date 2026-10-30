@@ -19,6 +19,7 @@ Other fixes and improvements:
 
 - Added many Nemesis contextual quips, (150+ in game)
 - Added Nemesis Arachne Costumes.
+- Added Rival Melinoe when playing as Nemesis
 - Added Chronos specific Hexes with their accompanying talents. Chronos can no longer use Melinoe's Hexes.
 - Added two more Chronos specific Hammers. Chronos can no longer use Melinoe's Hammers.
 - Added Chronos Portraits in conversations, Compatible with Zagreus Journey and MelSkin.
