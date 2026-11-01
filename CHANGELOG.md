@@ -27,6 +27,7 @@ Other fixes and improvements:
 - Added Chronos Mana UI - Mana Symbol and Charge animations by @Yegitu on discord.
 - Added Chronos Hammer Icons by @Yegitu on discord.
 - Added Chronos Minor Prophecies.
+- Added Keywords description to explain kit changes.
 - Added Requirements for MelSkin dresses.
 - Remove Chronos incompatible Dash boons.
 - Remove Nemesis incompatible Cast boons.
