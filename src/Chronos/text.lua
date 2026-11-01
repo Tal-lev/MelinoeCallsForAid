@@ -1,3 +1,8 @@
+--inserting Keywords
+local newKeywords = {
+    "TitanTime"
+}
+game.ConcatTableValuesIPairs(game.KeywordList, newKeywords)
 --Inserts text
 local TextOrder = {
 "Id",
@@ -16,7 +21,17 @@ sjson.hook(file, function(data)
         Id = "ChronosAspect",
         InheritFrom = "BaseBoonMultiline",
         DisplayName = "Chronos",
-        Description = "The Titan of Time.",
+        Description = "The {$Keywords.TitanTime}.",
+    },
+    TextOrder)
+    )
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "TitanTime",
+      InheritFrom = "BaseTooltip",
+      DisplayName = "Titan of Time",
+      Description = "Your {$Keywords.Cast} freezes enemies in stasis and your {$Keywords.Dash} is a long range teleport with no {$Keywords.Sprint}.",
     },
     TextOrder)
     )

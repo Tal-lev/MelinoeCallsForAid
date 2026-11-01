@@ -1,6 +1,7 @@
 --inserting Keywords
 local newKeywords = {
 	"NemBleedDamageOverTime",
+    "RetributionIncarnate"
 }
 game.ConcatTableValuesIPairs(game.KeywordList, newKeywords)
 
@@ -22,10 +23,20 @@ sjson.hook(file, function(data)
         Id = "NemesisAspect",
         InheritFrom = "BaseBoonMultiline",
         DisplayName = "Nemesis",
-        Description = "Retribution Incarnate.",
+        Description = "{$Keywords.RetributionIncarnate}.",
     },
     TextOrder)
     )
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "RetributionIncarnate",
+      InheritFrom = "BaseTooltip",
+      DisplayName = "Retribution Incarnate",
+      Description = "Your {$Keywords.Cast} is a brief parry and your {$Keywords.Dash} is shorter yet has knockback.",
+    },
+	TextOrder)
+	)
 
     table.insert(data.Texts, sjson.to_object(
 		{
