@@ -12,12 +12,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added Nemesis as a Playable character, complete her own attacks and animations.
 - Added eight Nemesis Cast boons.
-- Added two Nemesis specific Hammers.
+- Added five Nemesis specific Hammers.
 - Added Nemesis Portraits in conversations, Compatible with Zagreus Journey and MelSkin.
 
 Other fixes and improvements:
 
 - Added many Nemesis contextual quips, (150+ in game)
+- Reworked two Nemesis Omega Cast boons
 - Added Nemesis Arachne Costumes.
 - Added Rival Melinoe when playing as Nemesis
 - Added Chronos specific Hexes with their accompanying talents. Chronos can no longer use Melinoe's Hexes.
