@@ -19,6 +19,12 @@ sjson.hook(file, function(data)
 		Frames ={},
 	})
     
+	table.insert(data.Animations,
+	{
+		Name = "Nemesis_Combat_Attack3_FireSlow",
+		InheritFrom = "Nemesis_Combat_Attack3_Fire",
+		GrannyAnimationSpeed = 0.5,
+	})
 
 return data
 end)
@@ -245,3 +251,173 @@ sjson.hook(file, function(data)
 
 return data
 end)
+
+--Nem Animations so I could wrap the original for Rival Mel
+local file = rom.path.combine(rom.paths.Content, 'Game/Animations/Model/NPC_Nemesis_Animation.sjson')
+sjson.hook(file, function(data)
+	
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Hub_Glare_Start",
+		InheritFrom = "Nemesis_Hub_Glare_Start",
+		ChainTo = "PlayerNemesis_Hub_Glare_FireLoop",
+	
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Hub_Glare_FireLoop",
+		InheritFrom = "Nemesis_Hub_Glare_FireLoop",
+	
+	})
+	
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Hub_Glare_End",
+		InheritFrom = "Nemesis_Hub_Glare_End",
+		ChainTo = "PlayerNemesis_Hub_Idle"
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Hub_Equip",
+		InheritFrom = "Nemesis_Hub_Equip",
+		ChainTo = "PlayerNemesis_Hub_Idle",
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Combat_Unequip",
+		InheritFrom = "Nemesis_Combat_Unequip",
+		ChainTo = "PlayerNemesis_Hub_Idle",
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Combat_Interact",
+		InheritFrom = "Nemesis_Combat_Interact",
+	})
+	
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Combat_OnHit",
+		InheritFrom = "Nemesis_Combat_OnHit",
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Combat_Knockdown_Start",
+		InheritFrom = "Nemesis_Combat_Knockdown_Start",
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Combat_Knockdown_End",
+		InheritFrom = "Nemesis_Combat_Knockdown_End",
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Hub_Idle",
+		InheritFrom = "Nemesis_Hub_Idle",
+		ChainTo = "PlayerNemesis_Hub_Fidget",
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Hub_Fidget",
+		Random =
+		{
+			{ Name = "PlayerNemesis_Hub_Fidget_Search" },
+			{ Name = "PlayerNemesis_Hub_Fidget_Check" },
+		}
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Hub_Fidget_Search",
+		InheritFrom = "Nemesis_Hub_Fidget_Search",
+		ChainTo = "PlayerNemesis_Hub_Idle",
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Hub_Fidget_Check",
+		InheritFrom = "Nemesis_Hub_Fidget_Search",
+		ChainTo = "PlayerNemesis_Hub_Idle",
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Hub_Greet",
+		InheritFrom = "Nemesis_Hub_Greet",
+		ChainTo = "PlayerNemesis_Hub_Idle",
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Hub_Salute",
+		InheritFrom = "Nemesis_Hub_Salute",
+		ChainTo = "PlayerNemesis_Hub_Idle",
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Hub_Toss",
+		InheritFrom = "Nemesis_Hub_Toss",
+		ChainTo = "PlayerNemesis_Hub_Idle",
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Hub_Interact",
+		InheritFrom = "Nemesis_Hub_Interact",
+		ChainTo = "PlayerNemesis_Hub_Idle",
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Combat_Entrance",
+		InheritFrom = "Nemesis_Combat_Entrance",
+	})
+
+return data
+end)
+
+
+--Melinoe effects
+local file = rom.path.combine(rom.paths.Content, 'Game/Animations/GUI_HUD_VFX.sjson')
+sjson.hook(file, function(data)
+	table.insert(data.Animations,
+	{
+		Name = "NemBleed_Small",
+		FilePath = "GUI\\HUD\\HealthBar_1upStyx",			
+		EndFrame = 1,
+		NumFrames = 1,
+		StartFrame = 1,
+		SortMode = "Id",
+		Scale = 0.45,
+		Material = "Unlit",
+	})
+return data
+end)
+
+local file = rom.path.combine(rom.paths.Content, 'Game/Obstacles/GUI.sjson')
+sjson.hook(file, function(data)
+
+	table.insert(data.Obstacles,
+	{
+      Name = "NemBleedSmall",
+      InheritFrom = "1_BaseGUIObstacle",
+      DisplayInEditor = false,
+      Thing =
+      {
+        EditorOutlineDrawBounds = false,
+        Graphic = "NemBleed_Small",
+		SortMode = "Id",
+		AllowDrawableCache = false,
+      },
+    })
+return data
+end)
+

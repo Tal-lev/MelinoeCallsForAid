@@ -86,6 +86,7 @@ TraitData.ZeusSprintBoon.GameStateRequirements = TraitData.ZeusSprintBoon.GameSt
 TraitData.HeraSprintBoon.GameStateRequirements = TraitData.HeraSprintBoon.GameStateRequirements or {}
 -- Poseidon
 TraitData.PoseidonSprintBoon.GameStateRequirements = TraitData.PoseidonSprintBoon.GameStateRequirements or {}
+TraitData.PoseidonSplashSprintBoon.GameStateRequirements = TraitData.PoseidonSplashSprintBoon.GameStateRequirements or {}
 -- Demeter
 TraitData.DemeterSprintBoon.GameStateRequirements = TraitData.DemeterSprintBoon.GameStateRequirements or {}
 -- Apollo
@@ -102,6 +103,7 @@ TraitData.AresSprintBoon.GameStateRequirements = TraitData.AresSprintBoon.GameSt
 -- Dionaysus
 -- Hades
 
+
 ------ Removing old Sprint from pool
 -- Zeus
 table.insert(TraitData.ZeusSprintBoon.GameStateRequirements, {
@@ -115,6 +117,10 @@ table.insert(TraitData.HeraSprintBoon.GameStateRequirements, {
 })
 -- Poseidon
 table.insert(TraitData.PoseidonSprintBoon.GameStateRequirements, {
+  Path = {"CurrentRun", "Hero", "TraitDictionary"},
+  HasNone = {"ChronosAspect"}
+})
+table.insert(TraitData.PoseidonSplashSprintBoon.GameStateRequirements, {
   Path = {"CurrentRun", "Hero", "TraitDictionary"},
   HasNone = {"ChronosAspect"}
 })

@@ -1,3 +1,9 @@
+--inserting Keywords
+local newKeywords = {
+	"NemBleedDamageOverTime",
+}
+game.ConcatTableValuesIPairs(game.KeywordList, newKeywords)
+
 --Inserts text
 local TextOrder = {
 "Id",
@@ -168,6 +174,26 @@ sjson.hook(file, function(data)
     },
     TextOrder)
 	)
+
+    table.insert(data.Texts, sjson.to_object(
+	{
+      Id = "NemesisSpawnCastDamageBoon",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Rousing Reception",
+      Description = "Damage any foes as they join the {$Keywords.EncounterAlt}, wherever they appear.",
+    },
+    TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+	{
+      Id = "NemesisOmegaCastVolleyBoon",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Easy Shot",
+      Description = "A piercing arrow fires toward any foe damaged by your {$Keywords.Cast}.",
+    },
+    TextOrder)
+	)
 	
 	--Nemesis Dresses
     table.insert(data.Texts, sjson.to_object(
@@ -274,11 +300,51 @@ sjson.hook(file, function(data)
 
     table.insert(data.Texts, sjson.to_object(
 	{
-		Id = "NemesisCritAfterSpecialTrait",
+		Id = "NemesisDashPushTrait",
 		InheritFrom = "BaseBoonMultiline",
 		DisplayName = "Shoulder Charge",
 		Description = "Your {$Keywords.Dash} deals damage and has increased knockback."
 	},
+	TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+	{
+		Id = "NemesisBlockRevengeTrait",
+		InheritFrom = "BaseBoonMultiline",
+		DisplayName = "Retribution Block",
+		Description = "Blocking with your {$Keywords.Cast} can also can inflict all your {#ItalicLightFormat}'after you take damage' {#Prev}effects."
+	},
+	TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+	{
+		Id = "NemesisAttackBleedTrait",
+		InheritFrom = "BaseBoonMultiline",
+		DisplayName = "Serrated Blade",
+		Description = "your {$Keywords.AttackSet} inflicts {$Keywords.NemBleedDamageOverTime}.",
+	},
+	TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "NemBleedDamageOverTime",
+      InheritFrom = "BaseTooltip",
+      DisplayName = "Bleed",
+      Description = "{#ItalicBoldFormat}{$Keywords.Status}: {#Prev}Afflicted foes take damage continuously. Lasts for {#BoldFormatGraft}{$TooltipData.ExtractData.NemBleedDamageOverTimeDuration} Sec.",
+    },
+	TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "NemBleedDamageOverTimeStatDisplay",
+      InheritFrom = "BaseStatLine",
+      DisplayName = "{!Icons.Bullet}{#PropertyFormat}{$Keywords.NemBleedDamageOverTime} Damage:",
+      Description = "{#UpgradeFormat}{$TooltipData.StatDisplay1} {#Prev}{#ItalicFormat}(every {$TooltipData.ExtractData.NemBleedDamageOverTimeFuse} Sec.)",
+    },
 	TextOrder)
 	)
 
@@ -302,6 +368,14 @@ sjson.hook(file, function(data)
     {
       Id = "Objective_NemesisPlayerMoney",
       DisplayName = "{#TeamFormat}Nemesis's Share{#Prev}: {#UseMoneyFormat}{$PlayerMoney}{!Icons.Currency}"
+    },
+    TextOrder)
+	)
+
+     table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "Objective_RivalMelinoeKills",
+      DisplayName = "{#TeamFormat}Foes Slain by {#Prev}{#TeamNemFormat}Melinoë{#Prev}: {$NemesisKills}",
     },
     TextOrder)
 	)

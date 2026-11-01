@@ -82,13 +82,16 @@ local function on_ready()
 
 		import "Quests.lua"
 		import "WeaponShop.lua"
-		SetupRunData()
-		--end
+
+		import "Nemesis/Encounters_Nemesis.lua"
+		
 	end)
 	if melskin and melskin.RegisterCustomCharacter then
 		import 'Chronos/MelSkin.lua'
 		import "Nemesis/MelSkin.lua"
 	end
+		SetupRunData()
+		--end
 end
 
 local function on_reload()
