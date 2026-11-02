@@ -383,12 +383,22 @@ sjson.hook(file, function(data)
     TextOrder)
 	)
 
-     table.insert(data.Texts, sjson.to_object(
+    table.insert(data.Texts, sjson.to_object(
     {
       Id = "Objective_RivalMelinoeKills",
       DisplayName = "{#TeamFormat}Foes Slain by {#Prev}{#TeamNemFormat}Melinoë{#Prev}: {$NemesisKills}",
     },
     TextOrder)
+	)
+
+    --Quests
+    table.insert(data.Texts, sjson.to_object(
+	{
+      Id = "Quest_Nemesis_HammerUpgrades",
+      DisplayName = "Vengful Hammers",
+      Description = "The prideful daughter of Night shall apply various {#Emph}Daedalus {#Prev}enchantments in her journey.",
+	},
+	TextOrder)
 	)
 
 return data

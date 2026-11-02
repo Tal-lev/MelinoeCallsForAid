@@ -381,6 +381,27 @@ sjson.hook(file, function(data)
 		InheritFrom = "Nemesis_Combat_Entrance",
 	})
 
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Combat_Drop",
+		InheritFrom = "NPCNemesisBaseCombatAnimation",
+		GrannyAnimation = "Nemesis_Base_Landing_C_00",
+		EndFrame = 7,
+		HoldLastFrame = true,
+		Frames =
+		{
+			{
+				Frame = 0,
+				FrameSpeed = 0.35,
+			},
+			{
+				Frame = 4,
+				FrameSpeed = 0.35,
+				Sound = "/SFX/Enemy Sounds/Nemesis/EmoteThrowing",
+			},
+		},
+	})
+
 return data
 end)
 

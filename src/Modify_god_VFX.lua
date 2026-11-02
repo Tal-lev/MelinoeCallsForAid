@@ -144,3 +144,41 @@ AddGodTraitProperty({
 		},
 	}
 })
+
+ModifyGodTraitWeaponProperty({
+	TraitSuffix = "WeaponBoon",
+	PropertyChanges = {
+		{
+			FalseTraitNames = { "StaffRaiseDeadAspect", "NemesisAspect"},
+			WeaponName = "WeaponStaffSwing5",
+			ProjectileProperty = "Graphic",
+			ValuePrefix = "StaffChargedAttackFxEmitter_",
+			ChangeType = "Absolute",
+			ExcludeLinked = true,
+
+			Replacements = {
+				
+			},
+			Deletions = {
+
+			},
+			Additions = {
+				"FalseTraitNames"
+			}
+		},
+	}
+})
+
+--AddGodTraitProperty({
+--		TraitSuffix = "WeaponBoon",
+--		PropertyChanges = {
+--		{
+--			WeaponName = "WeaponStaffSwing5",
+--			ProjectileName = "PlayerNemesisAttack3",
+--			ProjectileProperty = "Graphic",
+--			Value = "SatyrSpearThrust_",
+--			ChangeType = "Absolute",
+--			ExcludeLinked = true,
+--		},
+--	}
+--})

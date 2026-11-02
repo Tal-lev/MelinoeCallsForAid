@@ -53,6 +53,8 @@ local function on_ready()
 
 	import "Chronos/Animations.lua"
 	import "Nemesis/Animations.lua"
+	
+	--import "Nemesis/GodVFX.lua"
 
 	import "Chronos/PortraitAnimations.lua"
 	import "Nemesis/PortraitAnimations.lua"

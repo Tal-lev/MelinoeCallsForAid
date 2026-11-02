@@ -226,7 +226,7 @@ function SetUpPlayerNemesis()
 	--if CurrentRun and CurrentRun.Hero and CurrentRun.Hero.Weapons and CurrentRun.Hero.Weapons['WeaponBlink'] then
 	--	UnequipWeapon({ DestinationId = CurrentRun.Hero.ObjectId, Name = "WeaponBlink" })
 	--end
-	mod.SetupRivalMelAnim()
+	--mod.SetupRivalMelAnim()
 end
 
 function SetUpReturnPlayerMelinoe()
@@ -1361,20 +1361,20 @@ function mod.SetupNemesisAnimations()
 
 		MelinoeBoonInteractPowerUpCancellable = "Nemesis_Combat_Idle",
 		Melinoe_Drop_Exit_Start = "Nemesis_Combat_Idle",
-		Melinoe_Drop_Exit_FireLoop = "Nemesis_Combat_Idle",
-		Melinoe_Drop_Exit_End = "PlayerNemesis_Combat_Entrance",
-		Melinoe_Drop_Entrance_Start = "PlayerNemesis_Combat_Entrance",
-		Melinoe_Drop_Entrance_Fire = "Nemesis_Combat_Idle",
-		Melinoe_Drop_Entrance_Fire_NoEquip = "Nemesis_Combat_Idle",
+		Melinoe_Drop_Exit_FireLoop = "PlayerNemesis_Combat_Drop",
+		Melinoe_Drop_Exit_End = "PlayerNemesis_Combat_Drop",
+		Melinoe_Drop_Entrance_Start = "PlayerNemesis_Combat_Drop",
+		Melinoe_Drop_Entrance_Fire = "PlayerNemesis_Combat_Entrance",
+		Melinoe_Drop_Entrance_Fire_NoEquip = "PlayerNemesis_Combat_Entrance",
 		Melinoe_Drop_Entrance_End = "Nemesis_Combat_Idle",
 		Melinoe_Drop_Entrance_End_NoEquip = "Nemesis_Combat_Idle",
-		Melinoe_HeroLanding = "Nemesis_Combat_Idle",
+		Melinoe_HeroLanding = "PlayerNemesis_Combat_Entrance",
 		Melinoe_DiveExit_Start = "Nemesis_Combat_Idle",
 		Melinoe_DiveExit_Portal_Start = "Nemesis_Combat_Idle",
-		Melinoe_DiveExit_End = "Nemesis_Combat_Idle",
-		Melinoe_DiveExit_Portal_End = "Nemesis_Combat_Idle",
-		Melinoe_DiveEntrance_Start = "Nemesis_Combat_Idle",
-		Melinoe_DiveEntrance_End = "Nemesis_Combat_Idle",
+		Melinoe_DiveExit_End = "PlayerNemesis_Combat_Drop",
+		Melinoe_DiveExit_Portal_End = "PlayerNemesis_Combat_Drop",
+		Melinoe_DiveEntrance_Start = "PlayerNemesis_Combat_Entrance",
+		Melinoe_DiveEntrance_End = "PlayerNemesis_Combat_Entrance",
 
 		MelinoePetFrinos = "Nemesis_Combat_Idle",
 		Melinoe_PetPolecat = "Nemesis_Combat_Idle",
@@ -1407,8 +1407,8 @@ function mod.SetupNemesisAnimations()
 		Melinoe_Fishing_Success = "Nemesis_Combat_Special_Fire",
 		Melinoe_Fishing_Failure = "PlayerNemesis_Combat_Knockdown_Start",
 
-		MelinoePickAxeMineStart = "Nemesis_Combat_Attack2_Start",
-		MelinoePickAxeMineSwing = "Nemesis_Combat_Attack2_Fire",
+		MelinoePickAxeMineStart = "Nemesis_Combat_Attack1_Start",
+		MelinoePickAxeMineSwing = "Nemesis_Combat_Attack1_Fire",
 
 		Melinoe_Shovel_Start = "Nemesis_Combat_Special_Start",
 		Melinoe_Shovel_FireLoop = "Nemesis_Combat_Special_Fire",
@@ -1727,30 +1727,31 @@ function mod.UnequipChronosAnimations()
 	end
 end
 
-function mod.SetupRivalMelAnim()
+function mod.SetupRivalMelAnim(weapon)
+	print("Entered Sub Function")
 	local AnimationList =
 	{ 
 			--Rival Mel
-		Nemesis_Hub_Glare_Start = "Melinoe_Staff_Idle", 
-		Nemesis_Hub_Glare_FireLoop = "Melinoe_Staff_Idle",
-		Nemesis_Hub_Glare_End = "Melinoe_Staff_Idle",
-		Nemesis_Hub_Equip = "Melinoe_Staff_Equip",
-		Nemesis_Combat_Unequip = "Melinoe_Staff_Idle",
-		Nemesis_Combat_Interact = "Melinoe_Staff_Interact",
-		Nemesis_Combat_OnHit = "Melinoe_Staff_GetHit",
-		Nemesis_Combat_Knockdown_Start = "Melinoe_Staff_GetHit",
-		Nemesis_Combat_Knockdown_End = "Melinoe_Staff_GetHit",
-		Nemesis_Hub_Idle = "Melinoe_Staff_Idle",
+		Nemesis_Hub_Glare_Start = "Melinoe_" .. weapon .. "_Idle", 
+		Nemesis_Hub_Glare_FireLoop = "Melinoe_" .. weapon .. "_Idle",
+		Nemesis_Hub_Glare_End = "Melinoe_" .. weapon .. "_Idle",
+		Nemesis_Hub_Equip = "Melinoe_" .. weapon .. "_Equip",
+		Nemesis_Combat_Unequip = "Melinoe_" .. weapon .. "_Idle",
+		Nemesis_Combat_Interact = "Melinoe_" .. weapon .. "_Interact",
+		Nemesis_Combat_OnHit = "Melinoe_" .. weapon .. "_GetHit",
+		Nemesis_Combat_Knockdown_Start = "Melinoe_" .. weapon .. "_GetHit",
+		Nemesis_Combat_Knockdown_End = "Melinoe_" .. weapon .. "_GetHit",
+		Nemesis_Hub_Idle = "Melinoe_" .. weapon .. "_Idle",
 		--Nemesis_Hub_Exit = "Nemesis_Hub_Exit",
-		Nemesis_Hub_Fidget = "Melinoe_Staff_Idle",
-		Nemesis_Hub_Fidget_Search = "Melinoe_Staff_Idle",
-		Nemesis_Hub_Fidget_Check = "Melinoe_Staff_Idle",
-		Nemesis_Hub_Greet = "Melinoe_Staff_Idle",
-		Nemesis_Hub_Salute = "Melinoe_Staff_Idle",
-		Nemesis_Hub_Toss = "Melinoe_Staff_Idle",
-		Nemesis_Hub_Interact = "Melinoe_Staff_Interact",
+		Nemesis_Hub_Fidget = "Melinoe_" .. weapon .. "_Idle",
+		Nemesis_Hub_Fidget_Search = "Melinoe_" .. weapon .. "_Idle",
+		Nemesis_Hub_Fidget_Check = "Melinoe_" .. weapon .. "_Idle",
+		Nemesis_Hub_Greet = "Melinoe_" .. weapon .. "_Idle",
+		Nemesis_Hub_Salute = "Melinoe_" .. weapon .. "_Idle",
+		Nemesis_Hub_Toss = "Melinoe_" .. weapon .. "_Idle",
+		Nemesis_Hub_Interact = "Melinoe_" .. weapon .. "_Interact",
 	}
-	wait(0.2)
+	--wait(0.2)
 	for fromAnim,toAnim in pairs(AnimationList) do
 		SwapAnimation({Name = fromAnim, DestinationName = toAnim})
 	end
