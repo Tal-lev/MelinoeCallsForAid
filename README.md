@@ -45,6 +45,7 @@ A Hades II mod that allows you to play as other Characters.
   - Sprint is faster than Melinoe's.
 - Exclusive Cast boons
 - Exclusive Hammers
+- New Minor Prophecies
 
 ## Installation
 
