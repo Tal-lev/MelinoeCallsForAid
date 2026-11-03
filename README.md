@@ -1,6 +1,6 @@
 # MelinoeCallsForAid
 
-A Hades II mod that allows you to play as other Characters.
+A Hades II mod that adds Chronos and Nemesis as unique playable characters.
 
 ## Features
 
