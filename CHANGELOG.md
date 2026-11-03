@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Other fixes and improvements:
 
 - Added many Nemesis contextual quips, (150+ in game)
+- Added minor prophecies for Nemesis and Chronos
 - Reworked two Nemesis Omega Cast boons
 - Added Nemesis Arachne Costumes.
 - Added Rival Melinoe when playing as Nemesis
