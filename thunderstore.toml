@@ -6,7 +6,7 @@ schemaVersion = "0.0.1"
 namespace = "JarlUlsfark"
 name = "MelinoeCallsForAid"
 versionNumber = "0.2.1"
-description = "Allows to play as other Characters."
+description = "A Hades II mod that adds Chronos and Nemesis as unique playable characters."
 websiteUrl = "https://github.com/Tal-lev/MelinoeCallsForAid"
 containsNsfwContent = false
 
