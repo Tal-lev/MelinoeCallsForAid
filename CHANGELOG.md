@@ -19,7 +19,6 @@ Other fixes and improvements:
 
 - Added many Nemesis contextual quips, (150+ in game)
 - Added minor prophecies for Nemesis and Chronos
-- Reworked two Nemesis Omega Cast boons
 - Added Nemesis Arachne Costumes.
 - Added Rival Melinoe when playing as Nemesis
 - Added Chronos specific Hexes with their accompanying talents. Chronos can no longer use Melinoe's Hexes.
