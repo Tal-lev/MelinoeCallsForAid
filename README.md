@@ -61,6 +61,11 @@ While the mod has been tested decently well it is recommended to backup your sav
   - Hammer Icons
 - @ErgotthAE on HadesTheGame Reddit for Bearded portrait
 
+## Integration with other mods
+
+- [MelSkin](https://thunderstore.io/c/hades-ii/p/zerp/MelSkin/) alternative outfits for the new characters can be unlocked and used. 
+- [Zagreus' Journey](https://thunderstore.io/c/hades-ii/p/NikkelM/Zagreus_Journey/) The new characters had their animations adjusted to fit with the new route 
+
 ## Issues
 
 Report any issues on the mod in the [Hades Modding discord](https://discord.gg/KuMbyrN) or [github](https://github.com/Tal-lev/MelinoeCallsForAid/issues)  
