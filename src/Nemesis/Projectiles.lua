@@ -86,6 +86,72 @@ sjson.hook(file, function(data)
         }
     })
     
+	--Nemesis AttackDash Hammer
+	table.insert(data.Projectiles,
+	{
+        Name = "PlayerNemesisAttack2HammerProjectile",
+        InheritFrom = "1_BaseDamagingProjectile",
+		Type = "STRAIGHT",
+		--DetonateFx = "null",
+		ReflectFx = "AthenaDeflectedFx",
+		DetonateSound = "/SFX/Enemy Sounds/EnemyProjectileDetonateExplode",
+		AttachToOwner = false,
+		StartDelay = 0.00,
+		Fuse = 8.0,
+		Speed = 150,
+		Range = 1300,
+		Acceleration = 1050,
+		ImpactVelocity = 800,
+		NumPenetrations = 9999,
+		CheckUnitImpact = true,
+		CheckObstacleImpact = true,
+		UnlimitedUnitPenetration = true,
+		Damage = 7,
+		UseRadialImpact = false,
+		GroupName = "FX_Standing_Add",
+		CanBeProjectileDefenseDestroyedByLayer = "BoonDefense",
+		CanBeReflected = true,
+		Thing =
+		{
+			Graphic = "WaveFistFx",
+			RotateGeometry = true,
+			AttachedAnim = "null",
+			Grip = 999999,
+			Points =
+			{
+				{
+					X = 60,
+					Y = 80,
+				},
+				{
+					X = 60,
+					Y = -80,
+				},
+				{
+					X = -60,
+					Y = -80,
+				},
+				{
+					X = -60,
+					Y = 80,
+				},
+			},
+		},
+		Effects =
+		{
+			 {
+				Name = "OnHitStunHeavy",
+				Duration = 1.1,
+				DisableMove = true,
+				DisableRotate = true,
+				DisableAttack = true,
+				Active = true,
+				CanAffectInvulnerable = false,
+				FrontFx = "null",
+			},
+		},
+    })
+
     --Nemesis Special
     table.insert(data.Projectiles,
 	{

@@ -312,6 +312,21 @@ sjson.hook(file, function(data)
 
 	table.insert(data.Animations,
 	{
+		Name = "PlayerNemesis_Combat_Knockdown_StartNonLoop",
+		InheritFrom = "Nemesis_Combat_Knockdown_Start",
+		ChainTo = "PlayerNemesis_Combat_Knockdown_FireLoopNonLoop",
+	})
+
+	table.insert(data.Animations,
+	{
+		Name = "PlayerNemesis_Combat_Knockdown_FireLoopNonLoop",
+		InheritFrom = "Nemesis_Combat_Knockdown_FireLoop",
+		ChainTo = "PlayerNemesis_Combat_Knockdown_End",
+		Loop = false,
+	})
+
+	table.insert(data.Animations,
+	{
 		Name = "PlayerNemesis_Combat_Knockdown_End",
 		InheritFrom = "Nemesis_Combat_Knockdown_End",
 	})

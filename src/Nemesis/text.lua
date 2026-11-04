@@ -374,7 +374,7 @@ sjson.hook(file, function(data)
 		Id = "NemesisAttackBleedTrait",
 		InheritFrom = "BaseBoonMultiline",
 		DisplayName = "Serrated Blade",
-		Description = "your {$Keywords.AttackSet} inflicts {$Keywords.NemBleedDamageOverTime}.",
+		Description = "Your {$Keywords.AttackSet} inflicts {$Keywords.NemBleedDamageOverTime}.",
 	},
 	TextOrder)
 	)
@@ -396,6 +396,16 @@ sjson.hook(file, function(data)
       DisplayName = "{!Icons.Bullet}{#PropertyFormat}{$Keywords.NemBleedDamageOverTime} Damage:",
       Description = "{#UpgradeFormat}{$TooltipData.StatDisplay1} {#Prev}{#ItalicFormat}(every {$TooltipData.ExtractData.NemBleedDamageOverTimeFuse} Sec.)",
     },
+	TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+	{
+		Id = "NemDashAttackProjectileTrait",
+		InheritFrom = "BaseBoonMultiline",
+		DisplayName = "Air Pressure",
+		Description = "Your {$Keywords.DashStrike} becomes a flying projectile.",
+	},
 	TextOrder)
 	)
 

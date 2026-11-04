@@ -249,7 +249,6 @@ OverwriteTableKeys( TraitData, {
 	{
 		InheritFrom = {"WeaponTrait", "StaffHammerTrait" },
 		Icon = "Hammer_Staff_37",
-		
 		RarityLevels =
 		{
 			Common =
@@ -260,6 +259,17 @@ OverwriteTableKeys( TraitData, {
 			{
 				Multiplier = 2.0,
 			},
+		},
+		GameStateRequirements =
+		{
+			{
+				Path = { "CurrentRun", "Hero", "Weapons", },
+				HasAll = { "WeaponStaffSwing", },
+			},
+            {
+				Path = { "GameState", "LastWeaponUpgradeName", "WeaponStaffSwing", },
+				IsAny = {"NemesisAspect", }
+            },
 		},
 		OnEnemyDamagedAction = 
 		{
@@ -299,7 +309,72 @@ OverwriteTableKeys( TraitData, {
 				SkipAutoExtract = true,
 				ExtractAs = "NemBleedDamageOverTimeDuration",
 			},
-		}
+		},
+	},
+
+	NemDashAttackProjectileTrait =
+	{
+		InheritFrom = {"WeaponTrait", "StaffHammerTrait" },
+		Icon = "Hammer_Staff_37",
+		RarityLevels =
+		{
+			Common =
+			{
+				Multiplier = 1.0,
+			},
+			Legendary = 
+			{
+				Multiplier = 2.0,
+			},
+		},
+		GameStateRequirements =
+		{
+			{
+				Path = { "CurrentRun", "Hero", "Weapons", },
+				HasAll = { "WeaponStaffSwing", },
+			},
+            {
+				Path = { "GameState", "LastWeaponUpgradeName", "WeaponStaffSwing", },
+				IsAny = {"NemesisAspect", }
+            },
+		},
+		PropertyChanges = 
+		{
+			{
+				WeaponName = "WeaponStaffDash",
+				WeaponProperty = "Projectile",
+				ChangeValue = "PlayerNemesisAttack2HammerProjectile",
+			},
+			{
+				WeaponName = "WeaponStaffDash",
+				WeaponProperties = 
+				{
+					BarrelLength = 150,
+				},
+				ProjectileName = "PlayerNemesisAttack2HammerProjectile",
+				ProjectileProperties = {
+					Damage = 50,
+					AttachToOwner = false,
+				},
+				ExcludeLinked = true,
+
+			},
+		},
+		--StatLines =
+		--{
+			--"NemBleedDamageOverTimeStatDisplay",
+		--},
+		--ExtractValues =
+		--{
+		--	{
+		--	Key = "ReportedMultiplier",
+		--	Format = "MultiplyByBase",
+		--	BaseType = "Projectile",
+		--	BaseName = "PlayerNemesisAttack2HammerProjectile",
+		--	BaseProperty = "Damage",
+		--	ExtractAs = "Damage",
+		--},
+		--},
 	},
 })
 
@@ -309,7 +384,7 @@ table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "NemesisCritAfterSpecialTra
 table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "NemesisDashPushTrait")
 table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "NemesisBlockRevengeTrait")
 table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "NemesisAttackBleedTrait")
---table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "ChronosTriplePurge")
+table.insert( LootSetData.Loot.WeaponUpgrade.Traits, "NemDashAttackProjectileTrait")
 
 
 --Removing Hammers from pool

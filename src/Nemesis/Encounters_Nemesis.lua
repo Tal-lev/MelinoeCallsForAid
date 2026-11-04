@@ -612,6 +612,9 @@ sjson.hook(file, function(data)
 		ClearOnAttackEffects = false,
 		AttachToOwner = true,
 		UseVulnerability = true,
+        AffectsEnemies = true,
+        AffectsFriends = true,
+        AffectsSelf = false,
 		Thing =
 		{
 			Graphic = "DashLobTrailEmitter",
@@ -857,6 +860,386 @@ sjson.hook(file, function(data)
                 CanAffectInvulnerable = true,
             },
         }
+	})
+
+    table.insert(data.Projectiles,
+    {
+		Name = "MelRivalProjectileDaggerSliceLeft",
+		InheritFrom = "1_BaseNPCProjectile",
+		DetonateFx = "null",
+		Type = "ARC",
+		AffectsEnemies = true,
+		AffectsFriends = true,
+		AffectsSelf = false,
+		CheckUnitImpact = true,
+		CheckObstacleImpact = true,
+		UnlimitedUnitPenetration = true,
+		UnlimitedObstaclePenetration = true,
+		Range = 0,
+		AttachToOwner = true,
+		NumPenetrations = 99999,
+		IgnoreCoverageAngleAdjustment = true,
+		UseArmor = true,
+		UseVulnerability = true,
+		AttachToMarker = "null",
+		InvulnerableImpactOwnerVelocity = 300,
+		StartFx = "null",
+		UseRadialImpact = false,
+		ImpactLineOfSightFromOwner = false,
+		Damage = 250,
+		ArcStart = -70,
+		ArcEnd = 60,
+		Speed = 1600,
+		ProjectileDefenseAngle = 90,
+		ProjectileDefenseRadius = 185,
+		Thing =
+		{
+			OffsetZ = 70,
+			RotateGeometry = true,
+			SortMode = "FromParent",
+			GeometryScaleY = 0.7,
+			Points =
+			{
+				{
+					X = 0,
+					Y = 0,
+				},
+				{
+					X = 280,
+					Y = 80,
+				},
+				{
+					X = 280,
+					Y = -80,
+				},
+            },
+		},
+		Effects =
+		{
+			{
+                Name = "HeroOnHitStun",
+                Duration = 0.5,
+                DisableMove = true,
+                DisableRotate = true,
+                DisableAttack = true,
+                Active = true,
+                CanAffectInvulnerable = false,
+                Cancelable = false,
+                FrontFx = "DionysusStunnedFx",
+            },
+            {
+                Name = "KnockbackGrip",
+                Type = "GRIP",
+                Duration = 0.1,
+                Modifier = 0.01,
+                HaltOnEnd = true,
+                Active = true,
+                CanAffectInvulnerable = true,
+            },
+        },
+	})		
+
+    table.insert(data.Projectiles,
+    {
+		Name = "MelRivalProjectileDaggerSliceRight",
+		InheritFrom = "1_BaseNPCProjectile",
+		DetonateFx = "null",
+		Type = "ARC",
+		AffectsEnemies = true,
+		AffectsFriends = true,
+		AffectsSelf = false,
+		CheckUnitImpact = true,
+		CheckObstacleImpact = true,
+		UnlimitedUnitPenetration = true,
+		UnlimitedObstaclePenetration = true,
+		Range = 0,
+		AttachToOwner = true,
+		NumPenetrations = 99999,
+		IgnoreCoverageAngleAdjustment = true,
+		UseArmor = true,
+		UseVulnerability = true,
+		AttachToMarker = "null",
+		InvulnerableImpactOwnerVelocity = 300,
+		StartFx = "null",
+		UseRadialImpact = false,
+		ImpactLineOfSightFromOwner = false,
+		Damage = 250,
+		ArcStart = 70,
+		ArcEnd = -60,
+		Speed = 1600,
+		ProjectileDefenseAngle = 90,
+		ProjectileDefenseRadius = 185,
+		Thing =
+		{
+			OffsetZ = 70,
+			RotateGeometry = true,
+			SortMode = "FromParent",
+			GeometryScaleY = 0.7,
+			Points =
+			{
+				{
+					X = 0,
+					Y = 0,
+				},
+				{
+					X = 280,
+					Y = 80,
+				},
+				{
+					X = 280,
+					Y = -80,
+				},
+            },
+		},
+		Effects =
+		{
+			{
+                Name = "HeroOnHitStun",
+                Duration = 0.5,
+                DisableMove = true,
+                DisableRotate = true,
+                DisableAttack = true,
+                Active = true,
+                CanAffectInvulnerable = false,
+                Cancelable = false,
+                FrontFx = "DionysusStunnedFx",
+            },
+            {
+                Name = "KnockbackGrip",
+                Type = "GRIP",
+                Duration = 0.1,
+                Modifier = 0.01,
+                HaltOnEnd = true,
+                Active = true,
+                CanAffectInvulnerable = true,
+            },
+        },
+	})
+
+    table.insert(data.Projectiles,
+    {
+		Name = "MelRivalProjectileDagger",
+		InheritFrom = "1_BaseNPCProjectile",
+		DetonateFx = "DaggerJab",
+		Type = "STRAIGHT",
+		AffectsEnemies = true,
+		AffectsFriends = true,
+		AffectsSelf = false,
+		CheckUnitImpact = true,
+		CheckObstacleImpact = true,
+		UnlimitedUnitPenetration = true,
+		Damage = 250,
+		Speed = 0,
+		Range = 0,
+		Fuse = 0.10,
+		StartDelay = 0.02,
+		NumPenetrations = 99999,	
+		UseArmor = true,
+		UseVulnerability = true,
+		AttachToOwner = true,
+		AttachToMarker = "null",
+		InvulnerableImpactOwnerVelocity = 300,
+		StartFx = "null",
+		SetAnimRadialOffset = true,
+		UseRadialImpact = false,
+		ImpactLineOfSightFromOwner = false,
+		ProjectileDefenseAngle = 40,
+		ProjectileDefenseRadius = 235,
+		GroupName = "FX_Standing_Add",
+		Thing =
+		{
+			Graphic = "null",
+			OffsetZ = 70,
+			RotateGeometry = true,
+			Grip = 999999,
+			SortBoundsScale = 0.15,
+			UseBoundsForSortDrawArea = true,
+			Tallness = 2,
+			Points =
+			{
+				{
+					X = 0,
+					Y = -30,
+				},
+				{
+					X = 260,
+					Y = -100,
+				},
+				{
+					X = 260,
+					Y = 100,
+				},
+				{
+					X = 0,
+					Y = 30,
+				},
+            },
+		},
+		Effects =
+		{
+			{
+                Name = "HeroOnHitStun",
+                Duration = 0.5,
+                DisableMove = true,
+                DisableRotate = true,
+                DisableAttack = true,
+                Active = true,
+                CanAffectInvulnerable = false,
+                Cancelable = false,
+                FrontFx = "DionysusStunnedFx",
+            },
+            {
+                Name = "KnockbackGrip",
+                Type = "GRIP",
+                Duration = 0.1,
+                Modifier = 0.01,
+                HaltOnEnd = true,
+                Active = true,
+                CanAffectInvulnerable = true,
+            },
+        },
+	})
+
+    table.insert(data.Projectiles,
+    {
+		Name = "MelRivalProjectileDaggerSliceDouble",
+		InheritFrom = "1_BaseNPCProjectile",
+		DetonateFx = "DaggerSwipeDouble",
+		Type = "STRAIGHT",
+		StartDelay = 0.06,
+		Fuse = 0.05,
+		AffectsEnemies = true,
+		AffectsFriends = true,
+		AffectsSelf = false,
+		Range = 1.0,
+		DamageRadius = 280,
+		DamageRadiusScaleY = 0.62,
+		BlastStartRadius = 250,
+		BlastSpeed = 3000,
+		BlastDuration = 0.1,
+		AttachToOwner = true,
+		NumPenetrations = 9999,
+		AffectsSelf = false,
+		CheckUnitImpact = false,
+		CheckObstacleImpact = true,
+		UnlimitedUnitPenetration = true,
+		UseDetonationForProjectileDefense = true,
+		Damage = 300,
+		ImpactVelocity = 0,
+		
+		UseArmor = false,
+		UseVulnerability = true,
+		Thing =
+		{
+			Graphic = "null",
+			OffsetZ = 30,
+			Grip = 999999,
+		},
+		Effects =
+		{
+			{
+                Name = "HeroOnHitStun",
+                Duration = 0.5,
+                DisableMove = true,
+                DisableRotate = true,
+                DisableAttack = true,
+                Active = true,
+                CanAffectInvulnerable = false,
+                Cancelable = false,
+                FrontFx = "DionysusStunnedFx",
+            },
+            {
+                Name = "KnockbackGrip",
+                Type = "GRIP",
+                Duration = 0.1,
+                Modifier = 0.01,
+                HaltOnEnd = true,
+                Active = true,
+                CanAffectInvulnerable = true,
+            },
+        },
+	})
+
+    table.insert(data.Projectiles,
+    {
+		Name = "MelRivalProjectileDaggerThrowCharged",
+		InheritFrom = "1_BaseNPCProjectile",
+		DetonateFx = "null",
+		Type = "HOMING",
+		AffectsEnemies = true,
+		AffectsFriends = true,
+		AffectsSelf = false,
+		CheckUnitImpact = true,
+		CheckObstacleImpact = true,
+		UnlimitedUnitPenetration = true,
+		NumPenetrations = 999999,
+		AttachToOwner = false,
+		StartDelay = 0.04,
+		Damage = 300,
+		Speed = 6000,
+		Range = 830,
+		UseRadialImpact = false,
+		
+		UseArmor = true,
+		UseVulnerability = true,
+		DissipateFx = "null",
+		GroupName = "Standing",
+		ClearOnAttackEffects = true,
+		ImpactFx = "DaggerProjectileImpactFx",
+		DeathFx = "DaggerProjectileFxFade",
+		ProjectileDefenseRadius = 45,
+		Thing =
+		{
+			Graphic = "DaggerProjectileFx",
+			OffsetZ = 70,
+			RotateGeometry = true,
+			Grip = 999999,
+			SortBoundsScale = 0.25,
+			UseBoundsForSortDrawArea = true,
+			Tallness = 25,
+			Points =
+			{
+				{
+					X = 35,
+					Y = 25,
+				},
+				{
+					X = 35,
+					Y = -25,
+				},
+				{
+					X = -5,
+					Y = -25,
+				},
+				{
+					X = -5,
+					Y = 25,
+				},
+            },
+		},
+		Effects =
+		{
+			{
+                Name = "HeroOnHitStun",
+                Duration = 0.5,
+                DisableMove = true,
+                DisableRotate = true,
+                DisableAttack = true,
+                Active = true,
+                CanAffectInvulnerable = false,
+                Cancelable = false,
+                FrontFx = "DionysusStunnedFx",
+            },
+            {
+                Name = "KnockbackGrip",
+                Type = "GRIP",
+                Duration = 0.1,
+                Modifier = 0.01,
+                HaltOnEnd = true,
+                Active = true,
+                CanAffectInvulnerable = true,
+            },
+        },
 	})
 
     return data
@@ -1469,12 +1852,251 @@ OverwriteTableKeys(WeaponData, {
 			},
 		},
 	},
+
+    MelRival_Dagger_NemesisAttack1 =
+	{
+		AIData =
+		{
+			DeepInheritance = true,
+
+			ProjectileName = "MelRivalProjectileDaggerSliceLeft",
+            FireFx = "DaggerSwipeFast",
+			FireSelfVelocity = 400,
+			FireProjectileStartDelay = 0.1,
+
+			PreAttackAngleTowardTarget = true,
+			WaitForAngleTowardTarget = true,
+			TrackTargetDuringCharge = true,
+			PreAttackRotationDampening = 0.09,
+
+			PreAttackDuration = 0.22,
+			PreAttackSound = "/VO/MelinoeEmotes/EmoteAttackingDagger",
+			FireDuration = 0.14,
+			PostAttackDuration = 0.0, -- animation is 0.68
+
+			AttackDistance = 250,
+			MoveWithinRange = true,
+			PreAttackStop = true,
+
+			PreAttackEndShake = false,
+			PreAttackAnimation = "Melinoe_Dagger_AttackLeft_Start",
+			FireAnimation = "Melinoe_Dagger_AttackLeft_Fire",
+			--PostAttackAnimation = "Nemesis_Combat_Attack1_End",
+
+			ExpireProjectilesOnHitStun = true,
+			TargetRequiredKillEnemy = true,
+			TrackKillSteal = true,
+
+			ChainedWeapon = "MelRival_Dagger_NemesisAttack2",
+		},
+
+		Sounds =
+		{
+			FireSounds =
+			{
+				{ Name = "/SFX/Player Sounds/MelDaggerKnifeSwipe" },	
+			},
+		},
+	},
+
+	MelRival_Dagger_NemesisAttack2 =
+	{
+		AIData =
+		{
+			DeepInheritance = true,
+
+			ProjectileName = "MelRivalProjectileDaggerSliceRight",
+            FireFx = "DaggerSwipeFastFlip",
+
+			FireSelfVelocity = 400,
+
+			PreAttackAngleTowardTarget = true,
+			WaitForAngleTowardTarget = true,
+			TrackTargetDuringCharge = true,
+			PreAttackRotationDampening = 0.09,
+
+			PreAttackDuration = 0.22,
+			PreAttackSound = "/VO/MelinoeEmotes/EmoteAttackingDagger",
+			FireDuration = 0.14,
+			PostAttackDuration = 0.0, -- animation is 0.68
+
+            AttackDistance = 250,
+			MoveWithinRange = false,
+			PreAttackStop = true,
+
+			PreAttackEndShake = false,
+			PreAttackAnimation = "Melinoe_Dagger_AttackRight_Start",
+			FireAnimation = "Melinoe_Dagger_AttackRight_Fire",
+			--PostAttackAnimation = "Nemesis_Combat_Attack2_End",
+
+			ExpireProjectilesOnHitStun = true,
+			TargetRequiredKillEnemy = true,
+			TrackKillSteal = true,
+
+			ChainedWeapon = "MelRival_Dagger_NemesisAttack3",
+		},
+
+		Sounds =
+		{
+			FireSounds =
+			{
+				{ Name = "/SFX/Player Sounds/MelDaggerKnifeSwipe" }
+			},
+		},
+	},
+
+	MelRival_Dagger_NemesisAttack3 =
+	{
+		AIData =
+		{
+			DeepInheritance = true,
+
+			ProjectileName = "MelRivalProjectileDagger",
+			FireProjectileStartDelay = 0.15,
+
+			FireSelfVelocity = 500,
+
+			PreAttackAngleTowardTarget = true,
+			WaitForAngleTowardTarget = true,
+			TrackTargetDuringCharge = true,
+			PreAttackRotationDampening = 0.09,
+            
+            FireTicks = 5,
+			FireInterval = 0.08,
+			
+            PreAttackDuration = 0.27,
+			PreAttackSound = "/VO/MelinoeEmotes/EmoteAttackingDagger",
+			FireDuration = 0.24,
+			PostAttackDuration = 0.9, -- animation is 0.68
+
+            AttackDistance = 250,
+			MoveWithinRange = false,
+			PreAttackStop = true,
+
+			PreAttackEndShake = false,
+			PreAttackAnimation = "Melinoe_Dagger_AttackStabs_Start",
+			FireAnimation = "Melinoe_Dagger_AttackStabs_Fire",
+			--PostAttackAnimation = "Melinoe_Dagger_AttackStabs_End",
+
+			ExpireProjectilesOnHitStun = true,
+			TargetRequiredKillEnemy = true,
+			TrackKillSteal = true,
+
+            ChainedWeapon = "MelRival_Dagger_NemesisAttack4",
+		},
+
+		Sounds =
+		{
+			FireSounds =
+			{
+				{ Name = "/VO/MelinoeEmotes/EmotePowerAttackingStaff" },	
+			},
+		},
+	},
+
+    MelRival_Dagger_NemesisAttack4 =
+	{
+		AIData =
+		{
+			DeepInheritance = true,
+
+			ProjectileName = "MelRivalProjectileDaggerSliceDouble",
+			FireProjectileStartDelay = 0.15,
+
+			FireSelfVelocity = 500,
+
+			PreAttackAngleTowardTarget = true,
+			WaitForAngleTowardTarget = true,
+			TrackTargetDuringCharge = true,
+			PreAttackRotationDampening = 0.09,
+
+			PreAttackDuration = 0.55,
+			PreAttackSound = "/VO/MelinoeEmotes/EmotePowerAttackingStaff",
+			FireDuration = 0.35,
+			PostAttackDuration = 0.9, -- animation is 0.68
+
+            AttackDistance = 250,
+			MoveWithinRange = false,
+			PreAttackStop = true,
+
+			PreAttackEndShake = false,
+			PreAttackAnimation = "Melinoe_Dagger_AttackDouble_Start",
+			FireAnimation = "Melinoe_Dagger_AttackDouble_Fire",
+			PostAttackAnimation = "Melinoe_Dagger_AttackDouble_End",
+
+			ExpireProjectilesOnHitStun = true,
+			TargetRequiredKillEnemy = true,
+			TrackKillSteal = true,
+		},
+
+		Sounds =
+		{
+			FireSounds =
+			{
+				{ Name = "/SFX/Player Sounds/MelDaggerMagicAttack" },
+			},
+		},
+	},
+
+    MelRival_Dagger_NemesisSpecial =
+	{
+		Requirements =
+		{
+			MinAttacksBetweenUse = 1,
+		},
+		AIData =
+		{
+			DeepInheritance = true,
+
+			ProjectileName = "MelRivalProjectileDaggerThrowCharged",
+
+			BarrelLength = 0,
+			FireProjectileStartDelay = 0.1,
+            ProjectileInterval = 0.08,
+            AttackSlots =
+			{
+                { ProjectileName = "MelRivalProjectileDaggerThrowCharged", AIDataOverrides = { FireProjectileAngleRelative = -40, }, },
+				{ ProjectileName = "MelRivalProjectileDaggerThrowCharged", AIDataOverrides = { FireProjectileAngleRelative = -20, }, },
+				{ ProjectileName = "MelRivalProjectileDaggerThrowCharged", AIDataOverrides = { FireProjectileAngleRelative = 0, }, },
+				{ ProjectileName = "MelRivalProjectileDaggerThrowCharged", AIDataOverrides = { FireProjectileAngleRelative = 20, }, },
+                { ProjectileName = "MelRivalProjectileDaggerThrowCharged", AIDataOverrides = { FireProjectileAngleRelative = 40, }, },
+			},
+
+			PreAttackDuration = 0.22,
+			PreAttackSound = "/VO/MelinoeEmotes/EmoteAttackingDaggerThrow",
+			FireDuration = 0.14,
+			PostAttackDuration = 0.6, -- animation is 0.58
+
+			AttackDistance = 750,
+			MoveWithinRange = true,
+			PreAttackStop = true,
+
+			PreAttackEndShake = false,
+			PreAttackAnimation = "Melinoe_Dagger_Special_Start",
+			FireAnimation = "Melinoe_Dagger_Special_Fire",
+			PostAttackAnimation = "Melinoe_Dagger_Special_End",
+
+			ExpireProjectilesOnHitStun = true,
+			PreAttackAngleTowardTarget = true,
+			TargetRequiredKillEnemy = true,
+			TrackKillSteal = true,
+		},
+
+		Sounds =
+		{
+			FireSounds =
+			{
+				{ Name = "/SFX/Player Sounds/BowFire" },
+			},
+		},
+
+	},
 })
 
 function mod.HandleNemesisCombatSpawn( eventSource, args )
     args = args or {}
-    local weapon = GetRandomValue({"Staff", "Suit", "Lob", "Axe"})
-    --local weapon = GetRandomValue({"Axe"})
+    local weapon = GetRandomValue({"Staff", "Suit", "Lob", "Axe", "Dagger"})
+    --local weapon = GetRandomValue({"Dagger"})
     mod.SetupRivalMelAnim(weapon)
 	local currentRun = CurrentRun
 	local currentRoom = CurrentRun.CurrentRoom

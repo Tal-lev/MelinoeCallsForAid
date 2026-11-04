@@ -816,6 +816,7 @@ end)
 --Add the custom requierment for Minor propecies
 modutil.mod.Path.Wrap("DoPatches", function( baseFunc) 
 	GameState.JarlUlsfarkRivalMelBetWon = GameState.JarlUlsfarkRivalMelBetWon or {}
+	--if CurrentRun
 	return baseFunc()
 end)
 
@@ -1409,7 +1410,7 @@ function mod.SetupNemesisAnimations()
 		Melinoe_Fishing_Start = "Nemesis_Combat_Special_Start",
 		Melinoe_Fishing_Fidget = "Nemesis_Combat_Special_Start",
 		Melinoe_Fishing_Success = "Nemesis_Combat_Special_Fire",
-		Melinoe_Fishing_Failure = "PlayerNemesis_Combat_Knockdown_Start",
+		Melinoe_Fishing_Failure = "PlayerNemesis_Combat_Knockdown_StartNonLoop",
 
 		MelinoePickAxeMineStart = "Nemesis_Combat_Attack1_Start",
 		MelinoePickAxeMineSwing = "Nemesis_Combat_Attack1_Fire",
