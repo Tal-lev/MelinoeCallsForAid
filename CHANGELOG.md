@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added Nemesis as a Playable character, complete her own attacks and animations.
 - Added fifteen Nemesis Cast boons.
-- Added five Nemesis specific Hammers.
+- Added six Nemesis specific Hammers.
 - Added Nemesis Portraits in conversations, Compatible with Zagreus Journey and MelSkin.
 
 Other fixes and improvements:
