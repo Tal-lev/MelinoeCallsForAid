@@ -645,6 +645,220 @@ sjson.hook(file, function(data)
         }
 	})
 
+    table.insert(data.Projectiles,
+    {
+		Name = "MelRivalProjectileAxe3",
+		InheritFrom = "1_BaseNPCProjectile",
+		DetonateFx = "null",
+		Type = "ARC",
+		AffectsEnemies = true,
+        AffectsFriends = true,
+        AffectsSelf = false,
+		CheckUnitImpact = true,
+		CheckObstacleImpact = true,
+		UnlimitedUnitPenetration = true,
+		UnlimitedObstaclePenetration = true,
+		Range = 0,
+		AttachToOwner = true,
+		NumPenetrations = 99999,
+		IgnoreCoverageAngleAdjustment = true	,	
+		UseArmor = true,
+		UseVulnerability = true,
+		AttachToMarker = "null",
+		InvulnerableImpactOwnerVelocity = 300,
+		StartFx = "null",
+		UseRadialImpact = false,
+		ImpactLineOfSightFromOwner = false,
+		Damage = 250,
+		ArcStart = 110,
+		ArcEnd = -130,
+		Speed = 2400,
+		StartDelay = 0.02,
+		ProjectileDefenseAngle = 45,
+		ProjectileDefenseRadius = 430,
+		Thing =
+		{
+			SortMode = "FromParent",
+			RotateGeometry = true,
+			GeometryScaleY = 0.6,
+			Points =
+			{
+				{
+					X = 0,
+					Y = 0,
+				},
+				{
+					X = 480,
+					Y = 110,
+				},
+				{
+					X = 480,
+					Y = -110,
+				},
+            },
+		},
+		Effects =
+		{
+			{
+                Name = "HeroOnHitStun",
+                Duration = 0.5,
+                DisableMove = true,
+                DisableRotate = true,
+                DisableAttack = true,
+                Active = true,
+                CanAffectInvulnerable = false,
+                Cancelable = false,
+                FrontFx = "DionysusStunnedFx",
+            },
+            {
+                Name = "KnockbackGrip",
+                Type = "GRIP",
+                Duration = 0.1,
+                Modifier = 0.01,
+                HaltOnEnd = true,
+                Active = true,
+                CanAffectInvulnerable = true,
+            },
+        },
+	})
+
+    table.insert(data.Projectiles,
+    {
+		Name = "MelRivalProjectileAxe2",
+		InheritFrom = "1_BaseNPCProjectile",
+		DetonateFx = "null",
+		Type = "ARC",
+		AffectsEnemies = true,
+        AffectsFriends = true,
+        AffectsSelf = false,
+		CheckUnitImpact = true,
+		CheckObstacleImpact = true,
+		UnlimitedUnitPenetration = true,
+		UnlimitedObstaclePenetration = true,
+		Range = 0,
+		NumPenetrations = 99999,
+		IgnoreCoverageAngleAdjustment = true,	
+		UseArmor = true,
+		UseVulnerability = true,
+		AttachToMarker = "null",
+		InvulnerableImpactOwnerVelocity = 300,
+		StartFx = "null",
+		UseRadialImpact = false,
+		ImpactLineOfSightFromOwner = false,
+		AttachToOwner = true,
+		Damage = 250,
+		ArcStart = -90,
+		ArcEnd = 130,
+		Speed = 2000,
+		ImpactVelocity = 0,
+		StartDelay = 0.03,
+		ProjectileDefenseAngle = 45,
+		ProjectileDefenseRadius = 430,
+		Thing =
+		{
+			RotateGeometry = true,
+			GeometryScaleY = 0.6,
+			Points =
+			{
+				{
+					X = 0,
+					Y = 0,
+				},
+				{
+					X = 480,
+					Y = 190,
+				},
+				{
+					X = 480,
+					Y = -190,
+				},
+            },
+		},
+		Effects =
+		{
+			{
+                Name = "HeroOnHitStun",
+                Duration = 0.5,
+                DisableMove = true,
+                DisableRotate = true,
+                DisableAttack = true,
+                Active = true,
+                CanAffectInvulnerable = false,
+                Cancelable = false,
+                FrontFx = "DionysusStunnedFx",
+            },
+            {
+                Name = "KnockbackGrip",
+                Type = "GRIP",
+                Duration = 0.1,
+                Modifier = 0.01,
+                HaltOnEnd = true,
+                Active = true,
+                CanAffectInvulnerable = true,
+            },
+        },
+	})
+
+    table.insert(data.Projectiles,
+    {
+		Name = "MelRivalProjectileAxeOverhead",
+		InheritFrom = "1_BaseNPCProjectile",
+		DetonateFx = "AxeNova",
+		Type = "STRAIGHT",
+		DetonateSound = "/SFX/Player Sounds/MelinoeAxeSwingFinisher",
+		Fuse = 0.16,
+		AffectsEnemies = true,
+        AffectsFriends = true,
+        AffectsSelf = false,
+		Range = 1.0,
+		DamageRadius = 430,
+		DamageRadiusScaleY = 0.51,
+		AttachToOwner = true,
+		NumPenetrations = 9999,
+		BlastSpeed = 1500,
+		BlastDuration = 0.45,
+		AffectsSelf = false,
+		CheckUnitImpact = false,
+		CheckObstacleImpact = true,
+		UnlimitedUnitPenetration = true,
+		UseOwnerAngle = true,
+		Damage = 300,
+		ImpactVelocity = 0,
+		
+		UseArmor = false,
+		UseVulnerability = false,
+		UseDetonationForProjectileDefense = true,
+		Thing =
+		{
+			Graphic = "null",
+			OffsetZ = 70,
+			Grip = 999999,
+		},
+		Effects =
+		{
+			{
+                Name = "HeroOnHitStun",
+                Duration = 0.5,
+                DisableMove = true,
+                DisableRotate = true,
+                DisableAttack = true,
+                Active = true,
+                CanAffectInvulnerable = false,
+                Cancelable = false,
+                FrontFx = "DionysusStunnedFx",
+            },
+            {
+                Name = "KnockbackGrip",
+                Type = "GRIP",
+                Duration = 0.1,
+                Modifier = 0.01,
+                HaltOnEnd = true,
+                Active = true,
+                CanAffectInvulnerable = true,
+            },
+        }
+	})
+
     return data
 end)
 
@@ -684,7 +898,7 @@ OverwriteTableKeys(WeaponData, {
 			TargetRequiredKillEnemy = true,
 			TrackKillSteal = true,
 
-			ChainedWeapon = "MelRival_NemesisAttack2",
+			ChainedWeapon = "MelRival_Staff_NemesisAttack2",
 		},
 
 		Sounds =
@@ -729,7 +943,7 @@ OverwriteTableKeys(WeaponData, {
 			TargetRequiredKillEnemy = true,
 			TrackKillSteal = true,
 
-			ChainedWeapon = "MelRival_NemesisAttack3",
+			ChainedWeapon = "MelRival_Staff_NemesisAttack3",
 		},
 
 		Sounds =
@@ -1070,12 +1284,197 @@ OverwriteTableKeys(WeaponData, {
 		},
 
 	},
+
+    MelRival_Axe_NemesisAttack1 =
+	{
+		AIData =
+		{
+			DeepInheritance = true,
+
+			ProjectileName = "MelRivalProjectileAxe3",
+
+			FireSelfVelocity = 400,
+			FireProjectileStartDelay = 0.1,
+            FireFx = "AxeSwipe1",
+
+			PreAttackAngleTowardTarget = true,
+			WaitForAngleTowardTarget = true,
+			TrackTargetDuringCharge = true,
+			PreAttackRotationDampening = 0.09,
+
+			PreAttackDuration = 0.3,
+			PreAttackSound = "/VO/MelinoeEmotes/EmoteAttackingAxe",
+			FireDuration = 0.6,
+			PostAttackDuration = 0.0, -- animation is 0.68
+
+			AttackDistance = 400,
+			MoveWithinRange = true,
+			PreAttackStop = true,
+
+			PreAttackEndShake = false,
+			PreAttackAnimation = "Melinoe_Axe_Attack1_Start",
+			FireAnimation = "Melinoe_Axe_Attack1_Fire",
+			--PostAttackAnimation = "Nemesis_Combat_Attack1_End",
+
+			ExpireProjectilesOnHitStun = true,
+			TargetRequiredKillEnemy = true,
+			TrackKillSteal = true,
+
+			ChainedWeapon = "MelRival_Axe_NemesisAttack2",
+		},
+
+		Sounds =
+		{
+			FireSounds =
+			{
+				{ Name = "/SFX/Player Sounds/MelinoeAxeSwing" },
+			},
+		},
+	},
+
+    MelRival_Axe_NemesisAttack2 =
+	{
+		AIData =
+		{
+			DeepInheritance = true,
+
+			ProjectileName = "MelRivalProjectileAxe2",
+
+			FireSelfVelocity = 400,
+			FireProjectileStartDelay = 0.1,
+            FireFx = "AxeSwipe2",
+
+			PreAttackAngleTowardTarget = true,
+			WaitForAngleTowardTarget = true,
+			TrackTargetDuringCharge = true,
+			PreAttackRotationDampening = 0.09,
+
+			PreAttackDuration = 0.3,
+			PreAttackSound = "/VO/MelinoeEmotes/EmoteAttackingAxe",
+			FireDuration = 0.6,
+			PostAttackDuration = 0.0, -- animation is 0.68
+
+			AttackDistance = 400,
+			MoveWithinRange = true,
+			PreAttackStop = true,
+
+			PreAttackEndShake = false,
+			PreAttackAnimation = "Melinoe_Axe_Attack2_Start",
+			FireAnimation = "Melinoe_Axe_Attack2_Fire",
+			--PostAttackAnimation = "Nemesis_Combat_Attack1_End",
+
+			ExpireProjectilesOnHitStun = true,
+			TargetRequiredKillEnemy = true,
+			TrackKillSteal = true,
+
+			ChainedWeapon = "MelRival_Axe_NemesisAttack3",
+		},
+
+		Sounds =
+		{
+			FireSounds =
+			{
+				{ Name = "/SFX/Player Sounds/MelinoeAxeSwing" },
+			},
+		},
+	},
+
+    MelRival_Axe_NemesisAttack3 =
+	{
+		AIData =
+		{
+			DeepInheritance = true,
+
+			ProjectileName = "MelRivalProjectileAxeOverhead",
+
+			FireSelfVelocity = 400,
+			FireProjectileStartDelay = 0.1,
+
+			PreAttackAngleTowardTarget = true,
+			WaitForAngleTowardTarget = true,
+			TrackTargetDuringCharge = true,
+			PreAttackRotationDampening = 0.09,
+
+			PreAttackDuration = 0.3,
+			PreAttackSound = "/VO/MelinoeEmotes/EmoteAttackingAxe",
+			FireDuration = 0.8,
+			PostAttackDuration = 0.0, -- animation is 0.68
+
+			AttackDistance = 400,
+			MoveWithinRange = true,
+			PreAttackStop = true,
+
+			PreAttackEndShake = false,
+			PreAttackAnimation = "Melinoe_Axe_Attack3_Start",
+			FireAnimation = "Melinoe_Axe_Attack3_Fire",
+			--PostAttackAnimation = "Nemesis_Combat_Attack1_End",
+
+			ExpireProjectilesOnHitStun = true,
+			TargetRequiredKillEnemy = true,
+			TrackKillSteal = true,
+		},
+
+		Sounds =
+		{
+			FireSounds =
+			{
+				{ Name = "/SFX/Player Sounds/MelinoeHugeAxeSwing" },
+			},
+		},
+	},
+
+    MelRival_Axe_NemesisSpecial =
+	{
+		AIData =
+		{
+			DeepInheritance = true,
+
+			ProjectileName = "MelRivalProjectileAxe3",
+
+			FireSelfVelocity = 400,
+			FireProjectileStartDelay = 0.1,
+            FireFx = "AxeSwipe",
+
+			PreAttackAngleTowardTarget = true,
+			WaitForAngleTowardTarget = true,
+			TrackTargetDuringCharge = true,
+			PreAttackRotationDampening = 0.09,
+
+			PreAttackDuration = 0.3,
+			PreAttackSound = "/VO/MelinoeEmotes/EmoteAttackingAxe",
+			FireDuration = 0.6,
+			PostAttackDuration = 0.0, -- animation is 0.68
+
+			AttackDistance = 400,
+			MoveWithinRange = true,
+			PreAttackStop = true,
+
+			PreAttackEndShake = false,
+			PreAttackAnimation = "Melinoe_Axe_Attack1_Start",
+			FireAnimation = "Melinoe_Axe_Attack1_Fire",
+			--PostAttackAnimation = "Nemesis_Combat_Attack1_End",
+
+			ExpireProjectilesOnHitStun = true,
+			TargetRequiredKillEnemy = true,
+			TrackKillSteal = true,
+
+			ChainedWeapon = "MelRival_Axe_NemesisAttack2",
+		},
+
+		Sounds =
+		{
+			FireSounds =
+			{
+				{ Name = "/SFX/Player Sounds/MelinoeAxeSwing" },
+			},
+		},
+	},
 })
 
 function mod.HandleNemesisCombatSpawn( eventSource, args )
     args = args or {}
-    local weapon = GetRandomValue({"Staff", "Suit", "Lob"})
-    --local weapon = GetRandomValue({"Lob"})
+    local weapon = GetRandomValue({"Staff", "Suit", "Lob", "Axe"})
+    --local weapon = GetRandomValue({"Axe"})
     mod.SetupRivalMelAnim(weapon)
 	local currentRun = CurrentRun
 	local currentRoom = CurrentRun.CurrentRoom

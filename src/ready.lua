@@ -2498,9 +2498,9 @@ NemesisAspect = {
 		{
 			WeaponName = "WeaponStaffDash",
 			WeaponProperties = {
-				ChargeStartAnimation = "Nemesis_Combat_Attack1_Start",
-				FireGraphic = "Nemesis_Combat_Attack1_Fire",
-				ChargeCancelGraphic = "Nemesis_Combat_Attack1_End",
+				ChargeStartAnimation = "Nemesis_Combat_Attack2_Start",
+				FireGraphic = "Nemesis_Combat_Attack2_Fire",
+				ChargeCancelGraphic = "Nemesis_Combat_Attack2_End",
 				FireFx = "null",
 			},
 			ProjectileName = "PlayerNemesisAttack2",
