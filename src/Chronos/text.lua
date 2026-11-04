@@ -514,5 +514,14 @@ sjson.hook(file, function(data)
 	TextOrder)
 	)
 
+  table.insert(data.Texts, sjson.to_object(
+	{
+      Id = "Quest_Chronos_ArachneCostume",
+      DisplayName = "Weaver of Fashion",
+      Description = "The father of the god of the dead shall don a variety of outfits created by the spider-maiden {#Emph}Arachne{#Prev}.",
+	},
+	TextOrder)
+	)
+
 return data
 end)

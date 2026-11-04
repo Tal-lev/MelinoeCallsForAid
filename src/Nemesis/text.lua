@@ -190,7 +190,7 @@ sjson.hook(file, function(data)
 	{
       Id = "NemesisSpawnCastDamageBoon",
       InheritFrom = "BaseBoonMultiline",
-      DisplayName = "Rousing Reception",
+      DisplayName = "Hearty Reception",
       Description = "Damage any foes as they join the {$Keywords.EncounterAlt}, wherever they appear.",
     },
     TextOrder)
@@ -200,12 +200,52 @@ sjson.hook(file, function(data)
 	{
       Id = "NemesisOmegaCastVolleyBoon",
       InheritFrom = "BaseBoonMultiline",
-      DisplayName = "Easy Shot",
+      DisplayName = "Effortless Shot",
       Description = "A piercing arrow fires toward any foe damaged by your {$Keywords.Cast}.",
     },
     TextOrder)
 	)
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "NemesisHadesCastProjectileBoon",
+      InheritFrom = "BaseBoon",
+      DisplayName = "Bellowing Soul",
+      Description = "Your {$Keywords.CastSet} launches a projectile that seeks foes at the attacker.",
+    },
+    TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "NemesisCastProjectileBoon",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Simmering Coal",
+      Description = "Your {$Keywords.CastSet} fires a fireball that explodes on impact at the attacker.",
+    },
+    TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "NemesisCastAttachBoon",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Proximate Climate",
+      Description = "Your {$Keywords.CastSet} deal more damage to nearby foes.",
+    },
+    TextOrder)
+	)
 	
+    table.insert(data.Texts, sjson.to_object(
+    {
+      Id = "NemesisApolloExCastBoon",
+      InheritFrom = "BaseBoonMultiline",
+      DisplayName = "Eminence Flare",
+      Description = "Your {$Keywords.CastSet} fires a flare around you.",
+    },
+    TextOrder)
+	)
+
 	--Nemesis Dresses
     table.insert(data.Texts, sjson.to_object(
     {
@@ -400,6 +440,73 @@ sjson.hook(file, function(data)
 	},
 	TextOrder)
 	)
+
+    table.insert(data.Texts, sjson.to_object(
+	{
+      Id = "Quest_Nemesis_ArachneCostume",
+      DisplayName = "Weaver of Armor",
+      Description = "The prideful daughter of Night shall don a variety of outfits created by the spider-maiden {#Emph}Arachne{#Prev}.",
+	},
+	TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+	{
+      Id = "Quest_Nemesis_RivalMelCompetition",
+      DisplayName = "Champion Over Night",
+      Description = "The prideful daughter of Night shall outcompete the daughter of the Lord of the Dead carrying each of the {#Emph}Nocturnal Arms {#Prev}.",
+	},
+	TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+	{
+      Id = "RivalMelStaff",
+      DisplayName = "Descura, the Witch's Staff",
+	},
+	TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+	{
+      Id = "RivalMelDagger",
+      DisplayName = "Lim and Oros, the Sister Blades",
+	},
+	TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+	{
+      Id = "RivalMelTorch",
+      DisplayName = "Ygnium, the Umbral Flames",
+	},
+	TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+	{
+      Id = "RivalMelAxe",
+      DisplayName = "Zorephet, the Moonstone Axe",
+	},
+	TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+	{
+      Id = "RivalMelLob",
+      DisplayName = "Revaal, the Argent Skull",
+	},
+	TextOrder)
+	)
+
+    table.insert(data.Texts, sjson.to_object(
+	{
+      Id = "RivalMelSuit",
+      DisplayName = "Xinth, the Black Coat",
+	},
+	TextOrder)
+	)
+    
 
 return data
 end)

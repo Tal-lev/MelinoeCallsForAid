@@ -39,6 +39,10 @@ function mod.NemesisRetaliate( blocker, args, triggerArgs )
 				angle = GetAngleBetween({ DestinationId = CurrentRun.Hero.ObjectId, Id = attacker.ObjectId })
 			end
 		end
+		local fireStartLocation = true
+		if args.StartFireHero then
+			fireStartLocation = false
+		end
 		for i = 1, times do
 			CreateProjectileFromUnit({
 			Id = CurrentRun.Hero.ObjectId,
@@ -46,7 +50,7 @@ function mod.NemesisRetaliate( blocker, args, triggerArgs )
 			WeaponName = args.WeaponName,
 			DestinationId = attacker.ObjectId, 
 			DamageMultiplier = args.DamageMultiplier,
-			FireFromTarget = true,
+			FireFromTarget = fireStartLocation,
 			Angle = angle or nil,
     		})
 			wait(0.1)
@@ -716,6 +720,7 @@ OverwriteTableKeys(TraitData, {
 	},
   },
 
+
   --Demeter
   NemesisDemeterCastBoon = {
     Icon = "Boon_Demeter_29",
@@ -806,6 +811,64 @@ OverwriteTableKeys(TraitData, {
 		}
 	},
   },
+
+
+  NemesisCastAttachBoon = 
+	{
+		InheritFrom = { "BaseTrait", "EarthBoon" },
+		Icon = "Boon_Demeter_35",
+		RarityLevels =
+		{
+			Common =
+			{
+				Multiplier = 1.0,
+			},
+			Rare =
+			{
+				Multiplier = 1.5,
+			},
+			Epic =
+			{
+				Multiplier = 2.0,
+			},
+			Heroic =
+			{
+				Multiplier = 2.5,
+			}
+		},		
+		AddOutgoingDamageModifiers =
+		{
+			ValidWeapons = WeaponSets.HeroNonPhysicalWeapons,
+			ProximityThreshold = 300,
+			ProximityThresholdExclusionBoon = "AllCloseBoon",
+			ProximityMultiplier = 
+			{ 
+				BaseValue = 1.20,
+				SourceIsMultiplier = true,
+				AbsoluteStackValues =
+				{
+					[1] = 1.10,
+					[2] = 1.05,
+				},
+			},
+			ReportValues = 
+			{ 
+				ReportedWeaponMultiplier = "ProximityMultiplier",
+			},
+		},
+		StatLines = 
+		{
+			"NearbyDamageStatDisplay1",
+		},
+		ExtractValues =
+		{
+			{
+				Key = "ReportedWeaponMultiplier",
+				ExtractAs = "TooltipDamageBonus",
+				Format = "PercentDelta",
+			},
+		},
+	},
 
   --Apollo
   NemesisApolloCastBoon = {
@@ -920,6 +983,94 @@ OverwriteTableKeys(TraitData, {
 		}
 	},
   },
+
+  NemesisApolloExCastBoon =
+	{
+		Icon = "Boon_Apollo_31",
+		InheritFrom = { "BaseTrait", "FireBoon" },
+		RarityLevels =
+		{
+			Common =
+			{
+				Multiplier = 1.0,
+			},
+			Rare =
+			{
+				Multiplier = 1.5,
+			},
+			Epic =
+			{
+				Multiplier = 2.0,
+			},
+			Heroic =
+			{
+				Multiplier = 2.5,
+			},
+		},
+		GameStateRequirements =
+		{
+			{
+				Path = {"CurrentRun", "Hero", "TraitDictionary"},
+				HasAll = {"NemesisAspect"}
+			},
+		},
+		OnBlockDamageFunction = 
+		{
+			Name = _PLUGIN.guid .. "." .. "NemesisRetaliate",
+			Args = 
+			{
+				ProjectileName = "ApolloCastRapid",
+				DamageMultiplier = 
+				{ 
+					BaseValue = 1,
+					AbsoluteStackValues = 
+					{
+						[1] = 0.5,
+						[2] = 0.4,
+						[3] = 0.3,
+						[4] = 0.2,
+					},
+				},
+				
+				ReportValues = { ReportedMultiplier = "DamageMultiplier"},
+				WeaponName = "WeaponCast",
+				StartFireHero = true,
+				--times = 1,
+			},
+		},
+		StatLines =
+		{
+			"OmegaCastDamageOverTimeStatDisplay1",
+		},
+		ExtractValues =
+		{
+			{
+				Key = "ReportedMultiplier",
+				ExtractAs = "Damage",
+				Format = "MultiplyByBase",
+				BaseType = "Projectile",
+				BaseName = "ApolloCastRapid",
+				BaseProperty = "Damage",
+			},
+			{
+				ExtractAs = "Fuse",
+				SkipAutoExtract = true,
+				External = true,
+				BaseType = "ProjectileBase",
+				BaseName = "ApolloCastRapid",
+				BaseProperty = "Fuse",
+				DecimalPlaces = 2,
+			},
+			{
+				ExtractAs = "BeamDuration",
+				SkipAutoExtract = true,
+				External = true,
+				BaseType = "ProjectileBase",
+				BaseName = "ApolloCastRapid",
+				BaseProperty = "TotalFuse",
+			}
+		},
+	},
 
   --Aphrodite
   NemesisAphroditeCastBoon = {
@@ -1214,6 +1365,75 @@ OverwriteTableKeys(TraitData, {
 	},
   },
 
+  NemesisCastProjectileBoon =
+	{
+		Icon = "Boon_Hestia_47",
+		InheritFrom = { "BaseTrait", "FireBoon" },
+		RarityLevels =
+		{
+			Common =
+			{
+				Multiplier = 1.0,
+			},
+			Rare =
+			{
+				Multiplier = 1.5,
+			},
+			Epic =
+			{
+				Multiplier = 2.0,
+			},
+			Heroic =
+			{
+				Multiplier = 2.5,
+			}
+		},
+		GameStateRequirements =
+		{
+			{
+				Path = {"CurrentRun", "Hero", "TraitDictionary"},
+				HasAll = {"NemesisAspect"}
+			},
+		},
+		OnBlockDamageFunction = 
+		{
+			Name = _PLUGIN.guid .. "." .. "NemesisRetaliate",
+			Args = 
+			{
+				ProjectileName = "ProjectileCastFireball",
+				DamageMultiplier =
+				{
+					BaseValue = 1,
+					AbsoluteStackValues =
+					{
+						[1] = 0.5,
+						[2] = 0.333,
+						[3] = 0.166,
+					},
+				},
+				ReportValues = { ReportedDamage = "DamageMultiplier" },
+				WeaponName = "WeaponCast",
+				StartFireHero = true,
+				Angle = "push",
+			},
+		},
+		StatLines =
+		{
+			"FireballDamageStatDisplay1",
+		},
+		ExtractValues =
+		{
+			{
+				Key = "ReportedDamage",
+				ExtractAs = "Damage",
+				Format = "MultiplyByBase",
+				BaseType = "Projectile",
+				BaseName = "ProjectileCastFireball",
+				BaseProperty = "Damage",
+			},
+		},
+	},
+
   --Ares
   NemesisAresCastBoon = {
     Icon = "Boon_Ares_29",
@@ -1367,6 +1587,52 @@ OverwriteTableKeys(TraitData, {
 			}
 		},
 	},
+
+	--Hades
+	NemesisHadesCastProjectileBoon =
+	{
+		Icon = "Boon_Hades_01",
+		InheritFrom = { "InPersonOlympianTrait" },
+		BlockInRunRarify = true,
+		GameStateRequirements =
+		{
+			{
+				Path = {"CurrentRun", "Hero", "TraitDictionary"},
+				HasAll = {"NemesisAspect"}
+			},
+		},
+		OnBlockDamageFunction = 
+		{
+			Name = _PLUGIN.guid .. "." .. "NemesisRetaliate",
+			Args = 
+			{
+				ProjectileName = "ProjectileCastHades",
+				DamageMultiplier =
+				{
+					BaseValue = 2,
+				},
+				ReportValues = { ReportedDamage = "DamageMultiplier" },
+				WeaponName = "WeaponCast",
+				StartFireHero = true,
+				Angle = "push",
+			},
+		},
+		StatLines =
+		{
+			"HadesCastStatDisplay",
+		},
+		ExtractValues =
+		{
+			{
+				Key = "ReportedDamage",
+				ExtractAs = "Damage",
+				Format = "MultiplyByBase",
+				BaseType = "Projectile",
+				BaseName = "ProjectileCastHades",
+				BaseProperty = "Damage",
+			},
+		},
+	},
 })
 
 
@@ -1382,12 +1648,18 @@ table.insert( LootData.HeraUpgrade.Traits, "NemesisSpawnCastDamageBoon" )
 --Poseidon
 table.insert( LootData.PoseidonUpgrade.WeaponUpgrades, "NemesisPoseidonCastBoon" )
 table.insert( LootData.PoseidonUpgrade.PriorityUpgrades, 3, "NemesisPoseidonCastBoon" )
+
 --Demeter
 table.insert( LootData.DemeterUpgrade.WeaponUpgrades, "NemesisDemeterCastBoon" )
 table.insert( LootData.DemeterUpgrade.PriorityUpgrades, 3, "NemesisDemeterCastBoon" )
+
+table.insert( LootData.DemeterUpgrade.Traits, "NemesisCastAttachBoon" )
+
 --Apollo
 table.insert( LootData.ApolloUpgrade.WeaponUpgrades, "NemesisApolloCastBoon" )
 table.insert( LootData.ApolloUpgrade.PriorityUpgrades, 3, "NemesisApolloCastBoon" )
+
+table.insert( LootData.ApolloUpgrade.Traits, "NemesisApolloExCastBoon" )
 --Aphrodite
 table.insert( LootData.AphroditeUpgrade.WeaponUpgrades, "NemesisAphroditeCastBoon" )
 table.insert( LootData.AphroditeUpgrade.PriorityUpgrades, 3, "NemesisAphroditeCastBoon" )
@@ -1397,8 +1669,13 @@ table.insert( LootData.HephaestusUpgrade.PriorityUpgrades, 3, "NemesisHephaestus
 --Hestia
 table.insert( LootData.HestiaUpgrade.WeaponUpgrades, "NemesisHestiaCastBoon" )
 table.insert( LootData.HestiaUpgrade.PriorityUpgrades, 3, "NemesisHestiaCastBoon" )
+
+table.insert( LootData.HestiaUpgrade.Traits, "NemesisCastProjectileBoon" )
+
 --Ares
 table.insert( LootData.AresUpgrade.WeaponUpgrades, "NemesisAresCastBoon" )
 table.insert( LootData.AresUpgrade.PriorityUpgrades, 3, "NemesisAresCastBoon" )
 --Artemis
 table.insert( EnemyData.NPC_Artemis_Field_01.Traits, "NemesisOmegaCastVolleyBoon" )
+--Hades
+table.insert( EnemyData.NPC_Hades_Field_01.Traits, "NemesisHadesCastProjectileBoon" )

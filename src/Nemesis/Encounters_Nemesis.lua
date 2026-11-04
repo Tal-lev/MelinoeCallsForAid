@@ -1143,12 +1143,30 @@ function mod.HandleNemesisCombatSpawn( eventSource, args )
 	AngleTowardTarget({ Id = newUnit.ObjectId, DestinationId = CurrentRun.Hero.ObjectId })
 end
 
-
+--Summoning Nemesis in combat encounter
 modutil.mod.Path.Wrap("HandleNemesisCombatSpawn", function(baseFunc, eventSource, args)
     if HeroHasTrait("NemesisAspect") then
         return mod.HandleNemesisCombatSpawn(eventSource, args)
     else
         return baseFunc(eventSource, args)
+    end
+end)
+
+--Tracking Player won and Mel Weapons
+modutil.mod.Path.Wrap("HandleNemesisEncounterReward", function(baseFunc, eventSource, args)
+    local initialBet = 0
+    local finalBet = 0
+    local encounter = eventSource
+	local nemesis = ActiveEnemies[encounter.NemesisId]
+    if GameState.NemesisBetWinnings then
+        initialBet = GameState.NemesisBetWinnings
+    end
+    baseFunc(eventSource, args)
+    if GameState.NemesisBetWinnings then
+        finalBet = GameState.NemesisBetWinnings
+    end
+    if finalBet > initialBet and nemesis.Melinoe then
+        GameState.JarlUlsfarkRivalMelBetWon["RivalMel" .. nemesis.Melinoe] = true
     end
 end)
 

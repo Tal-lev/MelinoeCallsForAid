@@ -813,7 +813,11 @@ end)
 
 
 
-
+--Add the custom requierment for Minor propecies
+modutil.mod.Path.Wrap("DoPatches", function( baseFunc) 
+	GameState.JarlUlsfarkRivalMelBetWon = GameState.JarlUlsfarkRivalMelBetWon or {}
+	return baseFunc()
+end)
 
 
 modutil.mod.Path.Wrap("PlayUnequipAnimation",  function( baseFunc, args ) 

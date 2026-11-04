@@ -1,6 +1,9 @@
 table.insert( QuestOrderData, "Quest_Chronos_HammerUpgrades")
 table.insert( QuestOrderData, "Quest_Chronos_SeleneDuos")
+table.insert( QuestOrderData, "Quest_Chronos_ArachneCostume")
 table.insert( QuestOrderData, "Quest_Nemesis_HammerUpgrades")
+table.insert( QuestOrderData, "Quest_Nemesis_ArachneCostume")
+table.insert( QuestOrderData, "Quest_Nemesis_RivalMelCompetition")
 
 OverwriteTableKeys( QuestData, {
 
@@ -101,6 +104,73 @@ OverwriteTableKeys( QuestData, {
 		},
 	},
 
+	Quest_Chronos_ArachneCostume =
+	{
+		InheritFrom = { "DefaultQuestItem", "DefaultFatesQuest" },
+		RewardResourceName = "MetaFabric",
+		RewardResourceAmount = 3,
+		UnlockGameStateRequirements =
+		{
+			{
+				PathTrue = { "GameState", "TextLinesRecord", "ArachneGift02" },
+			},
+			{
+				Path = { "GameState", "TraitsTaken" },
+				CountOf =
+				{
+                    "ChronosVitalityCostume",
+					"ChronosManaCostume",
+					"ChronosAgilityCostume",
+					"ChronosIncomeCostume",
+					"ChronosCastDamageCostume",
+					"ChronosHighArmorCostume",
+					--"ChronosSpellCostume",
+					"ChronosEscalatingCostume",
+				},
+				Comparison = ">=",
+				Value = 1,
+			},
+		},
+		CompleteGameStateRequirements =
+		{
+			{
+				Path = { "GameState", "TraitsTaken" },
+				HasAll =
+				{
+					"ChronosVitalityCostume",
+					"ChronosManaCostume",
+					"ChronosAgilityCostume",
+					"ChronosIncomeCostume",
+					"ChronosCastDamageCostume",
+					"ChronosHighArmorCostume",
+					--"ChronosSpellCostume",
+					"ChronosEscalatingCostume",
+				},
+			},
+		},
+
+		CashedOutVoiceLines =
+		{
+			{
+				PreLineWait = 0.4,
+				GameStateRequirements =
+				{
+					{
+					},
+				},
+				Cooldowns =
+				{
+					{ Name = "MorosProphecyFulfilledSpeech", Time = 3 },
+				},
+				SkipAnim = true,
+				RequiredSourceValueFalse = "InPartnerConversation",
+				ObjectType = "NPC_Moros_01",
+
+				{ Cue = "/VO/Moros_0606", Text = "My sisters have keen interest in skilled weavers of all sorts." },
+			},
+		},
+	},
+
 	Quest_Nemesis_HammerUpgrades =
 	{
 		InheritFrom = { "DefaultQuestItem", "DefaultUnseenQuest" },
@@ -135,6 +205,133 @@ OverwriteTableKeys( QuestData, {
                     "NemesisBlockRevengeTrait",
                     "NemesisAttackBleedTrait",
                     --"ChronosTriplePurge",
+				},
+			},
+		},
+
+		CashedOutVoiceLines =
+		{
+			{
+				PreLineWait = 0.4,
+				GameStateRequirements =
+				{
+					{
+					},
+				},
+				Cooldowns =
+				{
+					{ Name = "MorosProphecyFulfilledSpeech", Time = 3 },
+				},
+				SkipAnim = true,
+				RequiredSourceValueFalse = "InPartnerConversation",
+				ObjectType = "NPC_Moros_01",
+
+				{ Cue = "/VO/Moros_0216", Text = "A necessary step along your path." },
+			},
+		},
+	},
+
+	Quest_Nemesis_ArachneCostume =
+	{
+		InheritFrom = { "DefaultQuestItem", "DefaultFatesQuest" },
+		RewardResourceName = "MetaFabric",
+		RewardResourceAmount = 3,
+		UnlockGameStateRequirements =
+		{
+			{
+				PathTrue = { "GameState", "TextLinesRecord", "ArachneGift02" },
+			},
+			{
+				Path = { "GameState", "TraitsTaken" },
+				CountOf =
+				{
+                    "NemesisVitalityCostume",
+					"NemesisManaCostume",
+					"NemesisAgilityCostume",
+					"NemesisIncomeCostume",
+					"NemesisCastDamageCostume",
+					"NemesisHighArmorCostume",
+					"NemesisSpellCostume",
+					--"NemesisEscalatingCostume",
+				},
+				Comparison = ">=",
+				Value = 1,
+			},
+		},
+		CompleteGameStateRequirements =
+		{
+			{
+				Path = { "GameState", "TraitsTaken" },
+				HasAll =
+				{
+					"NemesisVitalityCostume",
+					"NemesisManaCostume",
+					"NemesisAgilityCostume",
+					"NemesisIncomeCostume",
+					"NemesisCastDamageCostume",
+					"NemesisHighArmorCostume",
+					"NemesisSpellCostume",
+					--"NemesisEscalatingCostume",
+				},
+			},
+		},
+
+		CashedOutVoiceLines =
+		{
+			{
+				PreLineWait = 0.4,
+				GameStateRequirements =
+				{
+					{
+					},
+				},
+				Cooldowns =
+				{
+					{ Name = "MorosProphecyFulfilledSpeech", Time = 3 },
+				},
+				SkipAnim = true,
+				RequiredSourceValueFalse = "InPartnerConversation",
+				ObjectType = "NPC_Moros_01",
+
+				{ Cue = "/VO/Moros_0606", Text = "My sisters have keen interest in skilled weavers of all sorts." },
+			},
+		},
+	},
+
+	Quest_Nemesis_RivalMelCompetition =
+	{
+		InheritFrom = { "DefaultQuestItem", "DefaultUnseenQuest" },
+		RewardResourceName = "SuperGiftPoints",
+		RewardResourceAmount = 2,
+		UnlockGameStateRequirements =
+		{
+			{
+				Path = { "GameState", "JarlUlsfarkRivalMelBetWon" },
+				CountOf =
+				{
+                    "RivalMelStaff",
+					"RivalMelDagger",
+					"RivalMelTorch",
+					"RivalMelAxe",
+                    "RivalMelLob",
+                    "RivalMelSuit",
+				},
+				Comparison = ">=",
+				Value = 1,
+			},
+		},
+		CompleteGameStateRequirements =
+		{
+			{
+				Path = { "GameState", "JarlUlsfarkRivalMelBetWon" },
+				HasAll =
+				{
+                    "RivalMelStaff",
+					"RivalMelDagger",
+					"RivalMelTorch",
+					"RivalMelAxe",
+                    "RivalMelLob",
+                    "RivalMelSuit",
 				},
 			},
 		},
