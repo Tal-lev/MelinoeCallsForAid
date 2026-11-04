@@ -35,6 +35,7 @@ A Hades II mod that adds Chronos and Nemesis as unique playable characters.
 - Requires deepening the bond with her.
 - Move-set
   - Attack is 3-move sword combo
+  - Omega Attack is a forward charge followed by a powerful stab.
   - Special is Circular blast which knock enemies back.
   - Omega Special is a larger and stronger Circular blast which knock enemies back.
   - Cast is a short parry that blocks from damage from the front and destroys projectiles.
