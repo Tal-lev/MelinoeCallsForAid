@@ -41,6 +41,7 @@ Other fixes and improvements:
 - Balancing: Increased Omega Attack Mana Cost 20->30 
 - Balancing: Reduced Omega Special Mana Cost 30->20
 - Balancing: Increased Omega Attack Charge time 0.2s->1s
+- Balancing: Shifted new characters in the shop to the weapon menu and Removed Chronos Aspect ranks 2-5. 
 - Fixed: Chronos always sounds the same when hurt.
 - Fixed: Special boons cause Chronos Special to have Melinoe's special VFX.
 - Fixed: the game crash when gaining a pom with some of the Chronos dash boons.
