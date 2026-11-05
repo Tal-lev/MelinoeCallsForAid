@@ -13,30 +13,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added Nemesis as a Playable character, complete her own attacks and animations.
 - Added fifteen Nemesis Cast boons.
 - Added six Nemesis specific Hammers.
-- Added Nemesis Portraits in conversations, Compatible with Zagreus Journey and MelSkin.
+- Added Chronos specific Hexes with their accompanying talents. Chronos can no longer use Melinoe's Hexes.
 
 Other fixes and improvements:
 
-- Added many Nemesis contextual quips, (150+ in game)
-- Added minor prophecies for Nemesis and Chronos
-- Added Nemesis Arachne Costumes.
-- Added Rival Melinoe when playing as Nemesis
-- Added Chronos specific Hexes with their accompanying talents. Chronos can no longer use Melinoe's Hexes.
 - Added two more Chronos specific Hammers. Chronos can no longer use Melinoe's Hammers.
-- Added Chronos Portraits in conversations, Compatible with Zagreus Journey and MelSkin.
+- Added Nemesis and Chronos Portraits in conversations, Compatible with Zagreus Journey and MelSkin.
+- Added many Nemesis contextual quips, (150+ in game).
+- Added many Chronos contextual quips, (250+ in game).
+- Added minor prophecies for Nemesis and Chronos.
+- Added Nemesis Arachne Costumes.
+- Added Rival Melinoe when playing as Nemesis.
 - Added Chronos Mana UI - Mana Symbol and Charge animations by @Yegitu on discord.
 - Added Chronos Hammer Icons by @Yegitu on discord.
-- Added Chronos Minor Prophecies.
+- Added Death Defiance Icon for Chronos.
 - Added Keywords description to explain kit changes.
 - Added Requirements for MelSkin dresses.
 - Remove Chronos incompatible Dash boons.
 - Remove Nemesis incompatible Cast boons.
 - Added Chronos Beard dress.  
-- Added Chronos Cosmetics.
+- Added Chronos related-Cosmetics.
 - Added Chronos Harvesting Animations.
 - Added more Chronos Room transition Animations.
 - Added Chronos Biome Map transition.
-- Added many Chronos contextual quips, (250+ in game)
 - Modified Nemesis and Heracles encounter text to track new characters instead of Melinoe.
 - Balancing: Attack, Omega Attack and Omega Special now stun enemies.
 - Balancing: Increased Omega Attack Mana Cost 20->30 
@@ -49,7 +48,7 @@ Other fixes and improvements:
 - Fixed: Hero unexpected size Change during Zagreus Journey biomes
 - Fixed: Omega Attack fires even when there is not sufficient mana.
 - Reworked the Readme.md
-- DEV: reorganized the scripts per character
+- DEV: reorganized the scripts per character.
 
 ## [0.2.1] - 2026-09-28
 
@@ -62,7 +61,7 @@ Other fixes and improvements:
 
 - Added two Chronos Dash boons.
 - Added compatibility with MelSkin mod.
-- Added Chronos contextual quips, (50+ in game)
+- Added Chronos contextual quips, (50+ in game).
 
 Other fixes and improvements:
 
@@ -73,7 +72,7 @@ Other fixes and improvements:
 - Balancing: Increased Attack damage 29 -> 40
 - Balancing: Reduced Omega Attack Damage 150 -> 120
 - Balancing: Increased Hera Dash Boon Damage 30 -> 40
-- Development: Split muting Melinoe's quips into a helper mod "SilenceMelinoeHelperMod"
+- Development: Split muting Melinoe's quips into a helper mod "SilenceMelinoeHelperMod".
 - Development: Moving all imports to main.lua
 
 ## [0.1.0] - 2026-09-22
