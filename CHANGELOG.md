@@ -10,10 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!--Releasenotes start-->
 ### Patch Highlights:
 
-- Added Nemesis as a Playable character, complete her own attacks and animations.
+- Added **Nemesis** as a Playable character, complete her own attacks and animations.
 - Added fifteen Nemesis Cast boons.
 - Added six Nemesis specific Hammers.
-- Added Chronos specific Hexes with their accompanying talents. Chronos can no longer use Melinoe's Hexes.
+- Added Chronos specific **Hexes** with their accompanying talents. Chronos can no longer use Melinoe's Hexes.
 
 Other fixes and improvements:
 
