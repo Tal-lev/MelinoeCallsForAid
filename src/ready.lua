@@ -1134,13 +1134,13 @@ function mod.SetupChronosAnimations()
 		Melinoe_DiveEntrance_Start = "NPC_Chronos_Enlightened_Hover",
 		Melinoe_DiveEntrance_End = "NPC_Chronos_Enlightened_Hover",
 
-		MelinoePetFrinos = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_PetPolecat = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_PetHound = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_PetCat = "NPC_Chronos_Enlightened_Hover",
+		MelinoePetFrinos = "Player_Chronos_Enlightened_Tag",
+		Melinoe_PetPolecat = "Player_Chronos_Enlightened_Tag",
+		Melinoe_PetHound = "Player_Chronos_Enlightened_Tag",
+		Melinoe_PetCat = "Player_Chronos_Enlightened_Tag",
 		Melinoe_Kneel_Start = "NPC_Chronos_Enlightened_Hover",
 		Melinoe_Kneel_End = "NPC_Chronos_Enlightened_Hover",
-		Melinoe_PetRaven = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_PetRaven = "Player_Chronos_Enlightened_Tag",
 
 		Melinoe_Hug_Start = "NPC_Chronos_Enlightened_Hover",
 		Melinoe_Hug_FireLoop = "NPC_Chronos_Enlightened_Hover",

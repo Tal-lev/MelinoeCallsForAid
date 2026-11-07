@@ -11,18 +11,18 @@ function mod.ChronosCircle( weaponData, functionArgs, triggerArgs )
     if HeroHasTrait("ChronosCircleArtemisTalent") and ShouldFireFirstTimeOlympian() then
         thread( DoFullSuperPresentation, functionArgs.Character )
         wait(0.1)
-		CreateProjectileFromUnit({ Name = functionArgs.ProjectileName .. "Out" .. "Artemis", WeaponName = weaponData.Name .. "GodSent",  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
+		CreateProjectileFromUnit({ Name = functionArgs.ProjectileName .. "Out" .. "Artemis", WeaponName = functionArgs.WeaponName .. "GodSent",  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
 		if HeroHasTrait("ChronosCircleInTalent") then
 			wait(0.1)
-			CreateProjectileFromUnit({ Name = functionArgs.ProjectileName .. "In" .. "Artemis", WeaponName = weaponData.Name .. "GodSent",  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
+			CreateProjectileFromUnit({ Name = functionArgs.ProjectileName .. "In" .. "Artemis", WeaponName = functionArgs.WeaponName .. "GodSent",  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
 		end
     else 
 		print("Second Use")
 		wait(0.1)
-		CreateProjectileFromUnit({ Name = functionArgs.ProjectileName .. "Out", WeaponName = weaponData.Name,  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
+		CreateProjectileFromUnit({ Name = functionArgs.ProjectileName .. "Out", WeaponName = functionArgs.WeaponName,  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
 		if HeroHasTrait("ChronosCircleInTalent") then
 			wait(0.1)
-			CreateProjectileFromUnit({ Name = functionArgs.ProjectileName .. "In", WeaponName = weaponData.Name,  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
+			CreateProjectileFromUnit({ Name = functionArgs.ProjectileName .. "In", WeaponName = functionArgs.WeaponName,  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })
 		end
     end
 	wait(1)
@@ -44,16 +44,6 @@ OverwriteTableKeys( TraitData, {
 		{
 			Name = _PLUGIN.guid .. "." .. "ChronosCheckCircleCharge",
 		},
-		PropertyChanges = 
-		{
-            {
-				WeaponName = "WeaponSpellChronosCircle",
-				ProjectileName = "ChronosRadialOut",
-                ProjectileProperties = {
-                    Damage = 200,
-                },
-			},
-		},
 		ExtractValues = 
 		{
 			{
@@ -69,7 +59,8 @@ OverwriteTableKeys( TraitData, {
 			FunctionArgs = 
 			{
 				Character = "Artemis",
-                ProjectileName = "ChronosRadial",
+				WeaponName = "WeaponSpellChronosCircle",
+                ProjectileName = "PlayerChronosRadial",
 			},
         },
 		UpgradePickedVoiceLines =

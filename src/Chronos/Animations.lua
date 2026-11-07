@@ -222,6 +222,22 @@ sjson.hook(file, function(data)
 		Material = "Unlit",
 		ChildAnimation = "InspectPointLoopBig",
 	})
+
+    table.insert(data.Animations,
+    {
+        Name = "Player_Chronos_Enlightened_Tag",
+		InheritFrom = "NPC_Chronos_Enlightened_Tag",
+        ChainTo = "Player_Chronos_Enlightened_Crouch_FireLoop",
+    })
+
+    table.insert(data.Animations,
+    {
+        Name = "Player_Chronos_Enlightened_Crouch_FireLoop",
+		InheritFrom = "NPC_Chronos_Enlightened_Crouch_FireLoop",
+        ChainTo = "NPC_Chronos_Enlightened_Hover",
+        Loop = false,
+    })
+    
     
 return data
 end)
