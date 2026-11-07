@@ -1909,14 +1909,17 @@ ChronosAspect = {
 			{
 				{ ManaCost = 30, WeaponProperties = { NumProjectiles = 1, FireEndGraphic = "null" }, Wait = 1, ChannelSlowEventOnEnter = true, HideStageReachedFx = false },
 			},
-			FireSounds =
+			Sounds =
 			{
-				{ Name = "/SFX/Enemy Sounds/Chronos/EmoteAttackingRanged" },
-				{ Name = "/SFX/Enemy Sounds/Chronos/ChronosScytheWhirlStart" },
-				{ Name = "/SFX/Enemy Sounds/Chronos/ChronosScytheWhirl" },
-			},
-			ChargeSounds = {
-				{ Name = "/SFX/Enemy Sounds/Chronos/EmoteAttackingRanged" },
+				FireSounds =
+				{
+					{ Name = "/SFX/Enemy Sounds/Chronos/EmoteAttackingRanged" },
+					{ Name = "/SFX/Enemy Sounds/Chronos/ChronosScytheWhirlStart" },
+					{ Name = "/SFX/Enemy Sounds/Chronos/ChronosScytheWhirl" },
+				},
+				ChargeSounds = {
+					{ Name = "/SFX/Enemy Sounds/Chronos/EmoteAttackingRanged" },
+				},
 			},
 		},
 		WeaponAxeSpecial = 
