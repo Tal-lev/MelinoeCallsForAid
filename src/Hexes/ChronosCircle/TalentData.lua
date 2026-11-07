@@ -16,7 +16,7 @@ OverwriteTableKeys( TraitData, {
         {
             {
 				WeaponName = "WeaponSpellChronosCircle",
-				ProjectileName = "ChronosRadialIn",
+				ProjectileName = "PlayerChronosRadialIn",
                 ProjectileProperties = {
                     Damage = 200,
                 },
@@ -39,7 +39,7 @@ OverwriteTableKeys( TraitData, {
         Icon = "Boon_Selene_40",
         OnEnemyDamagedAction = 
         {
-            ValidProjectiles = { "ChronosRadialOut" ,"ChronosRadialIn", "ChronosRadialOutArtemis", "ChronosRadialInArtemis"},
+            ValidProjectiles = { "PlayerChronosRadialOut" ,"PlayerChronosRadialIn", "PlayerChronosRadialOutArtemis", "PlayerChronosRadialInArtemis"},
             EffectName = "BlindEffect",
             Chance = 1,
             ReportValues = { ReportedChance = "Chance"}
@@ -100,7 +100,7 @@ OverwriteTableKeys( TraitData, {
 		},
         OnEnemyDamagedAction = 
 		{
-			ValidProjectiles = { "ChronosRadialOut" ,"ChronosRadialIn", "ChronosRadialOutArtemis", "ChronosRadialInArtemis"},
+			ValidProjectiles = { "PlayerChronosRadialOut" ,"PlayerChronosRadialIn", "PlayerChronosRadialOutArtemis", "PlayerChronosRadialInArtemis"},
 			EffectName = "DelayedKnockbackEffect",
 			Args = 
 			{
@@ -149,7 +149,7 @@ OverwriteTableKeys( TraitData, {
         Icon = "Boon_Selene_48",
         OnEnemyDamagedAction = 
 		{
-			ValidProjectiles = { "ChronosRadialOut" ,"ChronosRadialIn", "ChronosRadialOutArtemis", "ChronosRadialInArtemis" },
+			ValidProjectiles = { "PlayerChronosRadialOut" ,"PlayerChronosRadialIn", "PlayerChronosRadialOutArtemis", "PlayerChronosRadialInArtemis" },
 			FunctionName = "ApplyAphroditeVulnerability",
 			Args = 
 			{
@@ -184,7 +184,7 @@ OverwriteTableKeys( TraitData, {
         AddOutgoingDamageModifiers =
         {
             ValidWeaponMultiplier = { BaseValue = 1.1, SourceIsMultiplier = true },
-            ValidProjectiles = { "ChronosRadialOut" ,"ChronosRadialIn" , "ChronosRadialOutArtemis", "ChronosRadialInArtemis"},
+            ValidProjectiles = { "PlayerChronosRadialOut" ,"PlayerChronosRadialIn" , "PlayerChronosRadialOutArtemis", "PlayerChronosRadialInArtemis"},
             ReportValues = { ReportedWeaponMultiplier = "ValidWeaponMultiplier"},
         },
         StatLines =
@@ -232,7 +232,7 @@ OverwriteTableKeys( TraitData, {
 		},
 		AddOutgoingCritModifiers =
 		{
-            ValidProjectiles = { "ChronosRadialOutArtemis", "ChronosRadialInArtemis" },
+            ValidProjectiles = { "PlayerChronosRadialOutArtemis", "PlayerChronosRadialInArtemis" },
 			Chance = { BaseValue = 0.60 },
 			ReportValues = { ReportedCritBonus = "Chance"},
 		},
