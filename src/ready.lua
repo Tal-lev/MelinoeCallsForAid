@@ -559,6 +559,8 @@ end)
 modutil.mod.Path.Wrap("BiomeMapPresentation",  function(baseFunc, source, args, contextArgs) 
 	if HeroHasTrait("ChronosAspect") then
 		return mod.ChronosBiomeMapPresentation(source, args, contextArgs)
+	elseif HeroHasTrait("NemesisAspect") then
+		return mod.NemesisBiomeMapPresentation(source, args, contextArgs)
 	else
 		return baseFunc(source, args, contextArgs)
 	end
@@ -568,6 +570,8 @@ end)
 modutil.mod.Path.Wrap("HeraclesRequiredKillPresentation",  function(baseFunc, encounter, victim, killer) 
 	if HeroHasTrait("ChronosAspect") then
 		return mod.ChronosHeraclesRequiredKillPresentation(encounter, victim, killer)
+	elseif HeroHasTrait("NemesisAspect") then
+		return mod.NemesisHeraclesRequiredKillPresentation(encounter, victim, killer)
 	else
 		return baseFunc(encounter, victim, killer)
 	end
@@ -1020,6 +1024,8 @@ if rom.mods['NikkelM-Zagreus_Journey'] then
 	modutil.mod.Path.Wrap("NikkelM-Zagreus_Journey.ModsNikkelMHadesBiomesBiomeMapPresentation",  function(baseFunc, source, args) 
 		if HeroHasTrait("ChronosAspect") then
 			mod.ChronosModsNikkelMHadesBiomesBiomeMapPresentation(source, args)
+		elseif HeroHasTrait("NemesisAspect") then
+			mod.NemesisModsNikkelMHadesBiomesBiomeMapPresentation(source, args)
 		else
 			baseFunc(source, args)
 		end
