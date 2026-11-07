@@ -49,8 +49,9 @@ Other fixes and improvements:
 - Fixed: the game crash when gaining a pom with some of the Chronos dash boons.
 - Fixed: Interaction animation lead to Chronos animation glitching.
 - Fixed: Hero unexpected size Change during Zagreus Journey biomes
-- Fixed: Omega Attack fires even when there is not sufficient mana.
-- Fixed: Chronos sprints if holding the direction button during and after dash.
+- Fixed: Chronos Omega Attack fires even when there is not sufficient mana.
+- Fixed: Chronos Omega Attack sounds like Melinoe.
+- Fixed: Chronos sprints if holding the direction button during and after dash.  
 - Reworked the Readme.md
 - DEV: reorganized the scripts per character.
 
