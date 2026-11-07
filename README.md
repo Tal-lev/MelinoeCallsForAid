@@ -5,7 +5,7 @@ A Hades II mod that adds Chronos and Nemesis as unique playable characters.
 ## Features
 
 <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-  <img src="https://media.githubusercontent.com/media/Tal-lev/MelinoeCallsForAid/refs/heads/main/images/ChronosTitle.PNG" alt="PonyDressList" width="70%">
+  <img src="https://media.githubusercontent.com/media/Tal-lev/MelinoeCallsForAid/refs/heads/main/images/ChronosTitle.PNG" alt="PonyDressList" width="80%">
 </div>
 
 <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
@@ -29,7 +29,7 @@ A Hades II mod that adds Chronos and Nemesis as unique playable characters.
 - New Minor Prophecies
 
 <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-  <img src="https://media.githubusercontent.com/media/Tal-lev/MelinoeCallsForAid/refs/heads/main/images/NemesisTitle.PNG" alt="PonyDressList" width="70%">
+  <img src="https://media.githubusercontent.com/media/Tal-lev/MelinoeCallsForAid/refs/heads/main/images/NemesisTitle.PNG" alt="PonyDressList" width="80%">
 </div>
 
 <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
