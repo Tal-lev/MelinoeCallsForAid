@@ -1167,6 +1167,9 @@ function mod.SetupChronosAnimations()
 
 		MelinoePickAxeMineStart = "Enemy_Chronos_SwingLeftPreFire",
 		MelinoePickAxeMineSwing = "Enemy_Chronos_SwingLeftFire",
+
+		--Bats menus in Ephyra
+		Mel_Icon = "ChronosBatsMenu",
 		--"Enemy_Chronos_Knockdown_Frustrated",
 		--"Enemy_Chronos_SittingGreeting",
 		--"Enemy_Chronos_Shadowed_Greeting",
@@ -1430,6 +1433,9 @@ function mod.SetupNemesisAnimations()
 		--"Enemy_Chronos_Knockdown_Frustrated",
 		--"Enemy_Chronos_SittingGreeting",
 		--"Enemy_Chronos_Shadowed_Greeting",
+
+		--Bats menus in Ephyra
+		Mel_Icon = "NemesisBatsMenu",
 	}
 
 	--Portraits
@@ -1693,6 +1699,9 @@ function mod.UnequipChronosAnimations()
 		MelinoeGatherStart = "Nemesis_Combat_Idle",
 		MelinoeGatherPickup = "PlayerNemesis_Combat_Interact",
 
+		--Bats Menu in Ephyra
+		Mel_Icon = "Keepsake_Nemesis",
+
 		--Portraits
 		Portrait_Mel_Default_01 = "Portrait_MelAndChronos_Default_01",
 		Portrait_Mel_Default_01_Exit = "Portrait_MelAndChronos_Default_01_Exit",
@@ -1725,12 +1734,13 @@ function mod.UnequipChronosAnimations()
 		ModsNikkelMHadesBiomes_Portrait_Zag_Empathetic_01 = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Empathetic_01",
 		ModsNikkelMHadesBiomes_Portrait_Zag_Empathetic_01_Exit = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Empathetic_01_Exit",
 		ModsNikkelMHadesBiomes_Portrait_Zag_Unwell_01 = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Unwell_01",
-		ModsNikkelMHadesBiomes_Portrait_Zag_Unwell_01_Exit = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Unwell_01_Exit"
+		ModsNikkelMHadesBiomes_Portrait_Zag_Unwell_01_Exit = "ModsNikkelMHadesBiomes_Portrait_ZagChronos_Unwell_01_Exit",
 
 
 		--"Enemy_Chronos_Knockdown_Frustrated",
 		--"Enemy_Chronos_SittingGreeting",
 		--"Enemy_Chronos_Shadowed_Greeting",
+
 	}
 
 	wait(0.2)
@@ -2206,6 +2216,14 @@ ChronosAspect = {
 				SelfVelocity = 1980,
 				SelfVelocityCap = 540,
 			},
+			ExcludeLinked = true,
+		},
+		{
+			WeaponName = "WeaponSprint",
+			EffectName = "SprintFx",
+			EffectProperty = "Active",
+			ChangeValue = false,
+			ChangeType = "Absolute",
 			ExcludeLinked = true,
 		},
 		{

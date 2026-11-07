@@ -210,6 +210,18 @@ sjson.hook(file, function(data)
         { DurationFrames = 1 },
       },
     })
+
+    --For Bats Menu
+    table.insert(data.Animations,
+    {
+		Name = "ChronosBatsMenu",
+		InheritFrom = "KeepsakeMax",
+		FilePath = "GUI\\Screens\\AwardMenu\\KeepsakeMaxGift\\KeepsakeMaxGift_big\\Chronos",
+        AngleFromOwner = "Ignore",
+		Scale = 0.225,
+		Material = "Unlit",
+		ChildAnimation = "InspectPointLoopBig",
+	})
     
 return data
 end)

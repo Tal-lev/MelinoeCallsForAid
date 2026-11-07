@@ -435,6 +435,19 @@ sjson.hook(file, function(data)
 		Scale = 0.45,
 		Material = "Unlit",
 	})
+
+	--For Bats Menu
+    table.insert(data.Animations,
+    {
+		Name = "NemesisBatsMenu",
+		InheritFrom = "KeepsakeMax",
+		FilePath = "GUI\\Screens\\AwardMenu\\KeepsakeMaxGift\\KeepsakeMaxGift_big\\Nemesis",
+        AngleFromOwner = "Ignore",
+		Scale = 0.225,
+		Material = "Unlit",
+		ChildAnimation = "InspectPointLoopBig",
+	})
+    
 return data
 end)
 
