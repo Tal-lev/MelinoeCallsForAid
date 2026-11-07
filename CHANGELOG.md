@@ -36,6 +36,7 @@ Other fixes and improvements:
 - Added Chronos Harvesting Animations.
 - Added more Chronos Room transition Animations.
 - Added Chronos Biome Map transition.
+- Added Chronos petting animation.
 - Added New characters to bat menu.
 - Modified Nemesis and Heracles encounter text to track new characters instead of Melinoe.
 - Balancing: Attack, Omega Attack and Omega Special now stun enemies.
