@@ -33,9 +33,9 @@ Other fixes and improvements:
 - Remove Nemesis incompatible Cast boons.
 - Added Chronos Beard dress.  
 - Added Chronos related-Cosmetics.
-- Added Chronos Harvesting Animations.
+- Added Chronos and Nemesis Harvesting Animations.
 - Added more Chronos Room transition Animations.
-- Added Chronos Biome Map transition.
+- Added Chronos and Nemesis Biome Map transition.
 - Added Chronos petting animation.
 - Added New characters to bat menu.
 - Modified Nemesis and Heracles encounter text to track new characters instead of Melinoe.
