@@ -465,14 +465,14 @@ sjson.hook(file, function(data)
 
 	table.insert(data.Animations, sjson.to_object(
 	{
-		Name = "Portrait_MelChronos_Pleased_01",
+		Name = "Portrait_MelChronos_PleasedFlushed_01",
 		InheritFrom = "Portrait_Base_01",
 		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Portraits_Chronos_Enlightened_01",
 		OffsetX = -300,
 		Alpha = 0.7,
 		CreateAnimations =
 		{
-			{ Name = "Portrait_MelCFA_NoCancel_Pleased_01" },
+			{ Name = "Portrait_MelCFA_NoCancel_PleasedFlushed_01" },
 		}
 	},
 	TextOrder)

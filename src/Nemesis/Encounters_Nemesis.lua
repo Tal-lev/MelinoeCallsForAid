@@ -2,7 +2,7 @@
 local file = rom.path.combine(rom.paths.Content, 'Game/Projectiles/NPC_Projectiles.sjson')
 sjson.hook(file, function(data)
 
-    --Staff Mel
+    --Projectiles Staff Mel
     table.insert(data.Projectiles,
     {
         Name = "MelRivalProjectileStaffSwing1",
@@ -283,6 +283,7 @@ sjson.hook(file, function(data)
         },
     })
 
+    --Projectiles Suit Mel
     table.insert(data.Projectiles,
     {
 		Name = "MelRivalProjectileSuit",
@@ -447,7 +448,7 @@ sjson.hook(file, function(data)
     table.insert(data.Projectiles,
     {
 		Name = "MelRivalProjectileSuitRangedGuided",
-		InheritFrom = "MelRivalProjectileSuitRangedUnguided",
+		InheritFrom = "1_BaseNPCProjectile",
 		Type = "HOMING"	,
 		DamageRadius = 160.0,
 		DamageRadiusScaleY = 0.6,
@@ -503,6 +504,7 @@ sjson.hook(file, function(data)
 		},   
 	})
 
+    --Projectiles Lob Mel
     table.insert(data.Projectiles,
     {
 		Name = "MelRivalProjectileLob" ,
@@ -648,6 +650,7 @@ sjson.hook(file, function(data)
         }
 	})
 
+    --Projectiles Axe Mel
     table.insert(data.Projectiles,
     {
 		Name = "MelRivalProjectileAxe3",
@@ -862,6 +865,7 @@ sjson.hook(file, function(data)
         }
 	})
 
+    --Projectiles Dagger Mel
     table.insert(data.Projectiles,
     {
 		Name = "MelRivalProjectileDaggerSliceLeft",
@@ -1214,6 +1218,263 @@ sjson.hook(file, function(data)
 				{
 					X = -5,
 					Y = 25,
+				},
+            },
+		},
+		Effects =
+		{
+			{
+                Name = "HeroOnHitStun",
+                Duration = 0.5,
+                DisableMove = true,
+                DisableRotate = true,
+                DisableAttack = true,
+                Active = true,
+                CanAffectInvulnerable = false,
+                Cancelable = false,
+                FrontFx = "DionysusStunnedFx",
+            },
+            {
+                Name = "KnockbackGrip",
+                Type = "GRIP",
+                Duration = 0.1,
+                Modifier = 0.01,
+                HaltOnEnd = true,
+                Active = true,
+                CanAffectInvulnerable = true,
+            },
+        },
+	})
+
+    --Projectiles Torch Mel
+    --This projectile crashes the game without an error warning. 
+    table.insert(data.Projectiles,
+    {
+		Name = "MelRivalProjectileTorchBall",
+		InheritFrom = "1_BaseNPCProjectile",
+		Type = "HOMING",
+		Damage = 250,
+		MaxAdjustRate = 0,
+		Range = 2000,
+		Speed = 1250,
+		SpeedVariance = 0,
+		Acceleration = -450,
+		AutoAdjustForTarget = false,
+		TotalFuse = 0.74,
+		ActiveBlinkSpeedMultiplier = 1.0,
+		ActiveBlinkRangeMultiplier = 1.0,
+		InheritOwnerVelocityMultiplier = 0,
+		SpinFromOwnerVelocityMultiplier = 0,
+		ProjectileImpactSound = "/SFX/MelTorchBounce",
+		SimpleImpactSound = "/SFX/MelTorchBounce",
+		ImpactVelocity = 0,
+		AffectsEnemies = true,
+		AffectsFriends = true,
+		AffectsSelf = false,
+		CheckUnitImpact = true,
+		CheckObstacleImpact = true,
+		CheckProjectileImpact = false,
+		ArcScaleY = 0.5,
+		DetonateOnImpact = false,
+		CollisionLayer = "Lyre",
+		UseVulnerability = true,
+		UnlimitedUnitPenetration = false,
+		NumJumps = 0,
+		JumpType = "OBSTACLE_ONLY",
+		JumpSpeedMultiplier = 0.8,
+		AllowRepeatedJumpHit = false,
+		ExcludeLastHitThing = true,
+		NoJumpTargetRandomSpread = 30,
+		MultipleUnitCollisions = false,
+		MultipleObstacleCollisions = true,
+		StartFx = "null",
+		DissipateFx = "TorchBallDissipate",
+		ImpactFx = "TorchImpactFxBase",
+		IgnoreObstacleImpactDuration = 0.05,
+		Thing =
+		{
+			Graphic = "TorchBallIn",
+			OffsetZ = 112,
+			AttachedAnim = "TorchBallGroundGlow",
+			AmbientSound = "/SFX/Player Sounds/MelTorchBallAmbience",
+			Grip = 999999,
+			RotateGeometry = true,
+			UseBoundsForSortDrawArea = true,
+			SortBoundsScale = 0.25,
+			Tallness = 20,
+			Points =
+			{
+				{
+					X = 25,
+					Y = 50,
+				},
+				{
+					X = 25,
+					Y = -50,
+				},
+				{
+					X = -75,
+					Y = 0,
+				},
+            },
+		},
+		Effects =
+		{
+			{
+                Name = "HeroOnHitStun",
+                Duration = 0.5,
+                DisableMove = true,
+                DisableRotate = true,
+                DisableAttack = true,
+                Active = true,
+                CanAffectInvulnerable = false,
+                Cancelable = false,
+                FrontFx = "DionysusStunnedFx",
+            },
+            {
+                Name = "KnockbackGrip",
+                Type = "GRIP",
+                Duration = 0.1,
+                Modifier = 0.01,
+                HaltOnEnd = true,
+                Active = true,
+                CanAffectInvulnerable = true,
+            },
+        },
+	})
+
+	table.insert(data.Projectiles,
+	{
+		Name = "MelRivalProjectileTorchWave",
+		InheritFrom = "1_BaseNPCProjectile",
+		Type = "STRAIGHT",
+		Fuse = 0.25,
+		Speed = 2000,
+		IgnoreObstacleImpactDuration = 0.35,
+		ImpactVelocity = 0,
+        AffectsEnemies = true,
+		AffectsFriends = true,
+		AffectsSelf = false,
+		CheckUnitImpact = true,
+		CheckObstacleImpact = true,
+		MultipleObstacleCollisions = true,
+		UnlimitedUnitPenetration = true,
+		Damage = 300,
+		GroupName = "FX_Standing_Add",
+		UseVulnerability = true,
+		Thing =
+		{ 
+			Graphic = "ProjectileTorchWave",
+			GeometryScaleY = 0.6,
+			RotateGeometry = true,
+			AttachedAnim = "TorchBallGroundGlowWave",
+			Grip = 999999,
+			SortBoundsScale = 0.2,
+			UseBoundsForSortDrawArea = true,
+			Points =
+			{
+				{
+					X = 100,
+					Y = 320,
+				},
+				{
+					X = 100,
+					Y = -320,
+				},
+				{
+					X = -100,
+					Y = 0,
+				},
+            },
+		},
+		Effects =
+		{
+			{
+                Name = "HeroOnHitStun",
+                Duration = 0.5,
+                DisableMove = true,
+                DisableRotate = true,
+                DisableAttack = true,
+                Active = true,
+                CanAffectInvulnerable = false,
+                Cancelable = false,
+                FrontFx = "DionysusStunnedFx",
+            },
+            {
+                Name = "KnockbackGrip",
+                Type = "GRIP",
+                Duration = 0.1,
+                Modifier = 0.01,
+                HaltOnEnd = true,
+                Active = true,
+                CanAffectInvulnerable = true,
+            },
+        },
+	})
+	
+	table.insert(data.Projectiles,
+	{
+		Name = "MelRivalProjectileTorchOrbit",
+		InheritFrom = "1_BaseNPCProjectile",
+		DetonateFx = "null",
+		Type = "ARC",
+		AffectsEnemies = true,
+		AffectsFriends = true,
+		AffectsSelf = false,
+		UnlimitedUnitPenetration = true,
+		UnlimitedObstaclePenetration = true,
+		ResetCollisionOutsideImpact = true,
+		SilentImpactOnInvulnerable = true,
+		Fuse = 0.5,
+		Range = 260,
+		ArcStart = 0,
+		ArcEnd = 10800,
+		ArcScaleY = 0.5,
+		Speed = 1200,
+		UseStartLocation = true,
+		UseArmor = true,
+		UseVulnerability = true,
+		AttachToMarker = "null",
+		InvulnerableImpactOwnerVelocity = 0,
+		StartFx = "null",
+		Damage = 300,
+		StartDelay = 0,
+		DrawDuringPause = false,
+		UnpauseResetLocation = true,
+		GroupName = "Standing",
+		DissipateFx = "TorchOrbitBaseOut",
+		CollisionLayer = "Lyre",
+		DetonatesProjectilesOnLayer = true,
+		MultipleUnitCollisions = true,
+		DetonateOnImpact = false,
+		Thing =
+		{
+			Graphic = "TorchOrbitBaseIn",
+			AttachedAnim = "TorchOrbitShadowBase",
+			AmbientSound = "/SFX/Player Sounds/MelTorchSpecialLoop",
+			OffsetZ = 112,
+			RotateGeometry = true,
+			Scale = 1.0,
+			SortBoundsScale = 0.2,
+			UseBoundsForSortDrawArea = true,
+			Tallness = 50,
+			Points =
+			{
+				{
+					X = 70,
+					Y = 70,
+				},
+				{
+					X = 70,
+					Y = -70,
+				},
+				{
+					X = -70,
+					Y = -70,
+				},
+				{
+					X = -70,
+					Y = 70,
 				},
             },
 		},
@@ -2091,12 +2352,242 @@ OverwriteTableKeys(WeaponData, {
 		},
 
 	},
+
+    MelRival_Torch_NemesisAttack1 =
+	{
+		AIData =
+		{
+			DeepInheritance = true,
+
+			ProjectileName = "MelRivalProjectileTorchWave",
+
+			FireSelfVelocity = 500,
+			FireProjectileStartDelay = 0.1,
+
+			PreAttackAngleTowardTarget = true,
+			WaitForAngleTowardTarget = true,
+			TrackTargetDuringCharge = true,
+			PreAttackRotationDampening = 0.09,
+
+			PreAttackDuration = 0.22,
+			PreAttackSound = "null",
+			FireDuration = 0.3,
+			PostAttackDuration = 0.0, -- animation is 0.68
+
+			AttackDistance = 600,
+			MoveWithinRange = true,
+			PreAttackStop = true,
+
+			PreAttackEndShake = false,
+			PreAttackAnimation = "Melinoe_Torch_Attack1_Start",
+			FireAnimation = "Melinoe_Torch_Attack1_Fire",
+			--PostAttackAnimation = "Nemesis_Combat_Attack1_End",
+
+			ExpireProjectilesOnHitStun = true,
+			TargetRequiredKillEnemy = true,
+			TrackKillSteal = true,
+
+			ChainedWeapon = "MelRival_Torch_NemesisAttack2",
+		},
+
+		Sounds =
+		{
+			FireSounds =
+			{
+				{ Name = "/SFX/Player Sounds/MelTorchFireBasic" },	
+			},
+		},
+	},
+
+    MelRival_Torch_NemesisAttack2 =
+	{
+		AIData =
+		{
+			DeepInheritance = true,
+
+			ProjectileName = "MelRivalProjectileTorchWave",
+
+			FireSelfVelocity = 500,
+			FireProjectileStartDelay = 0.1,
+
+			PreAttackAngleTowardTarget = true,
+			WaitForAngleTowardTarget = true,
+			TrackTargetDuringCharge = true,
+			PreAttackRotationDampening = 0.09,
+
+			PreAttackDuration = 0.22,
+			PreAttackSound = "null",
+			FireDuration = 0.3,
+			PostAttackDuration = 0.0, -- animation is 0.68
+
+			AttackDistance = 600,
+			MoveWithinRange = true,
+			PreAttackStop = true,
+
+			PreAttackEndShake = false,
+			PreAttackAnimation = "Melinoe_Torch_Attack2_Start",
+			FireAnimation = "Melinoe_Torch_Attack2_Fire",
+			--PostAttackAnimation = "Nemesis_Combat_Attack1_End",
+
+			ExpireProjectilesOnHitStun = true,
+			TargetRequiredKillEnemy = true,
+			TrackKillSteal = true,
+
+			ChainedWeapon = "MelRival_Torch_NemesisAttack3",
+		},
+
+		Sounds =
+		{
+			FireSounds =
+			{
+				{ Name = "/SFX/Player Sounds/MelTorchFireBasic" },	
+			},
+		},
+	},
+
+    MelRival_Torch_NemesisAttack3 =
+	{
+		AIData =
+		{
+			DeepInheritance = true,
+
+			ProjectileName = "MelRivalProjectileTorchWave",
+
+			FireSelfVelocity = 500,
+			FireProjectileStartDelay = 0.1,
+
+			PreAttackAngleTowardTarget = true,
+			WaitForAngleTowardTarget = true,
+			TrackTargetDuringCharge = true,
+			PreAttackRotationDampening = 0.09,
+
+			PreAttackDuration = 0.22,
+			PreAttackSound = "null",
+			FireDuration = 0.3,
+			PostAttackDuration = 0.0, -- animation is 0.68
+
+			AttackDistance = 600,
+			MoveWithinRange = true,
+			PreAttackStop = true,
+
+			PreAttackEndShake = false,
+			PreAttackAnimation = "Melinoe_Torch_Attack3_Start",
+			FireAnimation = "Melinoe_Torch_Attack3_Fire",
+			--PostAttackAnimation = "Nemesis_Combat_Attack1_End",
+
+			ExpireProjectilesOnHitStun = true,
+			TargetRequiredKillEnemy = true,
+			TrackKillSteal = true,
+
+			ChainedWeapon = "MelRival_Torch_NemesisAttack4",
+		},
+
+		Sounds =
+		{
+			FireSounds =
+			{
+				{ Name = "/SFX/Player Sounds/MelTorchFireBasic" },	
+			},
+		},
+	},
+
+    MelRival_Torch_NemesisAttack4 =
+	{
+		AIData =
+		{
+			DeepInheritance = true,
+
+			ProjectileName = "MelRivalProjectileTorchWave",
+
+			FireSelfVelocity = 500,
+			FireProjectileStartDelay = 0.1,
+
+			PreAttackAngleTowardTarget = true,
+			WaitForAngleTowardTarget = true,
+			TrackTargetDuringCharge = true,
+			PreAttackRotationDampening = 0.09,
+
+			PreAttackDuration = 0.22,
+			PreAttackSound = "null",
+			FireDuration = 0.3,
+			PostAttackDuration = 0.0, -- animation is 0.68
+
+			AttackDistance = 600,
+			MoveWithinRange = true,
+			PreAttackStop = true,
+
+			PreAttackEndShake = false,
+			PreAttackAnimation = "Melinoe_Torch_Attack4_Start",
+			FireAnimation = "Melinoe_Torch_Attack4_Fire",
+			--PostAttackAnimation = "Nemesis_Combat_Attack1_End",
+
+			ExpireProjectilesOnHitStun = true,
+			TargetRequiredKillEnemy = true,
+			TrackKillSteal = true,
+
+		},
+
+		Sounds =
+		{
+			FireSounds =
+			{
+				{ Name = "/SFX/Player Sounds/MelTorchFireOmega" },
+				{ Name = "/VO/MelinoeEmotes/EmotePowerAttackingStaff" },	
+			},
+		},
+	},
+
+    MelRival_Torch_NemesisSpecial =
+	{
+		AIData =
+		{
+			DeepInheritance = true,
+
+			ProjectileName = "MelRivalProjectileTorchWave",
+
+			FireSelfVelocity = 500,
+			FireProjectileStartDelay = 0.1,
+
+			PreAttackAngleTowardTarget = true,
+			WaitForAngleTowardTarget = true,
+			TrackTargetDuringCharge = true,
+			PreAttackRotationDampening = 0.09,
+
+			PreAttackDuration = 0.22,
+			PreAttackSound = "null",
+			FireDuration = 0.3,
+			PostAttackDuration = 0.0, -- animation is 0.68
+
+			AttackDistance = 600,
+			MoveWithinRange = true,
+			PreAttackStop = true,
+
+			PreAttackEndShake = false,
+			PreAttackAnimation = "Melinoe_Torch_Attack1_Start",
+			FireAnimation = "Melinoe_Torch_Attack1_Fire",
+			--PostAttackAnimation = "Nemesis_Combat_Attack1_End",
+
+			ExpireProjectilesOnHitStun = true,
+			TargetRequiredKillEnemy = true,
+			TrackKillSteal = true,
+
+			ChainedWeapon = "MelRival_Torch_NemesisAttack2",
+		},
+
+		Sounds =
+		{
+			FireSounds =
+			{
+				{ Name = "/SFX/Player Sounds/MelTorchFireBasic" },	
+			},
+		},
+	},
 })
 
 function mod.HandleNemesisCombatSpawn( eventSource, args )
     args = args or {}
-    local weapon = GetRandomValue({"Staff", "Suit", "Lob", "Axe", "Dagger"})
-    --local weapon = GetRandomValue({"Dagger"})
+    --local weapon = GetRandomValue({"Staff", "Suit", "Lob", "Axe", "Dagger", "Torch"})
+    local weapon = GetRandomValue({"Torch"})
     mod.SetupRivalMelAnim(weapon)
 	local currentRun = CurrentRun
 	local currentRoom = CurrentRun.CurrentRoom
@@ -2168,6 +2659,69 @@ end
 modutil.mod.Path.Wrap("HandleNemesisCombatSpawn", function(baseFunc, eventSource, args)
     if HeroHasTrait("NemesisAspect") then
         return mod.HandleNemesisCombatSpawn(eventSource, args)
+    else
+        return baseFunc(eventSource, args)
+    end
+end)
+
+function mod.SpawnNemesisForRandomEvents( eventSource, args )
+	RandomSynchronize( 3 )
+    local weapon = GetRandomValue({"Staff", "Suit", "Lob", "Axe", "Dagger", "Torch"})
+    --local weapon = GetRandomValue({"Torch"})
+    mod.SetupRivalMelAnim(weapon)
+	local roomData = RoomData[CurrentRun.CurrentRoom.Name]
+	local newUnit = DeepCopyTable( EnemyData.NPC_Nemesis_01 )
+	local spawnPointId = SelectSpawnPoint( CurrentRun.CurrentRoom, newUnit, eventSource, args )
+	newUnit.ObjectId = SpawnUnit({ Name = "NPC_Nemesis_01", Group = "Standing", DestinationId = spawnPointId })
+
+    SetThingProperty({ Property = "GrannyModel", Value = "Melinoe_Mesh", DestinationId = newUnit.ObjectId })
+	SetThingProperty({ Property = "Graphic", Value = "Melinoe_" .. weapon .. "_Idle", DestinationId = newUnit.ObjectId })
+	SetThingProperty({ Property = "Tallness", Value = 200, DestinationId = newUnit.ObjectId })
+	SetUnitProperty({ Property = "StartGraphic", Value = "Melinoe_" .. weapon .. "_Run_Start", DestinationId = newUnit.ObjectId })
+	SetUnitProperty({ Property = "MoveGraphic", Value = "Melinoe_" .. weapon .. "_Run_FireLoop", DestinationId = newUnit.ObjectId })
+	SetUnitProperty({ Property = "StopGraphic", Value = "Melinoe_" .. weapon .. "_Run_End", DestinationId = newUnit.ObjectId })
+    
+    SetScale({ Id = newUnit.ObjectId, Fraction = 0.75 })
+
+	OverwriteSelf( newUnit, NPCVariantData[args.NPCVariantData] )
+
+    if newUnit.WeaponOptions then
+        newUnit.WeaponOptions = { "MelRival_" .. weapon .. "_NemesisAttack1", "MelRival_" .. weapon .. "_NemesisSpecial", }
+    end
+    if newUnit.NemesisPostRandomEventCombat then
+        newUnit.NemesisPostRandomEventCombat.WeaponOptions = { "MelRival_" .. weapon .. "_NemesisAttack1", "MelRival_" .. weapon .. "_NemesisSpecial", "NemesisDash" }
+    end
+    if newUnit.NemesisFieldsPreRandomEventCombat then
+        newUnit.NemesisFieldsPreRandomEventCombat.WeaponOptions = { "MelRival_" .. weapon .. "_NemesisAttack1", "MelRival_" .. weapon .. "_NemesisSpecial", }
+    end
+    if newUnit.NemesisCombat then
+        newUnit.NemesisCombat.WeaponOptions = { "MelRival_" .. weapon .. "_NemesisAttack1", "MelRival_" .. weapon .. "_NemesisSpecial", }
+    end
+    if newUnit.TurnInPlaceAnimation then
+        newUnit.TurnInPlaceAnimation = "Melinoe_" .. weapon .. "_Idle"
+    end
+	SetupUnit( newUnit, CurrentRun, { IgnoreAI = true, } )
+	SetUnitInvulnerable( newUnit )
+	AngleTowardTarget({ Id = newUnit.ObjectId, DestinationId = CurrentRun.Hero.ObjectId })
+	MapState.RoomRequiredObjects[newUnit.ObjectId] = newUnit
+	SessionMapState.Nemesis = newUnit
+	CheckAvailableTextLines( newUnit )
+	SetAvailableUseText( newUnit )
+
+	-- Just in case Nemesis gives you a SpellDrop
+	if newUnit.NextInteractLines ~= nil and newUnit.NextInteractLines.PrePortraitExitFunctionName == "NemesisTradeChoice" then
+		LoadVoiceBanks({ Name = "Selene" })
+	end
+	
+	if not roomData.SkipNemesisSpawnPresentation then
+		thread( NemesisThemePresentation, eventSource, newUnit, { WaitTime = 1.0, SkipBanner = true, SecretMusicSection = 1 } )
+	end
+end
+
+--Summoning Nemesis in combat encounter
+modutil.mod.Path.Wrap("SpawnNemesisForRandomEvents", function(baseFunc, eventSource, args)
+    if HeroHasTrait("NemesisAspect") then
+        return mod.SpawnNemesisForRandomEvents(eventSource, args)
     else
         return baseFunc(eventSource, args)
     end

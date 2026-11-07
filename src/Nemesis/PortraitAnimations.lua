@@ -303,7 +303,7 @@ sjson.hook(file, function(data)
 
 	table.insert(data.Animations, sjson.to_object(
 	{
-		Name = "Portrait_MelNemesis_Pleased_01",
+		Name = "Portrait_MelNemesis_PleasedFlushed_01",
 		InheritFrom = "Portrait_Base_01",
 		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitNemesis\\Portraits_Nemesis_01",
 		OffsetX = -300,
@@ -311,7 +311,7 @@ sjson.hook(file, function(data)
 		Scale = 0.8,
 		CreateAnimations =
 		{
-			{ Name = "Portrait_MelCFA_NoCancel_Pleased_01" },
+			{ Name = "Portrait_MelCFA_NoCancel_PleasedFlushed_01" },
 		}
 	},
 	TextOrder)

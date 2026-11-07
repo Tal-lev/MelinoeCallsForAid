@@ -196,6 +196,7 @@ local preRunCosmetics = {
 			},
 		},
 	},
+
 }
 
 for _, cosmeticData in ipairs(preRunCosmetics) do

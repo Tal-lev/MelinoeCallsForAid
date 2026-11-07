@@ -155,7 +155,7 @@ function SetUpPlayerChronos()
 	--	EquipWeapon({ DestinationId = CurrentRun.Hero.ObjectId, Name = "WeaponBlink" })
 	--end
 
-	mod.ReleaseRivalMelAnim()
+	thread(mod.ReleaseRivalMelAnim)
 	
 end
 
@@ -295,7 +295,7 @@ function SetUpReturnPlayerMelinoe()
 	--	EquipWeapon({ DestinationId = CurrentRun.Hero.ObjectId, Name = "WeaponBlink" })
 	--end
 
-	mod.ReleaseRivalMelAnim()
+	thread(mod.ReleaseRivalMelAnim)
 end
 
 modutil.mod.Path.Wrap("SetupMap", function(base, source, args)
@@ -377,10 +377,10 @@ modutil.mod.Path.Wrap("SetupHeroObject", function(baseFunc, CurrentRoom)
 	CurrentRun.Hero.RoomStartTime = true
 	if HeroHasTrait("ChronosAspect") then
 		SetUpPlayerChronos()
-		--thread(CallFunctionName, _PLUGIN.guid .. "." .. "SetupChronosAnimations")
+		thread(CallFunctionName, _PLUGIN.guid .. "." .. "SetupChronosAnimations")
 	elseif HeroHasTrait("NemesisAspect") then
 		SetUpPlayerNemesis()
-		--thread(CallFunctionName, _PLUGIN.guid .. "." .. "SetupNemesisAnimations")
+		thread(CallFunctionName, _PLUGIN.guid .. "." .. "SetupNemesisAnimations")
 	end
 end)
 
@@ -458,6 +458,8 @@ end)
 modutil.mod.Path.Wrap("LeaveRoomSecretDoorPresentation",  function(baseFunc,currentRun, secretDoor) 
 	if HeroHasTrait("ChronosAspect") then
 		mod.ChronosLeaveRoomSecretDoorPresentation(currentRun, secretDoor)
+	elseif HeroHasTrait("NemesisAspect") then
+		mod.NemesisLeaveRoomSecretDoorPresentation(currentRun, secretDoor)
 	else
 		baseFunc(currentRun, secretDoor)
 	end
@@ -865,6 +867,8 @@ end)
 modutil.mod.Path.Wrap("PickaxeStartPresentation",  function(baseFunc, source, args, user) 
 	if HeroHasTrait("ChronosAspect") then
 		mod.ChronosPickaxeStartPresentation( source, args, user )	
+	elseif HeroHasTrait("NemesisAspect") then
+		mod.NemesisPickaxeStartPresentation( source, args, user )	
 	else
 		baseFunc(source, args, user)
 	end
@@ -1030,6 +1034,7 @@ function mod.SetupChronosAnimations()
 		MelinoeIdle = "NPC_Chronos_Enlightened_Hover",
 		MelinoeDashStart = "Enemy_Chronos_DashPreFire",
 		MelinoeDash = "Player_Chronos_DashFire",
+		MelinoeSprint = "NPC_Chronos_Enlightened_Hover",
 		MelinoeStart = "NPC_Chronos_Enlightened_Move_Start",
 		MelinoeRun = "NPC_Chronos_Enlightened_Move",
 		MelinoeStop = "NPC_Chronos_Enlightened_Move_Stop",
@@ -1283,6 +1288,7 @@ function mod.SetupNemesisAnimations()
 		MelinoeDash = "Nemesis_Combat_Dash_Fire",
 		MelinoeStart = "Nemesis_Combat_Run_Start",
 		MelinoeRun = "Nemesis_Combat_Run_FireLoop",
+		MelinoeSprint = "Nemesis_Combat_Sprint_FireLoop",
 		MelinoeStop = "Nemesis_Combat_Run_End",
 		MelinoeGetHit = "PlayerNemesis_Combat_OnHit",
 		Melinoe_GetHit_LastStand = "PlayerNemesis_Combat_OnHit",
@@ -1546,6 +1552,7 @@ function mod.UnequipChronosAnimations()
 		MelinoeDash = "Player_Chronos_DashFire",
 		MelinoeStart = "NPC_Chronos_Enlightened_Move_Start",
 		MelinoeRun = "NPC_Chronos_Enlightened_Move",
+		MelinoeSprint = "Nemesis_Combat_Sprint_FireLoop",
 		MelinoeStop = "NPC_Chronos_Enlightened_Move_Stop",
 		MelinoeGetHit = "NPC_Chronos_Enlightened_Hover",
 		Melinoe_GetHit_LastStand = "Enemy_Chronos_BattleOutro_Start",
@@ -2189,6 +2196,26 @@ ChronosAspect = {
 			ChangeType = "Absolute",
 			ExcludeLinked = true,
 		},
+		--Sprint removal
+		{
+			WeaponName = "WeaponSprint",
+			WeaponProperties = {
+				--FireGraphic = "Nemesis_Combat_Sprint_FireLoop",
+				--FireEndGraphic = "Nemesis_Combat_Run_FireLoop",
+				--DefaultControl = true,
+				SelfVelocity = 1980,
+				SelfVelocityCap = 540,
+			},
+			ExcludeLinked = true,
+		},
+		{
+			WeaponName = "WeaponSprint",
+			EffectName = "SprintFx",
+			EffectProperty = "Active",
+			ChangeValue = false,
+			ChangeType = "Absolute",
+			ExcludeLinked = true,
+		},
 		--Cast
 		{
 			WeaponName = "WeaponCast",
@@ -2582,6 +2609,9 @@ NemesisAspect = {
 				BlinkMaxRange = 100,
 		--		ClipRegenInterval = 0.1,
 				BlinkDuration = 0.1,
+				ChargeStartAnimation = "Nemesis_Combat_Dash_Start",
+				FireGraphic = "Nemesis_Combat_Dash_Fire",
+				ChargeCancelGraphic = "Nemesis_Combat_Dash_Fire",
 		--		DefaultControl = false,
 		--		CheckMovementReactionDistance = 0,
 				FireFx="null",

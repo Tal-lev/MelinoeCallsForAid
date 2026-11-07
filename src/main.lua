@@ -75,7 +75,7 @@ local function on_ready()
 	import "Hexes.lua"
 	import 'ready.lua'
 	modutil.once_loaded.game(function()
-		--import "Cosmetics.lua"
+		import "Cosmetics.lua"
 		import "Chronos/Costumes.lua"
 		import "Nemesis/Costumes.lua"
 
@@ -100,7 +100,8 @@ local function on_reload()
 	-- what to do when we are ready, but also again on every reload.
 	-- only do things that are safe to run over and over.
 	if config.enabled == false then return end
-	import "ChronosPresentationFunctions.lua"
+	import "Chronos/PresentationFunctions.lua"
+	import "Nemesis/PresentationFunctions.lua"
 	import 'reload.lua'
 end
 
