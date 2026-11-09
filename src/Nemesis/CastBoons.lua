@@ -294,20 +294,6 @@ table.insert(TraitData.HadesCastProjectileBoon.GameStateRequirements, {
 --Adding new Cast Boons
 
 OverwriteTableKeys(TraitData, {
-	
-	NemesisDummyCastCooldownTrait = {
-        Icon = "Hammer_Staff_37",
-        Hidden = true,
-		PropertyChanges =
-		{
-			{
-				WeaponName = "WeaponCast",
-				WeaponProperties = {
-					Cooldown = 0.2,
-				},
-			},
-		},
-    },
 
 	--Zeus
 	NemesisZeusCastBoon = {

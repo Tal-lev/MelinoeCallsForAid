@@ -156,6 +156,10 @@ function SetUpPlayerChronos()
 	--end
 
 	thread(mod.ReleaseRivalMelAnim)
+
+	if CurrentRun.Hero.Ammo["WeaponCast"] then
+		CurrentRun.Hero.Ammo["WeaponCast"] = nil
+	end
 	
 end
 
@@ -227,6 +231,9 @@ function SetUpPlayerNemesis()
 	--	UnequipWeapon({ DestinationId = CurrentRun.Hero.ObjectId, Name = "WeaponBlink" })
 	--end
 	--mod.SetupRivalMelAnim()
+
+	CurrentRun.Hero.Ammo["WeaponCast"] = 1
+
 end
 
 function SetUpReturnPlayerMelinoe()
@@ -296,6 +303,10 @@ function SetUpReturnPlayerMelinoe()
 	--end
 
 	thread(mod.ReleaseRivalMelAnim)
+
+	if CurrentRun.Hero.Ammo["WeaponCast"] then
+		CurrentRun.Hero.Ammo["WeaponCast"] = nil
+	end
 end
 
 modutil.mod.Path.Wrap("SetupMap", function(base, source, args)
@@ -1814,6 +1825,46 @@ function mod.ReleaseRivalMelAnim()
 	end
 end
 
+function mod.HestiaCastDefense ( weaponData, traitArgs, triggerArgs )
+	if not triggerArgs.ProjectileX or not triggerArgs.ProjectileY then
+		return
+	end
+	--Spending the Ammo
+	SpendAmmo( triggerArgs.name ) 
+	
+	local dataProperties = 
+	{
+		StartDelay = traitArgs.StartDelay,
+		AttachToOwner = false
+	}
+	local targetId = SpawnObstacle({ Name = "InvisibleTarget", LocationX = triggerArgs.ProjectileX, LocationY = triggerArgs.ProjectileY })	
+	local modifier = GetProjectileProperty({ ProjectileId = triggerArgs.ProjectileId, Property = "BlastRadiusModifier" })
+	
+	if HeroHasTrait("SelfCastBoon") and IsControlDown({ Name = "Attack1" }) and not triggerArgs.UnitIdOverride then
+		dataProperties.AttachToOwner = true
+		dataProperties.IgnoreCancelAttachedProjectiles = true
+	end
+	local projectileId = CreateProjectileFromUnit({ Name = traitArgs.ProjectileName, DestinationId = targetId, Id = CurrentRun.Hero.ObjectId, DamageMultiplier = traitArgs.DamageMultiplier, DataProperties = dataProperties,  BlastRadiusModifier = modifier, FireFromTarget = true })
+	local baseDuration = GetBaseDataValue({ Type = "Projectile", Name = "ProjectileCast", Property = "FuseStart" })
+	for i, traitArgs in pairs(GetHeroTraitValues("CastProjectileModifiers")) do
+		SetDamageRadiusMultiplier({ Id = projectileId, Fraction = traitArgs.AreaIncrease, Duration = baseDuration })
+	end
+	table.insert( SessionMapState.CastDefense, projectileId )
+	
+	--Nem Cast Ammo
+	thread(mod.ResetAmmo, triggerArgs.name)
+	
+	DestroyOnDelay({ targetId }, 0.1)
+	
+	
+end
+
+function mod.ResetAmmo(weaponName)
+	wait(3)
+	thread( InCombatTextArgs, { TargetId = CurrentRun.Hero.ObjectId, Text = "Parry Ready", PreDelay = 0.1, Duration = 1, Cooldown = 2.0 } )
+	UpdateWeaponAmmo( weaponName, 1 )
+end
+
 ChronosAspect = {
 	InheritFrom = { "WeaponEnchantmentTrait" },
 	RarityLevels =
@@ -2302,9 +2353,7 @@ ChronosAspect = {
 
 function mod.NemesisCastRecharge(blocker, args, triggerArgs) 
 	if blocker == CurrentRun.Hero then
-		AddTraitToHero("NemesisDummyCastCooldownTrait")
-		wait(1)
-		RemoveTrait(CurrentRun.Hero,"NemesisDummyCastCooldownTrait")
+		UpdateWeaponAmmo( "WeaponCast", 1 )
 	end
 end
 
@@ -2489,6 +2538,19 @@ NemesisAspect = {
 				},
 			},
 		},
+		WeaponCast = 
+		{
+			MaxAmmo = 1,
+			Ammo = 1,
+			StartRoomEvents = 
+			{
+				{
+					FunctionName = "ReloadAmmo",
+					Args = {}
+				},
+			},
+			PostWeaponUpgradeScreenFunctionName = "ResetAmmo",
+		}
 	},
 	PropertyChanges =
 	{
@@ -2730,7 +2792,7 @@ NemesisAspect = {
 		{
 			WeaponName = "WeaponCast",
 			WeaponProperties = {
-				Cooldown = 1.0,
+				Cooldown = 0.2,
 				--Cooldown = 60,
 				ChargeStartAnimation = "Nemesis_Cast_EntranceFast",
 				FireGraphic = "null",
@@ -2769,7 +2831,7 @@ NemesisAspect = {
 	OnWeaponFiredFunctions =
 	{
 		ValidWeapons =  WeaponSets.HeroNonPhysicalWeapons,
-		FunctionName = "HestiaCastDefense",
+		FunctionName = _PLUGIN.guid ..  ".HestiaCastDefense",
 		FunctionArgs = 
 		{
 			ProjectileName = "NemesisCastDefense",
