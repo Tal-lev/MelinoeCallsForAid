@@ -48,6 +48,7 @@ A Hades II mod that adds Chronos and Nemesis as unique playable characters.
   - Sprint is faster than Melinoe's.
 - Exclusive Cast boons
 - Exclusive Hammers
+- New Cosmetics
 - New Minor Prophecies
 
 ## Installation
