@@ -3,6 +3,112 @@ CosmeticsAPI = rom.mods["NikkelM-Cosmetics_API"]
 
 CosmeticsAPI.RegisterCrossroadsPackages({ "JarlUlsfark-MelinoeCallsForAidCosmetics" })
 
+local tentCosmetics = {
+	-- #region Fan Posters/Cosmetic_FanPoster01
+	{
+		Id = _PLUGIN.guid .. "." .. "Cosmetic_FanPoster_MelNemKiss",
+		Name = {
+			-- de = "Wall-Scroll, Gigaros Display Case",
+			-- el = "Wall-Scroll, Gigaros Display Case",
+			en = "Wall-Scroll, Rivals to Lovers",
+			-- es = "Wall-Scroll, Gigaros Display Case",
+			-- fr = "Wall-Scroll, Gigaros Display Case",
+			-- it = "Wall-Scroll, Gigaros Display Case",
+			-- ja = "Wall-Scroll, Gigaros Display Case",
+			-- ko = "Wall-Scroll, Gigaros Display Case",
+			-- pl = "Wall-Scroll, Gigaros Display Case",
+			-- ["pt-BR"] = "Wall-Scroll, Gigaros Display Case",
+			-- ru = "Wall-Scroll, Gigaros Display Case",
+			-- tr = "Wall-Scroll, Gigaros Display Case",
+			-- uk = "Wall-Scroll, Gigaros Display Case",
+			-- ["zh-CN"] = "Wall-Scroll, Gigaros Display Case",
+			-- ["zh-TW"] = "Wall-Scroll, Gigaros Display Case",
+		},
+		Description = {
+			-- de = "{$Keywords.CosmeticAltAdd}: Gigaros, the powerful spear wielded by Lord Hades and later his son Zagreus.",
+			-- el = "{$Keywords.CosmeticAltAdd}: Gigaros, the powerful spear wielded by Lord Hades and later his son Zagreus.",
+			en = "{$Keywords.CosmeticAltAdd}: Daugthers of Dead and Night bonded together with a kiss.",
+			-- es = "{$Keywords.CosmeticAltAdd}: Gigaros, the powerful spear wielded by Lord Hades and later his son Zagreus.",
+			-- fr = "{$Keywords.CosmeticAltAdd}: Gigaros, the powerful spear wielded by Lord Hades and later his son Zagreus.",
+			-- it = "{$Keywords.CosmeticAltAdd}: Gigaros, the powerful spear wielded by Lord Hades and later his son Zagreus.",
+			-- ja = "{$Keywords.CosmeticAltAdd}: Gigaros, the powerful spear wielded by Lord Hades and later his son Zagreus.",
+			-- ko = "{$Keywords.CosmeticAltAdd}: Gigaros, the powerful spear wielded by Lord Hades and later his son Zagreus.",
+			-- pl = "{$Keywords.CosmeticAltAdd}: Gigaros, the powerful spear wielded by Lord Hades and later his son Zagreus.",
+			-- ["pt-BR"] =
+			-- "{$Keywords.CosmeticAltAdd}: Gigaros, the powerful spear wielded by Lord Hades and later his son Zagreus.",
+			-- ru = "{$Keywords.CosmeticAltAdd}: Gigaros, the powerful spear wielded by Lord Hades and later his son Zagreus.",
+			-- tr = "{$Keywords.CosmeticAltAdd}: Gigaros, the powerful spear wielded by Lord Hades and later his son Zagreus.",
+			-- uk = "{$Keywords.CosmeticAltAdd}: Gigaros, the powerful spear wielded by Lord Hades and later his son Zagreus.",
+			-- ["zh-CN"] =
+			-- "{$Keywords.CosmeticAltAdd}: Gigaros, the powerful spear wielded by Lord Hades and later his son Zagreus.",
+			-- ["zh-TW"] =
+			-- "{$Keywords.CosmeticAltAdd}: Gigaros, the powerful spear wielded by Lord Hades and later his son Zagreus.",
+		},
+		FlavorText = {
+			-- de =
+			-- "This specific version of the spear was recovered by the Princess of the Dead from another, darker timeline, where her brother Zagreus passed it to her.",
+			-- el =
+			-- "This specific version of the spear was recovered by the Princess of the Dead from another, darker timeline, where her brother Zagreus passed it to her.",
+			en =
+			"This portrait was drawn by once lost shades recovered and sheltered by the protectors of the crossroads.",
+			-- es =
+			-- "This specific version of the spear was recovered by the Princess of the Dead from another, darker timeline, where her brother Zagreus passed it to her.",
+			-- fr =
+			-- "This specific version of the spear was recovered by the Princess of the Dead from another, darker timeline, where her brother Zagreus passed it to her.",
+			-- it =
+			-- "This specific version of the spear was recovered by the Princess of the Dead from another, darker timeline, where her brother Zagreus passed it to her.",
+			-- ja =
+			-- "This specific version of the spear was recovered by the Princess of the Dead from another, darker timeline, where her brother Zagreus passed it to her.",
+			-- ko =
+			-- "This specific version of the spear was recovered by the Princess of the Dead from another, darker timeline, where her brother Zagreus passed it to her.",
+			-- pl =
+			-- "This specific version of the spear was recovered by the Princess of the Dead from another, darker timeline, where her brother Zagreus passed it to her.",
+			-- ["pt-BR"] =
+			-- "This specific version of the spear was recovered by the Princess of the Dead from another, darker timeline, where her brother Zagreus passed it to her.",
+			-- ru =
+			-- "This specific version of the spear was recovered by the Princess of the Dead from another, darker timeline, where her brother Zagreus passed it to her.",
+			-- tr =
+			-- "This specific version of the spear was recovered by the Princess of the Dead from another, darker timeline, where her brother Zagreus passed it to her.",
+			-- uk =
+			-- "This specific version of the spear was recovered by the Princess of the Dead from another, darker timeline, where her brother Zagreus passed it to her.",
+			-- ["zh-CN"] =
+			-- "This specific version of the spear was recovered by the Princess of the Dead from another, darker timeline, where her brother Zagreus passed it to her.",
+			-- ["zh-TW"] =
+			-- "This specific version of the spear was recovered by the Princess of the Dead from another, darker timeline, where her brother Zagreus passed it to her.",
+		},
+		CosmeticsGroup = "Cosmetic_FanPoster01",
+		InsertAfterCosmetic = _PLUGIN.guid .. "." .. "Cosmetic_FanPoster_Aphrodite",
+		ShopCategory = "CosmeticsShop_Tent",
+		ActivateIds = { 738471 },
+		IconPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\FanPoster_MelNem_Icon",
+		CosmeticAnimationPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\FanPoster_MelNem_Big",
+		AnimationScale = 2.1,
+		GameStateRequirements = {
+			{
+				PathTrue = { "GameState", "WeaponsUnlocked", "NemesisAspect" }
+			},
+			{
+				PathTrue = { "GameState", "TextLinesRecord", "NemesisBathHouse03" },
+			},
+			NamedRequirements = { "T5Cosmetic" },
+		},
+		AlwaysRevealImmediately = true,
+		Cost = {
+			CosmeticsPoints = 1000,
+			GiftPointsRare = 2,
+			PlantFNightshade = 2,
+		},
+	},
+}
+
+for _, cosmeticData in ipairs(tentCosmetics) do
+	if cosmeticData.GameStateRequirements == nil then
+		cosmeticData.GameStateRequirements = {}
+	end
+
+	CosmeticsAPI.RegisterCosmetic(cosmeticData)
+end
+
 local mainHubAreaCosmetics = {
     {
 		Id = _PLUGIN.guid .. "." .. "Cosmetic_Leaves_coins",
