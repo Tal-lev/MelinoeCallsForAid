@@ -2586,8 +2586,24 @@ OverwriteTableKeys(WeaponData, {
 
 function mod.HandleNemesisCombatSpawn( eventSource, args )
     args = args or {}
-    --local weapon = GetRandomValue({"Staff", "Suit", "Lob", "Axe", "Dagger", "Torch"})
-    local weapon = GetRandomValue({"Torch"})
+	local weaponList = {"Staff", "Suit", "Lob", "Axe", "Dagger", "Torch"}
+	if GameState.JarlUlsfarkRivalMelBetWon then
+		local duringAchievement = TableLength(GameState.JarlUlsfarkRivalMelBetWon)
+		if duringAchievement > 0 and duringAchievement < 6 then
+			local badList = {}
+			local tempList = {}
+			for key,value in pairs(GameState.JarlUlsfarkRivalMelBetWon) do
+				table.insert(badList,string.sub(key, 9))  
+			end
+			for key,value in pairs(weaponList) do
+				if not Contains(badList, value) then
+					table.insert(tempList,value)
+				end
+			end
+			weaponList = tempList
+		end
+	end
+    local weapon = GetRandomValue(weaponList)
     mod.SetupRivalMelAnim(weapon)
 	local currentRun = CurrentRun
 	local currentRoom = CurrentRun.CurrentRoom

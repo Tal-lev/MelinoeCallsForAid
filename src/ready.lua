@@ -1767,7 +1767,6 @@ function mod.UnequipChronosAnimations()
 end
 
 function mod.SetupRivalMelAnim(weapon)
-	print("Entered Sub Function")
 	local AnimationList =
 	{ 
 			--Rival Mel
