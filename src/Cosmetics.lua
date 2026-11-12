@@ -311,3 +311,56 @@ for _, cosmeticData in ipairs(preRunCosmetics) do
 	end
 	CosmeticsAPI.RegisterCosmetic(cosmeticData)
 end
+
+-- #Arcana Backs Pack
+CosmeticsAPI.RegisterCardBackPack({
+	Id = _PLUGIN.guid .. "." .. "Cosmetic_Arcana_MelinoeCallsForAid",
+	Name = {
+		en = "Arcana, Friends and Family",
+	},
+	Description = {
+		en =
+		"{$Keywords.CosmeticDeck}: Set of {#UpgradeFormatDark}1 {#Prev}alternate themes, featuring Friends and Family aiding Melinoë's task.",
+	},
+	FlavorText = {
+		en =
+		"Former Enemies and Rivals swayed by the determination and charm of the daughter of the lord of the dead.",
+	},
+	IconPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\ArcanaBackSetMelCallsForAid",
+	Cost = {
+		CosmeticsPoints = 2500,
+		--ModsNikkelMHadesBiomes_PlantAsphodel = 2,
+		--ModsNikkelMHadesBiomes_CropElysium = 2,
+		--ModsNikkelMHadesBiomes_OreStyx = 4,
+
+	},
+	GameStateRequirements = {
+		{
+			PathTrue = { "GameState", "WorldUpgradesAdded", "Cosmetic_CardDeck01" },
+		},
+		{
+				Path = { "GameState", "WeaponsUnlocked", },
+				HasAll = { 
+                    "NemesisAspect", "ChronosAspect",
+                },
+        },
+	},
+	InsertAfterCosmetic = "Cosmetic_CardDeck02",
+	PreRevealVoiceLines = {
+		Queue = "Interrupt",
+		{
+			PreLineWait = 0.35,
+			UsePlayerSource = true,
+			{ Cue = "/VO/Melinoe_5281", Text = "Time to retrace my steps...", GameStateRequirements = {{PathFalse = {"CurrentRun", "Hero", "SilenceMelinoe"}}} },
+		},
+		{ GlobalVoiceLines = "DoraCosmeticReactionVoiceLines" },
+	},
+})
+
+CosmeticsAPI.RegisterCardBack({
+	Id = _PLUGIN.guid .. "." .. "Cosmetic_Arcana_Nemesis",
+	PackId = _PLUGIN.guid .. "." .. "Cosmetic_Arcana_MelinoeCallsForAid",
+	DeckArtPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\ArcanaBackNemesisNotSel",
+	DeckArtMouseoverPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\ArcanaBackNemesisYesSel",
+	CardBackPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\ArcanaBackNemesis",
+})

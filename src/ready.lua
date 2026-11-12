@@ -1861,7 +1861,7 @@ end
 function mod.ResetAmmo(weaponName)
 	wait(3)
 	if CurrentRun.Hero.Ammo.WeaponCast == 0 then
-			thread( InCombatTextArgs, { TargetId = CurrentRun.Hero.ObjectId, Text = "Parry Ready", PreDelay = 0.1, Duration = 1, Cooldown = 2.0 } )
+			thread( InCombatTextArgs, { TargetId = CurrentRun.Hero.ObjectId, Text = "Parry Ready", PreDelay = 0.1, Duration = 0.75, Cooldown = 2.0 } )
 	end
 	UpdateWeaponAmmo( weaponName, 1 )
 end
@@ -2355,7 +2355,7 @@ ChronosAspect = {
 function mod.NemesisCastRecharge(blocker, args, triggerArgs) 
 	if blocker == CurrentRun.Hero then
 		if CurrentRun.Hero.Ammo.WeaponCast == 0 then
-			thread( InCombatTextArgs, { TargetId = CurrentRun.Hero.ObjectId, Text = "Parry Ready", PreDelay = 0.1, Duration = 1, Cooldown = 2.0 } )
+			thread( InCombatTextArgs, { TargetId = CurrentRun.Hero.ObjectId, Text = "Parry Ready", PreDelay = 0.1, Duration = 0.75, Cooldown = 2.0 } )
 		end
 		UpdateWeaponAmmo( "WeaponCast", 1 )
 	end

@@ -182,6 +182,7 @@ TraitData.AresCastBoon.GameStateRequirements = TraitData.AresCastBoon.GameStateR
 TraitData.SelfCastBoon.GameStateRequirements = TraitData.SelfCastBoon.GameStateRequirements or {}
 --Artemis
 TraitData.OmegaCastVolleyBoon.GameStateRequirements = TraitData.OmegaCastVolleyBoon.GameStateRequirements or {}
+TraitData.InsideCastCritBoon.GameStateRequirements = TraitData.InsideCastCritBoon.GameStateRequirements or {}
 --Hermes
 TraitData.HermesCastDiscountBoon.GameStateRequirements = TraitData.HermesCastDiscountBoon.GameStateRequirements or {}
 --Hades
@@ -272,6 +273,10 @@ table.insert(TraitData.SelfCastBoon.GameStateRequirements, {
 })
 -- Artemis
 table.insert(TraitData.OmegaCastVolleyBoon.GameStateRequirements, {
+  Path = {"CurrentRun", "Hero", "TraitDictionary"},
+  HasNone = {"NemesisAspect"}
+})
+table.insert(TraitData.InsideCastCritBoon.GameStateRequirements, {
   Path = {"CurrentRun", "Hero", "TraitDictionary"},
   HasNone = {"NemesisAspect"}
 })
