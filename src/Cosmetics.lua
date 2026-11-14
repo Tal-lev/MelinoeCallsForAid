@@ -358,9 +358,18 @@ CosmeticsAPI.RegisterCardBackPack({
 })
 
 CosmeticsAPI.RegisterCardBack({
+	Id = _PLUGIN.guid .. "." .. "Cosmetic_Arcana_Chronos",
+	PackId = _PLUGIN.guid .. "." .. "Cosmetic_Arcana_MelinoeCallsForAid",
+	DeckArtPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\ArcanaBackChronosNotSel",
+	DeckArtMouseoverPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\ArcanaBackChronosYesSel",
+	CardBackPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\ArcanaBackChronos",
+})
+
+CosmeticsAPI.RegisterCardBack({
 	Id = _PLUGIN.guid .. "." .. "Cosmetic_Arcana_Nemesis",
 	PackId = _PLUGIN.guid .. "." .. "Cosmetic_Arcana_MelinoeCallsForAid",
 	DeckArtPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\ArcanaBackNemesisNotSel",
 	DeckArtMouseoverPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\ArcanaBackNemesisYesSel",
 	CardBackPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\ArcanaBackNemesis",
 })
+
