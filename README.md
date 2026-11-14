@@ -69,7 +69,11 @@ While the mod has been tested decently well it is recommended to backup your sav
   - Hammer Icons.
 - @ErgotthAE on HadesTheGame Reddit for Bearded portrait.
 - @kupdoodles on HadesTheGame Reddit for Nemesis and Melinoe Portrait.
-- @burn on the modding discord for Nemesis and Melinoe Frame.
+- @burn on the modding discord
+  - Nemesis and Melinoe Frame.
+  - Chronos Chid
+- @NikkelM on the modding discord for
+  - Creating CosmeticsAPI 
 - The Hades Modding discord for questions, answers and support.
 
 ## Integration with other mods
