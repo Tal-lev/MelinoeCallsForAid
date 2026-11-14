@@ -33,6 +33,7 @@ Other fixes and improvements:
 - Remove Nemesis incompatible Cast boons.
 - Added Chronos Beard dress.  
 - Added Chronos and Nemesis related-Cosmetics.
+- Added Chronos and Nemesis Arcana Card Backs.
 - Added Chronos and Nemesis Harvesting Animations.
 - Added more Chronos Room transition Animations.
 - Added Chronos and Nemesis Biome Map transition.
