@@ -72,8 +72,7 @@ While the mod has been tested decently well it is recommended to backup your sav
 - @burn on the modding discord
   - Nemesis and Melinoe Frame.
   - Chronos Chid
-- @NikkelM on the modding discord for
-  - Creating CosmeticsAPI 
+- @NikkelM on the modding discord for creating CosmeticsAPI.
 - The Hades Modding discord for questions, answers and support.
 
 ## Integration with other mods
