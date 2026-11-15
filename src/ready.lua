@@ -2416,11 +2416,10 @@ NemesisAspect = {
 				},
 				FireSounds =
 				{
-					FireSounds =
-					{
-						{ Name = "/SFX/Player Sounds/ZagreusSwordOverhead" },
-						{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteAttacking" },		
-					},
+
+					{ Name = "/SFX/Player Sounds/ZagreusSwordOverhead" },
+					{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteAttacking" },		
+
 				},
 			},
 		},
@@ -2433,11 +2432,8 @@ NemesisAspect = {
 				},
 				FireSounds =
 				{
-					FireSounds =
-					{
-						{ Name = "/SFX/Player Sounds/ZagreusSwordOverhead" },
-						{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteAttacking" },		
-					},
+					{ Name = "/SFX/Player Sounds/ZagreusSwordOverhead" },
+					{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteAttacking" },		
 				},
 			},
 		},
@@ -2450,11 +2446,8 @@ NemesisAspect = {
 				},
 				FireSounds =
 				{
-					FireSounds =
-					{
-						{ Name = "/SFX/Player Sounds/ZagreusSwordOverhead" },
-						{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteAttacking" },		
-					},
+					{ Name = "/SFX/Player Sounds/ZagreusSwordOverhead" },
+					{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteAttacking" },		
 				},
 			},
 		},
@@ -2468,11 +2461,8 @@ NemesisAspect = {
 				},
 				FireSounds =
 				{
-					FireSounds =
-					{
-						{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteEvading" },
-						{ Name = "/SFX/Enemy Sounds/Exalted/ExaltedDash" },
-					},
+					{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteEvading" },
+					{ Name = "/SFX/Enemy Sounds/Exalted/ExaltedDash" },
 				},
 			},
 		},
@@ -2487,11 +2477,8 @@ NemesisAspect = {
 				},
 				FireSounds =
 				{
-					FireSounds =
-					{
-						{ Name = "/SFX/Player Sounds/ZagreusSwordOverhead" },
-						{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteAttacking" },		
-					},
+					{ Name = "/SFX/Player Sounds/ZagreusSwordOverhead" },
+					{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteAttacking" },		
 				},
 			},
 		},
@@ -2534,11 +2521,8 @@ NemesisAspect = {
 				},
 				FireSounds =
 				{
-					FireSounds =
-					{
-						{ Name = "/SFX/Player Sounds/ZagreusSwordParry" },
-						{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteSpecialAttack" },
-					},
+					{ Name = "/SFX/Player Sounds/ZagreusSwordParry" },
+					{ Name = "/SFX/Enemy Sounds/Nemesis/EmoteSpecialAttack" },
 				},
 			},
 		},
