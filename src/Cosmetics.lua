@@ -77,7 +77,7 @@ local tentCosmetics = {
 			-- "This specific version of the spear was recovered by the Princess of the Dead from another, darker timeline, where her brother Zagreus passed it to her.",
 		},
 		CosmeticsGroup = "Cosmetic_FanPoster01",
-		InsertAfterCosmetic = _PLUGIN.guid .. "." .. "Cosmetic_FanPoster_Aphrodite",
+		InsertAfterCosmetic = "Cosmetic_FanPoster01",
 		ShopCategory = "CosmeticsShop_Tent",
 		ActivateIds = { 738471 },
 		IconPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\FanPoster_MelNem_Icon",
@@ -180,7 +180,6 @@ for _, cosmeticData in ipairs(mainHubAreaCosmetics) do
 
 	CosmeticsAPI.RegisterCosmetic(cosmeticData)
 end
-
 
 -- #region CosmeticsShop_PreRun
 local preRunCosmetics = {
@@ -303,6 +302,149 @@ local preRunCosmetics = {
 		},
 	},
 
+	{
+		-- Decide on some name for the default appearance of the vanilla obstacle animation
+		Id = _PLUGIN.guid .. "." .. "Cosmetic_TarotLight_Default",
+		Name = {
+			en = "Tarot Light, Green",
+		},
+		Description = {
+			en = "{$Keywords.CosmeticSwap}: An eery green glow that surrounds the Altar of Ashes when the Princess approaches.",
+		},
+		FlavorText = {
+			en = "A familiar light, kept as it was.",
+		},
+		ShopCategory = "CosmeticsShop_PreRun",
+		InsertAfterCosmetic = "Cosmetic_SkellyFloor01c",
+		-- The name of the new group
+		CosmeticsGroup = _PLUGIN.guid .. "." .. "Cosmetic_TarotLight",
+		CreateCosmeticsGroup = true,
+		AutoUnlock = true,
+		RotateOnly = true,
+		-- This is the ID of the vanilla obstacle
+		SetAnimationIds = { 588748 },
+		-- This is the path to the vanilla animation texture
+		CosmeticAnimationPath = "Tilesets\\Crossroads\\Crossroads_CardAltar_Terrain_On01",
+		-- Use the animation itself as the icon (scaled if needed), or create a new icon for it, since it will show in the shop too
+		IconPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\Crossroads_CardAltar_Terrain_On01_Icon",
+	},
+
+	{
+		Id = _PLUGIN.guid .. "." .. "Cosmetic_TarotLight_Chronos",
+		Name = {
+			-- de = "Dais, Fancy",
+			-- el = "Dais, Fancy",
+			en = "Tarot Light, Chronos",
+			-- es = "Dais, Fancy",
+			-- fr = "Dalle Raffinée",
+			-- it = "Dais, Fancy",
+			-- ja = "Dais, Fancy",
+			-- ko = "Dais, Fancy",
+			-- pl = "Dais, Fancy",
+			-- ["pt-BR"] = "Dais, Fancy",
+			-- ru = "Dais, Fancy",
+			-- tr = "Dais, Fancy",
+			-- uk = "Dais, Fancy",
+			-- ["zh-CN"] = "Dais, Fancy",
+			-- ["zh-TW"] = "Dais, Fancy",
+		},
+		Description = {
+			-- de =
+			-- "{$Keywords.CosmeticSwap}: Intricate stone platform, set right where {$Keywords.CharSkelly} typically resides.",
+			-- el =
+			-- "{$Keywords.CosmeticSwap}: Intricate stone platform, set right where {$Keywords.CharSkelly} typically resides.",
+			en =
+			"{$Keywords.CosmeticSwap}: A timeless glow that surrounds the Altar of Ashes when the Princess approaches.",
+			-- es =
+			-- "{$Keywords.CosmeticSwap}: Intricate stone platform, set right where {$Keywords.CharSkelly} typically resides.",
+			--fr =
+			--"{$Keywords.CosmeticSwap} : Une plateforme de pierre finement ouvragée, là où {$Keywords.CharSkelly} se tient habituellement.",
+			-- it =
+			-- "{$Keywords.CosmeticSwap}: Intricate stone platform, set right where {$Keywords.CharSkelly} typically resides.",
+			-- ja =
+			-- "{$Keywords.CosmeticSwap}: Intricate stone platform, set right where {$Keywords.CharSkelly} typically resides.",
+			-- ko =
+			-- "{$Keywords.CosmeticSwap}: Intricate stone platform, set right where {$Keywords.CharSkelly} typically resides.",
+			-- pl =
+			-- "{$Keywords.CosmeticSwap}: Intricate stone platform, set right where {$Keywords.CharSkelly} typically resides.",
+			-- ["pt-BR"] =
+			-- "{$Keywords.CosmeticSwap}: Intricate stone platform, set right where {$Keywords.CharSkelly} typically resides.",
+			-- ru =
+			-- "{$Keywords.CosmeticSwap}: Intricate stone platform, set right where {$Keywords.CharSkelly} typically resides.",
+			-- tr =
+			-- "{$Keywords.CosmeticSwap}: Intricate stone platform, set right where {$Keywords.CharSkelly} typically resides.",
+			-- uk =
+			-- "{$Keywords.CosmeticSwap}: Intricate stone platform, set right where {$Keywords.CharSkelly} typically resides.",
+			-- ["zh-CN"] =
+			-- "{$Keywords.CosmeticSwap}: Intricate stone platform, set right where {$Keywords.CharSkelly} typically resides.",
+			-- ["zh-TW"] =
+			-- "{$Keywords.CosmeticSwap}: Intricate stone platform, set right where {$Keywords.CharSkelly} typically resides.",
+		},
+		FlavorText = {
+			-- de =
+			-- "With symbolisms as could be found in the House of Hades in times past, the Commander should be suitably inspired to great deeds while standing upon this dais.",
+			-- el =
+			-- "With symbolisms as could be found in the House of Hades in times past, the Commander should be suitably inspired to great deeds while standing upon this dais.",
+			en =
+			"A timeless look.",
+			-- es =
+			-- "With symbolisms as could be found in the House of Hades in times past, the Commander should be suitably inspired to great deeds while standing upon this dais.",
+			--fr =
+			--"Avec des symboles tels qu'on en trouvait jadis dans la Maison d'Hadès, le Commandant devrait être dûment inspiré à de grands exploits en se tenant sur ce piédestal.",
+			-- it =
+			-- "With symbolisms as could be found in the House of Hades in times past, the Commander should be suitably inspired to great deeds while standing upon this dais.",
+			-- ja =
+			-- "With symbolisms as could be found in the House of Hades in times past, the Commander should be suitably inspired to great deeds while standing upon this dais.",
+			-- ko =
+			-- "With symbolisms as could be found in the House of Hades in times past, the Commander should be suitably inspired to great deeds while standing upon this dais.",
+			-- pl =
+			-- "With symbolisms as could be found in the House of Hades in times past, the Commander should be suitably inspired to great deeds while standing upon this dais.",
+			-- ["pt-BR"] =
+			-- "With symbolisms as could be found in the House of Hades in times past, the Commander should be suitably inspired to great deeds while standing upon this dais.",
+			-- ru =
+			-- "With symbolisms as could be found in the House of Hades in times past, the Commander should be suitably inspired to great deeds while standing upon this dais.",
+			-- tr =
+			-- "With symbolisms as could be found in the House of Hades in times past, the Commander should be suitably inspired to great deeds while standing upon this dais.",
+			-- uk =
+			-- "With symbolisms as could be found in the House of Hades in times past, the Commander should be suitably inspired to great deeds while standing upon this dais.",
+			-- ["zh-CN"] =
+			-- "With symbolisms as could be found in the House of Hades in times past, the Commander should be suitably inspired to great deeds while standing upon this dais.",
+			-- ["zh-TW"] =
+			-- "With symbolisms as could be found in the House of Hades in times past, the Commander should be suitably inspired to great deeds while standing upon this dais.",
+		},
+		CosmeticsGroup = _PLUGIN.guid .. "." .. "Cosmetic_TarotLight_Default",
+		--CosmeticsGroup = "Cosmetic_SkellyFloor01",
+		InsertAfterCosmetic = _PLUGIN.guid .. "." .. "Cosmetic_TarotLight_Default",
+		ShopCategory = "CosmeticsShop_PreRun",
+		SetAnimationIds = { 588748 },
+		IconPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\Crossroads_CardAltar_Terrain_On01_Chronos_Icon",
+		CosmeticAnimationPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\Crossroads_CardAltar_Terrain_On01_Chronos_Big",
+		AnimationScale = 4,
+		GameStateRequirements = {
+			NamedRequirements = { "T1Cosmetic" },
+            {
+			    PathTrue = { "GameState", "WeaponsUnlocked", "ChronosAspect" }
+		    },
+		},
+		AlwaysRevealImmediately = true,
+		Cost = {
+			CosmeticsPoints = 250,
+		},
+		RevealReactionVoiceLines = {
+			{
+				PreLineWait = 0.35,
+				ObjectType = "NPC_Skelly_01",
+				RequiredSourceValueFalse = "InPartnerConversation",
+				{ Cue = "/VO/Skelly_0256", Text = "{#Emph}Ooh{#Prev}, scary..." },
+			},
+			--{
+			--	PreLineWait = 0.35,
+			--	ObjectType = "NPC_Dora_01",
+			--	{ Cue = "/VO/Dora_0470", Text = "A more-imposing place for the good Commander to stand.", PreLineFunctionName = "GenericPresentation", PreLineFunctionArgs = game.PresetAudioArgs.DoraNormalAppearArgs, },
+			--},
+		},
+	},
+
 }
 
 for _, cosmeticData in ipairs(preRunCosmetics) do
@@ -373,3 +515,33 @@ CosmeticsAPI.RegisterCardBack({
 	CardBackPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\ArcanaBackNemesis",
 })
 
+--Adding Chids
+CosmeticsAPI.RegisterChthonicChid({
+	-- You must prefix Chthonic Chid IDs with your mod GUID so the API can check if you've registered your new Chids beforehand
+	Id = _PLUGIN.guid .. "." .. "ChronosChid",
+	Name = {
+		en = "Chthonic Chid, Chronos",
+	},
+	Description = {
+		en = "{$Keywords.CosmeticAdd}: Oddly proportioned collectable figure fashioned after the Titan of Time.",
+	},
+	FlavorText = {
+		en = "“Time may heal all wounds, or may inflict them just as readily.”",
+	},
+	AlwaysRevealImmediately = true,
+	GameStateRequirements = {
+		{
+			PathTrue = { "GameState", "WeaponsUnlocked", "ChronosAspect" }
+		},
+		{
+			PathTrue = { "GameState", "TextLinesRecord", "NeoChronosGift04" },
+		},
+		NamedRequirements = { "T5Cosmetic" },
+	},
+	Cost = {
+		CosmeticsPoints = 500,
+		DreamPoints = 10,
+	},
+	CosmeticAnimationPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\Chronos_chid",
+	IconPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\Chronos_chid",
+})
