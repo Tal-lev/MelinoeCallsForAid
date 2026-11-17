@@ -53,7 +53,8 @@ Other fixes and improvements:
 - Fixed: Hero unexpected size Change during Zagreus Journey biomes
 - Fixed: Chronos Omega Attack fires even when there is not sufficient mana.
 - Fixed: Chronos Omega Attack sounds like Melinoe.
-- Fixed: Chronos sprints if holding the direction button during and after dash.  
+- Fixed: Chronos sprints if holding the direction button during and after dash.
+- Fixed: Circe Word of Greater Girth makes Chronos and Nemesis smaller. 
 - Reworked the Readme.md
 - DEV: reorganized the scripts per character.
 
