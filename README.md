@@ -66,7 +66,7 @@ While the mod has been tested decently well it is recommended to backup your sav
 - @Yegitu on the modding discord
   - Chronos Mana symbol.
   - Mana Charge Animations.
-  - Hammer Icons.
+  - Chronos Hammer Icons.
 - @ErgotthAE on HadesTheGame Reddit for Bearded portrait.
 - @kupdoodles on HadesTheGame Reddit for Nemesis and Melinoe Portrait.
 - @burn on the modding discord
