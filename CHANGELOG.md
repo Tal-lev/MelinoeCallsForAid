@@ -14,11 +14,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added fifteen Nemesis Cast boons.
 - Added six Nemesis specific Hammers.
 - Added Chronos specific **Hexes** with their accompanying talents. Chronos can no longer use Melinoe's Hexes.
+- Added two more Chronos specific Hammers. Chronos can no longer use Melinoe's Hammers.
+- Added Nemesis and Chronos Portraits in conversations, Compatible with Zagreus Journey and MelSkin.
 
 Other fixes and improvements:
 
-- Added two more Chronos specific Hammers. Chronos can no longer use Melinoe's Hammers.
-- Added Nemesis and Chronos Portraits in conversations, Compatible with Zagreus Journey and MelSkin.
 - Added many Nemesis contextual quips, (150+ in game).
 - Added many Chronos contextual quips, (250+ in game).
 - Added minor prophecies for Nemesis and Chronos.
@@ -28,10 +28,11 @@ Other fixes and improvements:
 - Added Chronos Hammer Icons by @Yegitu on discord.
 - Added Death Defiance Icon for Chronos.
 - Added Keywords description to explain kit changes.
-- Added Requirements for MelSkin dresses.
+- MelSkin costumes now unlock through gameplay.
+- Added a new Unlockable Bearded Chronos Melskin costume.
+- Added a new Unlockable Slanesh Nemesis Melskin costume.
 - Remove Chronos incompatible Dash boons.
 - Remove Nemesis incompatible Cast boons.
-- Added Chronos Beard dress.  
 - Added Chronos and Nemesis related-Cosmetics.
 - Added Chronos and Nemesis Arcana Card Backs.
 - Added Chronos and Nemesis Harvesting Animations.
