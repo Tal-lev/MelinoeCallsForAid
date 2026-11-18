@@ -538,6 +538,39 @@ function mod.NemesisHeraclesRequiredKillPresentation ( encounter, victim, killer
 	UpdateObjective( "Objective_PlayerMoney", "PlayerMoney", objectiveValue )
 end
 
+function mod.NemesisSetupMelWalk( source, args )
+	SetUnitProperty({ Property = "StartGraphic", Value = "Nemesis_Combat_Run_Start", DestinationId = CurrentRun.Hero.ObjectId })
+	SetUnitProperty({ Property = "MoveGraphic", Value = "Nemesis_Combat_Sprint_FireLoop", DestinationId = CurrentRun.Hero.ObjectId })
+	SetUnitProperty({ Property = "StopGraphic", Value = "Nemesis_Combat_Run_End", DestinationId = CurrentRun.Hero.ObjectId })
+	for i, rushWeaponName in pairs( WeaponSets.HeroRushWeapons ) do
+		SetWeaponProperty({ WeaponName = rushWeaponName, DestinationId = CurrentRun.Hero.ObjectId, Property = "Enabled", Value = false })
+	end
+	if MapState.InitialSpeed == nil then
+		MapState.InitialSpeed = GetUnitDataValue({ Id = CurrentRun.Hero.ObjectId, Property = "Speed" })
+	end
+	SetUnitProperty({ Property = "Speed", Value = 120, DestinationId = CurrentRun.Hero.ObjectId })
+end
+
+function mod.NemesisRestoreMelRun( source, args )
+	args = args or {}
+	if args.WaitForInputAllowed then
+		local notifyName = "RestoreMelRun_InputAllowed"
+		NotifyOnInputAllowed({ Notify = notifyName })
+		waitUntil( notifyName )
+	end
+	if MapState.InitialSpeed == nil then
+		return
+	end
+	if not args.SkipWalkStopAnimation then
+		SetAnimation({ Name = "Nemesis_Combat_Run_End", DestinationId = CurrentRun.Hero.ObjectId })
+	end
+	SetUnitProperty({ Property = "StartGraphic", Value = "Nemesis_Combat_Run_Start", DestinationId = CurrentRun.Hero.ObjectId })
+	SetUnitProperty({ Property = "MoveGraphic", Value = "Nemesis_Combat_Run_FireLoop", DestinationId = CurrentRun.Hero.ObjectId })
+	SetUnitProperty({ Property = "StopGraphic", Value = "Nemesis_Combat_Run_End", DestinationId = CurrentRun.Hero.ObjectId })
+	SetUnitProperty({ Property = "Speed", Value = MapState.InitialSpeed, DestinationId = CurrentRun.Hero.ObjectId })
+	MapState.InitialSpeed = nil
+end
+
 --Zagreus Journey
 if rom.mods['NikkelM-Zagreus_Journey'] then
 	function mod.NemesisModsNikkelMHadesBiomesBiomeMapPresentation(source, args)

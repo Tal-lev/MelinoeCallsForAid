@@ -126,6 +126,11 @@ local nemesisDressData = {
     {
         GrannyTexture = "GR2/Nemesis_Color_Slanesh",
         Color = {206, 168, 238, 255},
+        GameStateRequirements = {
+            {
+                PathTrue = { "GameState", "WeaponsUnlocked", "AxeRallyAspect" }
+            },
+        },
     },
     Visage =
     {

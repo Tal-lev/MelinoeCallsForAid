@@ -106,7 +106,7 @@ function SetUpPlayerChronos()
 	if not HeroHasTrait("ModsNikkelMHadesBiomesPlayerScaleTrait") then
 		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = 1.3 })
 	else
-		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = ZagJourney.ModdedPlayerScaleMultiplier })
+		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = ZagJourney.ModdedPlayerScaleMultiplier or 1.17 })
 	end
 	SetThingProperty({ Property = "GrannyModel", Value = "ChronosReformed_Mesh", DestinationId = CurrentRun.Hero.ObjectId })
 	SetThingProperty({ Property = "Graphic", Value = "NPC_Chronos_Enlightened_Hover", DestinationId = CurrentRun.Hero.ObjectId })
@@ -183,7 +183,7 @@ function SetUpPlayerNemesis()
 		--SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = 1.08 })
 		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = 1.4 })
 	else
-		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = ZagJourney.ModdedPlayerScaleMultiplier })
+		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = ZagJourney.ModdedPlayerScaleMultiplier or 1.26 })
 	end
 	SetThingProperty({ Property = "GrannyModel", Value = "Nemesis_Mesh", DestinationId = CurrentRun.Hero.ObjectId })
 	SetThingProperty({ Property = "Graphic", Value = "Nemesis_Combat_Idle", DestinationId = CurrentRun.Hero.ObjectId })
@@ -243,7 +243,7 @@ function SetUpReturnPlayerMelinoe()
 	if not HeroHasTrait("ModsNikkelMHadesBiomesPlayerScaleTrait") then
 		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = 1 })
 	else
-		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = ZagJourney.ModdedPlayerScaleMultiplier })
+		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = ZagJourney.ModdedPlayerScaleMultiplier or 0.9 })
 	end
 	SetThingProperty({ Property = "GrannyModel", Value = "Melinoe_Mesh", DestinationId = CurrentRun.Hero.ObjectId })
 	SetThingProperty({ Property = "Graphic", Value = "LaurelCindersSpawner", DestinationId = CurrentRun.Hero.ObjectId })
@@ -471,15 +471,6 @@ modutil.mod.Path.Wrap("LeaveRoomSecretDoorPresentation",  function(baseFunc,curr
 		mod.ChronosLeaveRoomSecretDoorPresentation(currentRun, secretDoor)
 	elseif HeroHasTrait("NemesisAspect") then
 		mod.NemesisLeaveRoomSecretDoorPresentation(currentRun, secretDoor)
-	else
-		baseFunc(currentRun, secretDoor)
-	end
-end)
-
---Chaos gate entrance Chronos
-modutil.mod.Path.Wrap("LeaveRoomSecretDoorPresentation",  function(baseFunc,currentRun, secretDoor) 
-	if HeroHasTrait("ChronosAspect") then
-		mod.ChronosLeaveRoomSecretDoorPresentation(currentRun, secretDoor)
 	else
 		baseFunc(currentRun, secretDoor)
 	end
@@ -958,7 +949,7 @@ end)
 
 --Petting Cerberus
 modutil.mod.Path.Wrap("PetCerberus",  function(baseFunc, cerberus) 
-	if HeroHasTrait("ChronosAspect") then
+	if HeroHasTrait("ChronosAspect") or HeroHasTrait("NemesisAspect") then
 		FailToPetCerberus( cerberus )	
 	else
 		baseFunc(cerberus)
@@ -969,6 +960,8 @@ end)
 modutil.mod.Path.Wrap("SetupMelWalk",  function(baseFunc, source, args) 
 	if HeroHasTrait("ChronosAspect") then
 		mod.ChronosSetupMelWalk( source, args )
+	elseif HeroHasTrait("NemesisAspect") then
+		mod.NemesisSetupMelWalk( source, args )
 	else
 		baseFunc(source, args)
 	end
@@ -978,6 +971,8 @@ end)
 modutil.mod.Path.Wrap("RestoreMelRun",  function(baseFunc, source, args) 
 	if HeroHasTrait("ChronosAspect") then
 		mod.ChronosRestoreMelRun( source, args )
+	elseif HeroHasTrait("NemesisAspect") then
+		mod.NemesisRestoreMelRun( source, args )
 	else
 		baseFunc(source, args)
 	end
@@ -991,6 +986,26 @@ modutil.mod.Path.Wrap("AddLastStand",  function(baseFunc, args)
 		end
 	end
 	baseFunc( args)
+end)
+
+--Circle Enlarge
+modutil.mod.Path.Wrap("CirceEnlarge",  function(baseFunc, unit, args, roomArgs) 
+	if HeroHasTrait("ChronosAspect") then
+		args.ScaleMultiplier = 1.56
+	elseif HeroHasTrait("NemesisAspect") then
+		args.ScaleMultiplier = 1.68
+	end
+	baseFunc( unit, args, roomArgs )
+end)
+
+--Circle Shrink
+modutil.mod.Path.Wrap("CirceEnlarge",  function(baseFunc, unit, args, roomArgs) 
+	if HeroHasTrait("ChronosAspect") then
+		args.ScaleMultiplier = 0.65
+	elseif HeroHasTrait("NemesisAspect") then
+		args.ScaleMultiplier = 0.7
+	end
+	baseFunc( unit, args, roomArgs )
 end)
 
 --ZJ wraps
@@ -1083,6 +1098,7 @@ function mod.SetupChronosAnimations()
 		MelinoeDeathEscape2 = "Enemy_Chronos_BattleOutro_End",
 		MelinoeDeathSuccess = "NPC_Chronos_Enlightened_Greet",
 		MelinoeDeathReEnterHeadUp = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Combat_Return_ReEnter = "NPC_Chronos_Enlightened_Hover",
 		MelinoeDeathReEnterToIdle = "NPC_Chronos_Enlightened_Hover",
 		Melinoe_DeathHover_Start = "NPC_Chronos_Enlightened_Hover",
 		MelinoeDeathReEnterToIdleCancelable = "NPC_Chronos_Enlightened_Hover",
@@ -1184,6 +1200,12 @@ function mod.SetupChronosAnimations()
 
 		MelinoePickAxeMineStart = "Enemy_Chronos_SwingLeftPreFire",
 		MelinoePickAxeMineSwing = "Enemy_Chronos_SwingLeftFire",
+
+		MelinoeWalkStart = "NPC_Chronos_Enlightened_Move_Start",
+		MelinoeWalk = "NPC_Chronos_Enlightened_Move",
+		MelinoeWalkStop = "NPC_Chronos_Enlightened_Move_Stop",
+
+		ZagreusInteractEquip = "Player_Chronos_Shadowed_Greeting",
 
 		--Bats menus in Ephyra
 		Mel_Icon = "ChronosBatsMenu",
@@ -1338,6 +1360,7 @@ function mod.SetupNemesisAnimations()
 		MelinoeDeathEscape2 = "PlayerNemesis_Combat_Knockdown_Start",
 		MelinoeDeathSuccess = "PlayerNemesis_Hub_Greet",
 		MelinoeDeathReEnterHeadUp = "Nemesis_Combat_Idle",
+		Melinoe_Combat_Return_ReEnter = "Nemesis_Combat_Idle",
 		MelinoeDeathReEnterToIdle = "Nemesis_Combat_Idle",
 		Melinoe_DeathHover_Start = "Nemesis_Combat_Idle",
 		MelinoeDeathReEnterToIdleCancelable = "Nemesis_Combat_Idle",
@@ -1450,6 +1473,12 @@ function mod.SetupNemesisAnimations()
 		--"Enemy_Chronos_Knockdown_Frustrated",
 		--"Enemy_Chronos_SittingGreeting",
 		--"Enemy_Chronos_Shadowed_Greeting",
+
+		MelinoeWalkStart = "Nemesis_Combat_Run_Start",
+		MelinoeWalk = "Nemesis_Combat_Sprint_FireLoop",
+		MelinoeWalkStop = "Nemesis_Combat_Run_End",
+
+		ZagreusInteractEquip = "PlayerNemesis_Combat_Interact",
 
 		--Bats menus in Ephyra
 		Mel_Icon = "NemesisBatsMenu",
@@ -1605,6 +1634,7 @@ function mod.UnequipChronosAnimations()
 		MelinoeDeathEscape2 = "Enemy_Chronos_BattleOutro_End",
 		MelinoeDeathSuccess = "NPC_Chronos_Enlightened_Greet",
 		MelinoeDeathReEnterHeadUp = "NPC_Chronos_Enlightened_Hover",
+		Melinoe_Combat_Return_ReEnter = "NPC_Chronos_Enlightened_Hover",
 		MelinoeDeathReEnterToIdle = "NPC_Chronos_Enlightened_Hover",
 		Melinoe_DeathHover_Start = "NPC_Chronos_Enlightened_Hover",
 		MelinoeDeathReEnterToIdleCancelable = "NPC_Chronos_Enlightened_Hover",
@@ -1715,6 +1745,12 @@ function mod.UnequipChronosAnimations()
 
 		MelinoeGatherStart = "Nemesis_Combat_Idle",
 		MelinoeGatherPickup = "PlayerNemesis_Combat_Interact",
+
+		MelinoeWalkStart = "Nemesis_Combat_Run_Start",
+		MelinoeWalk = "Nemesis_Combat_Sprint_FireLoop",
+		MelinoeWalkStop = "Nemesis_Combat_Run_End",
+
+		ZagreusInteractEquip = "ZagreusInteractEquip",
 
 		--Bats Menu in Ephyra
 		Mel_Icon = "Keepsake_Nemesis",
