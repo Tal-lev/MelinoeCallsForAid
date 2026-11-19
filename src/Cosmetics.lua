@@ -304,7 +304,7 @@ local preRunCosmetics = {
 
 	{
 		-- Decide on some name for the default appearance of the vanilla obstacle animation
-		Id = _PLUGIN.guid .. "." .. "Cosmetic_TarotLight_Default",
+		Id = "ModCosmetic_Crossroads_CardAltar_Terrain_On01",
 		Name = {
 			en = "Tarot Light, Green",
 		},
@@ -316,8 +316,6 @@ local preRunCosmetics = {
 		},
 		ShopCategory = "CosmeticsShop_PreRun",
 		InsertAfterCosmetic = "Cosmetic_SkellyFloor01c",
-		-- The name of the new group
-		CosmeticsGroup = _PLUGIN.guid .. "." .. "Cosmetic_TarotLight",
 		CreateCosmeticsGroup = true,
 		AutoUnlock = true,
 		RotateOnly = true,
@@ -412,9 +410,9 @@ local preRunCosmetics = {
 			-- ["zh-TW"] =
 			-- "With symbolisms as could be found in the House of Hades in times past, the Commander should be suitably inspired to great deeds while standing upon this dais.",
 		},
-		CosmeticsGroup = _PLUGIN.guid .. "." .. "Cosmetic_TarotLight_Default",
+		CosmeticsGroup = "ModCosmetic_Crossroads_CardAltar_Terrain_On01",
 		--CosmeticsGroup = "Cosmetic_SkellyFloor01",
-		InsertAfterCosmetic = _PLUGIN.guid .. "." .. "Cosmetic_TarotLight_Default",
+		InsertAfterCosmetic = "ModCosmetic_Crossroads_CardAltar_Terrain_On01",
 		ShopCategory = "CosmeticsShop_PreRun",
 		SetAnimationIds = { 588748 },
 		IconPath = "JarlUlsfark-MelinoeCallsForAidCosmetics\\Crossroads_CardAltar_Terrain_On01_Chronos_Icon",
@@ -451,7 +449,9 @@ for _, cosmeticData in ipairs(preRunCosmetics) do
 	if cosmeticData.GameStateRequirements == nil then
 		cosmeticData.GameStateRequirements = {}
 	end
-	CosmeticsAPI.RegisterCosmetic(cosmeticData)
+	if not game.WorldUpgradeData[cosmeticData.Id] then
+		CosmeticsAPI.RegisterCosmetic(cosmeticData)
+	end
 end
 
 -- #Arcana Backs Pack
