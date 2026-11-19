@@ -34,6 +34,8 @@ Other fixes and improvements:
 - Remove Chronos incompatible Dash boons.
 - Remove Nemesis incompatible Cast boons.
 - Added Chronos and Nemesis related-Cosmetics.
+- Added a new type of cosmetic, the "Altar of Ashes Floor Light". A variant of it can be unlocked through the mod now.
+- Added a Chronos chid by @burn on discord
 - Added Chronos and Nemesis Arcana Card Backs.
 - Added Chronos and Nemesis Harvesting Animations.
 - Added more Chronos Room transition Animations.
