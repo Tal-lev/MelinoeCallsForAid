@@ -95,6 +95,7 @@ function SetUpPlayerChronos()
 	LoadPackages({Name = "ChronosReformed_Gilded", IgnoreAssert = true })
 	LoadPackages({Name = "ChronosReformed_Crimson", IgnoreAssert = true })
 	LoadPackages({Name = "ChronosReformed_Beard", IgnoreAssert = true })
+	LoadPackages({Name = "ChronosReformed_Scarless", IgnoreAssert = true })
 	LoadPackages({ Name = "JarlUlsfark-MelinoeCallsForAidPortraitChronos", IgnoreAssert = true })
 	if not HeroHasTrait("ModsNikkelMHadesBiomesPlayerScaleTrait") then
 		SetScale({ Id = CurrentRun.Hero.ObjectId, Fraction = 1.3 })
@@ -552,6 +553,15 @@ end)
 modutil.mod.Path.Wrap("LeaveRoomIPreBoss02Presentation",  function(baseFunc, currentRun, exitDoor) 
 	if HeroHasTrait("ChronosAspect") then
 		return mod.LeaveRoomIPreBoss02Presentation(currentRun, exitDoor)
+	else
+		return baseFunc(chronos, currentRun, exitDoor)
+	end
+end)
+
+--Leaving Olympus into summon as Chronos after true ending
+modutil.mod.Path.Wrap("OlympusChronosPortalExitPresentation",  function(baseFunc, currentRun, exitDoor) 
+	if HeroHasTrait("ChronosAspect") then
+		return mod.ChronosOlympusChronosPortalExitPresentation(currentRun, exitDoor)
 	else
 		return baseFunc(chronos, currentRun, exitDoor)
 	end
@@ -1239,6 +1249,8 @@ function mod.SetupChronosAnimations()
 		replacement = "Portrait_MelChronosVisage_"
 	elseif (melskin and melskin.GetCurrentDress() == "Beard") then
 		replacement = "Portrait_MelChronosBeard_"
+	elseif (melskin and melskin.GetCurrentDress() == "Best Dad") then
+		replacement = "Portrait_MelChronosScarless_"
 	else
 		replacement = "Portrait_MelChronos_"
 	end
@@ -1294,6 +1306,8 @@ function mod.SetupChronosAnimations()
 		replacement = "Portrait_ZagChronosVisage_"
 	elseif (melskin and melskin.GetCurrentDress() == "Beard") then
 		replacement = "Portrait_ZagChronosBeard_"
+	elseif (melskin and melskin.GetCurrentDress() == "Best Dad") then
+		replacement = "Portrait_ZagChronosScarless_"
 	else
 		replacement = "Portrait_ZagChronos_"
 	end

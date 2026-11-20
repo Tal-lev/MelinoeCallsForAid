@@ -2496,6 +2496,188 @@ sjson.hook(file, function(data)
 	TextOrder)
 	)
 
+	--Scarless
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_Default_01",
+		InheritFrom = "Portrait_MelChronos_Default_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_Default_01_Exit",
+		InheritFrom = "Portrait_MelChronos_Default_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_Proud_01",
+		InheritFrom = "Portrait_MelChronos_Proud_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_Proud_01_Exit",
+		InheritFrom = "Portrait_MelChronos_Proud_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_Intense_01",
+		InheritFrom = "Portrait_MelChronos_Intense_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_Intense_01_Exit",
+		InheritFrom = "Portrait_MelChronos_Intense_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_Vulnerable_01",
+		InheritFrom = "Portrait_MelChronos_Vulnerable_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_Vulnerable_01_Exit",
+		InheritFrom = "Portrait_MelChronos_Vulnerable_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_Empathetic_01",
+		InheritFrom = "Portrait_MelChronos_Empathetic_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_Empathetic_01_Exit",
+		InheritFrom = "Portrait_MelChronos_Empathetic_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_EmpatheticFlushed_01",
+		InheritFrom = "Portrait_MelChronos_EmpatheticFlushed_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_EmpatheticFlushed_01_Exit",
+		InheritFrom = "Portrait_MelChronos_EmpatheticFlushed_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_Hesitant_01",
+		InheritFrom = "Portrait_MelChronos_Hesitant_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_Hesitant_01_Exit",
+		InheritFrom = "Portrait_MelChronos_Hesitant_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_Casual_01",
+		InheritFrom = "Portrait_MelChronos_Casual_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_Casual_01_Exit",
+		InheritFrom = "Portrait_MelChronos_Casual_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_Pleased_01",
+		InheritFrom = "Portrait_MelChronos_Pleased_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_Pleased_01_Exit",
+		InheritFrom = "Portrait_MelChronos_Pleased_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_PleasedFlushed_01",
+		InheritFrom = "Portrait_MelChronos_PleasedFlushed_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_MelChronosScarless_PleasedFlushed_01_Exit",
+		InheritFrom = "Portrait_MelChronos_PleasedFlushed_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+	},
+	TextOrder)
+	)
+
 	---- Zagreus
 
 	table.insert(data.Animations, sjson.to_object(
@@ -4661,6 +4843,178 @@ sjson.hook(file, function(data)
 		Name = "Portrait_ZagChronosBeard_Unwell_01_Exit",
 		InheritFrom = "Portrait_Base_01_Exit",
 		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Beard_Portraits_Chronos_Enlightened_01",
+		OffsetX = -250,
+		OffsetY = 10,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Unwell_01_Exit" },
+		}
+	},
+	TextOrder)
+	)
+
+	--Scarless
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagChronosScarless_Default_01",
+		InheritFrom = "Portrait_Base_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+		OffsetX = -250,
+		OffsetY = 10,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Default_01" },
+		}
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagChronosScarless_Default_01_Exit",
+		InheritFrom = "Portrait_Base_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+		OffsetX = -250,
+		OffsetY = 10,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Default_01_Exit" },
+		}
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagChronosScarless_Serious_01",
+		InheritFrom = "Portrait_Base_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+		OffsetX = -250,
+		OffsetY = 10,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Serious_01" },
+		}
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagChronosScarless_Serious_01_Exit",
+		InheritFrom = "Portrait_Base_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+		OffsetX = -250,
+		OffsetY = 10,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Serious_01_Exit" },
+		}
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagChronosScarless_Defiant_01",
+		InheritFrom = "Portrait_Base_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+		OffsetX = -250,
+		OffsetY = 10,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Defiant_01" },
+		}
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagChronosScarless_Defiant_01_Exit",
+		InheritFrom = "Portrait_Base_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+		OffsetX = -250,
+		OffsetY = 10,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Defiant_01_Exit" },
+		}
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagChronosScarless_Empathetic_01",
+		InheritFrom = "Portrait_Base_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+		OffsetX = -250,
+		OffsetY = 10,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Empathetic_01" },
+		}
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagChronosScarless_Empathetic_01_Exit",
+		InheritFrom = "Portrait_Base_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+		OffsetX = -250,
+		OffsetY = 10,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Empathetic_01_Exit" },
+		}
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagChronosScarless_Unwell_01",
+		InheritFrom = "Portrait_Base_01",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
+		OffsetX = -250,
+		OffsetY = 10,
+		Alpha = 0.7,
+		Scale = 0.6,
+		CreateAnimations =
+		{
+			{ Name = "Portrait_ZagCFA_NoCancel_Unwell_01" },
+		}
+	},
+	TextOrder)
+	)
+
+	table.insert(data.Animations, sjson.to_object(
+	{
+		Name = "Portrait_ZagChronosScarless_Unwell_01_Exit",
+		InheritFrom = "Portrait_Base_01_Exit",
+		FilePath = "JarlUlsfark-MelinoeCallsForAidPortraitChronos\\Scarless_Portraits_Chronos_Enlightened_01",
 		OffsetX = -250,
 		OffsetY = 10,
 		Alpha = 0.7,

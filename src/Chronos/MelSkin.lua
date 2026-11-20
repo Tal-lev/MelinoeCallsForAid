@@ -131,6 +131,15 @@ local chronosDressData = {
             },
         },
     },
+    ["Best Dad"] = {
+        GrannyTexture = "GR2/ChronosReformed_Scarless",
+        GameStateRequirements = {
+            {
+                PathTrue = { "GameState", "TextLinesRecord", "NeoChronosAboutBoons01" }
+
+            },
+        },
+    },
     Visage =
     {
         GrannyTexture = "GR2/ChronosDream_Color",
@@ -163,6 +172,7 @@ local dressOrder = {
     "Dark Side",
     "Alternate Time",
     "Beard",
+    "Best Dad",
     "Visage",
     "None",
 }
