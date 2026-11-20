@@ -26,10 +26,11 @@ Other fixes and improvements:
 - Added Rival Melinoe when playing as Nemesis.
 - Added Chronos Mana UI - Mana Symbol and Charge animations by @Yegitu on discord.
 - Added Chronos Hammer Icons by @Yegitu on discord.
-- Added Death Defiance Icon for Chronos.
+- Added Death Defiance Icons for Chronos and Nemesis.
 - Added Keywords description to explain kit changes.
 - MelSkin costumes now unlock through gameplay.
 - Added a new Unlockable Bearded Chronos Melskin costume.
+- Added a new Unlockable Scarless Chronos Melskin costume.
 - Added a new Unlockable Slanesh Nemesis Melskin costume.
 - Remove Chronos incompatible Dash boons.
 - Remove Nemesis incompatible Cast boons.
@@ -39,6 +40,7 @@ Other fixes and improvements:
 - Added Chronos and Nemesis Arcana Card Backs.
 - Added Chronos and Nemesis Harvesting Animations.
 - Added more Chronos Room transition Animations.
+- Removing NPC Chronos from transition into alternate possibilities.
 - Added Chronos and Nemesis Biome Map transition.
 - Added Chronos petting animation.
 - Added New characters to bat menu.
