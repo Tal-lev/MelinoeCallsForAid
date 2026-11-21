@@ -25,8 +25,8 @@ Other fixes and improvements:
 - Added Nemesis Arachne Costumes.
 - Added Rival Melinoe when playing as Nemesis.
 - Added Chronos Mana UI - Mana Symbol and Charge animations by @Yegitu on discord.
-- Added Chronos Hammer Icons by @Yegitu on discord.
-- Added Death Defiance Icons for Chronos and Nemesis.
+- Added Hammer Icons for Chronos and Nemesis by @Yegitu on discord.
+- Added Death Defiance Icons for Chronos and Nemesis by @Yegitu on discord..
 - Added Keywords description to explain kit changes.
 - MelSkin costumes now unlock through gameplay.
 - Added a new Unlockable Bearded Chronos Melskin costume.
