@@ -40,6 +40,179 @@ sjson.hook(file, function(data)
 		Scale = 3,
 	})
     
+	table.insert(data.Animations,
+    {
+        Name = "NemesisFogEmitterSlamNova_Zeus",
+        InheritFrom = "FogEmitterSlamNova",
+        ColorFromOwner = "Ignore",
+        Color = {},
+        AddColor = true,
+        StartRed = 1.0,
+        StartGreen = 0.95,
+        StartBlue = 0.7,
+        EndRed = 0.9999,
+        EndGreen = 0.8,
+        EndBlue = 0.5,
+    })
+
+	table.insert(data.Animations,
+	{
+		Name = "FogEmitterSlamNovaNemesisOmega_Zeus",
+		InheritFrom = "NemesisFogEmitterSlamNova_Zeus",
+		Scale = 3,
+	})
+
+    table.insert(data.Animations,
+    {
+        Name = "NemesisFogEmitterSlamNova_Hera",
+        InheritFrom = "NemesisFogEmitterSlamNova_Zeus",
+        StartRed = 0.0,
+        StartGreen = 1.0,
+        StartBlue = 0.1,
+        EndRed = 0.1,
+        EndGreen = 0.3,
+        EndBlue = 1.0,
+    })
+
+	table.insert(data.Animations,
+	{
+		Name = "FogEmitterSlamNovaNemesisOmega_Hera",
+		InheritFrom = "NemesisFogEmitterSlamNova_Hera",
+		Scale = 3,
+	})
+
+    table.insert(data.Animations,
+    {
+        Name = "NemesisFogEmitterSlamNova_Poseidon",
+        InheritFrom = "NemesisFogEmitterSlamNova_Zeus",
+        StartRed = 0.1,
+        StartGreen = 1.0,
+        StartBlue = 0.8,
+        EndRed = 0,
+        EndGreen = 0.6,
+        EndBlue = 1.0,
+    })
+
+	table.insert(data.Animations,
+	{
+		Name = "FogEmitterSlamNovaNemesisOmega_Poseidon",
+		InheritFrom = "NemesisFogEmitterSlamNova_Poseidon",
+		Scale = 3,
+	})
+
+    table.insert(data.Animations,
+    {
+        Name = "NemesisFogEmitterSlamNova_Demeter",
+        InheritFrom = "NemesisFogEmitterSlamNova_Zeus",
+        StartRed = 0.25,
+        StartGreen = 0.35,
+        StartBlue = 0.5,
+        EndRed = 0.35,
+        EndGreen = 0.25,
+        EndBlue = 0.4999,
+    })
+
+	table.insert(data.Animations,
+	{
+		Name = "FogEmitterSlamNovaNemesisOmega_Demeter",
+		InheritFrom = "NemesisFogEmitterSlamNova_Demeter",
+		Scale = 3,
+	})
+
+    table.insert(data.Animations,
+    {
+        Name = "NemesisFogEmitterSlamNova_Apollo",
+        InheritFrom = "NemesisFogEmitterSlamNova_Zeus",
+        StartRed = 1.0,
+        StartGreen = 0.9,
+        StartBlue = 0.7,
+        EndRed = 0.999,
+        EndGreen = 0.85,
+        EndBlue = 0.05,
+    })
+
+	table.insert(data.Animations,
+	{
+		Name = "FogEmitterSlamNovaNemesisOmega_Apollo",
+		InheritFrom = "NemesisFogEmitterSlamNova_Apollo",
+		Scale = 3,
+	})
+
+    table.insert(data.Animations,
+    {
+        Name = "NemesisFogEmitterSlamNova_Aphrodite",
+        InheritFrom = "NemesisFogEmitterSlamNova_Zeus",
+        StartRed = 1.0,
+        StartGreen = 0.6,
+        StartBlue = 0.8,
+        EndRed = 0.99,
+        EndGreen = 0.05,
+        EndBlue = 0.99,
+    })
+
+	table.insert(data.Animations,
+	{
+		Name = "FogEmitterSlamNovaNemesisOmega_Aphrodite",
+		InheritFrom = "NemesisFogEmitterSlamNova_Aphrodite",
+		Scale = 3,
+	})
+
+    table.insert(data.Animations,
+    {
+        Name = "NemesisFogEmitterSlamNova_Hephaestus",
+        InheritFrom = "NemesisFogEmitterSlamNova_Zeus",
+        StartRed = 0.51,
+        StartGreen = 0.82,
+        StartBlue = 1.00,
+        EndRed = 1.00,
+        EndGreen = 0,
+        EndBlue = 0,
+    })
+
+	table.insert(data.Animations,
+	{
+		Name = "FogEmitterSlamNovaNemesisOmega_Hephaestus",
+		InheritFrom = "NemesisFogEmitterSlamNova_Hephaestus",
+		Scale = 3,
+	})
+
+    table.insert(data.Animations,
+    {
+        Name = "NemesisFogEmitterSlamNova_Hestia",
+        InheritFrom = "NemesisFogEmitterSlamNova_Zeus",
+        StartRed = 1.0,
+        StartGreen = 0.3,
+        StartBlue = 0.02,
+        EndRed = 0.999,
+        EndGreen = 0.15,
+        EndBlue = 0.0,
+    })
+
+	table.insert(data.Animations,
+	{
+		Name = "FogEmitterSlamNovaNemesisOmega_Hestia",
+		InheritFrom = "NemesisFogEmitterSlamNova_Hestia",
+		Scale = 3,
+	})
+
+    table.insert(data.Animations,
+    {
+        Name = "NemesisFogEmitterSlamNova_Ares",
+        InheritFrom = "NemesisFogEmitterSlamNova_Zeus",
+        StartRed = 1.0,
+        StartGreen = 0.04,
+        StartBlue = 0.001,
+        EndRed = 0.999,
+        EndGreen = 0.0,
+        EndBlue = 0.0,
+    })
+
+	table.insert(data.Animations,
+	{
+		Name = "FogEmitterSlamNovaNemesisOmega_Ares",
+		InheritFrom = "NemesisFogEmitterSlamNova_Ares",
+		Scale = 3,
+	})
 
 return data
 end)
@@ -469,4 +642,3 @@ sjson.hook(file, function(data)
     })
 return data
 end)
-

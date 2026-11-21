@@ -169,6 +169,38 @@ ModifyGodTraitWeaponProperty({
 	}
 })
 
+--Nemesis Special
+AddGodTraitProperty({
+		TraitSuffix = "SpecialBoon",
+		PropertyChanges = {
+		{
+			TraitName = "NemesisAspect" ,
+			WeaponName = "WeaponStaffBall",
+			ProjectileName = "PlayerNemesisSpecial",
+			ProjectileProperty = "Graphic",
+			ValuePrefix = "NemesisFogEmitterSlamNova_",
+			ChangeType = "Absolute",
+			ExcludeLinked = true,
+		},
+	}
+})
+
+--Nemesis Omega Special
+AddGodTraitProperty({
+		TraitSuffix = "SpecialBoon",
+		PropertyChanges = {
+		{
+			TraitName = "NemesisAspect" ,
+			WeaponName = "WeaponStaffBall",
+			ProjectileName = "PlayerNemesisSpecialOmega",
+			ProjectileProperty = "Graphic",
+			ValuePrefix = "FogEmitterSlamNovaNemesisOmega_",
+			ChangeType = "Absolute",
+			ExcludeLinked = true,
+		},
+	}
+})
+
 --AddGodTraitProperty({
 --		TraitSuffix = "WeaponBoon",
 --		PropertyChanges = {

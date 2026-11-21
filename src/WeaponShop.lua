@@ -7,6 +7,7 @@ OverwriteTableKeys(WeaponShopItemData, {
 		HideAfterPurchased = false,
 		IconScale = 0.8,
 		UnlockTextId = "WeaponShopAspectUnlock",
+		SkipAutoEquip = true,
 		Cost =
 		{
 			MixerIBoss = 2,
@@ -122,6 +123,7 @@ OverwriteTableKeys(WeaponShopItemData, {
 		HideAfterPurchased = false,
 		IconScale = 0.8,
 		UnlockTextId = "WeaponShopAspectUnlock",
+		SkipAutoEquip = true,
 		Cost =
 		{
 			MixerFBoss = 2,
