@@ -77,5 +77,12 @@ sjson.hook(file, function(data)
 		Material = "Unlit",
 	})
 
+	table.insert(data.Animations,
+	{
+		Name = "ExtraLifeNemesis",
+		FilePath = "JarlUlsfark-MelinoeCallsForAid\\GUI\\HUD\\HealthBar_1upNemesis",
+		Material = "Unlit",
+	})
+
 return data
 end)

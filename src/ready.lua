@@ -993,6 +993,8 @@ modutil.mod.Path.Wrap("AddLastStand",  function(baseFunc, args)
 	if args.Icon and args.Icon == "ExtraLifeMel" then
 		if HeroHasTrait("ChronosAspect") then
 			args.Icon = "ExtraLifeChronos"
+		elseif HeroHasTrait("NemesisAspect") then
+			args.Icon = "ExtraLifeNemesis"
 		end
 	end
 	baseFunc( args)
