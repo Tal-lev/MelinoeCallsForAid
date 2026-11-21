@@ -58,7 +58,8 @@ Other fixes and improvements:
 - Fixed: Chronos Omega Attack fires even when there is not sufficient mana.
 - Fixed: Chronos Omega Attack sounds like Melinoe.
 - Fixed: Chronos sprints if holding the direction button during and after dash.
-- Fixed: Circe Word of Greater Girth makes Chronos and Nemesis smaller. 
+- Fixed: Circe Word of Greater Girth makes Chronos and Nemesis smaller.
+- Fixed: Purchasing Chronos for the first time no longer cause visual glitches.
 - Reworked the Readme.md
 - DEV: reorganized the scripts per character.
 
