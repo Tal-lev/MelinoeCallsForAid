@@ -59,21 +59,22 @@ While the mod has been tested decently well it is recommended to backup your sav
 
 ## Credits
 
-- @zerp on the modding discord 
-  - MelSkin compatibility.
-  - ManaBar reactivity.
-  - Beta-testing.
 - @Yegitu on the modding discord
   - Chronos Mana symbol.
   - Chronos Mana Charge Animations.
   - Hammer Icons.
   - Death Defiance Icons.
-- @ErgotthAE on HadesTheGame Reddit for Bearded portrait.
-- @kupdoodles on HadesTheGame Reddit for Nemesis and Melinoe Portrait.
+- @zerp on the modding discord 
+  - MelSkin compatibility.
+  - ManaBar reactivity.
+  - Beta-testing.
 - @burn on the modding discord
   - Nemesis and Melinoe Frame.
   - Chronos Chid
+- @ErgotthAE on HadesTheGame Reddit for Bearded portrait.
+- @kupdoodles on HadesTheGame Reddit for Nemesis and Melinoe Portrait.
 - @NikkelM on the modding discord for creating CosmeticsAPI.
+- @mikealex01 on the modding discord for beta-testing.
 - The Hades Modding discord for questions, answers and support.
 
 ## Integration with other mods
