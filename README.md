@@ -64,6 +64,7 @@ While the mod has been tested decently well it is recommended to backup your sav
   - Chronos Mana Charge Animations.
   - Hammer Icons.
   - Death Defiance Icons.
+  - Bleed VFX
 - @zerp on the modding discord 
   - MelSkin compatibility.
   - ManaBar reactivity.
