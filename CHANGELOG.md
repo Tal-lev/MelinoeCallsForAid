@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-11-22
+
 <!--Releasenotes start-->
 ### Patch Highlights:
 
@@ -100,7 +102,8 @@ Other fixes and improvements:
 
 - First version of the mod!
 
-[unreleased]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/0.2.1...HEAD
+[unreleased]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.0...HEAD
+[1.0.0]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/0.2.1...1.0.0
 [0.2.1]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/0.2.0...0.2.1
 [0.2.0]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/0.1.0...0.2.0
 [0.1.0]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/fcb01e8e89ce90a033f35896954c090b2770b900...0.1.0
