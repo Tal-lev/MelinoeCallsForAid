@@ -68,7 +68,7 @@ OverwriteTableKeys( TraitData, {
     NemesisLongerCastTrait = 
 	{
 		InheritFrom = { "WeaponTrait", "StaffHammerTrait" },
-		Icon = "Hammer_Staff_37",
+		Icon = "JarlUlsfark-MelinoeCallsForAid\\HammerNemesis_01_1",
 		GameStateRequirements =
 		{
 			{
@@ -108,14 +108,14 @@ OverwriteTableKeys( TraitData, {
     },
 
     NemesisDummyCritTrait = {
-        Icon = "Hammer_Staff_37",
+        Icon = "JarlUlsfark-MelinoeCallsForAid\\HammerNemesis_02_1",
         Hidden = true,
     },
 
     NemesisCritAfterSpecialTrait = 
 	{
 		InheritFrom = { "WeaponTrait", "StaffHammerTrait" },
-		Icon = "Hammer_Staff_37",
+		Icon = "JarlUlsfark-MelinoeCallsForAid\\HammerNemesis_02_1",
 		GameStateRequirements =
 		{
 			{
@@ -170,7 +170,7 @@ OverwriteTableKeys( TraitData, {
 	NemesisDashPushTrait = 
 	{
 		InheritFrom = { "WeaponTrait", "StaffHammerTrait" },
-		Icon = "Hammer_Staff_37",
+		Icon = "JarlUlsfark-MelinoeCallsForAid\\HammerNemesis_03_1",
 		GameStateRequirements =
 		{
 			{
@@ -209,7 +209,7 @@ OverwriteTableKeys( TraitData, {
 	NemesisBlockRevengeTrait = 
 	{
 		InheritFrom = {"WeaponTrait", "StaffHammerTrait" },
-		Icon = "Hammer_Staff_37",
+		Icon = "JarlUlsfark-MelinoeCallsForAid\\HammerNemesis_04_1",
 		GameStateRequirements =
 		{
 			{
@@ -248,7 +248,7 @@ OverwriteTableKeys( TraitData, {
 	NemesisAttackBleedTrait = 
 	{
 		InheritFrom = {"WeaponTrait", "StaffHammerTrait" },
-		Icon = "Hammer_Staff_37",
+		Icon = "JarlUlsfark-MelinoeCallsForAid\\HammerNemesis_05_1",
 		RarityLevels =
 		{
 			Common =
@@ -315,7 +315,7 @@ OverwriteTableKeys( TraitData, {
 	NemDashAttackProjectileTrait =
 	{
 		InheritFrom = {"WeaponTrait", "StaffHammerTrait" },
-		Icon = "Hammer_Staff_37",
+		Icon = "JarlUlsfark-MelinoeCallsForAid\\HammerNemesis_06_1",
 		RarityLevels =
 		{
 			Common =
