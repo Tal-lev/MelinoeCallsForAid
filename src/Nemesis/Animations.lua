@@ -621,6 +621,22 @@ sjson.hook(file, function(data)
 		ChildAnimation = "InspectPointLoopBig",
 	})
     
+	
+
+return data
+end)
+
+local file = rom.path.combine(rom.paths.Content, 'Game/Animations/Melinoe_General_VFX.sjson')
+sjson.hook(file, function(data)
+
+	table.insert(data.Animations,
+	{
+    	Name = "NemesisBloodFx",
+		InheritFrom = "DionysusStunnedFx",
+		OffsetZ = 80.0,
+		Scale = 1.5,
+		FilePath = "JarlUlsfark-MelinoeCallsForAid\\Fx\\NemesisBloodFx\\NemesisBloodFx",
+    })
 return data
 end)
 
@@ -640,5 +656,6 @@ sjson.hook(file, function(data)
 		AllowDrawableCache = false,
       },
     })
+
 return data
 end)

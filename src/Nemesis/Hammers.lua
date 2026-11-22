@@ -53,6 +53,8 @@ OverwriteTableKeys( EffectData, {
 		DamageTextSize = 25,
 		DisplaySuffix = "Bleed",
 		Icon = "NemBleedSmall",
+		--FrontFx = "NemesisBloodFx",
+		Vfx = "NemesisBloodFx",
 		OnApplyFunctionName = _PLUGIN.guid .. "." .. "NemBleedDamageOverTimeApply",
 		DataProperties = {
 			Type = "DAMAGE_OVER_TIME",
@@ -60,6 +62,7 @@ OverwriteTableKeys( EffectData, {
 			Cooldown = 0.2,
 			Amount = 2,
 			CanAffectInvulnerable = true,
+			Vfx = "NemesisBloodFx",
 		},
 	},
 })
