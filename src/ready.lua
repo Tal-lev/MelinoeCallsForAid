@@ -591,16 +591,16 @@ end)
 
 
 --Interact
---modutil.mod.Path.Wrap("SetAnimation",  function(baseFunc, args) 
---	if args and args.DestinationId == 40000 then
---		print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
---		print("printing args")
---		print(args.Name)
---		print(args.DestinationId)
---		print(debug.traceback())
---	end
---	return baseFunc( args)
---end)
+modutil.mod.Path.Wrap("SetAnimation",  function(baseFunc, args) 
+	if args and args.DestinationId == 40000 then
+		print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+		print("printing args")
+		print(args.Name)
+		print(args.DestinationId)
+		print(debug.traceback())
+	end
+	return baseFunc( args)
+end)
 
 --Enter Room 
 --modutil.mod.Path.Context.Env("RoomEntranceMaterialize", function ( currentRun, currentRoom, args )

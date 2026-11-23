@@ -64,6 +64,7 @@ local function on_ready()
 	import "Nemesis/WeaponEffects.lua"
 
 	import "Chronos/DashBoons.lua"
+	import "Chronos/CastBoons.lua"
 	import "Nemesis/CastBoons.lua"
 
 	import "Chronos/VoiceLines.lua"
