@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Bleed VFX ny @Yegitu
+- Bleed VFX by @Yegitu
+- Fix: Chronos can no longer gain Omega Cast Boons.
 
 ## [1.0.0] - 2026-11-22
 
