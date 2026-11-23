@@ -242,3 +242,248 @@ sjson.hook(file, function(data)
 return data
 end)
 
+--Chronos Special
+local file = rom.path.combine(rom.paths.Content, 'Game/Animations/Enemy_Clockwork_VFX.sjson')
+sjson.hook(file, function(data)
+    
+    table.insert(data.Animations,
+    {
+		Name = "ChronosVacuumIn_Zeus",
+		InheritFrom = "ChronosVacuumIn",
+        ColorFromOwner = "Ignore",
+        Color = {},
+        AddColor = true,
+        StartRed = 1.0,
+        StartGreen = 0.95,
+        StartBlue = 0.7,
+        EndRed = 0.9999,
+        EndGreen = 0.8,
+        EndBlue = 0.5,
+		ChainTo = "ChronosVacuum_Zeus",
+	})
+
+    table.insert(data.Animations,
+    {
+		Name = "ChronosVacuum_Zeus",
+		InheritFrom = "ChronosVacuum",
+		ColorFromOwner = "Ignore",
+        Color = {},
+        AddColor = true,
+        StartRed = 1.0,
+        StartGreen = 0.95,
+        StartBlue = 0.7,
+        EndRed = 0.9999,
+        EndGreen = 0.8,
+        EndBlue = 0.5,
+	})
+
+    table.insert(data.Animations,
+    {
+		Name = "ChronosVacuumIn_Hera",
+		InheritFrom = "ChronosVacuumIn_Zeus",
+        StartRed = 0.0,
+        StartGreen = 1.0,
+        StartBlue = 0.1,
+        EndRed = 0.1,
+        EndGreen = 0.3,
+        EndBlue = 1.0,
+		ChainTo = "ChronosVacuum_Hera",
+	})
+
+    table.insert(data.Animations,
+    {
+		Name = "ChronosVacuum_Hera",
+		InheritFrom = "ChronosVacuum_Zeus",
+		ColorFromOwner = "Ignore",
+        StartRed = 0.0,
+        StartGreen = 1.0,
+        StartBlue = 0.1,
+        EndRed = 0.1,
+        EndGreen = 0.3,
+        EndBlue = 1.0,
+	})
+
+    table.insert(data.Animations,
+    {
+		Name = "ChronosVacuumIn_Poseidon",
+		InheritFrom = "ChronosVacuumIn_Zeus",
+        StartRed = 0.1,
+        StartGreen = 1.0,
+        StartBlue = 0.8,
+        EndRed = 0,
+        EndGreen = 0.6,
+        EndBlue = 1.0,
+		ChainTo = "ChronosVacuum_Poseidon",
+	})
+
+    table.insert(data.Animations,
+    {
+		Name = "ChronosVacuum_Poseidon",
+		InheritFrom = "ChronosVacuum_Zeus",
+		ColorFromOwner = "Ignore",
+        StartRed = 0.1,
+        StartGreen = 1.0,
+        StartBlue = 0.8,
+        EndRed = 0,
+        EndGreen = 0.6,
+        EndBlue = 1.0,
+	})
+    --Demeter
+    table.insert(data.Animations,
+    {
+		Name = "ChronosVacuumIn_Demeter",
+		InheritFrom = "ChronosVacuumIn_Zeus",
+        StartRed = 0.25,
+        StartGreen = 0.35,
+        StartBlue = 0.5,
+        EndRed = 0.35,
+        EndGreen = 0.25,
+        EndBlue = 0.4999,
+		ChainTo = "ChronosVacuum_Demeter",
+	})
+
+    table.insert(data.Animations,
+    {
+		Name = "ChronosVacuum_Demeter",
+		InheritFrom = "ChronosVacuum_Zeus",
+		ColorFromOwner = "Ignore",
+        StartRed = 0.25,
+        StartGreen = 0.35,
+        StartBlue = 0.5,
+        EndRed = 0.35,
+        EndGreen = 0.25,
+        EndBlue = 0.4999,
+	})
+    --Apollo
+    table.insert(data.Animations,
+    {
+		Name = "ChronosVacuumIn_Apollo",
+		InheritFrom = "ChronosVacuumIn_Zeus",
+        StartRed = 1.0,
+        StartGreen = 0.9,
+        StartBlue = 0.7,
+        EndRed = 0.999,
+        EndGreen = 0.85,
+        EndBlue = 0.05,
+		ChainTo = "ChronosVacuum_Apollo",
+	})
+
+    table.insert(data.Animations,
+    {
+		Name = "ChronosVacuum_Apollo",
+		InheritFrom = "ChronosVacuum_Zeus",
+		ColorFromOwner = "Ignore",
+        StartRed = 1.0,
+        StartGreen = 0.9,
+        StartBlue = 0.7,
+        EndRed = 0.999,
+        EndGreen = 0.85,
+        EndBlue = 0.05,
+	})
+    --Aphrodite
+    table.insert(data.Animations,
+    {
+		Name = "ChronosVacuumIn_Aphrodite",
+		InheritFrom = "ChronosVacuumIn_Zeus",
+        StartRed = 1.0,
+        StartGreen = 0.6,
+        StartBlue = 0.8,
+        EndRed = 0.99,
+        EndGreen = 0.05,
+        EndBlue = 0.99,
+		ChainTo = "ChronosVacuum_Aphrodite",
+	})
+
+    table.insert(data.Animations,
+    {
+		Name = "ChronosVacuum_Aphrodite",
+		InheritFrom = "ChronosVacuum_Zeus",
+		ColorFromOwner = "Ignore",
+        StartRed = 1.0,
+        StartGreen = 0.6,
+        StartBlue = 0.8,
+        EndRed = 0.99,
+        EndGreen = 0.05,
+        EndBlue = 0.99,
+	})
+    --Hephaestus
+    table.insert(data.Animations,
+    {
+		Name = "ChronosVacuumIn_Hephaestus",
+		InheritFrom = "ChronosVacuumIn_Zeus",
+        StartRed = 0.51,
+        StartGreen = 0.82,
+        StartBlue = 1.00,
+        EndRed = 1.00,
+        EndGreen = 0,
+        EndBlue = 0,
+		ChainTo = "ChronosVacuum_Hephaestus",
+	})
+
+    table.insert(data.Animations,
+    {
+		Name = "ChronosVacuum_Hephaestus",
+		InheritFrom = "ChronosVacuum_Zeus",
+		ColorFromOwner = "Ignore",
+        StartRed = 0.51,
+        StartGreen = 0.82,
+        StartBlue = 1.00,
+        EndRed = 1.00,
+        EndGreen = 0,
+        EndBlue = 0,
+	})
+    --Hestia
+    table.insert(data.Animations,
+    {
+		Name = "ChronosVacuumIn_Hestia",
+		InheritFrom = "ChronosVacuumIn_Zeus",
+        StartRed = 1.0,
+        StartGreen = 0.3,
+        StartBlue = 0.02,
+        EndRed = 0.999,
+        EndGreen = 0.15,
+        EndBlue = 0.0,
+		ChainTo = "ChronosVacuum_Hestia",
+	})
+
+    table.insert(data.Animations,
+    {
+		Name = "ChronosVacuum_Hestia",
+		InheritFrom = "ChronosVacuum_Zeus",
+		ColorFromOwner = "Ignore",
+        StartRed = 1.0,
+        StartGreen = 0.3,
+        StartBlue = 0.02,
+        EndRed = 0.999,
+        EndGreen = 0.15,
+        EndBlue = 0.0,
+	})
+    --Ares
+    table.insert(data.Animations,
+    {
+		Name = "ChronosVacuumIn_Ares",
+		InheritFrom = "ChronosVacuumIn_Zeus",
+        StartRed = 1.0,
+        StartGreen = 0.04,
+        StartBlue = 0.001,
+        EndRed = 0.999,
+        EndGreen = 0.0,
+        EndBlue = 0.0,
+		ChainTo = "ChronosVacuum_Ares",
+	})
+
+    table.insert(data.Animations,
+    {
+		Name = "ChronosVacuum_Ares",
+		InheritFrom = "ChronosVacuum_Zeus",
+		ColorFromOwner = "Ignore",
+        StartRed = 1.0,
+        StartGreen = 0.04,
+        StartBlue = 0.001,
+        EndRed = 0.999,
+        EndGreen = 0.0,
+        EndBlue = 0.0,
+	})
+
+return data
+end)

@@ -61,6 +61,28 @@ sjson.hook(file, function(data)
 
 	table.insert(data.Projectiles,
 	{
+		Name = "PlayerChronosGrindWall",
+		InheritFrom = "ChronosGrindWall",
+		Damage = 50,
+		TotalFuse = 1.5,
+		ImmunityDuration = 1.5,
+		Effects =
+		{
+			{
+				Name = "OnHitStun",
+				Duration = 0.5,
+				DisableMove = true,
+				DisableRotate = true,
+				DisableAttack = true,
+				Active = true,
+				CanAffectInvulnerable = false,
+				FrontFx = "null",
+			}
+		},
+	})
+
+	table.insert(data.Projectiles,
+	{
 		Name = "PlayerChronosGrindWallForward",
 		InheritFrom = "ChronosGrindWallForward",
 		Effects =

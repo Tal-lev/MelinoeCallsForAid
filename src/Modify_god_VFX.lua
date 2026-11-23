@@ -132,6 +132,22 @@ ModifyGodTraitWeaponProperty({
 	}
 })
 
+--Chronos Special
+AddGodTraitProperty({
+		TraitSuffix = "SpecialBoon",
+		PropertyChanges = {
+		{
+			TraitNames = { "ChronosAspect" , "ChronosSpecialDamage"},
+			WeaponName = "WeaponAxeSpecial",
+			ProjectileName = "ChronosGrindVacuum",
+			ProjectileProperty = "Graphic",
+			ValuePrefix = "ChronosVacuumIn_",
+			ChangeType = "Absolute",
+			ExcludeLinked = true,
+		},
+	}
+})
+
 AddGodTraitProperty({
 		TraitSuffix = "SpecialBoon",
 		PropertyChanges = {

@@ -12,6 +12,8 @@ TraitData.ApolloExCastBoon.GameStateRequirements = TraitData.ApolloExCastBoon.Ga
 -- Ares
 TraitData.AresExCastBoon.GameStateRequirements = TraitData.AresExCastBoon.GameStateRequirements or {}
 -- Artemis
+TraitData.OmegaCastVolleyBoon.GameStateRequirements = TraitData.OmegaCastVolleyBoon.GameStateRequirements or {}
+
 -- Dionaysus
 -- Hades
 
@@ -39,5 +41,9 @@ table.insert(TraitData.AresExCastBoon.GameStateRequirements, {
   HasNone = {"ChronosAspect"}
 })
 -- Artemis
+table.insert(TraitData.OmegaCastVolleyBoon.GameStateRequirements, {
+  Path = {"CurrentRun", "Hero", "TraitDictionary"},
+  HasNone = {"ChronosAspect"}
+})
 -- Dionaysus
 -- Hades
