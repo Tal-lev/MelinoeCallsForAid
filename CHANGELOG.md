@@ -8,11 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 - Added Bleed VFX by @Yegitu
-- Added Chronos Special god VFX
-- Balance: Chronos Special now deals an initial 5 damage. 
+- Added Chronos Special god VFX when Wind Cuts is used.
 - Fix: Chronos can no longer gain Omega Cast Boons.
-
-
 
 ## [1.0.0] - 2026-11-22
 
