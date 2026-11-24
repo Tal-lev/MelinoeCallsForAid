@@ -16,7 +16,7 @@ A Hades II mod that adds Chronos and Nemesis as unique playable characters.
 - Move-set
   - Attack is a 2-move Scythe combo.
   - Omega Attack is throwing the Scythe.
-  - Special is a non-damaging Vacuum which pulls enemies in.
+  - Special is a non-damaging Vacuum which pulls enemies in with melee range damage.
   - Omega Special is a wide straight projectile which flies the long distance.
   - Cast stops time.
   - No Omega Cast.
