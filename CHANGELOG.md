@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-11-24
+
 - Added Bleed VFX by @Yegitu
 - Added Chronos Special god VFX when Wind Cuts is used.
 - Balance: Chronos special also deals 50 damage at melee range.
@@ -107,7 +109,8 @@ Other fixes and improvements:
 
 - First version of the mod!
 
-[unreleased]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.0...HEAD
+[unreleased]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.1...HEAD
+[1.0.1]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/0.2.1...1.0.0
 [0.2.1]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/0.2.0...0.2.1
 [0.2.0]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/0.1.0...0.2.0
