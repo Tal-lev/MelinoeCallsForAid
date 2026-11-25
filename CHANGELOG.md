@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-
+- Fix: Missing Animation when returning from Hecate polymorph.
 - Fix: Chronos Could Access Sprint in some cases.
 - Fix: Lucid Gain not working with Chronos.
 - Fix: Chronos godsent Summon without appropriate packages.
