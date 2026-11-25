@@ -7,9 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+
 - Fix: Chronos Could Access Sprint.
 - Fix: Chronos godsent Summon without appropriate packages.
 - Fix: Godsent summon miniboss don't activate ai.
+- Fix: Chronos summon spell not losing uses upon use.
 - Fix: Lucid Gain not working with Chronos.
 
 
