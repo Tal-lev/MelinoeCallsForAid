@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.3] - 2026-11-25
+
 - Fix: Missing Animation when returning from Hecate polymorph.
 - Fix: Chronos appearing in Erebus while playing as Chronos.
 - Fix: Chronos Could Access Sprint in some cases.
@@ -125,7 +127,8 @@ Other fixes and improvements:
 
 - First version of the mod!
 
-[unreleased]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.2...HEAD
+[unreleased]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.3...HEAD
+[1.0.3]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.2...1.0.3
 [1.0.2]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/0.2.1...1.0.0
