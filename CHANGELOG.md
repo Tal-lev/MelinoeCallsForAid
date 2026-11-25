@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Fix: Chronos Could Access Sprint.
+- Fix: Chronos godsent Summon without appropriate packages.
+
 ## [1.0.2] - 2026-11-25
 
 - Fix Crash in Olympus post boss when not using Chronos.
