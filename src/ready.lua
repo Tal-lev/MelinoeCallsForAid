@@ -563,7 +563,7 @@ modutil.mod.Path.Wrap("OlympusChronosPortalExitPresentation",  function(baseFunc
 	if HeroHasTrait("ChronosAspect") then
 		return mod.ChronosOlympusChronosPortalExitPresentation(currentRun, exitDoor)
 	else
-		return baseFunc(chronos, currentRun, exitDoor)
+		return baseFunc(currentRun, exitDoor)
 	end
 end)
 
