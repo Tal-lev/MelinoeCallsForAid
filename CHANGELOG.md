@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-11-25
+
 - Fix Crash in Olympus post boss when not using Chronos.
 
 ## [1.0.1] - 2026-11-24
@@ -111,7 +113,8 @@ Other fixes and improvements:
 
 - First version of the mod!
 
-[unreleased]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.1...HEAD
+[unreleased]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.2...HEAD
+[1.0.2]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/0.2.1...1.0.0
 [0.2.1]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/0.2.0...0.2.1
