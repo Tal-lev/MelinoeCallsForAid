@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix: Godsent Summon miniboss won't activate ai.
 - Fix: Chronos Summon spell not losing uses upon use.
 - Fix: Chronos Circle spell does not show godsent character
+- Fix: Nemesis Omega Special is not counted as ExWeapon.
 
 
 
