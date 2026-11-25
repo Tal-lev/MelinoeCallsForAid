@@ -75,6 +75,9 @@ local function on_ready()
 	import "Modify_god_VFX.lua"
 	import "Hexes.lua"
 	import 'ready.lua'
+
+	import "Chronos/EncounterData.lua"
+
 	modutil.once_loaded.game(function()
 		import "Cosmetics.lua"
 		import "Chronos/Costumes.lua"
