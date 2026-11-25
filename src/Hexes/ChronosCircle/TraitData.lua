@@ -9,6 +9,7 @@ function mod.ChronosCircle( weaponData, functionArgs, triggerArgs )
 		return
 	end
     if HeroHasTrait("ChronosCircleArtemisTalent") and ShouldFireFirstTimeOlympian() then
+		LoadPackages({Name = functionArgs.Character, IgnoreAssert = true })
         thread( DoFullSuperPresentation, functionArgs.Character )
         wait(0.1)
 		CreateProjectileFromUnit({ Name = functionArgs.ProjectileName .. "Out" .. "Artemis", WeaponName = functionArgs.WeaponName .. "GodSent",  Id = CurrentRun.Hero.ObjectId, FireFromTarget = true, ProjectileCap = 1 })

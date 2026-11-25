@@ -16,7 +16,22 @@ function mod.ChronosEndSpellSummon( enemy, weaponData )
 	RemoveValueAndCollapse(MapState.SpellSummons, enemy )
 end
 
+function mod.SetupBoss(enemy)
+	if enemy.PreBossAISetupFunctionName ~= nil then
+		CallFunctionName(enemy.PreBossAISetupFunctionName, enemy)
+	end
+	SetupAI(enemy)
+end
+
 function mod.ChronosSpellSummon( weaponData, traitArgs, triggerArgs )
+	local traitData = GetHeroTrait("SpellChronosSummonTrait")
+	if not (traitData.RemainingUses > 0) then
+		return
+	end
+	if not traitArgs.Godsent and traitData.RemainingUses > 0 then
+		traitData.RemainingUses = traitData.RemainingUses - 1
+		UpdateTraitNumber( traitData )
+	end
 	local wasFirst = true
 	if not mod.ShouldFireFirstTimeOlympian() then
 		wasFirst = false
@@ -43,17 +58,44 @@ function mod.ChronosSpellSummon( weaponData, traitArgs, triggerArgs )
 			"Talos", "Dragon_MiniBoss", "Brute_Miniboss",
             "Stalker_Miniboss"
 		}
+		
 		if ZagJourney then
 			local ZJ_Miniboss_list = {
 				"WretchAssassinMiniboss", "HeavyRangedSplitterMiniboss", "SpreadShotUnitMiniboss",
                 "HitAndRunUnit", "SatyrRangedMiniboss", "RatThugMiniboss", 
-				"ThiefImpulseMineLayerMiniboss", "HeavyRangedForkedMiniboss", "HadesCrawlerMiniBoss"
+				"ThiefImpulseMineLayerMiniboss", "HeavyRangedForkedMiniboss", --"HadesCrawlerMiniBoss"
 			}
 			for _, tempEnemy in ipairs(ZJ_Miniboss_list) do
         		table.insert(Miniboss_list, tempEnemy)
 			end
 		end
 		enemyName = GetRandomValue(Miniboss_list)
+		if Contains({"Treant","FogEmitter","ZombieAssassin_Miniboss"},enemyName) then
+			LoadPackages({ Name = "BiomeF", IgnoreAssert = true })
+		elseif Contains({"CrawlerMiniboss","Octofish"},enemyName) then
+			LoadPackages({ Name = "BiomeG", IgnoreAssert = true })
+		elseif Contains({"Lamia_Miniboss","Vampire"},enemyName) then
+			LoadPackages({ Name = "BiomeH", IgnoreAssert = true })
+		elseif Contains({"GoldElemental_MiniBoss","SatyrRatCatcher_Miniboss"},enemyName) then
+			LoadPackages({ Name = "BiomeI", IgnoreAssert = true })
+		elseif Contains({"Boar","SatyrCrossbow"},enemyName) then
+			LoadPackages({ Name = "BiomeN", IgnoreAssert = true })
+		elseif Contains({"Captain"},enemyName) then
+			LoadPackages({ Name = "BiomeO", IgnoreAssert = true })
+		elseif Contains({"Talos","Dragon_MiniBoss"},enemyName) then
+			LoadPackages({ Name = "BiomeP", IgnoreAssert = true })
+		elseif Contains({"Brute_Miniboss","Stalker_Miniboss"},enemyName) then
+			LoadPackages({ Name = "BiomeQ", IgnoreAssert = true })
+		elseif Contains({"WretchAssassinMiniboss", "HeavyRangedSplitterMiniboss", "SpreadShotUnitMiniboss",
+                "HitAndRunUnit", "SatyrRangedMiniboss", "RatThugMiniboss", 
+				"ThiefImpulseMineLayerMiniboss", "HeavyRangedForkedMiniboss", "HadesCrawlerMiniBoss"},enemyName) then
+			LoadPackages({ Name = "RoomManagerModsNikkelMHadesBiomes", IgnoreAssert = true })
+			LoadPackages({ Name = "NikkelM-HadesBiomesFxOriginal", IgnoreAssert = true })
+			LoadPackages({ Name = "NikkelM-HadesBiomesFxModded", IgnoreAssert = true })
+			LoadPackages({ Name = "TartarusModsNikkelMHadesBiomes", IgnoreAssert = true })
+			LoadPackages({ Name = "AsphodelModsNikkelMHadesBiomes", IgnoreAssert = true })
+			LoadPackages({ Name = "BiomeB", IgnoreAssert = true })
+		end
 		wait(0.3)
     end
 	local enemyData = EnemyData[enemyName]
@@ -169,6 +211,10 @@ function mod.ChronosSpellSummon( weaponData, traitArgs, triggerArgs )
 		end
 	end
 	AddOutline( outlineData )
+
+	if Contains({"CrawlerMiniboss","Boar","Talos","Brute_Miniboss","Stalker_Miniboss",},enemyName) then
+		thread( mod.SetupBoss, newEnemy)
+	end
 
 	if not HeroHasTrait("SummonPermanenceTalent") and not traitArgs.Godsent then
 		thread(mod.ChronosEndSpellSummon, newEnemy, weaponData)

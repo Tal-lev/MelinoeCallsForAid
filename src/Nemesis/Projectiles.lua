@@ -310,3 +310,11 @@ function mod.AddNemesisCastDefense()
 	MapState.BossShieldTriggers = MapState.BossShieldTriggers + 1
 	MapState[_PLUGIN.guid .. "BossShieldTriggers"] = MapState.BossShieldTriggers
 end
+
+--Omega Special will count as Ex Weapon
+OverwriteTableKeys( ProjectileData, {
+	PlayerNemesisSpecialOmega =
+	{
+		IsExProjectile = true,
+	},
+})

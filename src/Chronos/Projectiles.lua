@@ -412,5 +412,11 @@ sjson.hook(file, function(data)
 		Damage = 300,
 	})
 
+	table.insert(data.Projectiles,
+	{
+		Name = "PlayerChronosDashStasis",
+		InheritFrom = "ChronosDashStasis",
+	})
+
 	return data
 end)

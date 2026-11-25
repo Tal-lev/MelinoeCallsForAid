@@ -161,7 +161,8 @@ function SetUpPlayerChronos()
 	if CurrentRun.Hero.Ammo["WeaponCast"] then
 		CurrentRun.Hero.Ammo["WeaponCast"] = nil
 	end
-	
+
+	UnequipWeapon({ DestinationId = CurrentRun.Hero.ObjectId, Name = "WeaponSprint" })
 end
 
 function SetUpPlayerNemesis()
@@ -234,7 +235,7 @@ function SetUpPlayerNemesis()
 	--mod.SetupRivalMelAnim()
 
 	CurrentRun.Hero.Ammo["WeaponCast"] = 1
-
+	EquipWeapon({ DestinationId = CurrentRun.Hero.ObjectId, Name = "WeaponSprint" })
 end
 
 function SetUpReturnPlayerMelinoe()
@@ -308,6 +309,7 @@ function SetUpReturnPlayerMelinoe()
 	if CurrentRun.Hero.Ammo["WeaponCast"] then
 		CurrentRun.Hero.Ammo["WeaponCast"] = nil
 	end
+	EquipWeapon({ DestinationId = CurrentRun.Hero.ObjectId, Name = "WeaponSprint" })
 end
 
 modutil.mod.Path.Wrap("SetupMap", function(base, source, args)
@@ -589,6 +591,25 @@ modutil.mod.Path.Wrap("HeraclesRequiredKillPresentation",  function(baseFunc, en
 	end
 end)
 
+--Fix Apollo Lucid Gain 
+modutil.mod.Path.Wrap("CheckApolloManaRestore", function(baseFunc, triggerArgs, functionArgs)
+	if HeroHasTrait("ChronosAspect") and triggerArgs.name == "PlayerChronosDashStasis" then
+		ManaDelta( functionArgs.ManaRestore )
+		CreateAnimation({ Name = functionArgs.ManaRestoreFx, DestinationId = CurrentRun.Hero.ObjectId })
+	end
+	return baseFunc(triggerArgs, functionArgs)
+end)
+
+--Clear Polymorph failsafe
+modutil.mod.Path.Wrap("HecatePolymorphClear", function(baseFunc, triggerArgs)
+	baseFunc(triggerArgs)
+	if HeroHasTrait("ChronosAspect") then
+		SetUpPlayerChronos()
+	elseif HeroHasTrait("NemesisAspect") then
+		SetUpPlayerNemesis()
+	end
+end)
+
 
 --Interact
 --modutil.mod.Path.Wrap("SetAnimation",  function(baseFunc, args) 
@@ -631,7 +652,6 @@ modutil.mod.Path.Context.Env("PlayTextLine", function ( screen, textLines, prevL
 		return baseFunc(Aargs)
     end)
 end)
-
 
 --Exiting Asphodel function
 --modutil.mod.Path.Context.Env("AnomalyExitPresentation", function ( currentRun, exitDoor )
@@ -2383,7 +2403,7 @@ ChronosAspect = {
 		{
 			WeaponName = "WeaponCast",
 			WeaponProperty = "Projectile",
-			ChangeValue = "ChronosDashStasis",
+			ChangeValue = "PlayerChronosDashStasis",
 		},
 		{
 			WeaponName = "WeaponAnywhereCast",
@@ -2575,6 +2595,7 @@ NemesisAspect = {
 						ClipRegenInterval = 0,
 						FireGraphic = "Nemesis_Combat_Special_Fire",
 						SelfVelocity = 0,
+						IsEx = true,
 					},
 					ApplyEffects = { "Special1DisableMoveHold", },
 					--AnimOnStart = "Melinoe_Staff_Special1_Start", 
@@ -2779,69 +2800,6 @@ NemesisAspect = {
 			},
 			ExcludeLinked = true,
 		},
-		--{
-		--	WeaponName = "WeaponBlink",
-		--	EffectName = "RushWeaponInvulnerable",
-		--	EffectProperty = "Active",
-		--	ChangeValue = false,
-		--	ExcludeLinked = true,
-		--},
-		--{
-		--	WeaponName = "WeaponBlink",
-		--	EffectName = "RushWeaponImmuneToForce",
-		--	EffectProperty = "Active",
-		--	ChangeValue = false,
-		--	ExcludeLinked = true,
-		--},
-		--{
-		--	WeaponName = "WeaponBlink",
-		--	EffectName = "DashAttackQueue",
-		--	EffectProperty = "Active",
-		--	ChangeValue = false,
-		--	ExcludeLinked = true,
-		--},
-		--{
-		--	WeaponName = "WeaponBlink",
-		--	EffectName = "RushWeaponInvulnerableCharge",
-		--	EffectProperty = "Active",
-		--	ChangeValue = false,
-		--	ExcludeLinked = true,
-		--},
-		--{
-		--	WeaponName = "WeaponBlink",
-		--	EffectName = "RushWeaponInvulnerableCharge",
-		--	EffectProperty = "Active",
-		--	ChangeValue = false,
-		--	ExcludeLinked = true,
-		--},
-		--{
-		--	WeaponName = "WeaponBlink",
-		--	EffectName = "RushWeaponImmuneToForceCharge",
-		--	EffectProperty = "Active",
-		--	ChangeValue = false,
-		--	ExcludeLinked = true,
-		--},
-		--{
-		--	WeaponName = "WeaponBlink",
-		--	EffectName = "RushChargeSlow",
-		--	EffectProperty = "Active",
-		--	ChangeValue = false,
-		--	ExcludeLinked = true,
-		--},
-		--{
-		--	WeaponName = "WeaponBlink",
-		--	EffectName = "RushWeaponDisableRotation",
-		--	EffectProperty = "Active",
-		--	ChangeValue = false,
-		--	ExcludeLinked = true,
-		--},
-		--{
-		--	WeaponName = "WeaponBlink",
-		--	EffectName = "RushWeaponDisableMove",
-		--	EffectProperty = "Active",
-		--	ChangeValue = false,
-		--	ExcludeLinked = true,
-		--},
 		--Sprint
 		{
 			WeaponName = "WeaponSprint",
@@ -2935,4 +2893,3 @@ NemesisAspect = {
 --OverwriteTableKeys( TraitSetData.Aspects.AxeRecoveryAspect, ChronosAspect)
 TraitData.ChronosAspect = ChronosAspect
 TraitData.NemesisAspect = NemesisAspect
-
