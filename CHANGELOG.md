@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix: Chronos receiving omega cast boons.
 - Fix: Nemesis Proximate Climate appearing for other characters.
 - Fix: Hestia Legendary cast doesn't disappear when playing Chronos.
+- Fix: Chronos Charging Cast with no effect when using Far Casting Boons. 
 
 ## [1.0.3] - 2026-11-25
 
