@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Added Codex Requirement for new Chronos / Nemesis boons.
 - Fix: Chronos receiving omega cast boons.
 - Fix: Nemesis Proximate Climate appearing for other characters.
 - Fix: Hestia Legendary cast doesn't disappear when playing Chronos.
