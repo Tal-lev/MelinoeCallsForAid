@@ -626,3 +626,15 @@ table.insert( LootData.ApolloUpgrade.PriorityUpgrades, 4, "ChronosApolloSprintBo
 --Hestia
 table.insert( LootData.HestiaUpgrade.WeaponUpgrades, "ChronosHestiaSprintBoon" )
 table.insert( LootData.HestiaUpgrade.PriorityUpgrades, 4, "ChronosHestiaSprintBoon" )
+
+
+--Adding Chronos Codex Requierments
+OverwriteTableKeys(TraitRequirements, {
+
+	ChronosZeusSprintBoon = { OneOf = { "ChronosAspect" }, },
+	ChronosHeraSprintBoon = { OneOf = { "ChronosAspect" }, },
+	ChronosPoseidonSprintBoon = { OneOf = { "ChronosPoseidonSprintBoon" }, },
+	ChronosDemeterSprintBoon = { OneOf = { "ChronosDemeterSprintBoon" }, },
+	ChronosApolloSprintBoon = { OneOf = { "ChronosApolloSprintBoon" }, },
+	ChronosHestiaSprintBoon = { OneOf = { "ChronosHestiaSprintBoon" }, },
+})

@@ -1676,3 +1676,23 @@ table.insert( LootData.AresUpgrade.PriorityUpgrades, 3, "NemesisAresCastBoon" )
 table.insert( EnemyData.NPC_Artemis_Field_01.Traits, "NemesisOmegaCastVolleyBoon" )
 --Hades
 table.insert( EnemyData.NPC_Hades_Field_01.Traits, "NemesisHadesCastProjectileBoon" )
+
+
+--Adding Nemesis Codex Requierments
+OverwriteTableKeys(TraitRequirements, {
+	NemesisZeusCastBoon = { OneOf = { "NemesisAspect" }, },
+	NemesisHeraCastBoon = { OneOf = { "NemesisAspect" }, },
+	NemesisSpawnCastDamageBoon = { OneOf = { "NemesisAspect" }, },
+	NemesisPoseidonCastBoon = { OneOf = { "NemesisAspect" }, },
+	NemesisDemeterCastBoon = { OneOf = { "NemesisAspect" }, },
+	NemesisCastAttachBoon = { OneOf = { "NemesisAspect" }, },
+	NemesisApolloCastBoon = { OneOf = { "NemesisAspect" }, },
+	NemesisApolloExCastBoon = { OneOf = { "NemesisAspect" }, },
+	NemesisAphroditeCastBoon = { OneOf = { "NemesisAspect" }, },
+	NemesisHephaestusCastBoon = { OneOf = { "NemesisAspect" }, },
+	NemesisHestiaCastBoon = { OneOf = { "NemesisAspect" }, },
+	NemesisCastProjectileBoon = { OneOf = { "NemesisAspect" }, },
+	NemesisAresCastBoon = { OneOf = { "NemesisAspect" }, },
+	NemesisOmegaCastVolleyBoon = { OneOf = { "NemesisAspect" }, },
+	NemesisHadesCastProjectileBoon = { OneOf = { "NemesisAspect" }, },
+})

@@ -42,6 +42,7 @@ table.insert(TraitData.ApolloExCastBoon.GameStateRequirements, {
 -- Aphrodite
 -- Hephaestus
 -- Hestia
+table.insert(TraitData.BurnSprintBoon.OnProjectileDeathFunction.ValidProjectiles, "PlayerChronosDashStasis")
 -- Ares
 table.insert(TraitData.AresExCastBoon.GameStateRequirements, {
   Path = {"CurrentRun", "Hero", "TraitDictionary"},
