@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Fix: Chronos receiving omega cast boons.
+- Fix: Nemesis Proximate Climate appearing for other characters.
+
 ## [1.0.3] - 2026-11-25
 
 - Fix: Missing Animation when returning from Hecate polymorph.
