@@ -84,3 +84,8 @@ OverwriteTableKeys( TraitData, {
 		},
 	},
 })
+
+--Add Codex Requierment
+OverwriteTableKeys(TraitRequirements, {
+	SpellChronosCircleTrait = { OneOf = {"ChronosAspect" }}
+})

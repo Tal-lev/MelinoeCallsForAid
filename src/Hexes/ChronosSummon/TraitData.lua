@@ -285,3 +285,8 @@ OverwriteTableKeys( TraitData, {
 	},
 })
 
+--Add Codex Requierment
+OverwriteTableKeys(TraitRequirements, {
+	SpellChronosSummonTrait = { OneOf = {"ChronosAspect" }}
+})
+
