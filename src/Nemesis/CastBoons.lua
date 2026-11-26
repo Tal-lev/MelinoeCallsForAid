@@ -859,6 +859,12 @@ OverwriteTableKeys(TraitData, {
 				Format = "PercentDelta",
 			},
 		},
+		GameStateRequirements = {
+				{
+					Path = {"CurrentRun", "Hero", "TraitDictionary"},
+					HasAll = {"NemesisAspect"}
+				}
+		},
 	},
 
   --Apollo
