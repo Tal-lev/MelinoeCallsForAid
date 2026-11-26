@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.4] - 2026-11-26
+
 - Added Codex Requirement for new Chronos / Nemesis boons.
 - Added Codex Requirement for new Chronos hexes.
 - Fix: Chronos receiving omega cast boons.
@@ -134,7 +136,8 @@ Other fixes and improvements:
 
 - First version of the mod!
 
-[unreleased]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.3...HEAD
+[unreleased]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.4...HEAD
+[1.0.4]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.3...1.0.4
 [1.0.3]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.2...1.0.3
 [1.0.2]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/Tal-lev/MelinoeCallsForAid/compare/1.0.0...1.0.1
