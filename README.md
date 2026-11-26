@@ -76,6 +76,7 @@ While the mod has been tested decently well it is recommended to backup your sav
 - @kupdoodles on HadesTheGame Reddit for Nemesis and Melinoe Portrait.
 - @NikkelM on the modding discord for creating CosmeticsAPI.
 - @mikealex01 on the modding discord for beta-testing.
+- @TheDeathAngel on the modding discord for beta-testing.
 - The Hades Modding discord for questions, answers and support.
 
 ## Integration with other mods
