@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 - Fix: Nemesis special trigger's Phalanx Shot Deflect.
+- Fix: Blinding Rush and Nitro Boost could prevent Nemesis from dashing over gaps.
 
 ## [1.0.4] - 2026-11-26
 
